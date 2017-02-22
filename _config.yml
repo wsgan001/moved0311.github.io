@@ -1,0 +1,37 @@
+# Setup
+title: "Taiyi's blog"
+description: ''
+url: 'https://moved0311.github.io'
+baseurl: '/'
+
+facebook_username: 100000329876068
+twitter_username: taiyi_
+github_username:  moved0311
+
+author:
+  name: 'Taiyi'
+  email: moved0311@gmail.com
+
+defaults:
+  -
+    scope:
+      path: ''
+      type: 'posts'
+    values:
+        layout: 'post'
+
+# Dependencies
+markdown: kramdown
+highlighter: rouge
+gems: [jekyll-paginate, jekyll-gist]
+
+# Build settings
+destination: _site
+paginate: 5
+permalink: /:year/:title/
+
+kramdown:
+  # use Github Flavored Markdown
+  input: GFM
+  # do not replace newlines by <br>s
+  hard_wrap: false
