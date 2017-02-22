@@ -11,7 +11,7 @@
 
   <title>
     
-      jekyll &middot; Taiyi's blog
+      mysql &middot; Taiyi's blog
     
   </title>
 
@@ -105,40 +105,9 @@
 
     <div class="content container">
       <div class="post">
-  <h1 class="post-title">jekyll</h1>
-  <span class="post-date">19 Feb 2017</span>
-  <h2 id="安裝">安裝</h2>
-<p>檢查ruby版本<br />
-<code class="highlighter-rouge">ruby -v</code> <br />
-用gem安裝jekyll和bundler<br />
-<code class="highlighter-rouge">gem install jekyll bundler</code><br />
-new一個blog<br />
-<!--more-->
-<code class="highlighter-rouge">jekyll new moved0311.github.io</code> <br />
-執行server (localhost:4000)<br />
-<code class="highlighter-rouge">bundle exec jekyll serve</code></p>
-<h2 id="編輯文章">編輯文章</h2>
-<h4 id="強制換行">強制換行</h4>
-<blockquote>
-  <p>在要換行的地方加入兩個以上空白</p>
-</blockquote>
-
-<h2 id="額外功能">額外功能</h2>
-<h4 id="加入read-more">加入Read More</h4>
-<p>在index.html找到<code class="highlighter-rouge"><span class="p">{</span><span class="err">_{</span><span class="w"> </span><span class="err">post.content</span><span class="w"> </span><span class="p">}</span><span class="err">_}</span></code><br />
-取代成<br />
-(記得把_拿掉 jekyll不能出現連續{ { 或是 { % )</p>
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>{_% if post.content contains '<span class="c">&lt;!--more--&gt;</span>' %_}  
-  {_{ post.content | split:'<span class="c">&lt;!--more--&gt;</span>' | first }_}  
-    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"more"</span><span class="nt">&gt;</span>  
-      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"{_{ post.url }_}"</span><span class="nt">&gt;</span>Read More <span class="ni">&amp;raquo;</span><span class="nt">&lt;/a&gt;</span>  
-    <span class="nt">&lt;/p&gt;</span>  
-{_% else %_}  
-  {_{ post.excerpt }_}  
-{_% endif %_}  
-</code></pre>
-</div>
-
+  <h1 class="post-title">mysql</h1>
+  <span class="post-date">22 Feb 2017</span>
+  <p><code class="highlighter-rouge">mysql -u root -p</code></p>
 
 </div>
 
@@ -157,17 +126,17 @@ new一個blog<br />
     
       <li>
         <h3>
-          <a href="/2017/mysql/">
-            mysql
-            <small>22 Feb 2017</small>
+          <a href="/2017/ruby/">
+            ruby
+            <small>21 Feb 2017</small>
           </a>
         </h3>
       </li>
     
       <li>
         <h3>
-          <a href="/2017/ruby/">
-            ruby
+          <a href="/2017/git/">
+            git practice
             <small>21 Feb 2017</small>
           </a>
         </h3>

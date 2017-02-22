@@ -4,13 +4,361 @@
  <title>Taiyi's blog</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-02-22T08:19:15+08:00</updated>
+ <updated>2017-02-22T16:25:05+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
    <email>moved0311@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>rails</title>
+   <link href="http://localhost:4000/2017/rails/"/>
+   <updated>2017-02-22T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2017/rails</id>
+   <content type="html">&lt;h4 id=&quot;安裝&quot;&gt;安裝&lt;/h4&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install libmysqlclient-dev&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;gem i mysql2&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rails new project --datebase=mysql&lt;/code&gt;&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rail --help&lt;/code&gt;&lt;br /&gt;
+修改config/database.yml設定mysql帳號密碼&lt;/p&gt;
+
+&lt;p&gt;要用的gem都要寫到Gemfile&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt; (依照Gemfile安裝)&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rails c&lt;/code&gt; (console mode)&lt;br /&gt;
+	require ‘ap’&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rake -T&lt;/code&gt; (列出所有可用指令)&lt;/p&gt;
+
+&lt;p&gt;rails下資料夾&lt;br /&gt;
+public 網站根目錄&lt;br /&gt;
+lib&lt;br /&gt;
+vendor 第三方外掛&lt;br /&gt;
+log&lt;br /&gt;
+db&lt;br /&gt;
+config 				所有設定檔&lt;br /&gt;
+  database.yml 		設定資料庫&lt;br /&gt;
+  application.rb	&lt;br /&gt;
+  environment.rb&lt;br /&gt;
+  enviroments/&lt;br /&gt;
+  initializers		rails開機執行&lt;br /&gt;
+  secrets.yml&lt;br /&gt;
+app/&lt;/p&gt;
+
+&lt;p&gt;ORM&lt;/p&gt;
+
+&lt;h4 id=&quot;啟動順序&quot;&gt;啟動順序&lt;/h4&gt;
+&lt;p&gt;environment.rb &lt;br /&gt;
+  -&amp;gt; application.rb(bundler) &lt;br /&gt;
+  -&amp;gt; environments/RAILS_ENV.rb &lt;br /&gt;
+  -&amp;gt; initailizers&lt;/p&gt;
+
+&lt;h4 id=&quot;教學網站&quot;&gt;教學網站&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;http://learngitbranching.js.org/?demo&quot;&gt;Learn Git Branching&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>mysql</title>
+   <link href="http://localhost:4000/2017/mysql/"/>
+   <updated>2017-02-22T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2017/mysql</id>
+   <content type="html">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mysql -u root -p&lt;/code&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ruby</title>
+   <link href="http://localhost:4000/2017/ruby/"/>
+   <updated>2017-02-21T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2017/ruby</id>
+   <content type="html">&lt;h4 id=&quot;安裝rvm&quot;&gt;安裝rvm&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\curl -sSL https://get.rvm.io | bash -s stable&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;source /home/taiyi/.rvm/scripts/rvm&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!--more--&gt;
+
+&lt;h4 id=&quot;安裝ruby&quot;&gt;安裝ruby&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;rvm install ruby-2.4.0&lt;/li&gt;
+  &lt;li&gt;/bin/bash –login&lt;/li&gt;
+  &lt;li&gt;gem i awesome_print (ap 更好看的顏色)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;測試&quot;&gt;測試&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;ruby -v&lt;/li&gt;
+  &lt;li&gt;用irb進入測試模式&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;語法&quot;&gt;語法&lt;/h4&gt;
+&lt;p&gt;(123).class&lt;br /&gt;
+(-123).class&lt;br /&gt;
+所有東西都是物件,用.class可以看種類&lt;/p&gt;
+
+&lt;p&gt;(123).methods&lt;br /&gt;
+列出class所有可以用的methods&lt;/p&gt;
+
+&lt;p&gt;ruby的null叫nil&lt;/p&gt;
+
+&lt;h4 id=&quot;字串連接&quot;&gt;字串連接&lt;/h4&gt;
+&lt;p&gt;x = 999&lt;br /&gt;
+puts “hello#{x}world”&lt;/p&gt;
+
+&lt;h4 id=&quot;hash&quot;&gt;hash&lt;/h4&gt;
+&lt;p&gt;{:wer =&amp;gt; 123, :sdf =&amp;gt; 234}[:wer] //123&lt;br /&gt;
+{wer: 123, sdf: 234} //冒號不能離開字&lt;br /&gt;
+{:wer =&amp;gt; 123, :sdf =&amp;gt; 234}.keys&lt;br /&gt;
+{:wer =&amp;gt; 123, :sdf =&amp;gt; 234}.values&lt;br /&gt;
+“wer”.class		//String&lt;br /&gt;
+:wer.class		//Symbol&lt;br /&gt;
+key不適合用String 因為String會new新的物件而Symbol不會&lt;br /&gt;
+2.4.0 :011 &amp;gt; “wer”.object_id&lt;br /&gt;
+ =&amp;gt; 18016080 &lt;br /&gt;
+2.4.0 :012 &amp;gt; “wer”.object_id&lt;br /&gt;
+ =&amp;gt; 18575560&lt;br /&gt;
+2.4.0 :013 &amp;gt; :wer.object_id&lt;br /&gt;
+ =&amp;gt; 1168348 &lt;br /&gt;
+2.4.0 :014 &amp;gt; :wer.object_id 
+ =&amp;gt; 1168348&lt;/p&gt;
+
+&lt;h4 id=&quot;迴圈&quot;&gt;迴圈&lt;/h4&gt;
+&lt;p&gt;2.4.0 :015 &amp;gt; [1,”wer”,3,4,5,111].each do |x|&lt;br /&gt;
+2.4.0 :016 &amp;gt;     puts x&lt;br /&gt;
+2.4.0 :017?&amp;gt;   end&lt;br /&gt;
+1&lt;br /&gt;
+wer&lt;br /&gt;
+3&lt;br /&gt;
+4&lt;br /&gt;
+5&lt;br /&gt;
+111&lt;br /&gt;
+ =&amp;gt; [1, “wer”, 3, 4, 5, 111]&lt;/p&gt;
+
+&lt;h4 id=&quot;流程控制&quot;&gt;流程控制&lt;/h4&gt;
+&lt;p&gt;unless true&lt;br /&gt;
+  puts 123&lt;br /&gt;
+  else&lt;br /&gt;
+    puts 234&lt;br /&gt;
+  end 
+//234&lt;/p&gt;
+
+&lt;p&gt;if true&lt;br /&gt;
+  puts 234&lt;br /&gt;
+  else&lt;br /&gt;
+    puts 234567&lt;br /&gt;
+  end&lt;/p&gt;
+
+&lt;p&gt;// 234&lt;/p&gt;
+
+&lt;p&gt;x = 3&lt;br /&gt;
+case x&lt;br /&gt;
+  when 1&lt;br /&gt;
+  puts 1&lt;br /&gt;
+  when 2&lt;br /&gt;
+  puts 2&lt;br /&gt;
+  when 3&lt;br /&gt;
+  puts 3&lt;br /&gt;
+  end&lt;br /&gt;
+3&lt;/p&gt;
+
+&lt;p&gt;x = 0&lt;br /&gt;
+while true&lt;br /&gt;
+  x += 1&lt;br /&gt;
+  puts x&lt;br /&gt;
+  break if x &amp;gt; 10&lt;br /&gt;
+  end&lt;br /&gt;
+1&lt;br /&gt;
+2&lt;br /&gt;
+3&lt;br /&gt;
+4&lt;br /&gt;
+5&lt;br /&gt;
+6&lt;br /&gt;
+7&lt;br /&gt;
+8 
+9&lt;br /&gt;
+10&lt;br /&gt;
+11&lt;/p&gt;
+
+&lt;h4 id=&quot;定義methods&quot;&gt;定義methods&lt;/h4&gt;
+&lt;p&gt;def temp1&lt;br /&gt;
+  puts 123&lt;br /&gt;
+  end&lt;br /&gt;
+temp1 或 temp1()&lt;br /&gt;
+123&lt;/p&gt;
+
+&lt;p&gt;def temp2(x) 
+  puts x 
+  end&lt;br /&gt;
+temp2(999)&lt;br /&gt;
+999&lt;/p&gt;
+
+&lt;p&gt;def temp3 x  //可以做縮寫&lt;br /&gt;
+  puts x&lt;br /&gt;
+  end &lt;br /&gt;
+temp3 888 &lt;br /&gt;
+888&lt;/p&gt;
+
+&lt;p&gt;def temp4 (x ,y = 1, &lt;em&gt;argv, &amp;amp;block)  //&lt;/em&gt;argv多餘的值,block方法&lt;br /&gt;
+	block.call(x, y, argv)&lt;br /&gt;
+	end &lt;br /&gt;
+temp4 1,2,3 do |x,y,argv|&lt;br /&gt;
+	ap [x,y,argv]&lt;br /&gt;
+	end&lt;br /&gt;
+[&lt;br /&gt;
+    [0] 1, 
+    [1] 2, &lt;br /&gt;
+    [2] [&lt;br /&gt;
+        [0] 3&lt;br /&gt;
+    ] &lt;br /&gt;
+]&lt;/p&gt;
+
+&lt;p&gt;def temp5(&amp;amp;block)&lt;br /&gt;
+	puts block.class&lt;br /&gt;
+	block.call(99)  &lt;br /&gt;
+	end&lt;br /&gt;
+temp5{|x| puts x}&lt;br /&gt;
+99&lt;/p&gt;
+
+&lt;h4 id=&quot;class&quot;&gt;Class&lt;/h4&gt;
+&lt;p&gt;class Car&lt;br /&gt;
+  def self.hihi&lt;br /&gt;
+    puts ‘yoo’&lt;br /&gt;
+    end&lt;br /&gt;
+  def hihi&lt;br /&gt;
+    puts ‘hoo’&lt;br /&gt;
+    end&lt;br /&gt;
+  end&lt;br /&gt;
+car = Car.new&lt;br /&gt;
+Car.hihi	//Car call self.hihi&lt;br /&gt;
+yoo&lt;br /&gt;
+car.hihi	//car call hihi&lt;br /&gt;
+hoo&lt;/p&gt;
+
+&lt;p&gt;class Car  &lt;br /&gt;
+  def set_color(color)&lt;br /&gt;
+    @color = color		#@color instance varible&lt;br /&gt;
+    end&lt;br /&gt;
+  def get_color&lt;br /&gt;
+    @color&lt;br /&gt;
+    end&lt;br /&gt;
+  end&lt;br /&gt;
+ =&amp;gt; :get_color &lt;br /&gt;
+blue_car = Car.new &lt;br /&gt;
+red_car = Car.new&lt;br /&gt;
+blue_car.set_color(‘BLUE’)&lt;br /&gt;
+ =&amp;gt; “BLUE” &lt;br /&gt;
+red_car.set_color(‘RED’)&lt;br /&gt;
+ =&amp;gt; “RED” &lt;br /&gt;
+blue_car.get_color&lt;br /&gt;
+ =&amp;gt; “BLUE” &lt;br /&gt;
+red_car.get_color &lt;br /&gt;
+ =&amp;gt; “RED”&lt;/p&gt;
+
+&lt;p&gt;@name		#instance varible&lt;br /&gt;
+@@name		#Car在用的 class varible&lt;br /&gt;
+$name		#global varible&lt;/p&gt;
+
+&lt;p&gt;@moo ||= 123  等價於 @moo = 123 unless @moo&lt;br /&gt;
+如果@moo沒有值就設定123,有就不動&lt;/p&gt;
+
+&lt;h4 id=&quot;繼承&quot;&gt;繼承&lt;/h4&gt;
+&lt;p&gt;class Hihi&lt;br /&gt;
+  def self.nono&lt;br /&gt;
+    puts 123&lt;br /&gt;
+    end&lt;br /&gt;
+  end&lt;br /&gt;
+class Moo &amp;lt; Hihi ( &amp;lt; inherit)&lt;br /&gt;
+  end&lt;br /&gt;
+Moo.nono&lt;br /&gt;
+123&lt;/p&gt;
+
+&lt;p&gt;class Animal&lt;br /&gt;
+  def say 
+    puts “hi”&lt;br /&gt;
+    end&lt;br /&gt;
+  end&lt;br /&gt;
+ =&amp;gt; :say &lt;br /&gt;
+class Cat &amp;lt; Animal&lt;br /&gt;
+  def say &lt;br /&gt;
+    puts “meow”&lt;br /&gt;
+    super			(use father’s method)&lt;br /&gt;
+    end&lt;br /&gt;
+  end&lt;br /&gt;
+Cat.new.say&lt;br /&gt;
+//meow&lt;br /&gt;
+//hi&lt;/p&gt;
+
+&lt;p&gt;module A		＃module不能被new&lt;br /&gt;
+  def hihi&lt;br /&gt;
+    puts “hihi”&lt;br /&gt;
+    end&lt;br /&gt;
+  end&lt;br /&gt;
+class B&lt;br /&gt;
+  include A 	#use other module -&amp;gt; include&lt;br /&gt;
+  end&lt;br /&gt;
+B.new.hihi&lt;br /&gt;
+#hihi&lt;/p&gt;
+
+&lt;h1 id=&quot;regular-expression&quot;&gt;regular expression&lt;/h1&gt;
+&lt;p&gt;regex = /(A-Z)([12])\d{8}/&lt;br /&gt;
+ =&amp;gt; /(A-Z)([12])\d{8}/ &lt;br /&gt;
+match = “A145645645”.match(regex)&lt;br /&gt;
+regex = /([A-Z])([12])\d{8}/&lt;br /&gt;
+match = “A145645645”.match(regex)&lt;br /&gt;
+match[0]&lt;br /&gt;
+ =&amp;gt; “A145645645” &lt;br /&gt;
+match[1]&lt;br /&gt;
+ =&amp;gt; “A”&lt;br /&gt;
+match[2]&lt;br /&gt;
+ =&amp;gt; “1”&lt;/p&gt;
+
+&lt;h4 id=&quot;marshal&quot;&gt;Marshal&lt;/h4&gt;
+&lt;p&gt;兩台伺服器要共用一些變數&lt;br /&gt;
+用Marshal.load載回來&lt;/p&gt;
+
+&lt;p&gt;＃Thread&lt;br /&gt;
+10.times do |i|&lt;br /&gt;
+    Thread.new do&lt;br /&gt;
+      sleep rand(5) + 1&lt;br /&gt;
+    puts i&lt;br /&gt;
+    end&lt;br /&gt;
+  end&lt;br /&gt;
+9&lt;br /&gt;
+0&lt;br /&gt;
+4 &lt;br /&gt;
+5&lt;br /&gt;
+1&lt;br /&gt;
+286&lt;br /&gt;
+7&lt;br /&gt;
+3&lt;/p&gt;
+
+&lt;h4 id=&quot;exception&quot;&gt;Exception&lt;/h4&gt;
+&lt;p&gt;begin&lt;br /&gt;
+    lasjdflsdk&lt;br /&gt;
+  rescue &lt;br /&gt;
+  puts $! , $@ 
+  end&lt;/p&gt;
+
+&lt;p&gt;asdf rescue “you are error”&lt;br /&gt;
+ =&amp;gt; “you are error”&lt;/p&gt;
+
+&lt;h4 id=&quot;call-system&quot;&gt;Call System&lt;/h4&gt;
+&lt;p&gt;`pwd` 或 system(‘pwd’)&lt;/p&gt;
+
+&lt;h4 id=&quot;gem&quot;&gt;gem&lt;/h4&gt;
+&lt;p&gt;gem install packageName ( = gem i packageName)&lt;/p&gt;
+
+&lt;h4 id=&quot;教學網站&quot;&gt;教學網站&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=6XUnYRB0Zpo&quot;&gt;RailsFun.tw 新手教學 day1 HD&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>git practice</title>
@@ -29,9 +377,73 @@
  </entry>
  
  <entry>
+   <title>logic</title>
+   <link href="http://localhost:4000/2017/logic/"/>
+   <updated>2017-02-20T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2017/logic</id>
+   <content type="html">&lt;h4 id=&quot;monotonic-logic-單調邏輯&quot;&gt;monotonic logic (單調邏輯)&lt;/h4&gt;
+&lt;p&gt;推理加入資料庫後,不會推翻原有邏輯推論,資料庫會隨著知識增長而增長。&lt;br /&gt;
+&lt;!--more--&gt;
+propositions&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;statement&lt;/li&gt;
+  &lt;li&gt;true/false
+在正規邏輯中, propositions = sentences&lt;br /&gt;
+在非正規邏輯中要考慮到情境/背景&lt;br /&gt;
+e.g. The present president was born in Taiwan.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;inference 推論&lt;br /&gt;
+由一些前提(premise)得到結論&lt;br /&gt;
+Argument   論證  &lt;br /&gt;
+Premises   前提&lt;br /&gt;
+Conclusion 結論&lt;/p&gt;
+
+&lt;h4 id=&quot;elements-of-logic&quot;&gt;Elements of logic&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;vocabulary&lt;/li&gt;
+  &lt;li&gt;syntax&lt;/li&gt;
+  &lt;li&gt;axiomatics(calculus/演算法)&lt;/li&gt;
+  &lt;li&gt;semantics&lt;/li&gt;
+  &lt;li&gt;decidability(可判定性) &amp;amp; complexity analysis&lt;/li&gt;
+  &lt;li&gt;automated proving methods
+  automated/semi-automated theorem proving&lt;/li&gt;
+  &lt;li&gt;formal logic
+和程式語言不同,較容易學習(語法上)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;proposition-logic&quot;&gt;Proposition logic&lt;/h4&gt;
+&lt;p&gt;or (∨) / and (∧) / not (¬) / if / iff&lt;/p&gt;
+
+&lt;p&gt;L = {a, b, c}&lt;br /&gt;
+L* 代表使用L中的element可以組合出的任意字串&lt;/p&gt;
+
+&lt;h4 id=&quot;well-formed-formulas-wff&quot;&gt;well-formed formulas (WFF)&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;a string that is generated by a formal grammar in logic.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;符合&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Every propositional variable is a (wellformed) formula&lt;/li&gt;
+  &lt;li&gt;If A, B are wff, then so are (A∧B), (A∨B), (A⇒B), (A⇔B) and ~A.&lt;/li&gt;
+  &lt;li&gt;Only strings that can be obtained by a finite number of applications of rule 1 and 2 are well-formed formulas.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;123是 45不是
+(p1) 不是wff&lt;/p&gt;
+
+&lt;p&gt;⊨ (The satisfaction relation)&lt;/p&gt;
+
+&lt;p&gt;p18&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
    <title>jekyll</title>
    <link href="http://localhost:4000/2017/whats-jekyll/"/>
-   <updated>2017-02-20T00:00:00+08:00</updated>
+   <updated>2017-02-19T00:00:00+08:00</updated>
    <id>http://localhost:4000/2017/whats-jekyll</id>
    <content type="html">&lt;h2 id=&quot;安裝&quot;&gt;安裝&lt;/h2&gt;
 &lt;p&gt;檢查ruby版本&lt;br /&gt;
