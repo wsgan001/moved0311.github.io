@@ -4,7 +4,7 @@
  <title>Taiyi's blog</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-02-22T16:25:05+08:00</updated>
+ <updated>2017-02-23T19:43:23+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -13,19 +13,41 @@
 
  
  <entry>
+   <title>SocialCloudComputing</title>
+   <link href="http://localhost:4000/2017/cloudComputing/"/>
+   <updated>2017-02-23T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2017/cloudComputing</id>
+   <content type="html">&lt;h4 id=&quot;課程簡介&quot;&gt;課程簡介&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Centrality Analysis&lt;/li&gt;
+  &lt;li&gt;Community Detection&lt;/li&gt;
+  &lt;li&gt;Link Prediction&lt;/li&gt;
+  &lt;li&gt;Label Prediction&lt;/li&gt;
+  &lt;li&gt;Influence maximization&lt;/li&gt;
+  &lt;li&gt;Outbreak Detection&lt;br /&gt;
+消息擴散路徑&lt;/li&gt;
+  &lt;li&gt;Role/Postion Analysis&lt;/li&gt;
+  &lt;li&gt;Social Relation Extraction&lt;/li&gt;
+  &lt;li&gt;Cloud Computing
+&lt;!--more--&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
    <title>rails</title>
    <link href="http://localhost:4000/2017/rails/"/>
    <updated>2017-02-22T00:00:00+08:00</updated>
    <id>http://localhost:4000/2017/rails</id>
    <content type="html">&lt;h4 id=&quot;安裝&quot;&gt;安裝&lt;/h4&gt;
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install libmysqlclient-dev&lt;/code&gt;&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;gem i mysql2&lt;/code&gt;&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;rails new project --datebase=mysql&lt;/code&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install libmysqlclient-dev&lt;/code&gt;  &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rails new project --datebase=mysql&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;gem i mysql2&lt;/code&gt;
 &lt;!--more--&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rail --help&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rail --help&lt;/code&gt;&lt;br /&gt;
-修改config/database.yml設定mysql帳號密碼&lt;/p&gt;
+&lt;p&gt;修改config/database.yml設定mysql帳號密碼&lt;/p&gt;
 
 &lt;p&gt;要用的gem都要寫到Gemfile&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt; (依照Gemfile安裝)&lt;br /&gt;
@@ -49,16 +71,134 @@ config 				所有設定檔&lt;br /&gt;
   secrets.yml&lt;br /&gt;
 app/&lt;/p&gt;
 
-&lt;p&gt;ORM&lt;/p&gt;
-
 &lt;h4 id=&quot;啟動順序&quot;&gt;啟動順序&lt;/h4&gt;
 &lt;p&gt;environment.rb &lt;br /&gt;
   -&amp;gt; application.rb(bundler) &lt;br /&gt;
   -&amp;gt; environments/RAILS_ENV.rb &lt;br /&gt;
   -&amp;gt; initailizers&lt;/p&gt;
 
-&lt;h4 id=&quot;教學網站&quot;&gt;教學網站&lt;/h4&gt;
-&lt;p&gt;&lt;a href=&quot;http://learngitbranching.js.org/?demo&quot;&gt;Learn Git Branching&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rails g migration init_db&lt;/code&gt;  建立空的版本(init_db)&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:drop&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:create&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:migrate&lt;/code&gt;   升版&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:rollback&lt;/code&gt;  降版&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class AddPosts &amp;lt; ActiveRecord::Migration
+   def change
+      create_table :posts do |t|
+      t.string :title
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;change做的事&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:migrate&lt;/code&gt;做create_table&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:rollback&lt;/code&gt;做drop_table&lt;/p&gt;
+
+&lt;p&gt;在table中的 schema migrations 紀錄所有升降的版本紀錄&lt;/p&gt;
+
+&lt;p&gt;t.timestamp : created_at&lt;br /&gt;
+t.timestamp : updated_at&lt;br /&gt;
+兩句等於 t.timestamps&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:null =&amp;gt; false&lt;/code&gt; 不能為空&lt;/p&gt;
+
+&lt;h4 id=&quot;orm&quot;&gt;ORM&lt;/h4&gt;
+&lt;p&gt;操控object同時在操控DB&lt;/p&gt;
+
+&lt;p&gt;polymorphism&lt;br /&gt;
+type保留字  &lt;br /&gt;
+relation&lt;/p&gt;
+
+&lt;p&gt;2:14:   &lt;br /&gt;
+route -&amp;gt; controller/ action -&amp;gt; view/ Helper/ Layout/ partial(sub HTML)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;config/routes.rb 
+
+  1 Rails.application.routes.draw do
+  2     resources :items
+  3     root 'ites#index'
+  4   # For details on the DSL available within this file,
+      #see http://guides.rub  yonrails.org/routing.html
+  5 end
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rake routes&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   Prefix Verb   URI Pattern               Controller#Action
+    items GET    /items(.:format)          items#index
+          POST   /items(.:format)          items#create
+ new_item GET    /items/new(.:format)      items#new
+edit_item GET    /items/:id/edit(.:format) items#edit
+     item GET    /items/:id(.:format)      items#show
+          PATCH  /items/:id(.:format)      items#update
+          PUT    /items/:id(.:format)      items#update
+          DELETE /items/:id(.:format)      items#destroy
+     root GET    /                         ites#index
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h4 id=&quot;restful&quot;&gt;restful&lt;/h4&gt;
+&lt;p&gt;e.g. https//www.google.com/items/edit/1/create&lt;br /&gt;
+多加一個變數Verb (POST/GET/DELETE/PATCH/PUT)&lt;br /&gt;
+利用header不同導到不同網址, 不會全部塞到網址列後面&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;config/routes.rb 
+
+  1 Rails.application.routes.draw do
+  2     get &quot;/yoo/123&quot;, :to =&amp;gt; &quot;items#yoo&quot;
+  3 end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;輸入網址後輸入”/yoo/123”會到items#yoo&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Prefix Verb URI Pattern        Controller#Action
+yoo_123 GET  /yoo/123(.:format) items#yoo
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rails s -b 0.0.0.0&lt;/code&gt;&lt;br /&gt;
+這樣才能給外部IP使用&lt;br /&gt;
+yourIP:3000 or localhost:3000&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/controllers/items_controller.rb
+
+  1 class ItemsController &amp;lt; ApplicationController
+  2     def yoo
+  3         render :text =&amp;gt; 'hihi'
+  4     end
+  5 end
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;用controller處理items#yoo&lt;br /&gt;
+執行yoo,回傳文字hihi&lt;/p&gt;
+
+&lt;p&gt;callback&lt;br /&gt;
+before_action&lt;/p&gt;
+
+&lt;p&gt;render action&lt;br /&gt;
+拿別人的view來用  &lt;br /&gt;
+redirect&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;%= %&amp;gt;&lt;/code&gt; =表示印在頁面上&lt;/p&gt;
+
+&lt;h4 id=&quot;helper&quot;&gt;helper&lt;/h4&gt;
+&lt;p&gt;像是全域可用的function&lt;br /&gt;
+在view就可以直接呼叫function&lt;/p&gt;
+
+&lt;h4 id=&quot;partial&quot;&gt;partial&lt;/h4&gt;
+&lt;p&gt;部份的HTML, 並在HTML中render partial&lt;br /&gt;
+partial命名用_開頭&lt;/p&gt;
+
+&lt;p&gt;scaffold&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rail g scaffold --help&lt;/code&gt;&lt;br /&gt;
+幫你一次建立好基本的migrate/ route/ controller/ views/&lt;/p&gt;
+
+&lt;h4 id=&quot;reference&quot;&gt;reference&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=O7AoNPfUFno&quot;&gt;RailsFun.tw 新手教學 day2 HD&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -67,7 +207,40 @@ app/&lt;/p&gt;
    <link href="http://localhost:4000/2017/mysql/"/>
    <updated>2017-02-22T00:00:00+08:00</updated>
    <id>http://localhost:4000/2017/mysql</id>
-   <content type="html">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mysql -u root -p&lt;/code&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mysql -u root -p&lt;/code&gt;
+&lt;!--more--&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;show databases;&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;use databaseName&lt;/code&gt; &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;show tables&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from tablesName&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;新增使用者&quot;&gt;新增使用者&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;insert into user (host,user,password) values('%','user',password('user'));&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GRANT ALL ON *.* TO 'user'@localhost IDENTIFIED BY 'user' WITH GRANT OPTION;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;flush privileges;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ASP</title>
+   <link href="http://localhost:4000/2017/ASP/"/>
+   <updated>2017-02-22T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2017/ASP</id>
+   <content type="html">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:-&lt;/code&gt;  if&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;,&lt;/code&gt;   and&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt;   command&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt;   end of sentence&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt;   don’t care&lt;br /&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 { size(3..n) } 1.&lt;/code&gt;等同於 &lt;code class=&quot;highlighter-rouge&quot;&gt;1 &amp;lt;= { size(3..n) } &amp;lt;= 1.&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;reference&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://potassco.org/&quot;&gt;Potassco&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content>
  </entry>
  
