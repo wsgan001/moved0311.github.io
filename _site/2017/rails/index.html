@@ -11,7 +11,7 @@
 
   <title>
     
-      rails &middot; Taiyi's blog
+      rails &middot; Taiyi's note
     
   </title>
 
@@ -38,7 +38,7 @@
     <div class="sidebar-about">
       <h1>
         <a href="/">
-          Taiyi's blog
+          Taiyi's note
         </a>
       </h1>
       <p class="lead"></p>
@@ -219,7 +219,7 @@ edit_item GET    /items/:id/edit(.:format) items#edit
   3 end
 </code></pre>
 </div>
-<p>輸入網址後輸入”/yoo/123”會到items#yoo</p>
+<p>輸入網址後輸入”/yoo/123”會到items#yoo (controller#action)</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>Prefix Verb URI Pattern        Controller#Action
 yoo_123 GET  /yoo/123(.:format) items#yoo
 
@@ -243,18 +243,63 @@ yourIP:3000 or localhost:3000</p>
 <p>用controller處理items#yoo<br />
 執行yoo,回傳文字hihi</p>
 
-<p>callback<br />
-before_action</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>app/controllers/items_controller.rb
 
-<p>render action<br />
-拿別人的view來用  <br />
-redirect</p>
+  1 class ItemsController &lt; ApplicationController
+  2     def yoo
+  3         @item = 123
+  4     end
+  5 end
 
-<p><code class="highlighter-rouge">&lt;%= %&gt;</code> =表示印在頁面上</p>
+app/views/items/yoo.html.erb
+
+ 1 &lt;%= @item %&gt;
+</code></pre>
+</div>
+<p>在controller中@變數,可以直接在view使用<br />
+view的檔名為xxx.html(xml).erb<br />
+<code class="highlighter-rouge">&lt;%= %&gt;</code> =表示印在頁面上</p>
+
+<h4 id="callback">callback</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>class ItemsController &lt; ApplicationController
+  before_action :func1
+  
+  def yoo
+    @item = 123
+
+  private
+  def func1  
+    @yoo = "kitty"
+  end
+end
+</code></pre>
+</div>
+<p>在執行controller之前,會先執行callback(func1)</p>
+
+<h4 id="render-action">render action</h4>
+<p>render :action =&gt; :hoo<br />
+拿別人的view來用</p>
+
+<h4 id="redirect">redirect</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>redirect_to :action =&gt; :hoo
+</code></pre>
+</div>
+
+<p>view有做html escape</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>app/views/items/yoo.html.erb
+
+ 1 &lt;%= "&lt;hr&gt;&lt;p&gt;im_html&lt;/p&gt;"%&gt;
+
+&lt;%= h("&lt;hr&gt;&lt;p&gt;im_html&lt;/p&gt;)"%&gt;    //預設不解譯
+&lt;%= raw("&lt;hr&gt;&lt;p&gt;im_html&lt;/p&gt;)"%&gt;  //解譯
+</code></pre>
+</div>
+<p>在網頁上不會解譯html,預防XSS攻擊<br />
+括號會幫你翻譯成&amp;lt,&amp;gt的編碼</p>
 
 <h4 id="helper">helper</h4>
-<p>像是全域可用的function<br />
-在view就可以直接呼叫function</p>
+<p>在<code class="highlighter-rouge">app/helpers/application_helper.rb</code>中定義function<br />
+在view就可以直接使用helper中定義的function</p>
 
 <h4 id="partial">partial</h4>
 <p>部份的HTML, 並在HTML中render partial<br />
@@ -267,11 +312,24 @@ partial命名用_開頭</p>
 <h4 id="reference">reference</h4>
 <p><a href="https://www.youtube.com/watch?v=O7AoNPfUFno">RailsFun.tw 新手教學 day2 HD</a></p>
 
+<hr />
+
+<p><a href="https://www.youtube.com/watch?v=r2sLYTQwgtQ">RailsFun.tw 新手教學 day2.5 HD</a></p>
+
 </div>
 
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2017/javaScript/">
+            JavaScript
+            <small>24 Feb 2017</small>
+          </a>
+        </h3>
+      </li>
     
       <li>
         <h3>
@@ -286,15 +344,6 @@ partial命名用_開頭</p>
         <h3>
           <a href="/2017/mysql/">
             mysql
-            <small>22 Feb 2017</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2017/ASP/">
-            ASP
             <small>22 Feb 2017</small>
           </a>
         </h3>

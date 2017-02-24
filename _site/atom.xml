@@ -1,16 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>Taiyi's blog</title>
+ <title>Taiyi's note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-02-23T19:43:23+08:00</updated>
+ <updated>2017-02-24T15:31:52+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
    <email>moved0311@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>JavaScript</title>
+   <link href="http://localhost:4000/2017/javaScript/"/>
+   <updated>2017-02-24T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2017/javaScript</id>
+   <content type="html">&lt;p&gt;多使用const並用let取代var&lt;br /&gt;
+宣告物件別用new直接用obj = {}&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;...&lt;/code&gt;展開運算子  &lt;br /&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;h4 id=&quot;陣列複製&quot;&gt;陣列複製&lt;/h4&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//(X) -&amp;gt; 當修改b時,a會跟著修改&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h4 id=&quot;字串串接&quot;&gt;字串串接&lt;/h4&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;`hello, my name is ${name}.`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;concatenateAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;reference&quot;&gt;reference&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/airbnb/javascript#hoisting&quot;&gt;Airbnb JavaScript Style Guide&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>SocialCloudComputing</title>
@@ -32,6 +63,25 @@
 &lt;!--more--&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h4 id=&quot;journals&quot;&gt;Journals&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Nature&lt;/li&gt;
+  &lt;li&gt;Science&lt;/li&gt;
+  &lt;li&gt;Physical Review&lt;/li&gt;
+  &lt;li&gt;Social Networks&lt;/li&gt;
+  &lt;li&gt;ACM Transactions on Knowledge Discovery from Data (TKDD)&lt;/li&gt;
+  &lt;li&gt;ACM Transactions on Intelligent Systems and Technology(TIST)&lt;/li&gt;
+  &lt;li&gt;ACM Transactions on Social Computing(TSC)&lt;/li&gt;
+  &lt;li&gt;IEEE Transactions on Knowledge and Data Engineering(TKDE)&lt;/li&gt;
+  &lt;li&gt;IEEE Transactions on Computational Social System&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;social-networks&quot;&gt;Social Networks&lt;/h4&gt;
+
+&lt;p&gt;複習graph&lt;/p&gt;
+
+&lt;h4 id=&quot;reference&quot;&gt;reference&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;http://newdoc.nccu.edu.tw/teaschm/1052/schmPrv.jsp-yy=105&amp;amp;smt=2&amp;amp;num=753868&amp;amp;gop=00&amp;amp;s=1&amp;amp;tea=101583.htm&quot;&gt;社群雲端運算&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -152,7 +202,7 @@ edit_item GET    /items/:id/edit(.:format) items#edit
   3 end
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;輸入網址後輸入”/yoo/123”會到items#yoo&lt;/p&gt;
+&lt;p&gt;輸入網址後輸入”/yoo/123”會到items#yoo (controller#action)&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Prefix Verb URI Pattern        Controller#Action
 yoo_123 GET  /yoo/123(.:format) items#yoo
 
@@ -176,18 +226,63 @@ yourIP:3000 or localhost:3000&lt;/p&gt;
 &lt;p&gt;用controller處理items#yoo&lt;br /&gt;
 執行yoo,回傳文字hihi&lt;/p&gt;
 
-&lt;p&gt;callback&lt;br /&gt;
-before_action&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/controllers/items_controller.rb
 
-&lt;p&gt;render action&lt;br /&gt;
-拿別人的view來用  &lt;br /&gt;
-redirect&lt;/p&gt;
+  1 class ItemsController &amp;lt; ApplicationController
+  2     def yoo
+  3         @item = 123
+  4     end
+  5 end
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;%= %&amp;gt;&lt;/code&gt; =表示印在頁面上&lt;/p&gt;
+app/views/items/yoo.html.erb
+
+ 1 &amp;lt;%= @item %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;在controller中@變數,可以直接在view使用&lt;br /&gt;
+view的檔名為xxx.html(xml).erb&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;%= %&amp;gt;&lt;/code&gt; =表示印在頁面上&lt;/p&gt;
+
+&lt;h4 id=&quot;callback&quot;&gt;callback&lt;/h4&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class ItemsController &amp;lt; ApplicationController
+  before_action :func1
+  
+  def yoo
+    @item = 123
+
+  private
+  def func1  
+    @yoo = &quot;kitty&quot;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;在執行controller之前,會先執行callback(func1)&lt;/p&gt;
+
+&lt;h4 id=&quot;render-action&quot;&gt;render action&lt;/h4&gt;
+&lt;p&gt;render :action =&amp;gt; :hoo&lt;br /&gt;
+拿別人的view來用&lt;/p&gt;
+
+&lt;h4 id=&quot;redirect&quot;&gt;redirect&lt;/h4&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;redirect_to :action =&amp;gt; :hoo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;view有做html escape&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/views/items/yoo.html.erb
+
+ 1 &amp;lt;%= &quot;&amp;lt;hr&amp;gt;&amp;lt;p&amp;gt;im_html&amp;lt;/p&amp;gt;&quot;%&amp;gt;
+
+&amp;lt;%= h(&quot;&amp;lt;hr&amp;gt;&amp;lt;p&amp;gt;im_html&amp;lt;/p&amp;gt;)&quot;%&amp;gt;    //預設不解譯
+&amp;lt;%= raw(&quot;&amp;lt;hr&amp;gt;&amp;lt;p&amp;gt;im_html&amp;lt;/p&amp;gt;)&quot;%&amp;gt;  //解譯
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;在網頁上不會解譯html,預防XSS攻擊&lt;br /&gt;
+括號會幫你翻譯成&amp;amp;lt,&amp;amp;gt的編碼&lt;/p&gt;
 
 &lt;h4 id=&quot;helper&quot;&gt;helper&lt;/h4&gt;
-&lt;p&gt;像是全域可用的function&lt;br /&gt;
-在view就可以直接呼叫function&lt;/p&gt;
+&lt;p&gt;在&lt;code class=&quot;highlighter-rouge&quot;&gt;app/helpers/application_helper.rb&lt;/code&gt;中定義function&lt;br /&gt;
+在view就可以直接使用helper中定義的function&lt;/p&gt;
 
 &lt;h4 id=&quot;partial&quot;&gt;partial&lt;/h4&gt;
 &lt;p&gt;部份的HTML, 並在HTML中render partial&lt;br /&gt;
@@ -199,6 +294,10 @@ partial命名用_開頭&lt;/p&gt;
 
 &lt;h4 id=&quot;reference&quot;&gt;reference&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=O7AoNPfUFno&quot;&gt;RailsFun.tw 新手教學 day2 HD&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=r2sLYTQwgtQ&quot;&gt;RailsFun.tw 新手教學 day2.5 HD&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -538,7 +637,26 @@ match[2]&lt;br /&gt;
    <link href="http://localhost:4000/2017/git/"/>
    <updated>2017-02-21T00:00:00+08:00</updated>
    <id>http://localhost:4000/2017/git</id>
-   <content type="html">&lt;!--more--&gt;
+   <content type="html">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git init --bare projectName&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git commit -m &quot;some description&quot;&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;git push (origin master)&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git clone ssh://xxx.tw/var/git/project.git&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;git clone /home/git_temp/project.git&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git branch work1&lt;/code&gt;  &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;git branch -d work1&lt;/code&gt;  &lt;br /&gt;
+刪除branch&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout work1&lt;/code&gt;  &lt;br /&gt;
+跳到work1分支&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git log&lt;/code&gt;&lt;/p&gt;
+
+&lt;!--more--&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase&lt;/code&gt;&lt;br /&gt;
 將目前branch所作的修改移到master上,&lt;br /&gt;
