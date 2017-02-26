@@ -107,7 +107,9 @@
       <div class="post">
   <h1 class="post-title">rails</h1>
   <span class="post-date">22 Feb 2017</span>
-  <h4 id="安裝">安裝</h4>
+  <p><a href="https://www.youtube.com/watch?v=O7AoNPfUFno">RailsFun.tw 新手教學 day2 HD</a></p>
+
+<h4 id="安裝">安裝</h4>
 <p><code class="highlighter-rouge">sudo apt-get install libmysqlclient-dev</code>  <br />
 <code class="highlighter-rouge">rails new project --datebase=mysql</code><br />
 <code class="highlighter-rouge">gem i mysql2</code>
@@ -119,9 +121,7 @@
 <p>要用的gem都要寫到Gemfile<br />
 <code class="highlighter-rouge">bundle install</code> (依照Gemfile安裝)<br />
 <code class="highlighter-rouge">rails c</code> (console mode)<br />
-	require ‘ap’</p>
-
-<p><code class="highlighter-rouge">rake -T</code> (列出所有可用指令)</p>
+<code class="highlighter-rouge">rake -T</code> (列出所有可用指令)</p>
 
 <p>rails下資料夾<br />
 public 網站根目錄<br />
@@ -144,11 +144,15 @@ app/</p>
   -&gt; environments/RAILS_ENV.rb <br />
   -&gt; initailizers</p>
 
-<p><code class="highlighter-rouge">rails g migration init_db</code>  建立空的版本(init_db)</p>
+<h4 id="migration">migration</h4>
+<blockquote>
+  <p>利用ruby方便有條理的修改資料庫,並自動追蹤資料庫版本</p>
+</blockquote>
 
-<p><code class="highlighter-rouge">rake db:drop</code><br />
-<code class="highlighter-rouge">rake db:create</code><br />
-<code class="highlighter-rouge">rake db:migrate</code>   升版<br />
+<p><code class="highlighter-rouge">rails g migration init_db</code>  建立空的版本(init_db) <br />
+<code class="highlighter-rouge">rake db:drop</code>  刪除資料表 <br />
+<code class="highlighter-rouge">rake db:create</code>  建立資料表<br />
+<code class="highlighter-rouge">rake db:migrate</code>   升版 <br />
 <code class="highlighter-rouge">rake db:rollback</code>  降版</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>class AddPosts &lt; ActiveRecord::Migration
@@ -162,7 +166,7 @@ end
 </div>
 <p>change做的事<br />
 <code class="highlighter-rouge">rake db:migrate</code>做create_table<br />
-<code class="highlighter-rouge">rake db:rollback</code>做drop_table</p>
+<code class="highlighter-rouge">rake db:rollback</code>做相反於change的動作(drop_table)</p>
 
 <p>在table中的 schema migrations 紀錄所有升降的版本紀錄</p>
 
@@ -309,12 +313,256 @@ partial命名用_開頭</p>
 <code class="highlighter-rouge">rail g scaffold --help</code><br />
 幫你一次建立好基本的migrate/ route/ controller/ views/</p>
 
-<h4 id="reference">reference</h4>
-<p><a href="https://www.youtube.com/watch?v=O7AoNPfUFno">RailsFun.tw 新手教學 day2 HD</a></p>
-
 <hr />
 
 <p><a href="https://www.youtube.com/watch?v=r2sLYTQwgtQ">RailsFun.tw 新手教學 day2.5 HD</a></p>
+
+<p><code class="highlighter-rouge">rails new shop --database=mysql</code><br />
+修改<code class="highlighter-rouge">config/database.yml</code> user and password</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Gemfile
+
+gem 'will_paginate'  
+gem 'awesome_print'  
+gem 'rails-pry'  
+gem 'devise'  
+gem 'paperclip'
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">bundle install</code>安裝</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>config/routes.rb
+
+  1 Rails.application.routes.draw do
+  2   devise_for :managers
+  3   devise_for :users
+  4     resource :statics , :only =&gt; [:index]
+  5     root "statics#index"
+  6     resources :items , :only =&gt; [:index, :show]
+  7     namespace :dashboard do
+  8         resources :orders
+  9         namespace :admin do
+ 10             resources :items
+ 11             resources :cates
+ 12             resources :orders
+ 13             resources :users
+ 14 
+ 15             resources :users
+ 16             resources :managers
+ 17         end
+ 18     end
+ 19 end
+</code></pre>
+</div>
+<p>namespace 利用網址做分層結構<br />
+利用devise gem做登入系統</p>
+
+<p><code class="highlighter-rouge">rails generate devise:install</code>  <br />
+<code class="highlighter-rouge">rails generate devise User</code><br />
+<code class="highlighter-rouge">rails generate devise Manager</code><br />
+<code class="highlighter-rouge">rake db:create db:migrate</code> <br />
+<code class="highlighter-rouge">rails g migration init_shop</code></p>
+
+<p>24:35</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>db/migrate/20170224081403_init_shop.rb
+
+  1 class InitShop &lt; ActiveRecord::Migration[5.0]
+  2   def change
+  3       create_table :cates do |t|
+  4           t.string :name
+  5           t.integer :position
+  6           t.timestamps
+  7       end
+  8       create_table :items do |t|
+  9           t.integer :status , :limit =&gt; 1 , :default =&gt; 0 , :null =&gt; false
+ 10           t.string :name
+ 11           t.integer :price
+ 12           t.text :descript
+ 13           t.timestamps
+ 14           t.timestamp :delete_at
+ 15       end
+ 16       create_table :orders do |t|
+ 17           t.integer :user_id
+ 18           t.timestamps
+ 19           t.integer :status , :limit =&gt; 1 , :null =&gt; false , :default =&gt; 0
+ 20           t.integer :total  , :default =&gt; 0, :null =&gt; false
+ 21       end
+ 22       create_table :order_items do |t|
+ 23           t.integer :order_id , :null =&gt; false
+ 24           t.integer :item_id  , :null =&gt; false
+ 25           t.integer :user_id  , :null =&gt; false
+ 26           t.integer :price    , :null =&gt; false
+ 27       end
+ 28       add_index :order_items , [:order_id]
+ 29   end
+ 30 end
+
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">rake db:migrate</code><br />
+<a href="https://github.com/thoughtbot/paperclip">Paperclip</a><br />
+<code class="highlighter-rouge">sudo apt-get install imagemagick</code>  <br />
+<code class="highlighter-rouge">rails g migration add_item_cover</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>db/migrate/20170224094537_add_item_cover.rb
+
+  1 class AddItemCover &lt; ActiveRecord::Migration[5.0]
+  2   def up
+  3       add_attachment :items, :cover
+  4   end
+  5   def down
+  6       remove_attachment :items, :cover
+  7   end
+  8 end
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>app/models/manager.rb 
+ 
+  1 class Manager &lt; ApplicationRecord
+  2   # Include default devise modules. Others available are:
+  3   # :confirmable, :lockable, :timeoutable and :omniauthable
+  4   devise :database_authenticatable#, :registerable
+  5         #:recoverable, :rememberable, :trackable, :validatable
+  6 end
+
+app/models/user.rb 
+
+  1 class User &lt; ApplicationRecord
+  2   # Include default devise modules. Others available are:
+  3   # :confirmable, :lockable, :timeoutable and :omniauthable
+  4   devise :database_authenticatable, :registerable
+  5          #:recoverable, :rememberable, :trackable, :validatable
+  6 end
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">rails g migration add_item_cate</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>db/migrate/20170224100442_add_item_cate.rb
+  1 class AddItemCate &lt; ActiveRecord::Migration[5.0]
+  2   def change
+  3       add_column :items, :cate_id , :integer , :null =&gt; false
+  4   end
+  5 end
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>app/models/item.rb 
+  1 class Item &lt; ActiveRecord::Base
+  2   belongs_to :cate
+  3   has_attached_file :cover ,
+  4      styles: { 
+  5         original: "1024x1024&gt;",
+  6         cover: "300x300&gt;",
+  7         icon: "150x150#"
+  8      }, 
+  9     default_url: "/images/:style/missing.png"
+ 10   validates_attachment_content_type :cover , content_type: /\Aimage\/.*\z/
+ 11 end
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>app/models/cate.rb
+
+  1 class Cate &lt; ActiveRecord::Base
+  2     has_many :item
+  3 end
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>app/models/order.rb
+
+  1 class Order &lt; ActiveRecord::Base
+  2     has_many :order_item
+  3 end
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>app/models/order_item.rb
+
+  1 class OrderItem &lt; ActiveRecord::Base
+  2     belongs_to :item
+  3     belongs_to :user
+  4     belongs_to :order
+  5 end
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>app/controllers/dashboard/dashboard_controller.rb
+
+  1 class Dashboard::DashboardController &lt; ApplicationController
+  2     before_action :authenticate_user!
+  3 end
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>app/controllers/dashboard/orders_controller.rb
+
+  1 class Dashboard::OrdersController &lt;  Dashboard::DashboardController
+  2 
+  3 end
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>app/controllers/dashboard/admin/admin_controller.rb
+
+  1 class Dashboard::Admin::AdminController &lt; ApplicationController
+  2     before_action :authenticate_manager!
+  3 end
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>app/controllers/dashboard/admin/items_controller.rb
+
+  1 class Dashboard::Admin::ItemsController &lt; Dashboard::Admin::AdminController
+  2 end
+
+</code></pre>
+</div>
+<p>在console mode下建立manerger帳號密碼<br />
+<code class="highlighter-rouge">rails c</code><br />
+Manager.create(:email =&gt; ‘test@test’, :password =&gt; ‘testtest’)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>app/controllers/statics_controller.rb
+
+  1 class StaticsController &lt; ApplicationController
+  2     def index
+  3         @items = @paginate = Item.paginate(:page =&gt; params[:page])
+  4     end
+  5 end
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>app/controllers/items_controller.rb
+
+  1 class ItemsController &lt; ApplicationController
+  2     def index
+  3         @items = @paginate = Item.paginate(:page =&gt; params[:page])])
+  4     end
+  5     def show
+  6         @item  = Item.find(params[:id])
+  7     end
+  8 end
+</code></pre>
+</div>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>app/views/layouts/application.html.erb
+
+  1 &lt;!DOCTYPE html&gt;
+  2 &lt;html&gt;
+  3   &lt;head&gt;
+  4     &lt;title&gt;Shop&lt;/title&gt;
+  5     &lt;%= csrf_meta_tags %&gt;
+  6 
+  7     &lt;%= stylesheet_link_tag    'application', media: 'all' %&gt;
+  8     &lt;%= javascript_include_tag 'application' %&gt;
+  9   &lt;/head&gt;
+ 10 &lt;body&gt;
+ 11 
+ 12 &lt;% if current_user %&gt;
+ 13     Hi! &lt;%= current_user.email %&gt; , &lt;%= link_to "logout", destroy_user_ses    sion_path, :method =&gt; 'delete' %&gt;
+ 14 &lt;% else %&gt;
+ 15     &lt;%= link_to 'login', new_user_session_path %&gt;, &lt;%= link_to 'registered    ', new_user_registration_path %&gt;
+ 16 &lt;% end %&gt;
+ 17 &lt;hr&gt;
+ 18 &lt;%= will_paginate @paginate if @paginate %&gt;
+ 19 &lt;hr&gt;
+ 20 &lt;%= yield %&gt;
+ 21 &lt;hr&gt;
+ 22 &lt;%= will_paginate @paginate if @paginate %&gt;
+ 23 
+ 24 &lt;/body&gt;
+ 25 &lt;/html&gt;
+</code></pre>
+</div>
 
 </div>
 

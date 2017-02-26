@@ -4,7 +4,7 @@
  <title>Taiyi's note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-02-24T15:31:52+08:00</updated>
+ <updated>2017-02-26T14:30:48+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -90,7 +90,9 @@
    <link href="http://localhost:4000/2017/rails/"/>
    <updated>2017-02-22T00:00:00+08:00</updated>
    <id>http://localhost:4000/2017/rails</id>
-   <content type="html">&lt;h4 id=&quot;安裝&quot;&gt;安裝&lt;/h4&gt;
+   <content type="html">&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=O7AoNPfUFno&quot;&gt;RailsFun.tw 新手教學 day2 HD&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;安裝&quot;&gt;安裝&lt;/h4&gt;
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install libmysqlclient-dev&lt;/code&gt;  &lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;rails new project --datebase=mysql&lt;/code&gt;&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;gem i mysql2&lt;/code&gt;
@@ -102,9 +104,7 @@
 &lt;p&gt;要用的gem都要寫到Gemfile&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt; (依照Gemfile安裝)&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;rails c&lt;/code&gt; (console mode)&lt;br /&gt;
-	require ‘ap’&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rake -T&lt;/code&gt; (列出所有可用指令)&lt;/p&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rake -T&lt;/code&gt; (列出所有可用指令)&lt;/p&gt;
 
 &lt;p&gt;rails下資料夾&lt;br /&gt;
 public 網站根目錄&lt;br /&gt;
@@ -127,11 +127,15 @@ app/&lt;/p&gt;
   -&amp;gt; environments/RAILS_ENV.rb &lt;br /&gt;
   -&amp;gt; initailizers&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rails g migration init_db&lt;/code&gt;  建立空的版本(init_db)&lt;/p&gt;
+&lt;h4 id=&quot;migration&quot;&gt;migration&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;利用ruby方便有條理的修改資料庫,並自動追蹤資料庫版本&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:drop&lt;/code&gt;&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:create&lt;/code&gt;&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:migrate&lt;/code&gt;   升版&lt;br /&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rails g migration init_db&lt;/code&gt;  建立空的版本(init_db) &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:drop&lt;/code&gt;  刪除資料表 &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:create&lt;/code&gt;  建立資料表&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:migrate&lt;/code&gt;   升版 &lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:rollback&lt;/code&gt;  降版&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class AddPosts &amp;lt; ActiveRecord::Migration
@@ -145,7 +149,7 @@ end
 &lt;/div&gt;
 &lt;p&gt;change做的事&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:migrate&lt;/code&gt;做create_table&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:rollback&lt;/code&gt;做drop_table&lt;/p&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:rollback&lt;/code&gt;做相反於change的動作(drop_table)&lt;/p&gt;
 
 &lt;p&gt;在table中的 schema migrations 紀錄所有升降的版本紀錄&lt;/p&gt;
 
@@ -292,12 +296,256 @@ partial命名用_開頭&lt;/p&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;rail g scaffold --help&lt;/code&gt;&lt;br /&gt;
 幫你一次建立好基本的migrate/ route/ controller/ views/&lt;/p&gt;
 
-&lt;h4 id=&quot;reference&quot;&gt;reference&lt;/h4&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=O7AoNPfUFno&quot;&gt;RailsFun.tw 新手教學 day2 HD&lt;/a&gt;&lt;/p&gt;
-
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=r2sLYTQwgtQ&quot;&gt;RailsFun.tw 新手教學 day2.5 HD&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rails new shop --database=mysql&lt;/code&gt;&lt;br /&gt;
+修改&lt;code class=&quot;highlighter-rouge&quot;&gt;config/database.yml&lt;/code&gt; user and password&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Gemfile
+
+gem 'will_paginate'  
+gem 'awesome_print'  
+gem 'rails-pry'  
+gem 'devise'  
+gem 'paperclip'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;安裝&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;config/routes.rb
+
+  1 Rails.application.routes.draw do
+  2   devise_for :managers
+  3   devise_for :users
+  4     resource :statics , :only =&amp;gt; [:index]
+  5     root &quot;statics#index&quot;
+  6     resources :items , :only =&amp;gt; [:index, :show]
+  7     namespace :dashboard do
+  8         resources :orders
+  9         namespace :admin do
+ 10             resources :items
+ 11             resources :cates
+ 12             resources :orders
+ 13             resources :users
+ 14 
+ 15             resources :users
+ 16             resources :managers
+ 17         end
+ 18     end
+ 19 end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;namespace 利用網址做分層結構&lt;br /&gt;
+利用devise gem做登入系統&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rails generate devise:install&lt;/code&gt;  &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rails generate devise User&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rails generate devise Manager&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:create db:migrate&lt;/code&gt; &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rails g migration init_shop&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;24:35&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;db/migrate/20170224081403_init_shop.rb
+
+  1 class InitShop &amp;lt; ActiveRecord::Migration[5.0]
+  2   def change
+  3       create_table :cates do |t|
+  4           t.string :name
+  5           t.integer :position
+  6           t.timestamps
+  7       end
+  8       create_table :items do |t|
+  9           t.integer :status , :limit =&amp;gt; 1 , :default =&amp;gt; 0 , :null =&amp;gt; false
+ 10           t.string :name
+ 11           t.integer :price
+ 12           t.text :descript
+ 13           t.timestamps
+ 14           t.timestamp :delete_at
+ 15       end
+ 16       create_table :orders do |t|
+ 17           t.integer :user_id
+ 18           t.timestamps
+ 19           t.integer :status , :limit =&amp;gt; 1 , :null =&amp;gt; false , :default =&amp;gt; 0
+ 20           t.integer :total  , :default =&amp;gt; 0, :null =&amp;gt; false
+ 21       end
+ 22       create_table :order_items do |t|
+ 23           t.integer :order_id , :null =&amp;gt; false
+ 24           t.integer :item_id  , :null =&amp;gt; false
+ 25           t.integer :user_id  , :null =&amp;gt; false
+ 26           t.integer :price    , :null =&amp;gt; false
+ 27       end
+ 28       add_index :order_items , [:order_id]
+ 29   end
+ 30 end
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rake db:migrate&lt;/code&gt;&lt;br /&gt;
+&lt;a href=&quot;https://github.com/thoughtbot/paperclip&quot;&gt;Paperclip&lt;/a&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install imagemagick&lt;/code&gt;  &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rails g migration add_item_cover&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;db/migrate/20170224094537_add_item_cover.rb
+
+  1 class AddItemCover &amp;lt; ActiveRecord::Migration[5.0]
+  2   def up
+  3       add_attachment :items, :cover
+  4   end
+  5   def down
+  6       remove_attachment :items, :cover
+  7   end
+  8 end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/models/manager.rb 
+ 
+  1 class Manager &amp;lt; ApplicationRecord
+  2   # Include default devise modules. Others available are:
+  3   # :confirmable, :lockable, :timeoutable and :omniauthable
+  4   devise :database_authenticatable#, :registerable
+  5         #:recoverable, :rememberable, :trackable, :validatable
+  6 end
+
+app/models/user.rb 
+
+  1 class User &amp;lt; ApplicationRecord
+  2   # Include default devise modules. Others available are:
+  3   # :confirmable, :lockable, :timeoutable and :omniauthable
+  4   devise :database_authenticatable, :registerable
+  5          #:recoverable, :rememberable, :trackable, :validatable
+  6 end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rails g migration add_item_cate&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;db/migrate/20170224100442_add_item_cate.rb
+  1 class AddItemCate &amp;lt; ActiveRecord::Migration[5.0]
+  2   def change
+  3       add_column :items, :cate_id , :integer , :null =&amp;gt; false
+  4   end
+  5 end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/models/item.rb 
+  1 class Item &amp;lt; ActiveRecord::Base
+  2   belongs_to :cate
+  3   has_attached_file :cover ,
+  4      styles: { 
+  5         original: &quot;1024x1024&amp;gt;&quot;,
+  6         cover: &quot;300x300&amp;gt;&quot;,
+  7         icon: &quot;150x150#&quot;
+  8      }, 
+  9     default_url: &quot;/images/:style/missing.png&quot;
+ 10   validates_attachment_content_type :cover , content_type: /\Aimage\/.*\z/
+ 11 end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/models/cate.rb
+
+  1 class Cate &amp;lt; ActiveRecord::Base
+  2     has_many :item
+  3 end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/models/order.rb
+
+  1 class Order &amp;lt; ActiveRecord::Base
+  2     has_many :order_item
+  3 end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/models/order_item.rb
+
+  1 class OrderItem &amp;lt; ActiveRecord::Base
+  2     belongs_to :item
+  3     belongs_to :user
+  4     belongs_to :order
+  5 end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/controllers/dashboard/dashboard_controller.rb
+
+  1 class Dashboard::DashboardController &amp;lt; ApplicationController
+  2     before_action :authenticate_user!
+  3 end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/controllers/dashboard/orders_controller.rb
+
+  1 class Dashboard::OrdersController &amp;lt;  Dashboard::DashboardController
+  2 
+  3 end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/controllers/dashboard/admin/admin_controller.rb
+
+  1 class Dashboard::Admin::AdminController &amp;lt; ApplicationController
+  2     before_action :authenticate_manager!
+  3 end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/controllers/dashboard/admin/items_controller.rb
+
+  1 class Dashboard::Admin::ItemsController &amp;lt; Dashboard::Admin::AdminController
+  2 end
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;在console mode下建立manerger帳號密碼&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rails c&lt;/code&gt;&lt;br /&gt;
+Manager.create(:email =&amp;gt; ‘test@test’, :password =&amp;gt; ‘testtest’)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/controllers/statics_controller.rb
+
+  1 class StaticsController &amp;lt; ApplicationController
+  2     def index
+  3         @items = @paginate = Item.paginate(:page =&amp;gt; params[:page])
+  4     end
+  5 end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/controllers/items_controller.rb
+
+  1 class ItemsController &amp;lt; ApplicationController
+  2     def index
+  3         @items = @paginate = Item.paginate(:page =&amp;gt; params[:page])])
+  4     end
+  5     def show
+  6         @item  = Item.find(params[:id])
+  7     end
+  8 end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/views/layouts/application.html.erb
+
+  1 &amp;lt;!DOCTYPE html&amp;gt;
+  2 &amp;lt;html&amp;gt;
+  3   &amp;lt;head&amp;gt;
+  4     &amp;lt;title&amp;gt;Shop&amp;lt;/title&amp;gt;
+  5     &amp;lt;%= csrf_meta_tags %&amp;gt;
+  6 
+  7     &amp;lt;%= stylesheet_link_tag    'application', media: 'all' %&amp;gt;
+  8     &amp;lt;%= javascript_include_tag 'application' %&amp;gt;
+  9   &amp;lt;/head&amp;gt;
+ 10 &amp;lt;body&amp;gt;
+ 11 
+ 12 &amp;lt;% if current_user %&amp;gt;
+ 13     Hi! &amp;lt;%= current_user.email %&amp;gt; , &amp;lt;%= link_to &quot;logout&quot;, destroy_user_ses    sion_path, :method =&amp;gt; 'delete' %&amp;gt;
+ 14 &amp;lt;% else %&amp;gt;
+ 15     &amp;lt;%= link_to 'login', new_user_session_path %&amp;gt;, &amp;lt;%= link_to 'registered    ', new_user_registration_path %&amp;gt;
+ 16 &amp;lt;% end %&amp;gt;
+ 17 &amp;lt;hr&amp;gt;
+ 18 &amp;lt;%= will_paginate @paginate if @paginate %&amp;gt;
+ 19 &amp;lt;hr&amp;gt;
+ 20 &amp;lt;%= yield %&amp;gt;
+ 21 &amp;lt;hr&amp;gt;
+ 22 &amp;lt;%= will_paginate @paginate if @paginate %&amp;gt;
+ 23 
+ 24 &amp;lt;/body&amp;gt;
+ 25 &amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </content>
  </entry>
  
@@ -352,7 +600,7 @@ partial命名用_開頭&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\curl -sSL https://get.rvm.io | bash -s stable&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;source /home/taiyi/.rvm/scripts/rvm&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;source ~/.rvm/scripts/rvm&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;!--more--&gt;
@@ -363,6 +611,7 @@ partial命名用_開頭&lt;/p&gt;
   &lt;li&gt;/bin/bash –login&lt;/li&gt;
   &lt;li&gt;gem i awesome_print (ap 更好看的顏色)&lt;/li&gt;
 &lt;/ol&gt;
+&lt;hr /&gt;
 
 &lt;h4 id=&quot;測試&quot;&gt;測試&lt;/h4&gt;
 &lt;ol&gt;
@@ -370,20 +619,27 @@ partial命名用_開頭&lt;/p&gt;
   &lt;li&gt;用irb進入測試模式&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h4 id=&quot;語法&quot;&gt;語法&lt;/h4&gt;
-&lt;p&gt;(123).class&lt;br /&gt;
-(-123).class&lt;br /&gt;
-所有東西都是物件,用.class可以看種類&lt;/p&gt;
+&lt;h4 id=&quot;印出文字&quot;&gt;印出文字&lt;/h4&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#不換行  &lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;#換行  &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;所有東西在ruby都是物件&lt;br /&gt;
+所有物件都有&lt;code class=&quot;highlighter-rouge&quot;&gt;.class&lt;/code&gt;這個method可以看物件種類&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;#Integer&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;methods&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#列出class所有可用方法&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;(123).methods&lt;br /&gt;
-列出class所有可以用的methods&lt;/p&gt;
+&lt;h4 id=&quot;字串&quot;&gt;字串&lt;/h4&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;helloWorld&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;#10&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;reverseMethod&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reverse&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;#&quot;dohteMesrever&quot;  &lt;/span&gt;
 
-&lt;p&gt;ruby的null叫nil&lt;/p&gt;
-
-&lt;h4 id=&quot;字串連接&quot;&gt;字串連接&lt;/h4&gt;
-&lt;p&gt;x = 999&lt;br /&gt;
-puts “hello#{x}world”&lt;/p&gt;
-
+&lt;span class=&quot;c1&quot;&gt;#字串串接&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;999&lt;/span&gt;  
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hello&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;world&quot;&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;#hello999world&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;h4 id=&quot;hash&quot;&gt;hash&lt;/h4&gt;
 &lt;p&gt;{:wer =&amp;gt; 123, :sdf =&amp;gt; 234}[:wer] //123&lt;br /&gt;
 {wer: 123, sdf: 234} //冒號不能離開字&lt;br /&gt;
@@ -628,7 +884,10 @@ match[2]&lt;br /&gt;
 &lt;p&gt;gem install packageName ( = gem i packageName)&lt;/p&gt;
 
 &lt;h4 id=&quot;教學網站&quot;&gt;教學網站&lt;/h4&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=6XUnYRB0Zpo&quot;&gt;RailsFun.tw 新手教學 day1 HD&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.codecademy.com/learn/ruby&quot;&gt;codecademy Ruby&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=6XUnYRB0Zpo&quot;&gt;RailsFun.tw 新手教學 day1 HD&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content>
  </entry>
  
@@ -661,6 +920,11 @@ match[2]&lt;br /&gt;
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase&lt;/code&gt;&lt;br /&gt;
 將目前branch所作的修改移到master上,&lt;br /&gt;
 好處是建立更好看的log/history&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout HEAD^&lt;/code&gt;&lt;br /&gt;
+從master向上一個commit&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout HEAD~4&lt;/code&gt;
+從master向上4個commit&lt;/p&gt;
 
 &lt;h4 id=&quot;教學網站&quot;&gt;教學網站&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&quot;http://learngitbranching.js.org/?demo&quot;&gt;Learn Git Branching&lt;/a&gt;&lt;/p&gt;
