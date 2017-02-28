@@ -106,19 +106,67 @@
     <div class="content container">
       <div class="post">
   <h1 class="post-title">ASP</h1>
-  <span class="post-date">22 Feb 2017</span>
-  <p><code class="highlighter-rouge">:-</code>  if<br />
-<code class="highlighter-rouge">,</code>   and<br />
-<code class="highlighter-rouge">%</code>   command<br />
-<code class="highlighter-rouge">.</code>   end of sentence<br />
-<code class="highlighter-rouge">_</code>   don’t care<br />
-<!--more--></p>
+  <span class="post-date">23 Feb 2017</span>
+  <ul>
+  <li><code class="highlighter-rouge">gringo</code><br />
+so-called grounder translating</li>
+  <li><code class="highlighter-rouge">clasp</code><br />
+so-called solver</li>
+  <li><code class="highlighter-rouge">clingo</code><br />
+結合gringo和clasp
+<!--more--></li>
+</ul>
 
-<p><code class="highlighter-rouge">1 { size(3..n) } 1.</code>等同於 <code class="highlighter-rouge">1 &lt;= { size(3..n) } &lt;= 1.</code></p>
+<p><code class="highlighter-rouge">:-</code>  if<br />
+<code class="highlighter-rouge">,</code>   and<br />
+<code class="highlighter-rouge">%</code>   comment<br />
+<code class="highlighter-rouge">.</code>   end of sentence<br />
+<code class="highlighter-rouge">_</code>   don’t care</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Towers of Hanoi (toh.lp)
+
+1 peg(a;b;c).
+2 disk(1..4).
+3 init_on(1..4,a).
+4 goal_on(1..4,c).
+5 moves(15).
+6 
+7 % Generate
+8 { move(D,P,T) : disk(D), peg(P) } = 1 :- moves(M),
+9 T = 1..M.
+10 % Define
+11 move(D,T) :- move(D,_,T).
+12 on(D,P,0) :- init_on(D,P).
+13 on(D,P,T) :- move(D,P,T).
+14 on(D,P,T+1) :- on(D,P,T), not move(D,T+1),
+15 not moves(T).
+16 blocked(D-1,P,T+1) :- on(D,P,T), not moves(T).
+17 blocked(D-1,P,T) :- blocked(D,P,T), disk(D).
+18 % Test
+19 :- move(D,P,T), blocked(D-1,P,T).
+20 :- move(D,T), on(D,P,T-1), blocked(D,P,T).
+21 :- goal_on(D,P), not on(D,P,M), moves(M).
+22 :- { on(D,P,T) } != 1, disk(D), moves(M), T = 1..M.
+23 % Display
+24 #show move/3.
+
+Solving...
+Answer: 1
+move(4,b,1) move(3,c,2) move(4,c,3) move(2,b,4) move(4,a,5) move(3,b,6) move(4,b,7) move(1,c,8) move(4,c,9) move(3,a,10) move(4,a,11) move(2,c,12) move(4,b,13) move(3,c,14) move(4,c,15)
+SATISFIABLE
+
+Models       : 1+
+Calls        : 1
+Time         : 0.019s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.010s
+
+</code></pre>
+</div>
 
 <h3 id="reference">reference</h3>
 <ul>
   <li><a href="https://potassco.org/">Potassco</a></li>
+  <li><a href="https://potassco.org/clingo/run/">Running clingo</a></li>
 </ul>
 
 </div>
@@ -126,6 +174,15 @@
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2017/cloudComputing/">
+            SocialCloudComputing
+            <small>25 Feb 2017</small>
+          </a>
+        </h3>
+      </li>
     
       <li>
         <h3>
@@ -138,18 +195,9 @@
     
       <li>
         <h3>
-          <a href="/2017/cloudComputing/">
-            SocialCloudComputing
+          <a href="/2017/mysql/">
+            mysql
             <small>23 Feb 2017</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2017/rails/">
-            rails
-            <small>22 Feb 2017</small>
           </a>
         </h3>
       </li>

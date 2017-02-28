@@ -118,16 +118,16 @@
 
 <h4 id="安裝ruby">安裝ruby</h4>
 <ol>
-  <li>rvm install ruby-2.4.0</li>
-  <li>/bin/bash –login</li>
-  <li>gem i awesome_print (ap 更好看的顏色)</li>
+  <li><code class="highlighter-rouge">rvm install ruby-2.4.0</code></li>
+  <li><code class="highlighter-rouge">/bin/bash --login</code></li>
+  <li><code class="highlighter-rouge">gem i awesome_print (code highlight)</code></li>
 </ol>
 <hr />
 
 <h4 id="測試">測試</h4>
 <ol>
-  <li>ruby -v</li>
-  <li>用irb進入測試模式</li>
+  <li><code class="highlighter-rouge">ruby -v</code>  查看版本</li>
+  <li>用irb進入測試模式(console mode)</li>
 </ol>
 
 <h4 id="印出文字">印出文字</h4>
@@ -141,6 +141,10 @@
 <span class="p">(</span><span class="mi">123</span><span class="p">).</span><span class="nf">methods</span> <span class="c1">#列出class所有可用方法</span>
 </code></pre>
 </div>
+<h4 id="變數">變數</h4>
+<p><code class="highlighter-rouge">var</code>  local variable<br />
+<code class="highlighter-rouge">@var</code> instance varible<br />
+<code class="highlighter-rouge">$var</code> global varible</p>
 
 <h4 id="字串">字串</h4>
 <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="s2">"helloWorld"</span><span class="p">.</span><span class="nf">length</span>       <span class="c1">#10</span>
@@ -151,50 +155,49 @@
 <span class="nb">puts</span> <span class="s2">"hello</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">world"</span>     <span class="c1">#hello999world</span>
 </code></pre>
 </div>
-<h4 id="hash">hash</h4>
-<p>{:wer =&gt; 123, :sdf =&gt; 234}[:wer] //123<br />
-{wer: 123, sdf: 234} //冒號不能離開字<br />
-{:wer =&gt; 123, :sdf =&gt; 234}.keys<br />
-{:wer =&gt; 123, :sdf =&gt; 234}.values<br />
-“wer”.class		//String<br />
-:wer.class		//Symbol<br />
-key不適合用String 因為String會new新的物件而Symbol不會<br />
-2.4.0 :011 &gt; “wer”.object_id<br />
- =&gt; 18016080 <br />
-2.4.0 :012 &gt; “wer”.object_id<br />
- =&gt; 18575560<br />
-2.4.0 :013 &gt; :wer.object_id<br />
- =&gt; 1168348 <br />
-2.4.0 :014 &gt; :wer.object_id 
- =&gt; 1168348</p>
+<h4 id="註解">註解</h4>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># I'm comment</span>
 
-<h4 id="迴圈">迴圈</h4>
-<p>2.4.0 :015 &gt; [1,”wer”,3,4,5,111].each do |x|<br />
-2.4.0 :016 &gt;     puts x<br />
-2.4.0 :017?&gt;   end<br />
-1<br />
-wer<br />
-3<br />
-4<br />
-5<br />
-111<br />
- =&gt; [1, “wer”, 3, 4, 5, 111]</p>
+<span class="cm">=begin
+I'm comment one.
+I'm comment two.
+=end</span>
+</code></pre>
+</div>
+
+<h4 id="讀取字串">讀取字串</h4>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">print</span> <span class="s2">"What's your name?"</span>
+<span class="n">user_input</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+<span class="n">user_input</span><span class="p">.</span><span class="nf">downcase!</span>
+
+<span class="c1">#chomp : remove extra line</span>
+<span class="c1"># .downcase! :轉換成小寫</span>
+<span class="c1"># !(modified in-place),否則會create一個copy</span>
+</code></pre>
+</div>
 
 <h4 id="流程控制">流程控制</h4>
-<p>unless true<br />
-  puts 123<br />
-  else<br />
-    puts 234<br />
-  end 
-//234</p>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span>
+  <span class="nb">puts</span> <span class="s2">"x &gt; y"</span> 
+<span class="k">elsif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span>
+  <span class="nb">puts</span> <span class="s2">"x &lt; y"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"x = y"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">hungry</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="k">unless</span> <span class="n">hungry</span>
+  <span class="nb">puts</span> <span class="s2">"I'm writing Ruby programs!"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"Time to eat!"</span>
+<span class="k">end</span>
 
-<p>if true<br />
-  puts 234<br />
-  else<br />
-    puts 234567<br />
-  end</p>
-
-<p>// 234</p>
+<span class="c1">#I'm writing Ruby programs!</span>
+<span class="c1">#nil</span>
+</code></pre>
+</div>
+<hr />
 
 <p>x = 3<br />
 case x<br />
@@ -224,6 +227,35 @@ while true<br />
 9<br />
 10<br />
 11</p>
+
+<h4 id="hash">hash</h4>
+<p>{:wer =&gt; 123, :sdf =&gt; 234}[:wer] //123<br />
+{wer: 123, sdf: 234} //冒號不能離開字<br />
+{:wer =&gt; 123, :sdf =&gt; 234}.keys<br />
+{:wer =&gt; 123, :sdf =&gt; 234}.values<br />
+“wer”.class		//String<br />
+:wer.class		//Symbol<br />
+key不適合用String 因為String會new新的物件而Symbol不會<br />
+2.4.0 :011 &gt; “wer”.object_id<br />
+ =&gt; 18016080 <br />
+2.4.0 :012 &gt; “wer”.object_id<br />
+ =&gt; 18575560<br />
+2.4.0 :013 &gt; :wer.object_id<br />
+ =&gt; 1168348 <br />
+2.4.0 :014 &gt; :wer.object_id 
+ =&gt; 1168348</p>
+
+<h4 id="迴圈">迴圈</h4>
+<p>2.4.0 :015 &gt; [1,”wer”,3,4,5,111].each do |x|<br />
+2.4.0 :016 &gt;     puts x<br />
+2.4.0 :017?&gt;   end<br />
+1<br />
+wer<br />
+3<br />
+4<br />
+5<br />
+111<br />
+ =&gt; [1, “wer”, 3, 4, 5, 111]</p>
 
 <h4 id="定義methods">定義methods</h4>
 <p>def temp1<br />
@@ -345,7 +377,7 @@ class B<br />
 B.new.hihi<br />
 #hihi</p>
 
-<h1 id="regular-expression">regular expression</h1>
+<h4 id="regular-expression">regular expression</h4>
 <p>regex = /(A-Z)([12])\d{8}/<br />
  =&gt; /(A-Z)([12])\d{8}/ <br />
 match = “A145645645”.match(regex)<br />
@@ -398,6 +430,7 @@ match[2]<br />
 <ul>
   <li><a href="https://www.codecademy.com/learn/ruby">codecademy Ruby</a></li>
   <li><a href="https://www.youtube.com/watch?v=6XUnYRB0Zpo">RailsFun.tw 新手教學 day1 HD</a></li>
+  <li><a href="http://guides.ruby.tw/rails3/getting_started.html#2">Rails 初上手指南</a></li>
 </ul>
 
 </div>
@@ -405,6 +438,15 @@ match[2]<br />
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2017/cloudComputing/">
+            SocialCloudComputing
+            <small>25 Feb 2017</small>
+          </a>
+        </h3>
+      </li>
     
       <li>
         <h3>
@@ -417,18 +459,9 @@ match[2]<br />
     
       <li>
         <h3>
-          <a href="/2017/cloudComputing/">
-            SocialCloudComputing
+          <a href="/2017/mysql/">
+            mysql
             <small>23 Feb 2017</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2017/rails/">
-            rails
-            <small>22 Feb 2017</small>
           </a>
         </h3>
       </li>

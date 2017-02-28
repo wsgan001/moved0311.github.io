@@ -4,7 +4,7 @@
  <title>Taiyi's note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-02-26T14:30:48+08:00</updated>
+ <updated>2017-02-28T13:13:40+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -13,40 +13,9 @@
 
  
  <entry>
-   <title>JavaScript</title>
-   <link href="http://localhost:4000/2017/javaScript/"/>
-   <updated>2017-02-24T00:00:00+08:00</updated>
-   <id>http://localhost:4000/2017/javaScript</id>
-   <content type="html">&lt;p&gt;多使用const並用let取代var&lt;br /&gt;
-宣告物件別用new直接用obj = {}&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;...&lt;/code&gt;展開運算子  &lt;br /&gt;
-&lt;!--more--&gt;&lt;/p&gt;
-&lt;h4 id=&quot;陣列複製&quot;&gt;陣列複製&lt;/h4&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//(X) -&amp;gt; 當修改b時,a會跟著修改&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h4 id=&quot;字串串接&quot;&gt;字串串接&lt;/h4&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;`hello, my name is ${name}.`
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;concatenateAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;reference&quot;&gt;reference&lt;/h4&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/airbnb/javascript#hoisting&quot;&gt;Airbnb JavaScript Style Guide&lt;/a&gt;&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
    <title>SocialCloudComputing</title>
    <link href="http://localhost:4000/2017/cloudComputing/"/>
-   <updated>2017-02-23T00:00:00+08:00</updated>
+   <updated>2017-02-25T00:00:00+08:00</updated>
    <id>http://localhost:4000/2017/cloudComputing</id>
    <content type="html">&lt;h4 id=&quot;課程簡介&quot;&gt;課程簡介&lt;/h4&gt;
 &lt;ul&gt;
@@ -82,6 +51,191 @@
 
 &lt;h4 id=&quot;reference&quot;&gt;reference&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&quot;http://newdoc.nccu.edu.tw/teaschm/1052/schmPrv.jsp-yy=105&amp;amp;smt=2&amp;amp;num=753868&amp;amp;gop=00&amp;amp;s=1&amp;amp;tea=101583.htm&quot;&gt;社群雲端運算&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>JavaScript</title>
+   <link href="http://localhost:4000/2017/javaScript/"/>
+   <updated>2017-02-24T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2017/javaScript</id>
+   <content type="html">&lt;p&gt;多使用const並用let取代var&lt;br /&gt;
+宣告物件別用new直接用obj = {}&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;...&lt;/code&gt;展開運算子  &lt;br /&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;h4 id=&quot;陣列複製&quot;&gt;陣列複製&lt;/h4&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//(X) -&amp;gt; 當修改b時,a會跟著修改&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h4 id=&quot;字串串接&quot;&gt;字串串接&lt;/h4&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;`hello, my name is ${name}.`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;concatenateAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;reference&quot;&gt;reference&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/airbnb/javascript#hoisting&quot;&gt;Airbnb JavaScript Style Guide&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>mysql</title>
+   <link href="http://localhost:4000/2017/mysql/"/>
+   <updated>2017-02-23T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2017/mysql</id>
+   <content type="html">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mysql -u root -p&lt;/code&gt;
+&lt;!--more--&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;show databases;&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;use databaseName&lt;/code&gt; &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;show tables&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from tablesName&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;新增使用者&quot;&gt;新增使用者&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;insert into user (host,user,password) values('%','user',password('user'));&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GRANT ALL ON *.* TO 'user'@localhost IDENTIFIED BY 'user' WITH GRANT OPTION;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;flush privileges;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>logic</title>
+   <link href="http://localhost:4000/2017/logic/"/>
+   <updated>2017-02-23T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2017/logic</id>
+   <content type="html">&lt;h4 id=&quot;monotonic-logic-單調邏輯&quot;&gt;monotonic logic (單調邏輯)&lt;/h4&gt;
+&lt;p&gt;推理加入資料庫後,不會推翻原有邏輯推論,資料庫會隨著知識增長而增長。&lt;br /&gt;
+&lt;!--more--&gt;
+propositions&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;statement&lt;/li&gt;
+  &lt;li&gt;true/false
+在正規邏輯中, propositions = sentences&lt;br /&gt;
+在非正規邏輯中要考慮到情境/背景&lt;br /&gt;
+e.g. The present president was born in Taiwan.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;inference 推論&lt;br /&gt;
+由一些前提(premise)得到結論&lt;br /&gt;
+Argument   論證  &lt;br /&gt;
+Premises   前提&lt;br /&gt;
+Conclusion 結論&lt;/p&gt;
+
+&lt;h4 id=&quot;elements-of-logic&quot;&gt;Elements of logic&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;vocabulary&lt;/li&gt;
+  &lt;li&gt;syntax&lt;/li&gt;
+  &lt;li&gt;axiomatics(calculus/演算法)&lt;/li&gt;
+  &lt;li&gt;semantics&lt;/li&gt;
+  &lt;li&gt;decidability(可判定性) &amp;amp; complexity analysis&lt;/li&gt;
+  &lt;li&gt;automated proving methods
+  automated/semi-automated theorem proving&lt;/li&gt;
+  &lt;li&gt;formal logic
+和程式語言不同,較容易學習(語法上)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;proposition-logic&quot;&gt;Proposition logic&lt;/h4&gt;
+&lt;p&gt;or (∨) / and (∧) / not (¬) / if / iff&lt;/p&gt;
+
+&lt;p&gt;L = {a, b, c}&lt;br /&gt;
+L* 代表使用L中的element可以組合出的任意字串&lt;/p&gt;
+
+&lt;h4 id=&quot;well-formed-formulas-wff&quot;&gt;well-formed formulas (WFF)&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;a string that is generated by a formal grammar in logic.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;符合&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Every propositional variable is a (wellformed) formula&lt;/li&gt;
+  &lt;li&gt;If A, B are wff, then so are (A∧B), (A∨B), (A⇒B), (A⇔B) and ~A.&lt;/li&gt;
+  &lt;li&gt;Only strings that can be obtained by a finite number of applications of rule 1 and 2 are well-formed formulas.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;123是 45不是
+(p1) 不是wff&lt;/p&gt;
+
+&lt;p&gt;⊨ (The satisfaction relation)&lt;/p&gt;
+
+&lt;p&gt;p18&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ASP</title>
+   <link href="http://localhost:4000/2017/ASP/"/>
+   <updated>2017-02-23T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2017/ASP</id>
+   <content type="html">&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gringo&lt;/code&gt;&lt;br /&gt;
+so-called grounder translating&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;clasp&lt;/code&gt;&lt;br /&gt;
+so-called solver&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;clingo&lt;/code&gt;&lt;br /&gt;
+結合gringo和clasp
+&lt;!--more--&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:-&lt;/code&gt;  if&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;,&lt;/code&gt;   and&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt;   comment&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt;   end of sentence&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt;   don’t care&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Towers of Hanoi (toh.lp)
+
+1 peg(a;b;c).
+2 disk(1..4).
+3 init_on(1..4,a).
+4 goal_on(1..4,c).
+5 moves(15).
+6 
+7 % Generate
+8 { move(D,P,T) : disk(D), peg(P) } = 1 :- moves(M),
+9 T = 1..M.
+10 % Define
+11 move(D,T) :- move(D,_,T).
+12 on(D,P,0) :- init_on(D,P).
+13 on(D,P,T) :- move(D,P,T).
+14 on(D,P,T+1) :- on(D,P,T), not move(D,T+1),
+15 not moves(T).
+16 blocked(D-1,P,T+1) :- on(D,P,T), not moves(T).
+17 blocked(D-1,P,T) :- blocked(D,P,T), disk(D).
+18 % Test
+19 :- move(D,P,T), blocked(D-1,P,T).
+20 :- move(D,T), on(D,P,T-1), blocked(D,P,T).
+21 :- goal_on(D,P), not on(D,P,M), moves(M).
+22 :- { on(D,P,T) } != 1, disk(D), moves(M), T = 1..M.
+23 % Display
+24 #show move/3.
+
+Solving...
+Answer: 1
+move(4,b,1) move(3,c,2) move(4,c,3) move(2,b,4) move(4,a,5) move(3,b,6) move(4,b,7) move(1,c,8) move(4,c,9) move(3,a,10) move(4,a,11) move(2,c,12) move(4,b,13) move(3,c,14) move(4,c,15)
+SATISFIABLE
+
+Models       : 1+
+Calls        : 1
+Time         : 0.019s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.010s
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;reference&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://potassco.org/&quot;&gt;Potassco&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://potassco.org/clingo/run/&quot;&gt;Running clingo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content>
  </entry>
  
@@ -550,48 +704,6 @@ Manager.create(:email =&amp;gt; ‘test@test’, :password =&amp;gt; ‘testtest
  </entry>
  
  <entry>
-   <title>mysql</title>
-   <link href="http://localhost:4000/2017/mysql/"/>
-   <updated>2017-02-22T00:00:00+08:00</updated>
-   <id>http://localhost:4000/2017/mysql</id>
-   <content type="html">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mysql -u root -p&lt;/code&gt;
-&lt;!--more--&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;show databases;&lt;/code&gt;&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;use databaseName&lt;/code&gt; &lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;show tables&lt;/code&gt;&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from tablesName&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;新增使用者&quot;&gt;新增使用者&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;insert into user (host,user,password) values('%','user',password('user'));&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GRANT ALL ON *.* TO 'user'@localhost IDENTIFIED BY 'user' WITH GRANT OPTION;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;flush privileges;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>ASP</title>
-   <link href="http://localhost:4000/2017/ASP/"/>
-   <updated>2017-02-22T00:00:00+08:00</updated>
-   <id>http://localhost:4000/2017/ASP</id>
-   <content type="html">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:-&lt;/code&gt;  if&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;,&lt;/code&gt;   and&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt;   command&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt;   end of sentence&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt;   don’t care&lt;br /&gt;
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 { size(3..n) } 1.&lt;/code&gt;等同於 &lt;code class=&quot;highlighter-rouge&quot;&gt;1 &amp;lt;= { size(3..n) } &amp;lt;= 1.&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;reference&quot;&gt;reference&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://potassco.org/&quot;&gt;Potassco&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
- </entry>
- 
- <entry>
    <title>ruby</title>
    <link href="http://localhost:4000/2017/ruby/"/>
    <updated>2017-02-21T00:00:00+08:00</updated>
@@ -607,16 +719,16 @@ Manager.create(:email =&amp;gt; ‘test@test’, :password =&amp;gt; ‘testtest
 
 &lt;h4 id=&quot;安裝ruby&quot;&gt;安裝ruby&lt;/h4&gt;
 &lt;ol&gt;
-  &lt;li&gt;rvm install ruby-2.4.0&lt;/li&gt;
-  &lt;li&gt;/bin/bash –login&lt;/li&gt;
-  &lt;li&gt;gem i awesome_print (ap 更好看的顏色)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rvm install ruby-2.4.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/bin/bash --login&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gem i awesome_print (code highlight)&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr /&gt;
 
 &lt;h4 id=&quot;測試&quot;&gt;測試&lt;/h4&gt;
 &lt;ol&gt;
-  &lt;li&gt;ruby -v&lt;/li&gt;
-  &lt;li&gt;用irb進入測試模式&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ruby -v&lt;/code&gt;  查看版本&lt;/li&gt;
+  &lt;li&gt;用irb進入測試模式(console mode)&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h4 id=&quot;印出文字&quot;&gt;印出文字&lt;/h4&gt;
@@ -630,6 +742,10 @@ Manager.create(:email =&amp;gt; ‘test@test’, :password =&amp;gt; ‘testtest
 &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;methods&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#列出class所有可用方法&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;h4 id=&quot;變數&quot;&gt;變數&lt;/h4&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;var&lt;/code&gt;  local variable&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;@var&lt;/code&gt; instance varible&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;$var&lt;/code&gt; global varible&lt;/p&gt;
 
 &lt;h4 id=&quot;字串&quot;&gt;字串&lt;/h4&gt;
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;helloWorld&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;#10&lt;/span&gt;
@@ -640,50 +756,49 @@ Manager.create(:email =&amp;gt; ‘test@test’, :password =&amp;gt; ‘testtest
 &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hello&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;world&quot;&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;#hello999world&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h4 id=&quot;hash&quot;&gt;hash&lt;/h4&gt;
-&lt;p&gt;{:wer =&amp;gt; 123, :sdf =&amp;gt; 234}[:wer] //123&lt;br /&gt;
-{wer: 123, sdf: 234} //冒號不能離開字&lt;br /&gt;
-{:wer =&amp;gt; 123, :sdf =&amp;gt; 234}.keys&lt;br /&gt;
-{:wer =&amp;gt; 123, :sdf =&amp;gt; 234}.values&lt;br /&gt;
-“wer”.class		//String&lt;br /&gt;
-:wer.class		//Symbol&lt;br /&gt;
-key不適合用String 因為String會new新的物件而Symbol不會&lt;br /&gt;
-2.4.0 :011 &amp;gt; “wer”.object_id&lt;br /&gt;
- =&amp;gt; 18016080 &lt;br /&gt;
-2.4.0 :012 &amp;gt; “wer”.object_id&lt;br /&gt;
- =&amp;gt; 18575560&lt;br /&gt;
-2.4.0 :013 &amp;gt; :wer.object_id&lt;br /&gt;
- =&amp;gt; 1168348 &lt;br /&gt;
-2.4.0 :014 &amp;gt; :wer.object_id 
- =&amp;gt; 1168348&lt;/p&gt;
+&lt;h4 id=&quot;註解&quot;&gt;註解&lt;/h4&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# I'm comment&lt;/span&gt;
 
-&lt;h4 id=&quot;迴圈&quot;&gt;迴圈&lt;/h4&gt;
-&lt;p&gt;2.4.0 :015 &amp;gt; [1,”wer”,3,4,5,111].each do |x|&lt;br /&gt;
-2.4.0 :016 &amp;gt;     puts x&lt;br /&gt;
-2.4.0 :017?&amp;gt;   end&lt;br /&gt;
-1&lt;br /&gt;
-wer&lt;br /&gt;
-3&lt;br /&gt;
-4&lt;br /&gt;
-5&lt;br /&gt;
-111&lt;br /&gt;
- =&amp;gt; [1, “wer”, 3, 4, 5, 111]&lt;/p&gt;
+&lt;span class=&quot;cm&quot;&gt;=begin
+I'm comment one.
+I'm comment two.
+=end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;讀取字串&quot;&gt;讀取字串&lt;/h4&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;What's your name?&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;user_input&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;chomp&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;user_input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;downcase!&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#chomp : remove extra line&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# .downcase! :轉換成小寫&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# !(modified in-place),否則會create一個copy&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h4 id=&quot;流程控制&quot;&gt;流程控制&lt;/h4&gt;
-&lt;p&gt;unless true&lt;br /&gt;
-  puts 123&lt;br /&gt;
-  else&lt;br /&gt;
-    puts 234&lt;br /&gt;
-  end 
-//234&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;x &amp;gt; y&quot;&lt;/span&gt; 
+&lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;x &amp;lt; y&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;x = y&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;hungry&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hungry&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;I'm writing Ruby programs!&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Time to eat!&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
-&lt;p&gt;if true&lt;br /&gt;
-  puts 234&lt;br /&gt;
-  else&lt;br /&gt;
-    puts 234567&lt;br /&gt;
-  end&lt;/p&gt;
-
-&lt;p&gt;// 234&lt;/p&gt;
+&lt;span class=&quot;c1&quot;&gt;#I'm writing Ruby programs!&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
 
 &lt;p&gt;x = 3&lt;br /&gt;
 case x&lt;br /&gt;
@@ -713,6 +828,35 @@ while true&lt;br /&gt;
 9&lt;br /&gt;
 10&lt;br /&gt;
 11&lt;/p&gt;
+
+&lt;h4 id=&quot;hash&quot;&gt;hash&lt;/h4&gt;
+&lt;p&gt;{:wer =&amp;gt; 123, :sdf =&amp;gt; 234}[:wer] //123&lt;br /&gt;
+{wer: 123, sdf: 234} //冒號不能離開字&lt;br /&gt;
+{:wer =&amp;gt; 123, :sdf =&amp;gt; 234}.keys&lt;br /&gt;
+{:wer =&amp;gt; 123, :sdf =&amp;gt; 234}.values&lt;br /&gt;
+“wer”.class		//String&lt;br /&gt;
+:wer.class		//Symbol&lt;br /&gt;
+key不適合用String 因為String會new新的物件而Symbol不會&lt;br /&gt;
+2.4.0 :011 &amp;gt; “wer”.object_id&lt;br /&gt;
+ =&amp;gt; 18016080 &lt;br /&gt;
+2.4.0 :012 &amp;gt; “wer”.object_id&lt;br /&gt;
+ =&amp;gt; 18575560&lt;br /&gt;
+2.4.0 :013 &amp;gt; :wer.object_id&lt;br /&gt;
+ =&amp;gt; 1168348 &lt;br /&gt;
+2.4.0 :014 &amp;gt; :wer.object_id 
+ =&amp;gt; 1168348&lt;/p&gt;
+
+&lt;h4 id=&quot;迴圈&quot;&gt;迴圈&lt;/h4&gt;
+&lt;p&gt;2.4.0 :015 &amp;gt; [1,”wer”,3,4,5,111].each do |x|&lt;br /&gt;
+2.4.0 :016 &amp;gt;     puts x&lt;br /&gt;
+2.4.0 :017?&amp;gt;   end&lt;br /&gt;
+1&lt;br /&gt;
+wer&lt;br /&gt;
+3&lt;br /&gt;
+4&lt;br /&gt;
+5&lt;br /&gt;
+111&lt;br /&gt;
+ =&amp;gt; [1, “wer”, 3, 4, 5, 111]&lt;/p&gt;
 
 &lt;h4 id=&quot;定義methods&quot;&gt;定義methods&lt;/h4&gt;
 &lt;p&gt;def temp1&lt;br /&gt;
@@ -834,7 +978,7 @@ class B&lt;br /&gt;
 B.new.hihi&lt;br /&gt;
 #hihi&lt;/p&gt;
 
-&lt;h1 id=&quot;regular-expression&quot;&gt;regular expression&lt;/h1&gt;
+&lt;h4 id=&quot;regular-expression&quot;&gt;regular expression&lt;/h4&gt;
 &lt;p&gt;regex = /(A-Z)([12])\d{8}/&lt;br /&gt;
  =&amp;gt; /(A-Z)([12])\d{8}/ &lt;br /&gt;
 match = “A145645645”.match(regex)&lt;br /&gt;
@@ -887,6 +1031,7 @@ match[2]&lt;br /&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.codecademy.com/learn/ruby&quot;&gt;codecademy Ruby&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=6XUnYRB0Zpo&quot;&gt;RailsFun.tw 新手教學 day1 HD&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://guides.ruby.tw/rails3/getting_started.html#2&quot;&gt;Rails 初上手指南&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
  </entry>
@@ -932,70 +1077,6 @@ match[2]&lt;br /&gt;
  </entry>
  
  <entry>
-   <title>logic</title>
-   <link href="http://localhost:4000/2017/logic/"/>
-   <updated>2017-02-20T00:00:00+08:00</updated>
-   <id>http://localhost:4000/2017/logic</id>
-   <content type="html">&lt;h4 id=&quot;monotonic-logic-單調邏輯&quot;&gt;monotonic logic (單調邏輯)&lt;/h4&gt;
-&lt;p&gt;推理加入資料庫後,不會推翻原有邏輯推論,資料庫會隨著知識增長而增長。&lt;br /&gt;
-&lt;!--more--&gt;
-propositions&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;statement&lt;/li&gt;
-  &lt;li&gt;true/false
-在正規邏輯中, propositions = sentences&lt;br /&gt;
-在非正規邏輯中要考慮到情境/背景&lt;br /&gt;
-e.g. The present president was born in Taiwan.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;inference 推論&lt;br /&gt;
-由一些前提(premise)得到結論&lt;br /&gt;
-Argument   論證  &lt;br /&gt;
-Premises   前提&lt;br /&gt;
-Conclusion 結論&lt;/p&gt;
-
-&lt;h4 id=&quot;elements-of-logic&quot;&gt;Elements of logic&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;vocabulary&lt;/li&gt;
-  &lt;li&gt;syntax&lt;/li&gt;
-  &lt;li&gt;axiomatics(calculus/演算法)&lt;/li&gt;
-  &lt;li&gt;semantics&lt;/li&gt;
-  &lt;li&gt;decidability(可判定性) &amp;amp; complexity analysis&lt;/li&gt;
-  &lt;li&gt;automated proving methods
-  automated/semi-automated theorem proving&lt;/li&gt;
-  &lt;li&gt;formal logic
-和程式語言不同,較容易學習(語法上)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;proposition-logic&quot;&gt;Proposition logic&lt;/h4&gt;
-&lt;p&gt;or (∨) / and (∧) / not (¬) / if / iff&lt;/p&gt;
-
-&lt;p&gt;L = {a, b, c}&lt;br /&gt;
-L* 代表使用L中的element可以組合出的任意字串&lt;/p&gt;
-
-&lt;h4 id=&quot;well-formed-formulas-wff&quot;&gt;well-formed formulas (WFF)&lt;/h4&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;a string that is generated by a formal grammar in logic.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;符合&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Every propositional variable is a (wellformed) formula&lt;/li&gt;
-  &lt;li&gt;If A, B are wff, then so are (A∧B), (A∨B), (A⇒B), (A⇔B) and ~A.&lt;/li&gt;
-  &lt;li&gt;Only strings that can be obtained by a finite number of applications of rule 1 and 2 are well-formed formulas.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;123是 45不是
-(p1) 不是wff&lt;/p&gt;
-
-&lt;p&gt;⊨ (The satisfaction relation)&lt;/p&gt;
-
-&lt;p&gt;p18&lt;/p&gt;
-
-</content>
- </entry>
- 
- <entry>
    <title>jekyll</title>
    <link href="http://localhost:4000/2017/whats-jekyll/"/>
    <updated>2017-02-19T00:00:00+08:00</updated>
@@ -1013,7 +1094,7 @@ new一個blog&lt;br /&gt;
 &lt;h2 id=&quot;編輯文章&quot;&gt;編輯文章&lt;/h2&gt;
 &lt;h4 id=&quot;強制換行&quot;&gt;強制換行&lt;/h4&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;在要換行的地方加入兩個以上空白&lt;/p&gt;
+  &lt;p&gt;行尾加入兩個以上空白&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;額外功能&quot;&gt;額外功能&lt;/h2&gt;
@@ -1021,11 +1102,11 @@ new一個blog&lt;br /&gt;
 &lt;p&gt;在index.html找到&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;_{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;post.content&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;_}&lt;/span&gt;&lt;/code&gt;&lt;br /&gt;
 取代成&lt;br /&gt;
 (記得把_拿掉 jekyll不能出現連續{ { 或是 { % )&lt;/p&gt;
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{_% if post.content contains '&lt;span class=&quot;c&quot;&gt;&amp;lt;!--more--&amp;gt;&lt;/span&gt;' %_}  
-  {_{ post.content | split:'&lt;span class=&quot;c&quot;&gt;&amp;lt;!--more--&amp;gt;&lt;/span&gt;' | first }_}  
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;more&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;  
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{_{ post.url }_}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Read More &lt;span class=&quot;ni&quot;&gt;&amp;amp;raquo;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;  
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;  
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{_% if post.content contains '&amp;lt;!--more--&amp;gt;' %_}  
+  {_{ post.content | split:'&amp;lt;!--more--&amp;gt;' | first }_}  
+    &amp;lt;p class=&quot;more&quot;&amp;gt;  
+      &amp;lt;a href=&quot;{_{ post.url }_}&quot;&amp;gt;Read More &amp;amp;raquo;&amp;lt;/a&amp;gt;  
+    &amp;lt;/p&amp;gt;  
 {_% else %_}  
   {_{ post.excerpt }_}  
 {_% endif %_}  
