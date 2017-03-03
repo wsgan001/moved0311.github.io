@@ -32,7 +32,14 @@
 
 
   <body class="theme-base-0b">
-
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=228652297542969";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
@@ -139,6 +146,15 @@
     
       <li>
         <h3>
+          <a href="/2017/commandline/">
+            command line
+            <small>01 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/2017/cloudComputing/">
             SocialCloudComputing
             <small>25 Feb 2017</small>
@@ -155,16 +171,11 @@
         </h3>
       </li>
     
-      <li>
-        <h3>
-          <a href="/2017/logic/">
-            logic
-            <small>23 Feb 2017</small>
-          </a>
-        </h3>
-      </li>
-    
   </ul>
+
+  
+    <div class="fb-comments" data-href="http://localhost:4000/2017/javaScript/" data-width="auto" data-numposts="5"></div>
+  
 </div>
 
     </div>

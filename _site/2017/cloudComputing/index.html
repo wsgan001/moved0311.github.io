@@ -32,7 +32,14 @@
 
 
   <body class="theme-base-0b">
-
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=228652297542969";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
@@ -137,7 +144,47 @@
 
 <h4 id="social-networks">Social Networks</h4>
 
-<p>複習graph</p>
+<table>
+  <tbody>
+    <tr>
+      <td>Sociocentric</td>
+      <td>Egocentric</td>
+    </tr>
+    <tr>
+      <td>根據整群分析</td>
+      <td>根據個人分析,向外延伸</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>information Network<br />
+paper reference<br />
+web hyperlink<br />
+Language</li>
+  <li>Social Network<br />
+FB好友關係</li>
+  <li>Technology Network<br />
+電力系統(Power grid)</li>
+  <li>Biologycal Network<br />
+蛋白質互動關係,食物鏈</li>
+</ul>
+
+<p>為什麼要分這麼多類Network?</p>
+<blockquote>
+  <p>因為要分析的點不同,可能在information Network中很重要的,卻在Social Network可能不是那麼重要</p>
+</blockquote>
+
+<p><em>**</em> Network Properties</p>
+<ol>
+  <li>small-world effect
+六度分離理論</li>
+  <li>Transitivity
+3.
+4.
+5.
+6.</li>
+</ol>
 
 <h4 id="reference">reference</h4>
 <p><a href="http://newdoc.nccu.edu.tw/teaschm/1052/schmPrv.jsp-yy=105&amp;smt=2&amp;num=753868&amp;gop=00&amp;s=1&amp;tea=101583.htm">社群雲端運算</a></p>
@@ -147,6 +194,15 @@
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2017/commandline/">
+            command line
+            <small>01 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
     
       <li>
         <h3>
@@ -166,16 +222,11 @@
         </h3>
       </li>
     
-      <li>
-        <h3>
-          <a href="/2017/logic/">
-            logic
-            <small>23 Feb 2017</small>
-          </a>
-        </h3>
-      </li>
-    
   </ul>
+
+  
+    <div class="fb-comments" data-href="http://localhost:4000/2017/cloudComputing/" data-width="auto" data-numposts="5"></div>
+  
 </div>
 
     </div>

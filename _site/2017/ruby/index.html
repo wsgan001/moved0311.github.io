@@ -32,7 +32,14 @@
 
 
   <body class="theme-base-0b">
-
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=228652297542969";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
@@ -197,105 +204,133 @@ I'm comment two.
 <span class="c1">#nil</span>
 </code></pre>
 </div>
-<hr />
-
-<p>x = 3<br />
-case x<br />
-  when 1<br />
-  puts 1<br />
-  when 2<br />
-  puts 2<br />
-  when 3<br />
-  puts 3<br />
-  end<br />
-3</p>
-
-<p>x = 0<br />
-while true<br />
-  x += 1<br />
-  puts x<br />
-  break if x &gt; 10<br />
-  end<br />
-1<br />
-2<br />
-3<br />
-4<br />
-5<br />
-6<br />
-7<br />
-8 
-9<br />
-10<br />
-11</p>
-
-<h4 id="hash">hash</h4>
-<p>{:wer =&gt; 123, :sdf =&gt; 234}[:wer] //123<br />
-{wer: 123, sdf: 234} //冒號不能離開字<br />
-{:wer =&gt; 123, :sdf =&gt; 234}.keys<br />
-{:wer =&gt; 123, :sdf =&gt; 234}.values<br />
-“wer”.class		//String<br />
-:wer.class		//Symbol<br />
-key不適合用String 因為String會new新的物件而Symbol不會<br />
-2.4.0 :011 &gt; “wer”.object_id<br />
- =&gt; 18016080 <br />
-2.4.0 :012 &gt; “wer”.object_id<br />
- =&gt; 18575560<br />
-2.4.0 :013 &gt; :wer.object_id<br />
- =&gt; 1168348 <br />
-2.4.0 :014 &gt; :wer.object_id 
- =&gt; 1168348</p>
-
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>  
+<span class="k">case</span> <span class="n">x</span>  
+  <span class="k">when</span> <span class="mi">1</span>  
+    <span class="nb">puts</span> <span class="mi">1</span>  
+  <span class="k">when</span> <span class="mi">2</span>  
+    <span class="nb">puts</span> <span class="mi">2</span>  
+  <span class="k">when</span> <span class="mi">3</span>  
+    <span class="nb">puts</span> <span class="mi">3</span>  
+  <span class="k">end</span>  
+<span class="c1">#3  </span>
+</code></pre>
+</div>
 <h4 id="迴圈">迴圈</h4>
-<p>2.4.0 :015 &gt; [1,”wer”,3,4,5,111].each do |x|<br />
-2.4.0 :016 &gt;     puts x<br />
-2.4.0 :017?&gt;   end<br />
-1<br />
-wer<br />
-3<br />
-4<br />
-5<br />
-111<br />
- =&gt; [1, “wer”, 3, 4, 5, 111]</p>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="n">num</span> <span class="k">in</span> <span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="o">.</span><span class="mi">10</span>
+  <span class="nb">puts</span> <span class="n">num</span>
+<span class="k">end</span>
+
+<span class="c1"># ... 1~9</span>
+<span class="c1"># ..  1~10</span>
+</code></pre>
+</div>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">i</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="kp">loop</span> <span class="k">do</span>
+  <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+  <span class="k">next</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="c1">#遇到奇數略過</span>
+  <span class="nb">print</span> <span class="s2">"</span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">break</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">0</span>
+<span class="k">end</span>
+
+<span class="c1">#181614121086420nil</span>
+</code></pre>
+</div>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">odds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">odds</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+    <span class="nb">print</span> <span class="n">i</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>  
+<span class="k">while</span> <span class="kp">true</span>  
+  <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>  
+  <span class="nb">puts</span> <span class="n">x</span>  
+  <span class="k">break</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span>  
+<span class="k">end</span>  
+</code></pre>
+</div>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="mi">10</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+    <span class="nb">print</span> <span class="s2">"helloworld"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<h4 id="hash">hash</h4>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">animal</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"dog"</span> <span class="o">=&gt;</span> <span class="s2">"hot dog"</span><span class="p">,</span>
+  <span class="s2">"cat"</span> <span class="o">=&gt;</span> <span class="s2">"fat cat"</span><span class="p">,</span>
+  <span class="s2">"fox"</span> <span class="o">=&gt;</span> <span class="s2">"fox HD"</span><span class="p">,</span>
+  <span class="s2">"duck"</span> <span class="o">=&gt;</span> <span class="s2">"Donald Duck"</span>
+<span class="p">}</span>
+  
+<span class="n">animal</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
+    <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">#{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+
+<span class="o">=&gt;</span> <span class="p">(</span><span class="nb">hash</span> <span class="n">rocket</span><span class="p">)</span>
+</code></pre>
+</div>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">num</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:one</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">:two</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">}</span>
+<span class="c1"># 等價於</span>
+<span class="n">num</span> <span class="o">=</span> <span class="p">{</span><span class="ss">one: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">two: </span><span class="mi">2</span><span class="p">}</span>
+</code></pre>
+</div>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span><span class="p">.</span><span class="nf">select</span><span class="p">{</span><span class="o">|</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">|</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">}</span>
+<span class="nb">hash</span><span class="p">.</span><span class="nf">each_key</span><span class="p">{</span><span class="o">|</span><span class="n">k</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">k</span><span class="p">}</span>
+<span class="nb">hash</span><span class="p">.</span><span class="nf">each_value</span><span class="p">{</span><span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">v</span><span class="p">}</span>
+</code></pre>
+</div>
+<h5 id="string--symbol">string &amp; symbol</h5>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"string"</span><span class="p">.</span><span class="nf">object_id</span> <span class="c1">#17228620</span>
+<span class="nb">puts</span> <span class="s2">"string"</span><span class="p">.</span><span class="nf">object_id</span> <span class="c1">#17228380</span>
+
+<span class="nb">puts</span> <span class="ss">:symbol</span><span class="p">.</span><span class="nf">object_id</span>  <span class="c1">#319528</span>
+<span class="nb">puts</span> <span class="ss">:symbol</span><span class="p">.</span><span class="nf">object_id</span>  <span class="c1">#319528</span>
+
+<span class="c1">#hash的key不適合用String 因為String會new新的物件而Symbol不會  </span>
+<span class="c1">#效能上symbol會比string好</span>
+
+<span class="c1"># .to_s             轉成string</span>
+<span class="c1"># .to_sym (.intern) 轉成symbol</span>
+</code></pre>
+</div>
 
 <h4 id="定義methods">定義methods</h4>
-<p>def temp1<br />
-  puts 123<br />
-  end<br />
-temp1 或 temp1()<br />
-123</p>
-
-<p>def temp2(x) 
-  puts x 
-  end<br />
-temp2(999)<br />
-999</p>
-
-<p>def temp3 x  //可以做縮寫<br />
-  puts x<br />
-  end <br />
-temp3 888 <br />
-888</p>
-
-<p>def temp4 (x ,y = 1, <em>argv, &amp;block)  //</em>argv多餘的值,block方法<br />
-	block.call(x, y, argv)<br />
-	end <br />
-temp4 1,2,3 do |x,y,argv|<br />
-	ap [x,y,argv]<br />
-	end<br />
-[<br />
-    [0] 1, 
-    [1] 2, <br />
-    [2] [<br />
-        [0] 3<br />
-    ] <br />
-]</p>
-
-<p>def temp5(&amp;block)<br />
-	puts block.class<br />
-	block.call(99)  <br />
-	end<br />
-temp5{|x| puts x}<br />
-99</p>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">greeting</span>
+  <span class="nb">puts</span> <span class="s2">"hello"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">pow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">arr</span><span class="p">.</span><span class="nf">sort!</span>
+</code></pre>
+</div>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">temp4</span> <span class="p">(</span><span class="n">x</span> <span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">argv</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>  <span class="c1"># *argv多餘的值,block方法  </span>
+  <span class="n">block</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">argv</span><span class="p">)</span>  
+<span class="k">end</span>   
+<span class="n">temp4</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">argv</span><span class="o">|</span>  
+  <span class="n">ap</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">argv</span><span class="p">]</span>  
+<span class="k">end</span>  
+</code></pre>
+</div>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">temp5</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>  
+  <span class="nb">puts</span> <span class="n">block</span><span class="p">.</span><span class="nf">class</span>  
+  <span class="n">block</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>    
+<span class="k">end</span>  
+<span class="n">temp5</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">x</span><span class="p">}</span>  
+</code></pre>
+</div>
+<h4 id="運算子">運算子</h4>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;=&gt;</span>   <span class="c1">#比較運算  </span>
+<span class="o">**</span>    <span class="c1">#次方</span>
+</code></pre>
+</div>
 
 <h4 id="class">Class</h4>
 <p>class Car<br />
@@ -417,7 +452,7 @@ match[2]<br />
   puts $! , $@ 
   end</p>
 
-<p>asdf rescue “you are error”<br />
+<p>akey2 rescue “you are error”<br />
  =&gt; “you are error”</p>
 
 <h4 id="call-system">Call System</h4>
@@ -441,6 +476,15 @@ match[2]<br />
     
       <li>
         <h3>
+          <a href="/2017/commandline/">
+            command line
+            <small>01 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/2017/cloudComputing/">
             SocialCloudComputing
             <small>25 Feb 2017</small>
@@ -457,16 +501,11 @@ match[2]<br />
         </h3>
       </li>
     
-      <li>
-        <h3>
-          <a href="/2017/mysql/">
-            mysql
-            <small>23 Feb 2017</small>
-          </a>
-        </h3>
-      </li>
-    
   </ul>
+
+  
+    <div class="fb-comments" data-href="http://localhost:4000/2017/ruby/" data-width="auto" data-numposts="5"></div>
+  
 </div>
 
     </div>

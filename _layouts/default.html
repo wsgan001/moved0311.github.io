@@ -4,7 +4,7 @@
   {% include head.html %}
 
   <body class="theme-base-0b">
-
+    {% if page.comments != false %}{% include facebook-script.html %}{% endif %}
     {% include sidebar.html %}
 
     <div class="content container">

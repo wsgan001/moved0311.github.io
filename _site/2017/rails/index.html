@@ -32,7 +32,14 @@
 
 
   <body class="theme-base-0b">
-
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=228652297542969";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
@@ -136,7 +143,7 @@ config 				所有設定檔<br />
   enviroments/<br />
   initializers		rails開機執行<br />
   secrets.yml<br />
-app/</p>
+app/  j</p>
 
 <h4 id="啟動順序">啟動順序</h4>
 <p>environment.rb <br />
@@ -183,8 +190,7 @@ t.timestamp : updated_at<br />
 type保留字  <br />
 relation</p>
 
-<p>2:14:   <br />
-route -&gt; controller/ action -&gt; view/ Helper/ Layout/ partial(sub HTML)</p>
+<p>route -&gt; controller/ action -&gt; view/ Helper/ Layout/ partial(sub HTML)</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>config/routes.rb 
 
@@ -431,6 +437,7 @@ app/models/user.rb
   2   # Include default devise modules. Others available are:
   3   # :confirmable, :lockable, :timeoutable and :omniauthable
   4   devise :database_authenticatable, :registerable
+
   5          #:recoverable, :rememberable, :trackable, :validatable
   6 end
 </code></pre>
@@ -564,11 +571,110 @@ Manager.create(:email =&gt; ‘test@test’, :password =&gt; ‘testtest’)</p>
 </code></pre>
 </div>
 
+<p><a href="https://www.youtube.com/watch?v=MVMrVl0Pj80&amp;list=PLJ6M-k9dQEQ3VsyOZQwjZ5GdjaLJH3eB_&amp;index=4">RailsFun.tw 新手教學 day3 HD</a></p>
+
+<p>5:00 path 介紹<br />
+10:00 講 routes<br />
+21:26 resource collection, member<br />
+	在route裡面加入collection和member<br />
+	collection沒有id<br />
+	member有id<br />
+29<br />
+<code class="highlighter-rouge">&lt;%= link_to 'kitty' , kitty_path , :method =&gt; "post" %&gt;</code><br />
+37:43 form_for 建議寫法(與scaffold不同)<br />
+<code class="highlighter-rouge">&lt;%= form_for Item.new , :url =&gt; kitty+path , :method =&gt; 'deltete' do |f|%&gt;</code>
+<code class="highlighter-rouge">&lt;% end %&gt;</code><br />
+form_for help 幫你寫成html<br />
+jquery_ujs : 讓傳統http支援RESTful</p>
+
+<p>53:25 lib 寫法 <br />
+<code class="highlighter-rouge">require 'open-uri'</code><br />
+<code class="highlighter-rouge">open(url).read</code> 回傳html<br />
+api 可以放在lib中<br />
+並在cofig加入require ‘apiName’<br />
+就可以在rails呼叫</p>
+
+<p>1:01:15 多層controller<br />
+  namespace 可以打出多層routes<br />
+  一層 /item <br />
+  多層 /dashboard/item<br />
+  item 就放在namespace底下</p>
+
+<p>1:06:00 public/robot.txt<br />
+  :: namespace 名稱<br />
+  Dashboard::Admin::ItemsController</p>
+
+<p>1:10:35 Gem</p>
+<ul>
+  <li>will_paginate</li>
+  <li>paperclip</li>
+  <li>devise<br />
+  rails g –help<br />
+  rails g devise:install<br />
+  rails g devise NAME</li>
+  <li>cancancan<br />
+  權限控管</li>
+  <li>simple_captcha<br />
+1:17:25 simple_captcha 用法 <br />
+辨識機器人,手動打圖片內文字的gem<br />
+1:36:10 手工 layout<br />
+1:46:50 mail<br />
+1:52:40 流程問題<br />
+1:55:00 單欄位攻擊<br />
+2:03:45 巨量bot攻擊<br />
+cookie<br />
+2:13:05 隔離中斷攻擊(中間人攻擊)
+2:18:45 base64 demo<br />
+css3 flex</li>
+</ul>
+
+<p><a href="https://www.youtube.com/watch?v=h6OlIumEnW0&amp;index=5&amp;list=PLJ6M-k9dQEQ3VsyOZQwjZ5GdjaLJH3eB_">RailsFun.tw 新手教學 day4 HD</a></p>
+<h4 id="deploy">Deploy</h4>
+<p>0:03:00 passenger 安裝 <br />
+0:11:36 等待安裝，講 template<br />
+0:14:13 安裝完成<br />
+設定nginx.conf  <br />
+root /home/taiyi/Downloads/shop1/public;<br />
+passenger_enabled on;<br />
+在<code class="highlighter-rouge">nginx/sbin</code>  <br />
+sudo ./nginx  開  <br />
+sudo ./nginx -s stop  關  <br />
+0:23:27 除錯 secret.yml production key 未設定<br />
+0:27:40 重啟 rails (不用重啟 nginx)<br />
+<code class="highlighter-rouge">touch tmp/restart.txt</code>  <br />
+0:35:10 如何打造漂亮layout<br />
+將模板套到原本的後台管理系統  <br />
+1:16:20 html &amp; css<br />
+CDN 瀏覽器connection數量限制,<br />
+一張圖片可能用6個機器人爬<br />
+CDN切的好可加速圖片載入速度<br />
+SEO 
+網站搜尋的序列(排名前後) <br />
+1:50:20 CSS
+行高<br />
+line-height: 60px;<br />
+vertical-align: middle;<br />
+2:17:40 css 練習 http://flukeout.github.io/</p>
+
+<h4 id="練功順序">練功順序</h4>
+<ol>
+  <li><a href="http://guides.ruby.tw/rails3/getting_started.html">Rails 初上手指南</a></li>
+</ol>
+
 </div>
 
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2017/commandline/">
+            command line
+            <small>01 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
     
       <li>
         <h3>
@@ -588,16 +694,11 @@ Manager.create(:email =&gt; ‘test@test’, :password =&gt; ‘testtest’)</p>
         </h3>
       </li>
     
-      <li>
-        <h3>
-          <a href="/2017/mysql/">
-            mysql
-            <small>23 Feb 2017</small>
-          </a>
-        </h3>
-      </li>
-    
   </ul>
+
+  
+    <div class="fb-comments" data-href="http://localhost:4000/2017/rails/" data-width="auto" data-numposts="5"></div>
+  
 </div>
 
     </div>

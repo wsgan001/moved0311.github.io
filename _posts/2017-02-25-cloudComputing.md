@@ -26,10 +26,38 @@ title: SocialCloudComputing
 * IEEE Transactions on Knowledge and Data Engineering(TKDE)
 * IEEE Transactions on Computational Social System
 
-
 #### Social Networks
 
-複習graph
+|Sociocentric|Egocentric
+|根據整群分析|根據個人分析,向外延伸|
+
+* information Network  
+  paper reference  
+  web hyperlink  
+  Language  
+* Social Network  
+  FB好友關係    
+* Technology Network  
+  電力系統(Power grid)   
+* Biologycal Network  
+  蛋白質互動關係,食物鏈    
+
+為什麼要分這麼多類Network?  
+> 因為要分析的點不同,可能在information Network中很重要的,卻在Social Network可能不是那麼重要  
+
+**** Network Properties
+1. small-world effect
+   六度分離理論  
+2. Transitivity
+3.
+4.
+5.
+6.
+
+
+
+
+
 
 
 
