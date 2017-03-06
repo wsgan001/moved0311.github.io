@@ -47,13 +47,27 @@ title: SocialCloudComputing
 
 **** Network Properties
 1. small-world effect
-   六度分離理論  
+    六度分離理論  
+    靠點和點距離關係分析    
 2. Transitivity
-3.
-4.
-5.
-6.
+    朋友的朋友很可能也是你朋友  
+	[Clustering Coeffieient](https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0)  
+3. Degree distribution
+	Real world network: Power law		
+	Heavy-tailed degree distribution  
+	大量很低的數量,集合起來還是很驚人  
+4. Network resilience
+	如果拿掉一些點,連通性會有什麼變化？(e.g.有些人掛了,離職)  
+	連接path的長度變長,或是disconnect   
+	
+5.   
+6.  
+7.  
+8.  
 
+CERN
+[米爾格倫實驗 Milgram experiment](https://zh.wikipedia.org/wiki/%E7%B1%B3%E7%88%BE%E6%A0%BC%E5%80%AB%E5%AF%A6%E9%A9%97)服從威權實驗   
+random graph  
 
 
 

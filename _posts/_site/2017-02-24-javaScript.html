@@ -1,0 +1,23 @@
+<p>多使用const並用let取代var<br />
+宣告物件別用new直接用obj = {}<br />
+<code class="highlighter-rouge">...</code>展開運算子  <br />
+<!--more--></p>
+<h4 id="陣列複製">陣列複製</h4>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>  <span class="c1">//(X) -&gt; 當修改b時,a會跟著修改</span>
+
+<span class="nx">b</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">a</span><span class="p">];</span>
+</code></pre>
+</div>
+<h4 id="字串串接">字串串接</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>`hello, my name is ${name}.`
+</code></pre>
+</div>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">concatenateAll</span><span class="p">(...</span><span class="nx">args</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">args</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">''</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h4 id="reference">reference</h4>
+<p><a href="https://github.com/airbnb/javascript#hoisting">Airbnb JavaScript Style Guide</a></p>

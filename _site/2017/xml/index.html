@@ -11,7 +11,7 @@
 
   <title>
     
-      git practice &middot; Taiyi's note
+      xml &middot; Taiyi's note
     
   </title>
 
@@ -116,55 +116,40 @@
 
     <div class="content container">
       <div class="post">
-  <h1 class="post-title">git practice</h1>
-  <span class="post-date">21 Feb 2017</span>
-  <p><code class="highlighter-rouge">git init --bare projectName</code></p>
+  <h1 class="post-title">xml</h1>
+  <span class="post-date">06 Mar 2017</span>
+  <ul>
+  <li>符合巢狀結構</li>
+  <li>唯一根元素(root)</li>
+</ul>
 
-<p><code class="highlighter-rouge">git status</code></p>
+<p>A Vaild XML document 符合 DTD(Document Type Definition)</p>
 
-<p><code class="highlighter-rouge">git commit -m "some description"</code><br />
-<code class="highlighter-rouge">git push (origin master)</code><br />
-<code class="highlighter-rouge">git pull</code></p>
+<p>Unicode<br />
+將每一個符號給一個唯一code point用來識別<br />
+code point 範圍 0 ~ 1114112 (目前大約使用10萬左右)<br />
+且0~127和ASCII相同<br />
+Unicode Glyphs<br />
+代表一個字的一部分</p>
 
-<p><code class="highlighter-rouge">git clone ssh://xxx.tw/var/git/project.git</code><br />
-<code class="highlighter-rouge">git clone /home/git_temp/project.git</code></p>
+<p>Character encoding
+  e.g utf-8,utf-16,utf-32
+Character decoding</p>
 
-<p><code class="highlighter-rouge">git branch work1</code>  <br />
-<code class="highlighter-rouge">git branch -d work1</code>  <br />
-刪除branch<br />
-<code class="highlighter-rouge">git checkout work1</code>  <br />
-跳到work1分支</p>
+<h4 id="utf-8">utf-8</h4>
+<p>0xxxxxxx 代表只看自己xxxxxxx就是code point<br />
+110xxxxx 10xxxxxx 11開頭代表要看兩組的xxxxx合起來才是code point<br />
+1110xxxx 10xxxxxx 10xxxxxx 代表要看三組xxxx的總和</p>
 
-<p><code class="highlighter-rouge">git log</code></p>
+<h4 id="utf-16">utf-16</h4>
+<p>BigEndin/LittleEndin處理</p>
 
-<!--more-->
-
-<p><code class="highlighter-rouge">git rebase</code><br />
-將目前branch所作的修改移到master上,<br />
-好處是建立更好看的log/history</p>
-
-<p><code class="highlighter-rouge">git checkout HEAD^</code><br />
-從master向上一個commit<br />
-<code class="highlighter-rouge">git checkout HEAD~4</code>
-從master向上4個commit</p>
-
-<h4 id="教學網站">教學網站</h4>
-<p><a href="http://learngitbranching.js.org/?demo">Learn Git Branching</a></p>
 
 </div>
 
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="/2017/xml/">
-            xml
-            <small>06 Mar 2017</small>
-          </a>
-        </h3>
-      </li>
     
       <li>
         <h3>
@@ -184,10 +169,19 @@
         </h3>
       </li>
     
+      <li>
+        <h3>
+          <a href="/2017/javaScript/">
+            JavaScript
+            <small>24 Feb 2017</small>
+          </a>
+        </h3>
+      </li>
+    
   </ul>
 
   
-    <div class="fb-comments" data-href="http://localhost:4000/2017/git/" data-width="auto" data-numposts="5"></div>
+    <div class="fb-comments" data-href="http://localhost:4000/2017/xml/" data-width="auto" data-numposts="5"></div>
 
   
 </div>
