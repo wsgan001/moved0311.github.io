@@ -407,91 +407,56 @@ I'm comment two.
 </code></pre>
 </div>
 <h4 id="繼承">繼承</h4>
-<p>class Hihi<br />
-  def self.nono<br />
-    puts 123<br />
-    end<br />
-  end<br />
-class Moo &lt; Hihi ( &lt; inherit)<br />
-  end<br />
-Moo.nono<br />
-123</p>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Animal</span>
+  <span class="k">def</span> <span class="nf">say</span>
+    <span class="nb">puts</span> <span class="s2">"I'm Animal."</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 
-<p>class Animal<br />
-  def say 
-    puts “hi”<br />
-    end<br />
-  end<br />
- =&gt; :say <br />
-class Cat &lt; Animal<br />
-  def say <br />
-    puts “meow”<br />
-    super			(use father’s method)<br />
-    end<br />
-  end<br />
-Cat.new.say<br />
-//meow<br />
-//hi</p>
+<span class="k">class</span> <span class="nc">Cat</span> <span class="o">&lt;</span> <span class="no">Animal</span> <span class="c1"># &lt; Inheritance Syntax</span>
+  <span class="k">def</span> <span class="nf">say</span>
+    <span class="k">super</span>  
+    <span class="nb">puts</span> <span class="s2">"I'm Cat."</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 
-<p>module A		＃module不能被new<br />
-  def hihi<br />
-    puts “hihi”<br />
-    end<br />
-  end<br />
-class B<br />
-  include A 	#use other module -&gt; include<br />
-  end<br />
-B.new.hihi<br />
-#hihi</p>
+<span class="c1"># I'am Amimal.</span>
+<span class="c1"># I'am Cat. </span>
+</code></pre>
+</div>
+<h4 id="module">module</h4>
+<blockquote>
+  <p>a set of methods.</p>
+</blockquote>
 
-<h4 id="regular-expression">regular expression</h4>
-<p>regex = /(A-Z)([12])\d{8}/<br />
- =&gt; /(A-Z)([12])\d{8}/ <br />
-match = “A145645645”.match(regex)<br />
-regex = /([A-Z])([12])\d{8}/<br />
-match = “A145645645”.match(regex)<br />
-match[0]<br />
- =&gt; “A145645645” <br />
-match[1]<br />
- =&gt; “A”<br />
-match[2]<br />
- =&gt; “1”</p>
+<p>module不能被new</p>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Greeting</span> 
+  <span class="k">def</span> <span class="nf">hi</span>
+    <span class="nb">puts</span> <span class="s2">"hi"</span> 
+  <span class="k">end</span>
+  <span class="k">def</span> <span class="nf">hello</span>
+    <span class="nb">puts</span> <span class="s2">"hello"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 
-<h4 id="marshal">Marshal</h4>
-<p>兩台伺服器要共用一些變數<br />
-用Marshal.load載回來</p>
+<span class="k">class</span> <span class="nc">People</span>
+  <span class="kp">extend</span> <span class="no">Greeting</span>
+<span class="k">end</span>
 
-<p>＃Thread<br />
-10.times do |i|<br />
-    Thread.new do<br />
-      sleep rand(5) + 1<br />
-    puts i<br />
-    end<br />
-  end<br />
-9<br />
-0<br />
-4 <br />
-5<br />
-1<br />
-286<br />
-7<br />
-3</p>
-
-<h4 id="exception">Exception</h4>
-<p>begin<br />
-    lasjdflsdk<br />
-  rescue <br />
-  puts $! , $@ 
-  end</p>
-
-<p>akey2 rescue “you are error”<br />
- =&gt; “you are error”</p>
+<span class="no">People</span><span class="p">.</span><span class="nf">hi</span>  <span class="c1"># hi</span>
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">::</code> scope resolution operator</p>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">puts</span> <span class="no">Math</span><span class="o">::</span><span class="no">PI</span> <span class="c1">#在Math module下的PI</span>
+</code></pre>
+</div>
+<h4 id="mixin">Mixin</h4>
+<blockquote>
+  <p>在class中可以用include來載入module</p>
+</blockquote>
 
 <h4 id="call-system">Call System</h4>
-<p>`pwd` 或 system(‘pwd’)</p>
-
-<h4 id="gem">gem</h4>
-<p>gem install packageName ( = gem i packageName)</p>
+<p>`pwd` 或 <code class="highlighter-rouge">system('pwd')</code></p>
 
 <h4 id="教學網站">教學網站</h4>
 <ul>

@@ -4,7 +4,7 @@
  <title>Taiyi's note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-03-06T15:28:07+08:00</updated>
+ <updated>2017-03-06T18:44:46+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -43,6 +43,7 @@ Character decoding&lt;/p&gt;
 &lt;h4 id=&quot;utf-16&quot;&gt;utf-16&lt;/h4&gt;
 &lt;p&gt;BigEndin/LittleEndin處理&lt;/p&gt;
 
+&lt;p&gt;p48&lt;/p&gt;
 </content>
  </entry>
  
@@ -1255,91 +1256,56 @@ I'm comment two.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;h4 id=&quot;繼承&quot;&gt;繼承&lt;/h4&gt;
-&lt;p&gt;class Hihi&lt;br /&gt;
-  def self.nono&lt;br /&gt;
-    puts 123&lt;br /&gt;
-    end&lt;br /&gt;
-  end&lt;br /&gt;
-class Moo &amp;lt; Hihi ( &amp;lt; inherit)&lt;br /&gt;
-  end&lt;br /&gt;
-Moo.nono&lt;br /&gt;
-123&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Animal&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;I'm Animal.&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
-&lt;p&gt;class Animal&lt;br /&gt;
-  def say 
-    puts “hi”&lt;br /&gt;
-    end&lt;br /&gt;
-  end&lt;br /&gt;
- =&amp;gt; :say &lt;br /&gt;
-class Cat &amp;lt; Animal&lt;br /&gt;
-  def say &lt;br /&gt;
-    puts “meow”&lt;br /&gt;
-    super			(use father’s method)&lt;br /&gt;
-    end&lt;br /&gt;
-  end&lt;br /&gt;
-Cat.new.say&lt;br /&gt;
-//meow&lt;br /&gt;
-//hi&lt;/p&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Animal&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt; Inheritance Syntax&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;  
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;I'm Cat.&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
-&lt;p&gt;module A		＃module不能被new&lt;br /&gt;
-  def hihi&lt;br /&gt;
-    puts “hihi”&lt;br /&gt;
-    end&lt;br /&gt;
-  end&lt;br /&gt;
-class B&lt;br /&gt;
-  include A 	#use other module -&amp;gt; include&lt;br /&gt;
-  end&lt;br /&gt;
-B.new.hihi&lt;br /&gt;
-#hihi&lt;/p&gt;
+&lt;span class=&quot;c1&quot;&gt;# I'am Amimal.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# I'am Cat. &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h4 id=&quot;module&quot;&gt;module&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;a set of methods.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;h4 id=&quot;regular-expression&quot;&gt;regular expression&lt;/h4&gt;
-&lt;p&gt;regex = /(A-Z)([12])\d{8}/&lt;br /&gt;
- =&amp;gt; /(A-Z)([12])\d{8}/ &lt;br /&gt;
-match = “A145645645”.match(regex)&lt;br /&gt;
-regex = /([A-Z])([12])\d{8}/&lt;br /&gt;
-match = “A145645645”.match(regex)&lt;br /&gt;
-match[0]&lt;br /&gt;
- =&amp;gt; “A145645645” &lt;br /&gt;
-match[1]&lt;br /&gt;
- =&amp;gt; “A”&lt;br /&gt;
-match[2]&lt;br /&gt;
- =&amp;gt; “1”&lt;/p&gt;
+&lt;p&gt;module不能被new&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Greeting&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hi&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hi&quot;&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hello&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
-&lt;h4 id=&quot;marshal&quot;&gt;Marshal&lt;/h4&gt;
-&lt;p&gt;兩台伺服器要共用一些變數&lt;br /&gt;
-用Marshal.load載回來&lt;/p&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;People&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;extend&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Greeting&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
-&lt;p&gt;＃Thread&lt;br /&gt;
-10.times do |i|&lt;br /&gt;
-    Thread.new do&lt;br /&gt;
-      sleep rand(5) + 1&lt;br /&gt;
-    puts i&lt;br /&gt;
-    end&lt;br /&gt;
-  end&lt;br /&gt;
-9&lt;br /&gt;
-0&lt;br /&gt;
-4 &lt;br /&gt;
-5&lt;br /&gt;
-1&lt;br /&gt;
-286&lt;br /&gt;
-7&lt;br /&gt;
-3&lt;/p&gt;
-
-&lt;h4 id=&quot;exception&quot;&gt;Exception&lt;/h4&gt;
-&lt;p&gt;begin&lt;br /&gt;
-    lasjdflsdk&lt;br /&gt;
-  rescue &lt;br /&gt;
-  puts $! , $@ 
-  end&lt;/p&gt;
-
-&lt;p&gt;akey2 rescue “you are error”&lt;br /&gt;
- =&amp;gt; “you are error”&lt;/p&gt;
+&lt;span class=&quot;no&quot;&gt;People&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;hi&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# hi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;::&lt;/code&gt; scope resolution operator&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PI&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#在Math module下的PI&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h4 id=&quot;mixin&quot;&gt;Mixin&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;在class中可以用include來載入module&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h4 id=&quot;call-system&quot;&gt;Call System&lt;/h4&gt;
-&lt;p&gt;`pwd` 或 system(‘pwd’)&lt;/p&gt;
-
-&lt;h4 id=&quot;gem&quot;&gt;gem&lt;/h4&gt;
-&lt;p&gt;gem install packageName ( = gem i packageName)&lt;/p&gt;
+&lt;p&gt;`pwd` 或 &lt;code class=&quot;highlighter-rouge&quot;&gt;system('pwd')&lt;/code&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;教學網站&quot;&gt;教學網站&lt;/h4&gt;
 &lt;ul&gt;
