@@ -4,13 +4,45 @@
  <title>Taiyi's note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-03-06T18:44:46+08:00</updated>
+ <updated>2017-03-07T23:53:33+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
    <email>moved0311@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>paperWrite</title>
+   <link href="http://localhost:4000/2017/paperWrite/"/>
+   <updated>2017-03-07T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2017/paperWrite</id>
+   <content type="html">&lt;ol&gt;
+  &lt;li&gt;Title (標題)
+關鍵字,簡潔,範圍小&lt;/li&gt;
+  &lt;li&gt;Author(s) (作者)&lt;/li&gt;
+  &lt;li&gt;Abstract (摘要)&lt;/li&gt;
+  &lt;li&gt;Introduction (緒論) 
+目的/背景/主要結果&lt;/li&gt;
+  &lt;li&gt;Methods (研究⽅法) 
+能夠再現&lt;/li&gt;
+  &lt;li&gt;Results (研究結果)&lt;/li&gt;
+  &lt;li&gt;Discussion (討論)&lt;/li&gt;
+  &lt;li&gt;Conclusions (結論)&lt;/li&gt;
+  &lt;li&gt;Acknowledgements (致謝辭)&lt;/li&gt;
+  &lt;li&gt;References (參考書⽬)
+找兩年內的paper&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;栽要和緒論最後寫&lt;/p&gt;
+
+&lt;p&gt;Parapraph/Section
+ -主題(重點)
+ -正文
+ -結論&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>xml</title>
@@ -358,47 +390,69 @@ so-called solver&lt;/li&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;,&lt;/code&gt;   and&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt;   comment&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt;   end of sentence&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt;   don’t care&lt;/p&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt;   don’t care  ‘
+&lt;code class=&quot;highlighter-rouge&quot;&gt;-&lt;/code&gt;   邏輯上否定
+not&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Towers of Hanoi (toh.lp)
+&lt;p&gt;man(m(1..nMen))  % m(1) m(2)
+為什麼不直接用 man(1),man(2)…&lt;/p&gt;
 
-1 peg(a;b;c).
-2 disk(1..4).
-3 init_on(1..4,a).
-4 goal_on(1..4,c).
-5 moves(15).
-6 
-7 % Generate
-8 { move(D,P,T) : disk(D), peg(P) } = 1 :- moves(M),
-9 T = 1..M.
-10 % Define
-11 move(D,T) :- move(D,_,T).
-12 on(D,P,0) :- init_on(D,P).
-13 on(D,P,T) :- move(D,P,T).
-14 on(D,P,T+1) :- on(D,P,T), not move(D,T+1),
-15 not moves(T).
-16 blocked(D-1,P,T+1) :- on(D,P,T), not moves(T).
-17 blocked(D-1,P,T) :- blocked(D,P,T), disk(D).
-18 % Test
-19 :- move(D,P,T), blocked(D-1,P,T).
-20 :- move(D,T), on(D,P,T-1), blocked(D,P,T).
-21 :- goal_on(D,P), not on(D,P,M), moves(M).
-22 :- { on(D,P,T) } != 1, disk(D), moves(M), T = 1..M.
-23 % Display
-24 #show move/3.
+&lt;p&gt;domain prdicate&lt;/p&gt;
 
-Solving...
-Answer: 1
-move(4,b,1) move(3,c,2) move(4,c,3) move(2,b,4) move(4,a,5) move(3,b,6) move(4,b,7) move(1,c,8) move(4,c,9) move(3,a,10) move(4,a,11) move(2,c,12) move(4,b,13) move(3,c,14) move(4,c,15)
-SATISFIABLE
+&lt;p&gt;#count 
+1 {} 1  等價於 1 &amp;lt;= #count{} &amp;lt;= 1&lt;/p&gt;
 
-Models       : 1+
-Calls        : 1
-Time         : 0.019s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.010s
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;p;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;個model&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;都錯&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;對&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;錯&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;錯&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;對&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;都對&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
+&lt;p&gt;:- statement.
+左邊沒寫預設是false,代表右邊必須是false,才能consist
+才能得到 false -&amp;gt; false
+:- mp(m(M), R1, w(W)), mp(m(M), R2, w(W)), R1 != R2. (!= 習慣用 &amp;lt;)
+:- mp(m(M), R1, w(W)), mp(m(M), R2, w(W)), not R1 == R2.
+not not R1 = R2:- mp(m(M), R1, w(W)), mp(m(M), R2, w(W)).
+not not 只有驗證的功能,沒有生成的功能&lt;/p&gt;
+
+&lt;p&gt;要引入別的檔案
+#include “xxx.lp”
+變數分safe / unsafe
+所有的變數都要positive(必須知道資料來源)&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;#count{W: match(m(M),w(W))}&lt;/dt&gt;
+  &lt;dd&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;在集合中表示&lt;/td&gt;
+          &lt;td&gt;(例如 {W&lt;/td&gt;
+          &lt;td&gt;條件})&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;條件敘述使用&lt;code class=&quot;highlighter-rouge&quot;&gt;:&lt;/code&gt; 
+condition literal
+p : q, r : r1, r2
+有兩種情況&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;p : q , r.&lt;/li&gt;
+  &lt;li&gt;p : q.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;single(m(M)) :- man(m(M)), #false : woman(w(W), match(m(M),w(W)))&lt;/p&gt;
+
+&lt;p&gt;可以考慮改善clingo界面
+使用clingo分析最佳語意？&lt;/p&gt;
 
 &lt;h3 id=&quot;reference&quot;&gt;reference&lt;/h3&gt;
 &lt;ul&gt;
