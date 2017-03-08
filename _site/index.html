@@ -119,6 +119,93 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/2017/python/">
+        python
+      </a>
+    </h1>
+    <span class="post-date">08 Mar 2017</span>
+
+    
+		<h4 id="print">print</h4>
+<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%.2</span><span class="s">f"</span> <span class="o">%</span> <span class="n">total</span><span class="p">)</span>
+</code></pre>
+</div>
+<h4 id="註解">註解</h4>
+<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="c"># 單行</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="c"># 多行</span>
+<span class="s">"""
+"""</span>
+</code></pre>
+</div>
+<h4 id="date-and-time">Date and Time</h4>
+<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">now</span>
+</code></pre>
+</div>
+<h4 id="input">input</h4>
+<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="n">name</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">"What is your name?"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+	
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2017/webSearching/">
+        webSearching
+      </a>
+    </h1>
+    <span class="post-date">07 Mar 2017</span>
+
+    
+		<p>Ch8 Evaluation in information retrival
+評量search engine好壞</p>
+<ol>
+  <li>搜到的index</li>
+  <li>搜尋速度</li>
+  <li>二氧化碳排放量</li>
+  <li>和搜尋相關程度</li>
+</ol>
+
+<p>相關程度</p>
+<ol>
+  <li>benchmark資料集</li>
+  <li>benchmark queries(問句)</li>
+  <li>文章是否相關的標記(ground truths)</li>
+</ol>
+
+<p>queries和information need有落差
+想找的東西,不會下key word</p>
+
+<p>Precision (P)
+  Precision = 相關/物件總數
+Recall (R)
+  Recall = 相關/相關物件總數</p>
+
+<p>true positive(TP) 機器判斷+且為真
+false positive(FP)機器判斷+但是是假
+false negatives(FN) 機器判斷-但判斷錯
+true negatives(TN)  機器判斷-且判斷對</p>
+
+<p>Precision/Recall Tradoff</p>
+
+<p>調和平均數(harmonic mean)(1/F = 1/2(1/P+1/R) )</p>
+
+<p>Accuracy vs Precision
+accuracy猜是和猜不是都要算</p>
+
+
+	
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/2017/paperWrite/">
         paperWrite
       </a>
@@ -311,49 +398,6 @@ so-called solver</li>
 結合gringo和clasp
 
 		<p class="more"><a href="/2017/ASP/">Read More</a></p>
-	
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2017/rails/">
-        rails
-      </a>
-    </h1>
-    <span class="post-date">22 Feb 2017</span>
-
-    
-		<p><a href="https://www.youtube.com/watch?v=O7AoNPfUFno">RailsFun.tw 新手教學 day2 HD</a></p>
-
-<h4 id="安裝">安裝</h4>
-<p><code class="highlighter-rouge">sudo apt-get install libmysqlclient-dev</code>  <br />
-<code class="highlighter-rouge">rails new project --datebase=mysql</code><br />
-<code class="highlighter-rouge">gem i mysql2</code>
-
-		<p class="more"><a href="/2017/rails/">Read More</a></p>
-	
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2017/ruby/">
-        ruby
-      </a>
-    </h1>
-    <span class="post-date">21 Feb 2017</span>
-
-    
-		<h4 id="安裝rvm">安裝rvm</h4>
-<ol>
-  <li><code class="highlighter-rouge">gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</code></li>
-  <li><code class="highlighter-rouge">\curl -sSL https://get.rvm.io | bash -s stable</code></li>
-  <li><code class="highlighter-rouge">source ~/.rvm/scripts/rvm</code></li>
-</ol>
-
-
-		<p class="more"><a href="/2017/ruby/">Read More</a></p>
 	
 
   </div>

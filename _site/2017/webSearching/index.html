@@ -11,7 +11,7 @@
 
   <title>
     
-      paperWrite &middot; Taiyi's note
+      webSearching &middot; Taiyi's note
     
   </title>
 
@@ -116,31 +116,43 @@
 
     <div class="content container">
       <div class="post">
-  <h1 class="post-title">paperWrite</h1>
+  <h1 class="post-title">webSearching</h1>
   <span class="post-date">07 Mar 2017</span>
-  <ol>
-  <li>Title (標題)
-關鍵字,簡潔,範圍小</li>
-  <li>Author(s) (作者)</li>
-  <li>Abstract (摘要)</li>
-  <li>Introduction (緒論) 
-目的/背景/主要結果</li>
-  <li>Methods (研究⽅法) 
-能夠再現</li>
-  <li>Results (研究結果)</li>
-  <li>Discussion (討論)</li>
-  <li>Conclusions (結論)</li>
-  <li>Acknowledgements (致謝辭)</li>
-  <li>References (參考書⽬)
-找兩年內的paper</li>
+  <p>Ch8 Evaluation in information retrival
+評量search engine好壞</p>
+<ol>
+  <li>搜到的index</li>
+  <li>搜尋速度</li>
+  <li>二氧化碳排放量</li>
+  <li>和搜尋相關程度</li>
 </ol>
 
-<p>栽要和緒論最後寫</p>
+<p>相關程度</p>
+<ol>
+  <li>benchmark資料集</li>
+  <li>benchmark queries(問句)</li>
+  <li>文章是否相關的標記(ground truths)</li>
+</ol>
 
-<p>Parapraph/Section
- -主題(重點)
- -正文
- -結論</p>
+<p>queries和information need有落差
+想找的東西,不會下key word</p>
+
+<p>Precision (P)
+  Precision = 相關/物件總數
+Recall (R)
+  Recall = 相關/相關物件總數</p>
+
+<p>true positive(TP) 機器判斷+且為真
+false positive(FP)機器判斷+但是是假
+false negatives(FN) 機器判斷-但判斷錯
+true negatives(TN)  機器判斷-且判斷對</p>
+
+<p>Precision/Recall Tradoff</p>
+
+<p>調和平均數(harmonic mean)(1/F = 1/2(1/P+1/R) )</p>
+
+<p>Accuracy vs Precision
+accuracy猜是和猜不是都要算</p>
 
 
 </div>
@@ -160,8 +172,8 @@
     
       <li>
         <h3>
-          <a href="/2017/webSearching/">
-            webSearching
+          <a href="/2017/paperWrite/">
+            paperWrite
             <small>07 Mar 2017</small>
           </a>
         </h3>
@@ -179,7 +191,7 @@
   </ul>
 
   
-    <div class="fb-comments" data-href="http://localhost:4000/2017/paperWrite/" data-width="auto" data-numposts="5"></div>
+    <div class="fb-comments" data-href="http://localhost:4000/2017/webSearching/" data-width="auto" data-numposts="5"></div>
 
   
 </div>
