@@ -28,7 +28,7 @@ title: SocialCloudComputing
 
 #### Social Networks
 
-|Sociocentric|Egocentric
+|Sociocentric|Egocentric|
 |根據整群分析|根據個人分析,向外延伸|
 
 * information Network  
@@ -54,16 +54,27 @@ title: SocialCloudComputing
 	[Clustering Coeffieient](https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0)  
 3. Degree distribution
 	Real world network: Power law		
+	P<sub>k</sub> = CK<sup>-&alpha;</sup>  
 	Heavy-tailed degree distribution  
 	大量很低的數量,集合起來還是很驚人  
 4. Network resilience
-	如果拿掉一些點,連通性會有什麼變化？(e.g.有些人掛了,離職)  
+	如果拿掉一些點/邊,連通性會有什麼變化？(e.g.有些人掛了,離職)  
 	連接path的長度變長,或是disconnect   
+	廣告投放要投在哪個點影響力最大,如果是傳染病隔離哪個點最有效?  
+5. Mixing patterns  
+	探討兩邊節點的type,可能因為什麼關係成為朋友(職業/興趣/文化)
+6. Degree Correlations
+	觀察兩邊點的degree  
+	內向和外向人(朋友多,degree高)觀察  
+7. Community Structure 
+	一群點邊的密度很高,稱作一個community    
+	clique 判斷是否認兩個點是否都有邊相連(clique problem 分團問題)  
+	clique problem 是 NP-Complete  
 	
-5.   
-6.  
-7.  
+	Connected commponets :有連通的子圖  
 8.  
+
+
 
 CERN
 [米爾格倫實驗 Milgram experiment](https://zh.wikipedia.org/wiki/%E7%B1%B3%E7%88%BE%E6%A0%BC%E5%80%AB%E5%AF%A6%E9%A9%97)服從威權實驗   
