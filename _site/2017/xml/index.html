@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
@@ -146,6 +147,52 @@ Character decoding</p>
 
 <p>p48</p>
 
+<p>week4 3/13</p>
+<h4 id="node-in-xml-tree">Node in XML Tree</h4>
+<ul>
+  <li>Root nodes</li>
+  <li>Element nodes</li>
+  <li>Text nodes</li>
+  <li>Attribute nodes</li>
+  <li>Namespace nodes</li>
+  <li>Comment nodes</li>
+  <li>Processing instrctions</li>
+</ul>
+
+<h4 id="xml應用分類">XML應用分類</h4>
+<ul>
+  <li>Data-oriented language</li>
+  <li>Document-oriented language</li>
+  <li>Protocols and programming</li>
+  <li>Hybrids</li>
+</ul>
+
+<h4 id="xml-namesapce">XML Namesapce</h4>
+<p>類似Java中的package的概念,用一層標籤包住</p>
+
+<p>XML允許出現<code class="highlighter-rouge">.</code>,<code class="highlighter-rouge">_</code>,<code class="highlighter-rouge">-</code><br />
+不允許出現<code class="highlighter-rouge">/</code>,<code class="highlighter-rouge">#</code>,<code class="highlighter-rouge">%</code><br />
+解決網址出現/這類的符號問題<br />
+用prefix記住uri (foo:el xmlns:foo=”http://test.com”)
+xmlns:foo=”http://test.com”用來宣告foo這個prefix<br />
+有效範圍是foo的子孫<br />
+prefix和uri必須唯一</p>
+
+<h4 id="總結">總結</h4>
+<ol>
+  <li>XML架構</li>
+  <li>well-formedness</li>
+  <li>tree model</li>
+  <li>Namespace</li>
+</ol>
+
+<h2 id="html">HTML</h2>
+<p>URI = URL + URN<br />
+URI(Uniform Resource Identifier)<br />
+URN(Uniform Resource Name)<br />
+IRI(International Resource Identifier)</p>
+
+
 </div>
 
 <div class="related">
@@ -164,7 +211,7 @@ Character decoding</p>
       <li>
         <h3>
           <a href="/2017/webSearching/">
-            webSearching
+            WebSearching
             <small>07 Mar 2017</small>
           </a>
         </h3>

@@ -4,7 +4,7 @@
  <title>Taiyi's note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-03-08T19:19:26+08:00</updated>
+ <updated>2017-03-15T12:23:15+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -44,11 +44,11 @@
  </entry>
  
  <entry>
-   <title>webSearching</title>
+   <title>WebSearching</title>
    <link href="http://localhost:4000/2017/webSearching/"/>
    <updated>2017-03-07T00:00:00+08:00</updated>
    <id>http://localhost:4000/2017/webSearching</id>
-   <content type="html">&lt;p&gt;Ch8 Evaluation in information retrival
+   <content type="html">&lt;p&gt;&lt;strong&gt;CH8 Evaluation in information retrival&lt;/strong&gt;  &lt;br /&gt;
 評量search engine好壞&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;搜到的index&lt;/li&gt;
@@ -67,22 +67,178 @@
 &lt;p&gt;queries和information need有落差
 想找的東西,不會下key word&lt;/p&gt;
 
-&lt;p&gt;Precision (P)
-  Precision = 相關/物件總數
-Recall (R)
-  Recall = 相關/相關物件總數&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Precision (P)&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Precision = &lt;script type=&quot;math/tex&quot;&gt;\frac{檢索到相關物件的數量}{物件總數}\&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;true positive(TP) 機器判斷+且為真
-false positive(FP)機器判斷+但是是假
-false negatives(FN) 機器判斷-但判斷錯
-true negatives(TN)  機器判斷-且判斷對&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recall (R)&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Recall = &lt;script type=&quot;math/tex&quot;&gt;\frac{檢索到相關物件的數量}{相關物件總數}\&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;Precision/Recall Tradoff&lt;/p&gt;
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Relevant&lt;/td&gt;
+      &lt;td&gt;Nonrelevent&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Retrieved&lt;/td&gt;
+      &lt;td&gt;true positive(tp)&lt;/td&gt;
+      &lt;td&gt;false positive(fp)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Not retrieved&lt;/td&gt;
+      &lt;td&gt;false negatives(fn)&lt;/td&gt;
+      &lt;td&gt;true negatives(tn)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;p&gt;調和平均數(harmonic mean)(1/F = 1/2(1/P+1/R) )&lt;/p&gt;
+&lt;p&gt;true positive(tp) 機器判斷+且為真&lt;br /&gt;
+false positive(fp)機器判斷+但是是假&lt;br /&gt;
+false negatives(fn) 機器判斷-但判斷錯&lt;br /&gt;
+true negatives(tn)  機器判斷-且判斷對&lt;/p&gt;
 
-&lt;p&gt;Accuracy vs Precision
-accuracy猜是和猜不是都要算&lt;/p&gt;
+&lt;p&gt;P = &lt;script type=&quot;math/tex&quot;&gt;\frac{tp}{tp+fp}\&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;R = &lt;script type=&quot;math/tex&quot;&gt;\frac{tp}{tp+fn}\&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Accuracy vs Precision&lt;/strong&gt; &lt;br /&gt;
+accuracy = &lt;script type=&quot;math/tex&quot;&gt;\frac{tp+tn}{tp+fp+fn+tn}\&lt;/script&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;accuracy不適合用在information retrieval,
+因為通常Nonrelevant會非常的大,tn項非常大除分母fn和tn都非常大結果會趨近於1,所以才用Precision和Recall作為依據&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;調和平均數(harmonic mean)&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;H = &lt;script type=&quot;math/tex&quot;&gt;\frac{n}{\frac{1}{x_1}+\frac{1}{x_2}+..+\frac{1}{x_n}}\&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Precision/Recall Tradoff
+使用調和平均數計算Precision和Recall的Tradoff&lt;br /&gt;
+量測的數值稱做F measure,α和1-α分別為P和R的權重,一般是取α=0.5&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;F = &lt;script type=&quot;math/tex&quot;&gt;\frac{1}{\alpha\frac{1}{P}+(1-\alpha)\frac{1}{R}} = \frac{(\beta^2+1)PR}{\beta^2P+R}\&lt;/script&gt; where &lt;script type=&quot;math/tex&quot;&gt;\ \beta^2=\frac{1-\alpha}{\alpha}\&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;ranked-evalution&quot;&gt;Ranked Evalution&lt;/h4&gt;
+&lt;p&gt;P,R,F都是unordered(沒有等級)&lt;br /&gt;
+一個query會有一個Precision/Recall圖(崎嶇的坡)  &lt;br /&gt;
+使用內插法(interpolated)可以得到一張較平滑的P-R圖(和機器學習ROC curve相似)
+P-R curve的面積越大效能越佳(代表Precision掉越慢)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;內插法&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt;\ p_{interp}= \max\limits_{r'\ge r}\ p(r{'})\&lt;/script&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;r代表recall,由後面相對較高的值往前填平,Precision基本上會有往下掉的趨勢&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mean Average Precision(MAP)&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt;\ MAP(Q) = \frac{1}{|Q|}\sum^{|Q|}_{j=1}\frac{1}{m_j}\sum_{k=1}^{m_j}Precision(R_{jk})\&lt;/script&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;第一個sum算query平均&lt;br /&gt;
+第二個sum算precision平均&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Precision at k&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Normalized Discounted Cumulative Gain(NDCG)&lt;br /&gt;
+2002出現&lt;br /&gt;
+3高度相關&lt;br /&gt;
+0沒關係&lt;br /&gt;
+G = &amp;lt;3,2,3,0,0,1,2,2,3,0,…&amp;gt;
+1.Cumulative Gain(CG)
+2.Discounted Cumulative Gain(DCG)
+累加前一項,做成遞增感覺&lt;br /&gt;
+3.Normalized Discounted Cumulative Gain(NDCG)
+做一個衰退,並和理想值相除&lt;br /&gt;
+通常看NDCG at 10&lt;/p&gt;
+
+&lt;p&gt;benchmark 資料集&lt;br /&gt;
+1.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;TREC(nist.gov)&lt;br /&gt;
+ Ad-hoc 資料集(1992-1999)&lt;/li&gt;
+  &lt;li&gt;GOV2
+ 2500萬篇文章&lt;/li&gt;
+  &lt;li&gt;NICIR
+ cross-language IR&lt;/li&gt;
+  &lt;li&gt;Cross Language Evaluation&lt;/li&gt;
+  &lt;li&gt;REUTERS&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;標記資料準則&lt;br /&gt;
+Kappa measure &lt;br /&gt;
+標記資料是否一致&lt;br /&gt;
+Kappa計算公式&lt;/p&gt;
+
+&lt;p&gt;Pooled marginals&lt;/p&gt;
+
+&lt;p&gt;A/B testing
+一次有兩套演算法並存&lt;br /&gt;
+一部分流量導到新的演算法&lt;br /&gt;
+並觀察AB的差異,新的較好再導過去&lt;/p&gt;
+
+&lt;p&gt;Result Summaries&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;10 blue link&lt;/li&gt;
+  &lt;li&gt;Static/Dynamic
+抽前50個字/利用nlp技術&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;quicklinks&lt;br /&gt;
+底下多的鍊結&lt;/p&gt;
+
+&lt;p&gt;Traditional Information retreval (ch6,ch11)&lt;br /&gt;
+模型&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Vector Space model
+ TF-IDF&lt;/li&gt;
+  &lt;li&gt;Probabilistic Information Retrieval
+ BM25&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Empirical IR&lt;/td&gt;
+      &lt;td&gt;Model-based IR&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;暴力法&lt;/td&gt;
+      &lt;td&gt;有理論模型&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;heuristic&lt;/td&gt;
+      &lt;td&gt;數學假設&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;難推廣到其他問題&lt;/td&gt;
+      &lt;td&gt;容易推廣到其他問題&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;1960 第一個機率模型
+1970 
+vector space model 1975
+classic probabilistic model
+1980
+non-class logic&lt;br /&gt;
+1990
+TREC benchmark&lt;br /&gt;
+goolge成立1996
+2000
+learning to rank
+Markov model&lt;/p&gt;
+
+&lt;p&gt;vector space.py 主程式&lt;/p&gt;
 
 </content>
  </entry>
@@ -151,6 +307,52 @@ Character decoding&lt;/p&gt;
 &lt;p&gt;BigEndin/LittleEndin處理&lt;/p&gt;
 
 &lt;p&gt;p48&lt;/p&gt;
+
+&lt;p&gt;week4 3/13&lt;/p&gt;
+&lt;h4 id=&quot;node-in-xml-tree&quot;&gt;Node in XML Tree&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Root nodes&lt;/li&gt;
+  &lt;li&gt;Element nodes&lt;/li&gt;
+  &lt;li&gt;Text nodes&lt;/li&gt;
+  &lt;li&gt;Attribute nodes&lt;/li&gt;
+  &lt;li&gt;Namespace nodes&lt;/li&gt;
+  &lt;li&gt;Comment nodes&lt;/li&gt;
+  &lt;li&gt;Processing instrctions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;xml應用分類&quot;&gt;XML應用分類&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Data-oriented language&lt;/li&gt;
+  &lt;li&gt;Document-oriented language&lt;/li&gt;
+  &lt;li&gt;Protocols and programming&lt;/li&gt;
+  &lt;li&gt;Hybrids&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;xml-namesapce&quot;&gt;XML Namesapce&lt;/h4&gt;
+&lt;p&gt;類似Java中的package的概念,用一層標籤包住&lt;/p&gt;
+
+&lt;p&gt;XML允許出現&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;-&lt;/code&gt;&lt;br /&gt;
+不允許出現&lt;code class=&quot;highlighter-rouge&quot;&gt;/&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;#&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt;&lt;br /&gt;
+解決網址出現/這類的符號問題&lt;br /&gt;
+用prefix記住uri (foo:el xmlns:foo=”http://test.com”)
+xmlns:foo=”http://test.com”用來宣告foo這個prefix&lt;br /&gt;
+有效範圍是foo的子孫&lt;br /&gt;
+prefix和uri必須唯一&lt;/p&gt;
+
+&lt;h4 id=&quot;總結&quot;&gt;總結&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;XML架構&lt;/li&gt;
+  &lt;li&gt;well-formedness&lt;/li&gt;
+  &lt;li&gt;tree model&lt;/li&gt;
+  &lt;li&gt;Namespace&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;html&quot;&gt;HTML&lt;/h2&gt;
+&lt;p&gt;URI = URL + URN&lt;br /&gt;
+URI(Uniform Resource Identifier)&lt;br /&gt;
+URN(Uniform Resource Name)&lt;br /&gt;
+IRI(International Resource Identifier)&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -254,16 +456,26 @@ FB好友關係&lt;/li&gt;
  &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0&quot;&gt;Clustering Coeffieient&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Degree distribution
  Real world network: Power law		
+ P&lt;sub&gt;k&lt;/sub&gt; = CK&lt;sup&gt;-α&lt;/sup&gt;&lt;br /&gt;
  Heavy-tailed degree distribution&lt;br /&gt;
  大量很低的數量,集合起來還是很驚人&lt;/li&gt;
+  &lt;li&gt;Network resilience
+ 如果拿掉一些點/邊,連通性會有什麼變化？(e.g.有些人掛了,離職)&lt;br /&gt;
+ 連接path的長度變長,或是disconnect &lt;br /&gt;
+ 廣告投放要投在哪個點影響力最大,如果是傳染病隔離哪個點最有效?&lt;/li&gt;
+  &lt;li&gt;Mixing patterns&lt;br /&gt;
+ 探討兩邊節點的type,可能因為什麼關係成為朋友(職業/興趣/文化)&lt;/li&gt;
+  &lt;li&gt;Degree Correlations
+ 觀察兩邊點的degree&lt;br /&gt;
+ 內向和外向人(朋友多,degree高)觀察&lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Network resilience
- 如果拿掉一些點,連通性會有什麼變化？(e.g.有些人掛了,離職)&lt;br /&gt;
- 連接path的長度變長,或是disconnect&lt;/p&gt;
+    &lt;p&gt;Community Structure 
+ 一群點邊的密度很高,稱作一個community  &lt;br /&gt;
+ clique 判斷是否認兩個點是否都有邊相連(clique problem 分團問題)&lt;br /&gt;
+ clique problem 是 NP-Complete&lt;/p&gt;
+
+    &lt;p&gt;Connected commponets :有連通的子圖&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
@@ -11,7 +12,7 @@
 
   <title>
     
-      webSearching &middot; Taiyi's note
+      WebSearching &middot; Taiyi's note
     
   </title>
 
@@ -116,9 +117,9 @@
 
     <div class="content container">
       <div class="post">
-  <h1 class="post-title">webSearching</h1>
+  <h1 class="post-title">WebSearching</h1>
   <span class="post-date">07 Mar 2017</span>
-  <p>Ch8 Evaluation in information retrival
+  <p><strong>CH8 Evaluation in information retrival</strong>  <br />
 評量search engine好壞</p>
 <ol>
   <li>搜到的index</li>
@@ -137,22 +138,178 @@
 <p>queries和information need有落差
 想找的東西,不會下key word</p>
 
-<p>Precision (P)
-  Precision = 相關/物件總數
-Recall (R)
-  Recall = 相關/相關物件總數</p>
+<p><strong>Precision (P)</strong></p>
+<blockquote>
+  <p>Precision = <script type="math/tex">\frac{檢索到相關物件的數量}{物件總數}\</script></p>
+</blockquote>
 
-<p>true positive(TP) 機器判斷+且為真
-false positive(FP)機器判斷+但是是假
-false negatives(FN) 機器判斷-但判斷錯
-true negatives(TN)  機器判斷-且判斷對</p>
+<p><strong>Recall (R)</strong></p>
+<blockquote>
+  <p>Recall = <script type="math/tex">\frac{檢索到相關物件的數量}{相關物件總數}\</script></p>
+</blockquote>
 
-<p>Precision/Recall Tradoff</p>
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Relevant</td>
+      <td>Nonrelevent</td>
+    </tr>
+    <tr>
+      <td>Retrieved</td>
+      <td>true positive(tp)</td>
+      <td>false positive(fp)</td>
+    </tr>
+    <tr>
+      <td>Not retrieved</td>
+      <td>false negatives(fn)</td>
+      <td>true negatives(tn)</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>調和平均數(harmonic mean)(1/F = 1/2(1/P+1/R) )</p>
+<p>true positive(tp) 機器判斷+且為真<br />
+false positive(fp)機器判斷+但是是假<br />
+false negatives(fn) 機器判斷-但判斷錯<br />
+true negatives(tn)  機器判斷-且判斷對</p>
 
-<p>Accuracy vs Precision
-accuracy猜是和猜不是都要算</p>
+<p>P = <script type="math/tex">\frac{tp}{tp+fp}\</script></p>
+
+<p>R = <script type="math/tex">\frac{tp}{tp+fn}\</script></p>
+
+<p><strong>Accuracy vs Precision</strong> <br />
+accuracy = <script type="math/tex">\frac{tp+tn}{tp+fp+fn+tn}\</script></p>
+<blockquote>
+  <p>accuracy不適合用在information retrieval,
+因為通常Nonrelevant會非常的大,tn項非常大除分母fn和tn都非常大結果會趨近於1,所以才用Precision和Recall作為依據</p>
+</blockquote>
+
+<p><strong>調和平均數(harmonic mean)</strong></p>
+<blockquote>
+  <p>H = <script type="math/tex">\frac{n}{\frac{1}{x_1}+\frac{1}{x_2}+..+\frac{1}{x_n}}\</script></p>
+</blockquote>
+
+<p>Precision/Recall Tradoff
+使用調和平均數計算Precision和Recall的Tradoff<br />
+量測的數值稱做F measure,α和1-α分別為P和R的權重,一般是取α=0.5</p>
+<blockquote>
+  <p>F = <script type="math/tex">\frac{1}{\alpha\frac{1}{P}+(1-\alpha)\frac{1}{R}} = \frac{(\beta^2+1)PR}{\beta^2P+R}\</script> where <script type="math/tex">\ \beta^2=\frac{1-\alpha}{\alpha}\</script></p>
+</blockquote>
+
+<h4 id="ranked-evalution">Ranked Evalution</h4>
+<p>P,R,F都是unordered(沒有等級)<br />
+一個query會有一個Precision/Recall圖(崎嶇的坡)  <br />
+使用內插法(interpolated)可以得到一張較平滑的P-R圖(和機器學習ROC curve相似)
+P-R curve的面積越大效能越佳(代表Precision掉越慢)</p>
+
+<p><strong>內插法</strong></p>
+<blockquote>
+  <script type="math/tex; mode=display">\ p_{interp}= \max\limits_{r'\ge r}\ p(r{'})\</script>
+</blockquote>
+
+<p>r代表recall,由後面相對較高的值往前填平,Precision基本上會有往下掉的趨勢</p>
+
+<p><strong>Mean Average Precision(MAP)</strong></p>
+<blockquote>
+  <script type="math/tex; mode=display">\ MAP(Q) = \frac{1}{|Q|}\sum^{|Q|}_{j=1}\frac{1}{m_j}\sum_{k=1}^{m_j}Precision(R_{jk})\</script>
+</blockquote>
+
+<p>第一個sum算query平均<br />
+第二個sum算precision平均</p>
+
+<p><strong>Precision at k</strong></p>
+
+<p>Normalized Discounted Cumulative Gain(NDCG)<br />
+2002出現<br />
+3高度相關<br />
+0沒關係<br />
+G = &lt;3,2,3,0,0,1,2,2,3,0,…&gt;
+1.Cumulative Gain(CG)
+2.Discounted Cumulative Gain(DCG)
+累加前一項,做成遞增感覺<br />
+3.Normalized Discounted Cumulative Gain(NDCG)
+做一個衰退,並和理想值相除<br />
+通常看NDCG at 10</p>
+
+<p>benchmark 資料集<br />
+1.</p>
+<ol>
+  <li>TREC(nist.gov)<br />
+ Ad-hoc 資料集(1992-1999)</li>
+  <li>GOV2
+ 2500萬篇文章</li>
+  <li>NICIR
+ cross-language IR</li>
+  <li>Cross Language Evaluation</li>
+  <li>REUTERS</li>
+</ol>
+
+<p>標記資料準則<br />
+Kappa measure <br />
+標記資料是否一致<br />
+Kappa計算公式</p>
+
+<p>Pooled marginals</p>
+
+<p>A/B testing
+一次有兩套演算法並存<br />
+一部分流量導到新的演算法<br />
+並觀察AB的差異,新的較好再導過去</p>
+
+<p>Result Summaries</p>
+<ul>
+  <li>10 blue link</li>
+  <li>Static/Dynamic
+抽前50個字/利用nlp技術</li>
+</ul>
+
+<p>quicklinks<br />
+底下多的鍊結</p>
+
+<p>Traditional Information retreval (ch6,ch11)<br />
+模型</p>
+<ol>
+  <li>Vector Space model
+ TF-IDF</li>
+  <li>Probabilistic Information Retrieval
+ BM25</li>
+</ol>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Empirical IR</td>
+      <td>Model-based IR</td>
+    </tr>
+    <tr>
+      <td>暴力法</td>
+      <td>有理論模型</td>
+    </tr>
+    <tr>
+      <td>heuristic</td>
+      <td>數學假設</td>
+    </tr>
+    <tr>
+      <td>難推廣到其他問題</td>
+      <td>容易推廣到其他問題</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>1960 第一個機率模型
+1970 
+vector space model 1975
+classic probabilistic model
+1980
+non-class logic<br />
+1990
+TREC benchmark<br />
+goolge成立1996
+2000
+learning to rank
+Markov model</p>
+
+<p>vector space.py 主程式</p>
 
 
 </div>
