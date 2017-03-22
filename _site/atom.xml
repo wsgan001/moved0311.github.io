@@ -4,7 +4,7 @@
  <title>Taiyi's note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-03-15T12:23:15+08:00</updated>
+ <updated>2017-03-22T13:05:52+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -136,7 +136,8 @@ P-R curve的面積越大效能越佳(代表Precision掉越慢)&lt;/p&gt;
   &lt;script type=&quot;math/tex; mode=display&quot;&gt;\ p_{interp}= \max\limits_{r'\ge r}\ p(r{'})\&lt;/script&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;r代表recall,由後面相對較高的值往前填平,Precision基本上會有往下掉的趨勢&lt;/p&gt;
+&lt;p&gt;r代表recall,
+作法是從目前往後找最高的點向前填平,並重新畫P-R圖&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Mean Average Precision(MAP)&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -146,23 +147,31 @@ P-R curve的面積越大效能越佳(代表Precision掉越慢)&lt;/p&gt;
 &lt;p&gt;第一個sum算query平均&lt;br /&gt;
 第二個sum算precision平均&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Precision at k&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Precision at k&lt;/strong&gt;&lt;br /&gt;
+比較第k名的Precision&lt;/p&gt;
 
-&lt;p&gt;Normalized Discounted Cumulative Gain(NDCG)&lt;br /&gt;
-2002出現&lt;br /&gt;
-3高度相關&lt;br /&gt;
-0沒關係&lt;br /&gt;
-G = &amp;lt;3,2,3,0,0,1,2,2,3,0,…&amp;gt;
-1.Cumulative Gain(CG)
-2.Discounted Cumulative Gain(DCG)
-累加前一項,做成遞增感覺&lt;br /&gt;
-3.Normalized Discounted Cumulative Gain(NDCG)
-做一個衰退,並和理想值相除&lt;br /&gt;
-通常看NDCG at 10&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Normalized Discounted Cumulative Gain(NDCG)&lt;/strong&gt;  &lt;br /&gt;
+作者：Kalervo Jarvelin, Jaana Kekalainen(2002)&lt;/p&gt;
 
-&lt;p&gt;benchmark 資料集&lt;br /&gt;
-1.&lt;/p&gt;
+&lt;p&gt;G = &amp;lt;3,2,3,0,0,1,2,2,3,0,…&amp;gt;&lt;br /&gt;
+3高度相關, 0沒關係&lt;br /&gt;
+步驟:&lt;/p&gt;
 &lt;ol&gt;
+  &lt;li&gt;Cumulative Gain(CG)&lt;/li&gt;
+  &lt;li&gt;Discounted Cumulative Gain(DCG)&lt;/li&gt;
+  &lt;li&gt;Normalized Discounted Cumulative Gain(NDCG)
+    &lt;blockquote&gt;
+      &lt;p&gt;得到前幾名的相關程度(1-3),除log&lt;sub&gt;2&lt;/sub&gt;(rank+1),&lt;br /&gt;
+對排名做懲罰,越後面懲罰越重&lt;br /&gt;
+DCG&lt;sub&gt;n&lt;/sub&gt; 前n項總和&lt;br /&gt;
+nDCG&lt;sub&gt;n&lt;/sub&gt; = &lt;script type=&quot;math/tex&quot;&gt;\ \frac{DCG_{n}}{IDCG_{n}}(\frac{相關程度排序}{理想相關程度},做正規化)\&lt;/script&gt;&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;benchmark 資料集&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Cranfield&lt;/li&gt;
   &lt;li&gt;TREC(nist.gov)&lt;br /&gt;
  Ad-hoc 資料集(1992-1999)&lt;/li&gt;
   &lt;li&gt;GOV2
@@ -173,10 +182,13 @@ G = &amp;lt;3,2,3,0,0,1,2,2,3,0,…&amp;gt;
   &lt;li&gt;REUTERS&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;標記資料準則&lt;br /&gt;
-Kappa measure &lt;br /&gt;
-標記資料是否一致&lt;br /&gt;
-Kappa計算公式&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;標記資料準則&lt;/strong&gt; &lt;br /&gt;
+Kappa measure&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;標記資料是否一致,若標記不一致資料中就沒有truth&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Kappa計算公式&lt;/p&gt;
 
 &lt;p&gt;Pooled marginals&lt;/p&gt;
 
@@ -195,8 +207,8 @@ Kappa計算公式&lt;/p&gt;
 &lt;p&gt;quicklinks&lt;br /&gt;
 底下多的鍊結&lt;/p&gt;
 
-&lt;p&gt;Traditional Information retreval (ch6,ch11)&lt;br /&gt;
-模型&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Traditional Information retreval (ch11)&lt;/strong&gt;  &lt;br /&gt;
+模型(ch6)&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;Vector Space model
  TF-IDF&lt;/li&gt;
@@ -238,7 +250,85 @@ goolge成立1996
 learning to rank
 Markov model&lt;/p&gt;
 
-&lt;p&gt;vector space.py 主程式&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;VectorSpace.py範例程式&lt;/strong&gt;&lt;br /&gt;
+將多篇文章建立一個向量模型&lt;br /&gt;
+並6輸入query,到每篇文章中做search&lt;br /&gt;
+計算Precision和Recall&lt;/p&gt;
+
+&lt;p&gt;使用到的方法&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;將所有文章使用join()成為一個string包含所有文章內容&lt;/li&gt;
+  &lt;li&gt;做string clean去除. , 多餘空白並轉為小寫&lt;/li&gt;
+  &lt;li&gt;將clean好的string利用空白切分成words array,丟到Porter stem(去除字尾)&lt;/li&gt;
+  &lt;li&gt;刪除重複的word,使用set讓出現的word唯一
+    &lt;blockquote&gt;
+      &lt;p&gt;Porter Stemming Algorithm
+作者:Martin Porter(2006)
+去除字尾&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;得到所有整理完的words,做成index(將每個word編號)&lt;/li&gt;
+  &lt;li&gt;將每篇文章分別建立自己的index,並統計每個word出現的次數&lt;/li&gt;
+  &lt;li&gt;將輸入的query做成vector&lt;/li&gt;
+  &lt;li&gt;利用內積計算相關程度&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ch6 Model
+Vocabulary V = {w1,w2,w3,…wv} 
+Query q = q1,q2,…,qm
+Document 文章 di = w1,w2,…
+Collection 文章集合 C={d1,d2,d3,…}&lt;/p&gt;
+
+&lt;p&gt;Computing R(q)&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Document select
+挑文件1相關0不相關,挑到近似&lt;/li&gt;
+  &lt;li&gt;Document ranking
+query的結果&amp;gt;threshold 就收進去&lt;br /&gt;
+找到較相關,比沒有依據好&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Probability Ranking Principle(PRP)&lt;/p&gt;
+
+&lt;p&gt;The notation of Relevance&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Relevance
+    &lt;ul&gt;
+      &lt;li&gt;Similarity 相似度
+        &lt;ul&gt;
+          &lt;li&gt;Vector space model&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Probability of relevance 機率模型&lt;/li&gt;
+      &lt;li&gt;Probability inference 機率推論&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Vector Space Model
+將query和document表示成向量形式(similar representation)&lt;br /&gt;
+Relevance(d,q) = similar(d,q)
+利用cosine算相似度(1 ~ -1) 
+high dimension 
+good dimension -&amp;gt; orthogonal&lt;br /&gt;
+Empirically effective
+實作容易&lt;/p&gt;
+
+&lt;p&gt;Linear independent&lt;/p&gt;
+
+&lt;p&gt;LDA&lt;/p&gt;
+
+&lt;p&gt;TF(Term Frequency)
+	word count
+IDF(Inverse Document Frequency)(反向的TF)
+	字的獨特性
+	the,a,to IDF值很低(沒有鑑別度)	
+	IDF(t) = 1 + log(n/k)  n篇數 k字出現次數&lt;/p&gt;
+
+&lt;p&gt;TF-IDF 
+	weight(t,d) = TF(w,d) * IDF&lt;/p&gt;
+
+&lt;p&gt;Ch11&lt;/p&gt;
 
 </content>
  </entry>
@@ -377,6 +467,245 @@ sed (stream editor)&lt;br /&gt;
 s: substitution替換&lt;br /&gt;
 g: global&lt;/p&gt;
 
+&lt;p&gt;/&lt;em&gt;============================================================&lt;/em&gt;/
+					   概念
+/&lt;em&gt;============================================================&lt;/em&gt;/
+自動化管理
+	1.查詢登入檔
+	2.追蹤流量
+	3.監控使用者主機狀態
+	4.主機各項硬體設備狀態
+	5.主機軟體更新查詢
+/&lt;em&gt;============================================================&lt;/em&gt;/
+						指令
+/&lt;em&gt;============================================================&lt;/em&gt;/
+echo 
+ 	-n 不換行
+打錯要清除
+ 	ctrl+u
+切換到root
+ 	sudo -i / sudo sudo
+查看linux版本
+	lsb_release -a
+	uname -a
+cat filename
+	-n 印出行數
+wc (word count)&lt;/p&gt;
+
+&lt;p&gt;解壓縮
+  tar -xf packetName.tgz
+    -x 解壓壓
+	-f 解壓縮的檔名
+  zip
+	unzip filename.zip
+  rar
+	unrar x filename.rar
+關機
+  sudo shutdown -h now
+編輯	
+  ed
+  a			附加
+  xxxx		內容
+  .			結束
+  w junk	寫入檔案
+  q			離開
+od (octal dump)
+  -c (iterpret bytes as characters)
+  -b (show bytes as octal)
+  -x (print in hex)&lt;/p&gt;
+
+&lt;p&gt;du(disc usage)
+可以看到目錄下目錄的檔案大小
+  -a 印出目錄下所有檔案&lt;/p&gt;
+
+&lt;p&gt;chmod(change mode)
+   e.g. 
+	chmod 765 filename , chmod +x filename , chmod -w filename		4 read	
+	2 write
+	1 execute&lt;/p&gt;
+
+&lt;p&gt;權限後面的數字代表連結（link)數量
+link
+	ln junk linktojunk
+	類似捷徑的功能link相同代表指到同一個檔案&lt;/p&gt;
+
+&lt;p&gt;讓程式在背景跑,跑玩再回傳結果 (&amp;amp;)
+e.g. sleep 5 ; date &amp;amp;&lt;/p&gt;
+
+&lt;p&gt;關閉螢幕背光
+	xset dpms force off&lt;/p&gt;
+
+&lt;p&gt;設定快捷鍵(alias)
+	alias c = ‘sleep 1 &amp;amp;&amp;amp; xset dpms force off’&lt;/p&gt;
+
+&lt;p&gt;netcat (nc)   nc -h (看document)(網路瑞士小刀)
+	port 0~1023 需要root權限 1024以上開放一般使用者
+	reference : netcat&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;測試遠端port是否有開啟
+→ 	nc  -v  IP address  Port
+
+兩台主機間複製檔案
+→nc  -l  PortNumber  &amp;gt;  my.jpg
+→ nc  targetIP PortNumber  &amp;lt;  my.jpg 
+
+在server端 nc -l -p 9999 &amp;gt; filename		(要收的先監聽)
+  cient端 nc 192.167.105.17 9999 &amp;lt; filename  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;wget
+	-t 重試次數,超時或中斷會重新連接 (-t0代表無窮多次)
+	-c 設定續傳功能
+	-r 遞迴下載
+	-P 指定到某個目錄&lt;/p&gt;
+
+&lt;p&gt;改Bash樣式
+  export PS1=’\u@\h\W$’&lt;/p&gt;
+
+&lt;p&gt;將bin加入PATH
+  export PATH=”$PATH:/xxx/xxx/bin” (暫時,關閉terminal消失)
+  -&amp;gt;改bashrc&lt;/p&gt;
+
+&lt;p&gt;test
+	-e 檔名是否存在
+		test -e filename &amp;amp;&amp;amp; echo “exist” || echo “not exist”
+	-f 檔名是否存在且為檔案
+	-d 檔名是否存在且為目錄
+	-z string 判斷字串是否為0 空字串return true
+		[-z “${HOME}” ];echo $?
+		[&lt;em&gt;”${HOME}”&lt;/em&gt;] 資料判斷,運算元兩端必須要有空白&lt;/p&gt;
+
+&lt;p&gt;ftp
+ncftp (可以上傳資料夾)
+	ncftp -u username -p password hostname
+	get -r dirname (download)&lt;/p&gt;
+
+&lt;p&gt;修改檔案最後修改日期
+touch -d 20170101 fileName
+/&lt;em&gt;============================================================&lt;/em&gt;/
+							vim
+/&lt;em&gt;============================================================&lt;/em&gt;/
+:vsp filename (ctrl-w + V)
+ 垂直分割 
+:sp filename (ctrl-w + S)
+ 水平分割&lt;/p&gt;
+
+&lt;p&gt;ctrl+w = 各一半
+ctrl+w + 放大
+ctrl+w - 縮小&lt;/p&gt;
+
+&lt;p&gt;set mouse=a 啟用滑鼠功能&lt;/p&gt;
+
+&lt;p&gt;多行註解
+	1.ctrl-v (linux)
+	  ctrl-q (windows)
+	  select block
+	2.I (upper-case)
+	3.// , # …
+	4.ESC
+選取相同字&lt;br /&gt;
+	滑鼠移到字上按&lt;em&gt;,會顯示所有相同字&lt;br /&gt;
+/&lt;/em&gt;============================================================&lt;em&gt;/
+							疑難雜症
+/&lt;/em&gt;============================================================*/
+無法將 /var/lib/dpkg/lock 鎖定
+	lsof (list open files) 
+	sudo lsof /var/lib/dpkg/lock
+	sudo kill processID&lt;/p&gt;
+
+&lt;p&gt;連線憑證失效
+ssh-keygen -f “/home/taiyi/.ssh/known_hosts” -R 140.119.164.118&lt;/p&gt;
+
+&lt;p&gt;網路設定 (static)
+sudo vim /etc/networking/interfaces
+	auto io
+	iface io inet loopback
+	auto eth0
+	iface eth0 inet static
+	address 140.119.164.118
+	gateway 140.119.164.254
+	netmask 255.255.255.0
+sudo vim /etc/resolv.conf  (config DNS) (12.04開始捨棄)
+	nameserver 140.119.1.110
+改在/etc/network/interfaces
+	dns-nameservers 140.119.1.110
+設定完後更新
+	sudo /etc/init.d/networking restart&lt;/p&gt;
+
+&lt;p&gt;ping 8.8.8.8 		能通代表有網路
+ping google.com		能通代表可以看懂網址(DNS domain name)&lt;/p&gt;
+
+&lt;p&gt;/&lt;em&gt;============================================================&lt;/em&gt;/  	
+					shell Script
+/&lt;em&gt;============================================================&lt;/em&gt;/&lt;br /&gt;
+#!/bin/bash		宣告script類型
+#1.功能與內容
+#2.版本資訊
+#3.作者聯絡方式
+#4.建檔日期
+#5.歷史紀錄&lt;/p&gt;
+
+&lt;p&gt;執行shell script&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;sh script&lt;/li&gt;
+  &lt;li&gt;chmod +x script
+./script&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;sh -x script 可以印出script每個執行的指令&lt;/p&gt;
+
+&lt;p&gt;exit n (n is a number)
+echo $? 可以顯示n (可以自訂錯誤訊息)&lt;/p&gt;
+
+&lt;p&gt;註解 ＃&lt;/p&gt;
+
+&lt;p&gt;變數
+	var=string (等號兩邊不能空白)
+變數使用方法
+	echo $x
+	echo ${x}&lt;/p&gt;
+
+&lt;p&gt;cmd arg1 arg2 … arg9
+$0  $1   $2       $9&lt;/p&gt;
+
+&lt;p&gt;$* 所有args
+$# args個數
+shift 可將args 往前移一格&lt;/p&gt;
+
+&lt;p&gt;read
+	echo “enter your name:”
+	read name
+	echo “hello $name.”
+expr
+	expr 2 * ( 3 + 4 ) 各項中間必須空白&lt;/p&gt;
+
+&lt;p&gt;/&lt;em&gt;===========================================================&lt;/em&gt;/  						
+				套件(plugin)
+/&lt;em&gt;===========================================================&lt;/em&gt;/ 
+tmux
+	prefix : ctrl + b
+	ctrl-b + ctrl不放 + 上下左右可以調整視窗大小
+	ctrl-b + 方向 移動視窗
+	ctrl-b + % 垂直分割
+	ctrl-b + z 放大/縮小視窗
+	ctrl-b + c 再開一個新視窗
+	ctrl-b + , 重新命名視窗名稱&lt;br /&gt;
+ssh
+	sudo apt-get install openssh-server
+	sudo /etc/init.d/ssh start
+welcom banner
+	sudo apt-get install toilet figlet
+	echo “toilet -f mono12 -F gay taiyi” » ~/.bashrc
+	echo “fortune | cowsay | toilet –gay -f term” » .bashrc
+sshfs
+	掛載遠端資料夾
+	sshfs user@IP:/home/user/dictionary test 
+	將遠端dictionary下的東西掛載到test
+	停止掛載
+		fusermount -u test
+		停止掛載test&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -476,12 +805,95 @@ FB好友關係&lt;/li&gt;
 
     &lt;p&gt;Connected commponets :有連通的子圖&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;Network motifs    &lt;br /&gt;
+在音樂上motifs是一種作曲法,靈感的意思&lt;br /&gt;
+ 在生物基因上是一些重複的pattern&lt;br /&gt;
+ 在社群希望找到出現次數較高的motifs(最常出現的subgraph)&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;CERN
 &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E7%B1%B3%E7%88%BE%E6%A0%BC%E5%80%AB%E5%AF%A6%E9%A9%97&quot;&gt;米爾格倫實驗 Milgram experiment&lt;/a&gt;服從威權實驗 &lt;br /&gt;
 random graph&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Central of Network&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;找到最重要的點(central)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;local&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Degree&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;global&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Closeness&lt;/li&gt;
+    &lt;li&gt;Betweeness&lt;/li&gt;
+    &lt;li&gt;Eigenvector&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Group Centrality 一群最有影響力的人&lt;br /&gt;
+在小世界理論中,如果送信到目標的前一步,都是經由特定的3個人,代表這三個人很重要,&lt;br /&gt;
+目前social network還無法透過社群網站判斷這些人&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Social actors(群眾的智慧)&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Connectors&lt;br /&gt;
+認識很多人,很擅長社交&lt;/li&gt;
+  &lt;li&gt;Mavens&lt;br /&gt;
+資訊專家,知道很多各式訊息&lt;/li&gt;
+  &lt;li&gt;Salesman&lt;br /&gt;
+容易說服別人,擅長協調&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;判斷social network的四種centrality&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Degree centrality(local)&lt;br /&gt;
+點的重要性,若network的規模大小不同,做normalize(除總size-1)&lt;/li&gt;
+  &lt;li&gt;Betweeness Centrality&lt;br /&gt;
+Node&lt;sub&gt;i&lt;/sub&gt; A到B的shortest path有幾條經過i&lt;/li&gt;
+  &lt;li&gt;Closeness Centrality
+點i和所有點j的shortest path平均的距離&lt;/li&gt;
+  &lt;li&gt;Eigenvector Centrality  &lt;br /&gt;
+這個點的重要性,看他朋友點的重要性&lt;br /&gt;
+eigenvector
+    &lt;blockquote&gt;
+      &lt;p&gt;一個向量乘上一個矩陣(transform),方向不變但scale可能會變&lt;br /&gt;
+Ax = &lt;script type=&quot;math/tex&quot;&gt;\lambda&lt;/script&gt;x&lt;br /&gt;
+A矩陣代表social network關係(1:朋友關係,0:不是朋友)&lt;br /&gt;
+x代表重要性&lt;br /&gt;
+概念類似PageRank,pagerank的值是連到他網頁的值加總&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;HIT &lt;br /&gt;
+Hub&lt;br /&gt;
+推薦的authoritative有多高&lt;br /&gt;
+Authoritative page&lt;br /&gt;
+有多少hub推薦&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;最短路徑演算法&lt;/strong&gt;&lt;br /&gt;
+unweighted graph&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;BFS&lt;/li&gt;
+  &lt;li&gt;Floyd-Warshall&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Group centrality&lt;/strong&gt;&lt;br /&gt;
+找出social network中幾個最有影響力的人&lt;br /&gt;
+或指定某幾個人想觀察這幾人的影響力&lt;/p&gt;
+
+&lt;p&gt;group centrality一群人一起看,影響幾個人(有連線)&lt;br /&gt;
+不能將每個單一人的degree加總,會有重複的&lt;/p&gt;
+
+&lt;p&gt;community detection algorithm&lt;/p&gt;
 
 &lt;h4 id=&quot;reference&quot;&gt;reference&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&quot;http://newdoc.nccu.edu.tw/teaschm/1052/schmPrv.jsp-yy=105&amp;amp;smt=2&amp;amp;num=753868&amp;amp;gop=00&amp;amp;s=1&amp;amp;tea=101583.htm&quot;&gt;社群雲端運算&lt;/a&gt;&lt;/p&gt;
@@ -513,6 +925,11 @@ random graph&lt;/p&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;callback function&lt;/strong&gt;&lt;br /&gt;
+.run().then()&lt;br /&gt;
+執行非同步呼叫執行完run後拿回控制權,並交代執行完再用then接住call back&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;promise用法&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;reference&quot;&gt;reference&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/airbnb/javascript#hoisting&quot;&gt;Airbnb JavaScript Style Guide&lt;/a&gt;&lt;/p&gt;
@@ -541,21 +958,23 @@ random graph&lt;/p&gt;
  </entry>
  
  <entry>
-   <title>logic</title>
+   <title>Logic</title>
    <link href="http://localhost:4000/2017/logic/"/>
    <updated>2017-02-23T00:00:00+08:00</updated>
    <id>http://localhost:4000/2017/logic</id>
    <content type="html">&lt;h4 id=&quot;monotonic-logic-單調邏輯&quot;&gt;monotonic logic (單調邏輯)&lt;/h4&gt;
-&lt;p&gt;推理加入資料庫後,不會推翻原有邏輯推論,
+&lt;blockquote&gt;
+  &lt;p&gt;推理加入資料庫後,不會推翻原有邏輯推論,
 資料庫會隨著知識增長而增長。&lt;br /&gt;
 &lt;!--more--&gt;&lt;/p&gt;
-&lt;h4 id=&quot;propositions&quot;&gt;propositions&lt;/h4&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;propositions命題&quot;&gt;propositions(命題)&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;statement&lt;/li&gt;
-  &lt;li&gt;true/false
-在正規邏輯中, propositions = sentences&lt;br /&gt;
+  &lt;li&gt;true or false&lt;br /&gt;
+在正規邏輯中 propositions = sentences &lt;br /&gt;
 在非正規邏輯中要考慮到情境/背景&lt;br /&gt;
-e.g. The present president was born in Taiwan.&lt;/li&gt;
+e.g. It is rainning.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;inference 推論&lt;br /&gt;
@@ -589,10 +1008,12 @@ L* 代表使用L中的element可以組合出的任意字串&lt;/p&gt;
 a formal grammar in logic.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;WFF符合&lt;/p&gt;
+&lt;p&gt;Wff also called sentences or simply formulas&lt;/p&gt;
+
+&lt;p&gt;符合:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Every propositional variable 
-is a (wellformed) formula&lt;/li&gt;
+  &lt;li&gt;Every propositional variable is a wellformed formula&lt;br /&gt;
+(每一個變數都是wff)&lt;/li&gt;
   &lt;li&gt;If A, B are wff, then so are (A∧B),
  (A∨B), (A⇒B), (A⇔B) and ~A.&lt;/li&gt;
   &lt;li&gt;Only strings that can be obtained by a 
@@ -600,30 +1021,55 @@ finite number of applications of
 rule 1 and 2 are well-formed formulas.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;123是wff&lt;/p&gt;
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;(p1∨(p2∧p1))&lt;/td&gt;
+      &lt;td&gt;○&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;(p1⇒(p2∨(p3⇔(~p1∧p2))))&lt;/td&gt;
+      &lt;td&gt;○&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;(p1∨q)&lt;/td&gt;
+      &lt;td&gt;○&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;(p1)&lt;/td&gt;
+      &lt;td&gt;☓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;(~(p1∧p2))&lt;/td&gt;
+      &lt;td&gt;☓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;(~p)&lt;/td&gt;
+      &lt;td&gt;☓&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;p&gt;(p1) 不是wff (p1)長度為3,不符合第一條規則&lt;br /&gt;
-(~(p1∧p2)) 不是wff&lt;/p&gt;
-
-&lt;p&gt;⊨ (The satisfaction relation)&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;The satisfaction relation(⊨)&lt;/strong&gt;&lt;br /&gt;
 I ⊨ A
-在滿足I的情境下,所有的A都是true&lt;br /&gt;
-I 稱作 A的model&lt;/p&gt;
+在滿足I的情境下,所有的A都為true&lt;br /&gt;
+I 稱作A的model&lt;/p&gt;
 
-&lt;h4 id=&quot;deduction-theorem&quot;&gt;deduction theorem&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;deduction theorem&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;axiom&quot;&gt;Axiom&lt;/h4&gt;
-&lt;p&gt;S = (A,R)&lt;br /&gt;
-A set of wffs&lt;br /&gt;
-R rules&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Axiom system&lt;/strong&gt;&lt;br /&gt;
+S = (A,R)&lt;br /&gt;
+A (set of wffs)&lt;br /&gt;
+R (rules)&lt;/p&gt;
 
-&lt;p&gt;|-&lt;sub&gt;H&lt;/sub&gt; A → A&lt;br /&gt;
-透過H這個公設系統(axiom system)可以得到A則A&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;├&lt;sub&gt;H&lt;/sub&gt; A → A&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;透過H這個公設系統(axiom system)可以得到A則A&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h3 id=&quot;ch2&quot;&gt;CH2&lt;/h3&gt;
-&lt;p&gt;複習離散&lt;/p&gt;
-&lt;h4 id=&quot;binary-relation&quot;&gt;binary relation&lt;/h4&gt;
-&lt;p&gt;x R y&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;binary relation&lt;/strong&gt;&lt;br /&gt;
+x R y&lt;br /&gt;
 domain R range&lt;/p&gt;
 
 &lt;ul&gt;
@@ -678,14 +1124,16 @@ Well-order indcution&lt;/p&gt;
   &lt;li&gt;contradiction(反證)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Σ 隨意符號的集合&lt;/p&gt;
+&lt;p&gt;Σ 非空符號的集合(字母表) 
+σ = {a, b}&lt;br /&gt;
+w = abaaa&lt;/p&gt;
 
 &lt;p&gt;000,10,1111 are string over {0,1}&lt;br /&gt;
 Σ&lt;sup&gt;*&lt;/sup&gt; 字母集&lt;br /&gt;
 Σ&lt;sup&gt;+&lt;/sup&gt; 為Σ&lt;sup&gt;*&lt;/sup&gt;去掉空集合&lt;br /&gt;
 language 是一個集合&lt;/p&gt;
 
-&lt;p&gt;[x|L]&lt;br /&gt;
+&lt;p&gt;list L∈list,x∈N ⇒ [x|L]&lt;br /&gt;
 x 表示第一個元素(head)&lt;br /&gt;
 L 表示去掉x剩下的元素(tail)&lt;br /&gt;
 [x|L]是一個樹狀結構&lt;/p&gt;
@@ -695,7 +1143,139 @@ L 表示去掉x剩下的元素(tail)&lt;br /&gt;
   &lt;li&gt;如果f有單調性,那lfp(f)必定存在 (最小定點)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;page. 2-48&lt;/p&gt;
+&lt;p&gt;week4
+Arithmetic Expression&lt;br /&gt;
+ambiguous arithmetic expressions&lt;/p&gt;
+
+&lt;p&gt;well-define
+函數不能重複定義,不能有輸入一個值出現兩個output&lt;/p&gt;
+
+&lt;p&gt;structural induction(SI)&lt;/p&gt;
+
+&lt;p&gt;Induction principle for inductivelu defined set&lt;/p&gt;
+
+&lt;p&gt;recursive define function&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ambiguously&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;不是唯一的定義,同一個輸入可能會有多種的結果,若不會發生ambiguity括號可以省略&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;怎麼解ambiguous?&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;用括號區分先後順序&lt;/li&gt;
+  &lt;li&gt;將運算子排優先順序&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;ch3-syntax-and-semantics&quot;&gt;Ch3 Syntax and Semantics&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;syntax&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;simple sentences(proposition/logical constants)&lt;br /&gt;
+開頭只能是小寫字母或是_ (不能大寫或是數字開頭)&lt;/li&gt;
+  &lt;li&gt;compound sentences&lt;br /&gt;
+由簡單句子和關係組成&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;five types of compound sentences&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;negations&lt;/td&gt;
+      &lt;td&gt;(¬p)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;conjunctions&lt;/td&gt;
+      &lt;td&gt;(p∧q)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;disjunctions&lt;/td&gt;
+      &lt;td&gt;(p∨q)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;implications&lt;/td&gt;
+      &lt;td&gt;(p⇒q)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;biconditionals&lt;/td&gt;
+      &lt;td&gt;(p⇔q)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;subformula&lt;/strong&gt;  &lt;br /&gt;
+利用formula tree找所有subformula&lt;br /&gt;
+ε代表root,整個sentence&lt;br /&gt;
+利用樹狀結構將sentence拆至leaf,且leaf都是simple sentences&lt;br /&gt;
+並利用類似huffman tree將每個位置編號(往左0,往右1)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Evaluation&lt;/strong&gt;&lt;br /&gt;
+	判斷整個sentence是true或是false   &lt;br /&gt;
+&lt;strong&gt;Satisfaction&lt;/strong&gt;  &lt;br /&gt;
+	判斷是否滿足sentence&lt;br /&gt;
+	e.g. &lt;br /&gt;
+p ∨ q ⇒ q ∧ r&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;p&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;q&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;r&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;☓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 </content>
  </entry>

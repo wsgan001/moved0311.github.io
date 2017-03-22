@@ -59,7 +59,8 @@ P-R curve的面積越大效能越佳(代表Precision掉越慢)
 __內插法__  
 > $$\ p_{interp}= \max\limits_{r'\ge r}\ p(r{'})\$$
 
-r代表recall,由後面相對較高的值往前填平,Precision基本上會有往下掉的趨勢    
+r代表recall,
+作法是從目前往後找最高的點向前填平,並重新畫P-R圖  
 
 __Mean Average Precision(MAP)__  
 > $$\ MAP(Q) = \frac{1}{|Q|}\sum^{|Q|}_{j=1}\frac{1}{m_j}\sum_{k=1}^{m_j}Precision(R_{jk})\$$
@@ -68,21 +69,24 @@ __Mean Average Precision(MAP)__
 第二個sum算precision平均  
 
 __Precision at k__  
+比較第k名的Precision  
 
-Normalized Discounted Cumulative Gain(NDCG)  
-2002出現  
-3高度相關  
-0沒關係  
-G = <3,2,3,0,0,1,2,2,3,0,...>
-1.Cumulative Gain(CG)
-2.Discounted Cumulative Gain(DCG)
-累加前一項,做成遞增感覺  
-3.Normalized Discounted Cumulative Gain(NDCG)
-做一個衰退,並和理想值相除  
-通常看NDCG at 10
+__Normalized Discounted Cumulative Gain(NDCG)__    
+作者：Kalervo Jarvelin, Jaana Kekalainen(2002)  
 
-benchmark 資料集  
-1.
+G = <3,2,3,0,0,1,2,2,3,0,...>  
+3高度相關, 0沒關係  
+步驟:  
+1. Cumulative Gain(CG)  
+2. Discounted Cumulative Gain(DCG)
+3. Normalized Discounted Cumulative Gain(NDCG)
+> 得到前幾名的相關程度(1-3),除log<sub>2</sub>(rank+1),  
+對排名做懲罰,越後面懲罰越重  
+DCG<sub>n</sub> 前n項總和  
+nDCG<sub>n</sub> = $$\ \frac{DCG_{n}}{IDCG_{n}}(\frac{相關程度排序}{理想相關程度},做正規化)\$$
+
+__benchmark 資料集__    
+1. Cranfield
 2. TREC(nist.gov)  
 	Ad-hoc 資料集(1992-1999)  
 3. GOV2
@@ -92,9 +96,10 @@ benchmark 資料集
 5. Cross Language Evaluation
 6. REUTERS
 
-標記資料準則  
+__標記資料準則__   
 Kappa measure   
-標記資料是否一致  
+> 標記資料是否一致,若標記不一致資料中就沒有truth  
+  
 Kappa計算公式  
 
 Pooled marginals
@@ -112,8 +117,8 @@ Result Summaries
 quicklinks  
 底下多的鍊結  
 
-Traditional Information retreval (ch6,ch11)  
-模型
+__Traditional Information retreval (ch11)__    
+模型(ch6)  
 1. Vector Space model
 	TF-IDF
 2. Probabilistic Information Retrieval
@@ -137,14 +142,73 @@ goolge成立1996
 learning to rank
 Markov model
 
+__VectorSpace.py範例程式__  
+將多篇文章建立一個向量模型  
+並6輸入query,到每篇文章中做search  
+計算Precision和Recall  
 
-vector space.py 主程式
+使用到的方法
+* 將所有文章使用join()成為一個string包含所有文章內容  
+* 做string clean去除. , 多餘空白並轉為小寫
+* 將clean好的string利用空白切分成words array,丟到Porter stem(去除字尾)
+* 刪除重複的word,使用set讓出現的word唯一   
+> Porter Stemming Algorithm
+作者:Martin Porter(2006)
+去除字尾
+* 得到所有整理完的words,做成index(將每個word編號)
+* 將每篇文章分別建立自己的index,並統計每個word出現的次數
+* 將輸入的query做成vector  
+* 利用內積計算相關程度
+
+Ch6 Model
+Vocabulary V = {w1,w2,w3,...wv} 
+Query q = q1,q2,...,qm
+Document 文章 di = w1,w2,...
+Collection 文章集合 C={d1,d2,d3,...}
+
+Computing R(q)
+1. Document select
+挑文件1相關0不相關,挑到近似
+2. Document ranking
+query的結果>threshold 就收進去  
+找到較相關,比沒有依據好  
+
+Probability Ranking Principle(PRP)
+
+The notation of Relevance
+* Relevance
+	* Similarity 相似度
+		* Vector space model
+	* Probability of relevance 機率模型
+	* Probability inference 機率推論
+
+Vector Space Model
+將query和document表示成向量形式(similar representation)  
+Relevance(d,q) = similar(d,q)
+利用cosine算相似度(1 ~ -1) 
+high dimension 
+good dimension -> orthogonal  
+Empirically effective
+實作容易
+
+
+Linear independent
+		
+LDA
+
+TF(Term Frequency)
+	word count
+IDF(Inverse Document Frequency)(反向的TF)
+	字的獨特性
+	the,a,to IDF值很低(沒有鑑別度)	
+	IDF(t) = 1 + log(n/k)  n篇數 k字出現次數
+
+TF-IDF 
+	weight(t,d) = TF(w,d) * IDF
 
 
 
-
-
-
+Ch11
 
 
 

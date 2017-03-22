@@ -22,6 +22,13 @@ function concatenateAll(...args){
     return args.join('');
 }
 ```
+__callback function__  
+.run().then()  
+執行非同步呼叫執行完run後拿回控制權,並交代執行完再用then接住call back
+
+__promise用法__  
+
+
 
 #### reference
 [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript#hoisting)

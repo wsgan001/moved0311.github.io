@@ -12,7 +12,7 @@
 
   <title>
     
-      logic &middot; Taiyi's note
+      Logic &middot; Taiyi's note
     
   </title>
 
@@ -110,26 +110,28 @@
 
     </nav>
 
-    <p>&copy; 2017. All rights reserved.</p>
+    <p>@ 2017</p>
   </div>
 </div>
 
 
     <div class="content container">
       <div class="post">
-  <h1 class="post-title">logic</h1>
+  <h1 class="post-title">Logic</h1>
   <span class="post-date">23 Feb 2017</span>
   <h4 id="monotonic-logic-單調邏輯">monotonic logic (單調邏輯)</h4>
-<p>推理加入資料庫後,不會推翻原有邏輯推論,
+<blockquote>
+  <p>推理加入資料庫後,不會推翻原有邏輯推論,
 資料庫會隨著知識增長而增長。<br />
 <!--more--></p>
-<h4 id="propositions">propositions</h4>
+</blockquote>
+
+<h4 id="propositions命題">propositions(命題)</h4>
 <ul>
-  <li>statement</li>
-  <li>true/false
-在正規邏輯中, propositions = sentences<br />
+  <li>true or false<br />
+在正規邏輯中 propositions = sentences <br />
 在非正規邏輯中要考慮到情境/背景<br />
-e.g. The present president was born in Taiwan.</li>
+e.g. It is rainning.</li>
 </ul>
 
 <p>inference 推論<br />
@@ -163,10 +165,12 @@ L* 代表使用L中的element可以組合出的任意字串</p>
 a formal grammar in logic.</p>
 </blockquote>
 
-<p>WFF符合</p>
+<p>Wff also called sentences or simply formulas</p>
+
+<p>符合:</p>
 <ul>
-  <li>Every propositional variable 
-is a (wellformed) formula</li>
+  <li>Every propositional variable is a wellformed formula<br />
+(每一個變數都是wff)</li>
   <li>If A, B are wff, then so are (A∧B),
  (A∨B), (A⇒B), (A⇔B) and ~A.</li>
   <li>Only strings that can be obtained by a 
@@ -174,30 +178,55 @@ finite number of applications of
 rule 1 and 2 are well-formed formulas.</li>
 </ul>
 
-<p>123是wff</p>
+<table>
+  <tbody>
+    <tr>
+      <td>(p1∨(p2∧p1))</td>
+      <td>○</td>
+    </tr>
+    <tr>
+      <td>(p1⇒(p2∨(p3⇔(~p1∧p2))))</td>
+      <td>○</td>
+    </tr>
+    <tr>
+      <td>(p1∨q)</td>
+      <td>○</td>
+    </tr>
+    <tr>
+      <td>(p1)</td>
+      <td>☓</td>
+    </tr>
+    <tr>
+      <td>(~(p1∧p2))</td>
+      <td>☓</td>
+    </tr>
+    <tr>
+      <td>(~p)</td>
+      <td>☓</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>(p1) 不是wff (p1)長度為3,不符合第一條規則<br />
-(~(p1∧p2)) 不是wff</p>
-
-<p>⊨ (The satisfaction relation)<br />
+<p><strong>The satisfaction relation(⊨)</strong><br />
 I ⊨ A
-在滿足I的情境下,所有的A都是true<br />
-I 稱作 A的model</p>
+在滿足I的情境下,所有的A都為true<br />
+I 稱作A的model</p>
 
-<h4 id="deduction-theorem">deduction theorem</h4>
+<p><strong>deduction theorem</strong></p>
 
-<h4 id="axiom">Axiom</h4>
-<p>S = (A,R)<br />
-A set of wffs<br />
-R rules</p>
+<p><strong>Axiom system</strong><br />
+S = (A,R)<br />
+A (set of wffs)<br />
+R (rules)</p>
 
-<p>|-<sub>H</sub> A → A<br />
-透過H這個公設系統(axiom system)可以得到A則A</p>
+<p><strong>├<sub>H</sub> A → A</strong></p>
+<blockquote>
+  <p>透過H這個公設系統(axiom system)可以得到A則A</p>
+</blockquote>
 
 <h3 id="ch2">CH2</h3>
-<p>複習離散</p>
-<h4 id="binary-relation">binary relation</h4>
-<p>x R y<br />
+<p><strong>binary relation</strong><br />
+x R y<br />
 domain R range</p>
 
 <ul>
@@ -252,14 +281,16 @@ Well-order indcution</p>
   <li>contradiction(反證)</li>
 </ul>
 
-<p>Σ 隨意符號的集合</p>
+<p>Σ 非空符號的集合(字母表) 
+σ = {a, b}<br />
+w = abaaa</p>
 
 <p>000,10,1111 are string over {0,1}<br />
 Σ<sup>*</sup> 字母集<br />
 Σ<sup>+</sup> 為Σ<sup>*</sup>去掉空集合<br />
 language 是一個集合</p>
 
-<p>[x|L]<br />
+<p>list L∈list,x∈N ⇒ [x|L]<br />
 x 表示第一個元素(head)<br />
 L 表示去掉x剩下的元素(tail)<br />
 [x|L]是一個樹狀結構</p>
@@ -269,7 +300,139 @@ L 表示去掉x剩下的元素(tail)<br />
   <li>如果f有單調性,那lfp(f)必定存在 (最小定點)</li>
 </ol>
 
-<p>page. 2-48</p>
+<p>week4
+Arithmetic Expression<br />
+ambiguous arithmetic expressions</p>
+
+<p>well-define
+函數不能重複定義,不能有輸入一個值出現兩個output</p>
+
+<p>structural induction(SI)</p>
+
+<p>Induction principle for inductivelu defined set</p>
+
+<p>recursive define function</p>
+
+<p><strong>ambiguously</strong></p>
+<blockquote>
+  <p>不是唯一的定義,同一個輸入可能會有多種的結果,若不會發生ambiguity括號可以省略</p>
+</blockquote>
+
+<p>怎麼解ambiguous?</p>
+<ol>
+  <li>用括號區分先後順序</li>
+  <li>將運算子排優先順序</li>
+</ol>
+
+<h4 id="ch3-syntax-and-semantics">Ch3 Syntax and Semantics</h4>
+<p><strong>syntax</strong></p>
+<ul>
+  <li>simple sentences(proposition/logical constants)<br />
+開頭只能是小寫字母或是_ (不能大寫或是數字開頭)</li>
+  <li>compound sentences<br />
+由簡單句子和關係組成</li>
+</ul>
+
+<p><strong>five types of compound sentences</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>negations</td>
+      <td>(¬p)</td>
+    </tr>
+    <tr>
+      <td>conjunctions</td>
+      <td>(p∧q)</td>
+    </tr>
+    <tr>
+      <td>disjunctions</td>
+      <td>(p∨q)</td>
+    </tr>
+    <tr>
+      <td>implications</td>
+      <td>(p⇒q)</td>
+    </tr>
+    <tr>
+      <td>biconditionals</td>
+      <td>(p⇔q)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>subformula</strong>  <br />
+利用formula tree找所有subformula<br />
+ε代表root,整個sentence<br />
+利用樹狀結構將sentence拆至leaf,且leaf都是simple sentences<br />
+並利用類似huffman tree將每個位置編號(往左0,往右1)</p>
+
+<p><strong>Evaluation</strong><br />
+	判斷整個sentence是true或是false   <br />
+<strong>Satisfaction</strong>  <br />
+	判斷是否滿足sentence<br />
+	e.g. <br />
+p ∨ q ⇒ q ∧ r</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">p</th>
+      <th style="text-align: center">q</th>
+      <th style="text-align: center">r</th>
+      <th style="text-align: center"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">☓</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">☓</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">☓</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">☓</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
 
 
 </div>

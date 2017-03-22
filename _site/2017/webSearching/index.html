@@ -110,7 +110,7 @@
 
     </nav>
 
-    <p>&copy; 2017. All rights reserved.</p>
+    <p>@ 2017</p>
   </div>
 </div>
 
@@ -207,7 +207,8 @@ P-R curve的面積越大效能越佳(代表Precision掉越慢)</p>
   <script type="math/tex; mode=display">\ p_{interp}= \max\limits_{r'\ge r}\ p(r{'})\</script>
 </blockquote>
 
-<p>r代表recall,由後面相對較高的值往前填平,Precision基本上會有往下掉的趨勢</p>
+<p>r代表recall,
+作法是從目前往後找最高的點向前填平,並重新畫P-R圖</p>
 
 <p><strong>Mean Average Precision(MAP)</strong></p>
 <blockquote>
@@ -217,23 +218,31 @@ P-R curve的面積越大效能越佳(代表Precision掉越慢)</p>
 <p>第一個sum算query平均<br />
 第二個sum算precision平均</p>
 
-<p><strong>Precision at k</strong></p>
+<p><strong>Precision at k</strong><br />
+比較第k名的Precision</p>
 
-<p>Normalized Discounted Cumulative Gain(NDCG)<br />
-2002出現<br />
-3高度相關<br />
-0沒關係<br />
-G = &lt;3,2,3,0,0,1,2,2,3,0,…&gt;
-1.Cumulative Gain(CG)
-2.Discounted Cumulative Gain(DCG)
-累加前一項,做成遞增感覺<br />
-3.Normalized Discounted Cumulative Gain(NDCG)
-做一個衰退,並和理想值相除<br />
-通常看NDCG at 10</p>
+<p><strong>Normalized Discounted Cumulative Gain(NDCG)</strong>  <br />
+作者：Kalervo Jarvelin, Jaana Kekalainen(2002)</p>
 
-<p>benchmark 資料集<br />
-1.</p>
+<p>G = &lt;3,2,3,0,0,1,2,2,3,0,…&gt;<br />
+3高度相關, 0沒關係<br />
+步驟:</p>
 <ol>
+  <li>Cumulative Gain(CG)</li>
+  <li>Discounted Cumulative Gain(DCG)</li>
+  <li>Normalized Discounted Cumulative Gain(NDCG)
+    <blockquote>
+      <p>得到前幾名的相關程度(1-3),除log<sub>2</sub>(rank+1),<br />
+對排名做懲罰,越後面懲罰越重<br />
+DCG<sub>n</sub> 前n項總和<br />
+nDCG<sub>n</sub> = <script type="math/tex">\ \frac{DCG_{n}}{IDCG_{n}}(\frac{相關程度排序}{理想相關程度},做正規化)\</script></p>
+    </blockquote>
+  </li>
+</ol>
+
+<p><strong>benchmark 資料集</strong></p>
+<ol>
+  <li>Cranfield</li>
   <li>TREC(nist.gov)<br />
  Ad-hoc 資料集(1992-1999)</li>
   <li>GOV2
@@ -244,10 +253,13 @@ G = &lt;3,2,3,0,0,1,2,2,3,0,…&gt;
   <li>REUTERS</li>
 </ol>
 
-<p>標記資料準則<br />
-Kappa measure <br />
-標記資料是否一致<br />
-Kappa計算公式</p>
+<p><strong>標記資料準則</strong> <br />
+Kappa measure</p>
+<blockquote>
+  <p>標記資料是否一致,若標記不一致資料中就沒有truth</p>
+</blockquote>
+
+<p>Kappa計算公式</p>
 
 <p>Pooled marginals</p>
 
@@ -266,8 +278,8 @@ Kappa計算公式</p>
 <p>quicklinks<br />
 底下多的鍊結</p>
 
-<p>Traditional Information retreval (ch6,ch11)<br />
-模型</p>
+<p><strong>Traditional Information retreval (ch11)</strong>  <br />
+模型(ch6)</p>
 <ol>
   <li>Vector Space model
  TF-IDF</li>
@@ -309,7 +321,85 @@ goolge成立1996
 learning to rank
 Markov model</p>
 
-<p>vector space.py 主程式</p>
+<p><strong>VectorSpace.py範例程式</strong><br />
+將多篇文章建立一個向量模型<br />
+並6輸入query,到每篇文章中做search<br />
+計算Precision和Recall</p>
+
+<p>使用到的方法</p>
+<ul>
+  <li>將所有文章使用join()成為一個string包含所有文章內容</li>
+  <li>做string clean去除. , 多餘空白並轉為小寫</li>
+  <li>將clean好的string利用空白切分成words array,丟到Porter stem(去除字尾)</li>
+  <li>刪除重複的word,使用set讓出現的word唯一
+    <blockquote>
+      <p>Porter Stemming Algorithm
+作者:Martin Porter(2006)
+去除字尾</p>
+    </blockquote>
+  </li>
+  <li>得到所有整理完的words,做成index(將每個word編號)</li>
+  <li>將每篇文章分別建立自己的index,並統計每個word出現的次數</li>
+  <li>將輸入的query做成vector</li>
+  <li>利用內積計算相關程度</li>
+</ul>
+
+<p>Ch6 Model
+Vocabulary V = {w1,w2,w3,…wv} 
+Query q = q1,q2,…,qm
+Document 文章 di = w1,w2,…
+Collection 文章集合 C={d1,d2,d3,…}</p>
+
+<p>Computing R(q)</p>
+<ol>
+  <li>Document select
+挑文件1相關0不相關,挑到近似</li>
+  <li>Document ranking
+query的結果&gt;threshold 就收進去<br />
+找到較相關,比沒有依據好</li>
+</ol>
+
+<p>Probability Ranking Principle(PRP)</p>
+
+<p>The notation of Relevance</p>
+<ul>
+  <li>Relevance
+    <ul>
+      <li>Similarity 相似度
+        <ul>
+          <li>Vector space model</li>
+        </ul>
+      </li>
+      <li>Probability of relevance 機率模型</li>
+      <li>Probability inference 機率推論</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Vector Space Model
+將query和document表示成向量形式(similar representation)<br />
+Relevance(d,q) = similar(d,q)
+利用cosine算相似度(1 ~ -1) 
+high dimension 
+good dimension -&gt; orthogonal<br />
+Empirically effective
+實作容易</p>
+
+<p>Linear independent</p>
+
+<p>LDA</p>
+
+<p>TF(Term Frequency)
+	word count
+IDF(Inverse Document Frequency)(反向的TF)
+	字的獨特性
+	the,a,to IDF值很低(沒有鑑別度)	
+	IDF(t) = 1 + log(n/k)  n篇數 k字出現次數</p>
+
+<p>TF-IDF 
+	weight(t,d) = TF(w,d) * IDF</p>
+
+<p>Ch11</p>
 
 
 </div>

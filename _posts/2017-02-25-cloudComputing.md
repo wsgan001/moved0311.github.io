@@ -72,18 +72,83 @@ title: SocialCloudComputing
 	clique problem 是 NP-Complete  
 	
 	Connected commponets :有連通的子圖  
-8.  
-
-
+8. Network motifs      
+在音樂上motifs是一種作曲法,靈感的意思  
+	在生物基因上是一些重複的pattern  
+	在社群希望找到出現次數較高的motifs(最常出現的subgraph)  
 
 CERN
 [米爾格倫實驗 Milgram experiment](https://zh.wikipedia.org/wiki/%E7%B1%B3%E7%88%BE%E6%A0%BC%E5%80%AB%E5%AF%A6%E9%A9%97)服從威權實驗   
 random graph  
 
+__Central of Network__  
+* 找到最重要的點(central)  
+
+local  
+> 1. Degree  
 
 
 
 
+
+
+
+
+global  
+> 2. Closeness  
+3. Betweeness  
+4. Eigenvector  
+  
+* Group Centrality 一群最有影響力的人  
+在小世界理論中,如果送信到目標的前一步,都是經由特定的3個人,代表這三個人很重要,  
+目前social network還無法透過社群網站判斷這些人  
+
+__Social actors(群眾的智慧)__  
+1. Connectors  
+認識很多人,很擅長社交  
+2. Mavens  
+資訊專家,知道很多各式訊息  
+3. Salesman  
+容易說服別人,擅長協調  
+
+判斷social network的四種centrality  
+1. Degree centrality(local)  
+點的重要性,若network的規模大小不同,做normalize(除總size-1)  
+2. Betweeness Centrality  
+Node<sub>i</sub> A到B的shortest path有幾條經過i  
+3. Closeness Centrality
+點i和所有點j的shortest path平均的距離  
+4. Eigenvector Centrality    
+這個點的重要性,看他朋友點的重要性  
+eigenvector  
+> 一個向量乘上一個矩陣(transform),方向不變但scale可能會變  
+Ax = $$\lambda$$x  
+A矩陣代表social network關係(1:朋友關係,0:不是朋友)  
+x代表重要性  
+概念類似PageRank,pagerank的值是連到他網頁的值加總    
+
+HIT   
+Hub  
+推薦的authoritative有多高  
+Authoritative page  
+有多少hub推薦  
+
+__最短路徑演算法__  
+unweighted graph
+1. BFS
+2. Floyd-Warshall
+
+__Group centrality__  
+找出social network中幾個最有影響力的人  
+或指定某幾個人想觀察這幾人的影響力  
+
+group centrality一群人一起看,影響幾個人(有連線)  
+不能將每個單一人的degree加總,會有重複的  
+
+
+
+
+community detection algorithm
 
 
 
