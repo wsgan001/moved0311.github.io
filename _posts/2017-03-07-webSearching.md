@@ -143,6 +143,7 @@ learning to rank
 Markov model
 
 __VectorSpace.py範例程式__  
+[Building a Vector Space Search Engine in Python](http://blog.josephwilk.net/projects/building-a-vector-space-search-engine-in-python.html)   
 將多篇文章建立一個向量模型  
 並6輸入query,到每篇文章中做search  
 計算Precision和Recall  

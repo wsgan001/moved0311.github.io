@@ -125,7 +125,7 @@ eigenvector
 Ax = $$\lambda$$x  
 A矩陣代表social network關係(1:朋友關係,0:不是朋友)  
 x代表重要性  
-概念類似PageRank,pagerank的值是連到他網頁的值加總    
+概念類似PageRank,page rank的值是連到他網頁的值加總    
 
 HIT   
 Hub  
@@ -145,10 +145,22 @@ __Group centrality__
 group centrality一群人一起看,影響幾個人(有連線)  
 不能將每個單一人的degree加總,會有重複的  
 
-
-
-
+Social Group Analysis
 community detection algorithm
+
+Properties of cohesion
+1. Mutuality of ties  
+所有subgroup彼此都有編相連,在graph中就是完全圖的概念(clique)  
+要求有點太嚴格  
+2. Closeness or reachability of subgroup members  
+不需要直接有邊相連,間接有相連就行了  
+3. Frquency of ties among members
+第一個是說假設有n個人必須要和n-1個人相連,那只需要和n-k個人相連就可以了  
+4. Relative frequency of ties among subgroup members compared to non-member  
+
+Clique  
+> maximal complete subgraph,最大的子圖任兩點都有邊相連  
+
 
 
 

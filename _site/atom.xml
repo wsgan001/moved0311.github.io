@@ -4,7 +4,7 @@
  <title>Taiyi's note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-03-22T13:05:52+08:00</updated>
+ <updated>2017-03-22T18:30:46+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -251,6 +251,7 @@ learning to rank
 Markov model&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;VectorSpace.py範例程式&lt;/strong&gt;&lt;br /&gt;
+&lt;a href=&quot;http://blog.josephwilk.net/projects/building-a-vector-space-search-engine-in-python.html&quot;&gt;Building a Vector Space Search Engine in Python&lt;/a&gt; &lt;br /&gt;
 將多篇文章建立一個向量模型&lt;br /&gt;
 並6輸入query,到每篇文章中做search&lt;br /&gt;
 計算Precision和Recall&lt;/p&gt;
@@ -1276,6 +1277,13 @@ p ∨ q ⇒ q ∧ r&lt;/p&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;p&gt;vaild 恆為真
+	e.g. p ∨ ~p  , |= A&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ch4 Proof and Formal&lt;/strong&gt;&lt;br /&gt;
+axiomatic proof
+deduction&lt;/p&gt;
 
 </content>
  </entry>
