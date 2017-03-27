@@ -5,6 +5,7 @@ title: Data Structure
 ## LinkList   
 * __linklist reverse__  
 ![linkListReverse](/img/dataStructure/linkListReverse.png)
+<!--more-->
 ```java
 public class linkListReverse{
     private static Node head = null;
