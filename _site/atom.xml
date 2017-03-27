@@ -4,13 +4,84 @@
  <title>Taiyi's note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-03-22T18:30:46+08:00</updated>
+ <updated>2017-03-27T14:39:55+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
    <email>moved0311@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Data Structure</title>
+   <link href="http://localhost:4000/2017/dataStructure/"/>
+   <updated>2017-03-27T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2017/dataStructure</id>
+   <content type="html">&lt;h2 id=&quot;linklist&quot;&gt;LinkList&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;linklist reverse&lt;/strong&gt;&lt;br /&gt;
+&lt;img src=&quot;/img/dataStructure/linkListReverse.png&quot; alt=&quot;linkListReverse&quot; /&gt;
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;linkListReverse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+      &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+              &lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; 
+              &lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+              &lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; 
+          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+              &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; -&amp;gt; &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;   
+              &lt;span class=&quot;n&quot;&gt;iter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;null&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+             &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+             &lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pre&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;  
+             &lt;span class=&quot;n&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+             &lt;span class=&quot;n&quot;&gt;current&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;   
+          &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pre&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+        
+      &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++){&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;before reverse:&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reverseHead&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;After reverse:&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reverseHead&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>python</title>
@@ -120,7 +191,8 @@ accuracy = &lt;script type=&quot;math/tex&quot;&gt;\frac{tp+tn}{tp+fp+fn+tn}\&lt
 
 &lt;p&gt;Precision/Recall Tradoff
 使用調和平均數計算Precision和Recall的Tradoff&lt;br /&gt;
-量測的數值稱做F measure,α和1-α分別為P和R的權重,一般是取α=0.5&lt;/p&gt;
+量測的數值稱做F measure,α和1-α分別為P和R的權重,一般是取α=0.5&lt;br /&gt;
+(P和R重要程度相同)&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;F = &lt;script type=&quot;math/tex&quot;&gt;\frac{1}{\alpha\frac{1}{P}+(1-\alpha)\frac{1}{R}} = \frac{(\beta^2+1)PR}{\beta^2P+R}\&lt;/script&gt; where &lt;script type=&quot;math/tex&quot;&gt;\ \beta^2=\frac{1-\alpha}{\alpha}\&lt;/script&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -148,25 +220,62 @@ P-R curve的面積越大效能越佳(代表Precision掉越慢)&lt;/p&gt;
 第二個sum算precision平均&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Precision at k&lt;/strong&gt;&lt;br /&gt;
-比較第k名的Precision&lt;/p&gt;
+第k個搜索結果的Precision&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;R-Precision&lt;/strong&gt;&lt;br /&gt;
+文件中總共有R篇相關文章,以R作為cut-off,計算Precision&lt;br /&gt;
+e.g. 總共有100篇文章,其中10篇是相關的&lt;br /&gt;
+且搜尋結果是:RNRNN RRNNN RNNRR ….&lt;br /&gt;
+R=10(只看RNRNN RRNNN)計算Precision&lt;br /&gt;
+R-Precision = 0.4&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Normalized Discounted Cumulative Gain(NDCG)&lt;/strong&gt;  &lt;br /&gt;
 作者：Kalervo Jarvelin, Jaana Kekalainen(2002)&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;用來衡量ranking quality&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;G = &amp;lt;3,2,3,0,0,1,2,2,3,0,…&amp;gt;&lt;br /&gt;
-3高度相關, 0沒關係&lt;br /&gt;
+&lt;p&gt;e.g.&lt;br /&gt;
+G = &amp;lt;3,2,3,0,0,1,2,2,3,0,…&amp;gt; &lt;br /&gt;
+G表示一個搜索的結果(3高度相關, 0沒關係)&lt;br /&gt;
 步驟:&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;Cumulative Gain(CG)&lt;/li&gt;
-  &lt;li&gt;Discounted Cumulative Gain(DCG)&lt;/li&gt;
-  &lt;li&gt;Normalized Discounted Cumulative Gain(NDCG)
+  &lt;li&gt;Cumulative Gain(CG)
     &lt;blockquote&gt;
-      &lt;p&gt;得到前幾名的相關程度(1-3),除log&lt;sub&gt;2&lt;/sub&gt;(rank+1),&lt;br /&gt;
-對排名做懲罰,越後面懲罰越重&lt;br /&gt;
-DCG&lt;sub&gt;n&lt;/sub&gt; 前n項總和&lt;br /&gt;
-nDCG&lt;sub&gt;n&lt;/sub&gt; = &lt;script type=&quot;math/tex&quot;&gt;\ \frac{DCG_{n}}{IDCG_{n}}(\frac{相關程度排序}{理想相關程度},做正規化)\&lt;/script&gt;&lt;/p&gt;
+
+      &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\
+ CG[i] = \left\{\begin{matrix}
+ G[1], &amp;if\ i=1 \\ 
+ CG[i-1]+G[i], &amp;otherwise 
+ \end{matrix}\right.
+ \ %]]&gt;&lt;/script&gt;
     &lt;/blockquote&gt;
+
+    &lt;p&gt;目前項+＝前一項(做成一個遞增的函數)&lt;br /&gt;
+ CG’=&amp;lt;3,5,8,8,8,9,11,13,16,16,…&amp;gt;&lt;/p&gt;
   &lt;/li&gt;
+  &lt;li&gt;Discounted Cumulative Gain(DCG)
+    &lt;blockquote&gt;
+
+      &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\
+ DCG[i]=\left\{\begin{matrix}
+ G[i], &amp; if\ i=1\\ 
+ DCG[i-1]+G[i]/log_b\ i, &amp; otherwise
+ \end{matrix}\right.
+ \ %]]&gt;&lt;/script&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;DCG’=&amp;lt;3,5,6.89,6.89,6.89,7.28,7.99,8.66,9.61,9.61,…&amp;gt; if b=2&lt;br /&gt;
+ i代表排名,對排名做懲罰(除log&lt;sub&gt;2&lt;/sub&gt; i),排名越後面懲罰越重&lt;br /&gt;
+ 代表如果搜尋的結果很差,和理想的排序分數會相差很多&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Normalized Discounted Cumulative Gain(NDCG)&lt;br /&gt;
+ 理想的搜索結果I=&amp;lt;3,3,3,2,2,2,1,1,1,1,0,0,0,…&amp;gt;(高度相關的排越前面) &lt;br /&gt;
+ 理想搜索結果DCGI=&amp;lt;3,6,7.89,8.89,9.75,10.52,10.88,11.21,…&amp;gt;&lt;br /&gt;
+ nDCG&lt;sub&gt;n&lt;/sub&gt; = &lt;script type=&quot;math/tex&quot;&gt;\ \frac{DCG_{n}}{IDCG_{n}}(\frac{相關程度排序}{理想相關程度},做正規化)\&lt;/script&gt;&lt;br /&gt;
+ NDCG=&amp;lt;1,0.83,0.87,0.77,0.70,0.69,0.73,0.77,…&amp;gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;strong&gt;benchmark 資料集&lt;/strong&gt;&lt;/p&gt;
@@ -185,36 +294,29 @@ nDCG&lt;sub&gt;n&lt;/sub&gt; = &lt;script type=&quot;math/tex&quot;&gt;\ \frac{D
 &lt;p&gt;&lt;strong&gt;標記資料準則&lt;/strong&gt; &lt;br /&gt;
 Kappa measure&lt;/p&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;標記資料是否一致,若標記不一致資料中就沒有truth&lt;/p&gt;
+  &lt;p&gt;標記資料是否一致的衡量標準,若標記不一致資料中就沒有truth&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Kappa計算公式&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt;\ \kappa = \frac{P(A)-P(E)}{1-P(E)}\&lt;/script&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;Pooled marginals&lt;/p&gt;
-
-&lt;p&gt;A/B testing
-一次有兩套演算法並存&lt;br /&gt;
-一部分流量導到新的演算法&lt;br /&gt;
-並觀察AB的差異,新的較好再導過去&lt;/p&gt;
-
-&lt;p&gt;Result Summaries&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Result Summaries&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;10 blue link&lt;/li&gt;
-  &lt;li&gt;Static/Dynamic
-抽前50個字/利用nlp技術&lt;/li&gt;
+  &lt;li&gt;搜尋結果呈現：10 blue link&lt;/li&gt;
+  &lt;li&gt;搜尋結果下方文字說明分為Static和Dynamic
+Static:固定抽前50個字
+Dynamic:利用nlp技術,根據搜索關鍵字動態做變化&lt;/li&gt;
+  &lt;li&gt;quicklinks&lt;br /&gt;
+底下多的連結&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;quicklinks&lt;br /&gt;
-底下多的鍊結&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Traditional Information retreval (ch11)&lt;/strong&gt;  &lt;br /&gt;
-模型(ch6)&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Vector Space model
- TF-IDF&lt;/li&gt;
-  &lt;li&gt;Probabilistic Information Retrieval
- BM25&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Ch6 Model&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Vector Space Model&lt;/li&gt;
+  &lt;li&gt;Probabilistic Information Retrieval&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;table&gt;
   &lt;tbody&gt;
@@ -237,99 +339,137 @@ Kappa measure&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;1960 第一個機率模型
-1970 
-vector space model 1975
-classic probabilistic model
-1980
-non-class logic&lt;br /&gt;
-1990
-TREC benchmark&lt;br /&gt;
-goolge成立1996
-2000
-learning to rank
-Markov model&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;VectorSpace.py範例程式&lt;/strong&gt;&lt;br /&gt;
-&lt;a href=&quot;http://blog.josephwilk.net/projects/building-a-vector-space-search-engine-in-python.html&quot;&gt;Building a Vector Space Search Engine in Python&lt;/a&gt; &lt;br /&gt;
-將多篇文章建立一個向量模型&lt;br /&gt;
-並6輸入query,到每篇文章中做search&lt;br /&gt;
-計算Precision和Recall&lt;/p&gt;
-
-&lt;p&gt;使用到的方法&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;IR model歷史&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;將所有文章使用join()成為一個string包含所有文章內容&lt;/li&gt;
-  &lt;li&gt;做string clean去除. , 多餘空白並轉為小寫&lt;/li&gt;
-  &lt;li&gt;將clean好的string利用空白切分成words array,丟到Porter stem(去除字尾)&lt;/li&gt;
-  &lt;li&gt;刪除重複的word,使用set讓出現的word唯一
-    &lt;blockquote&gt;
-      &lt;p&gt;Porter Stemming Algorithm
-作者:Martin Porter(2006)
-去除字尾&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;得到所有整理完的words,做成index(將每個word編號)&lt;/li&gt;
-  &lt;li&gt;將每篇文章分別建立自己的index,並統計每個word出現的次數&lt;/li&gt;
-  &lt;li&gt;將輸入的query做成vector&lt;/li&gt;
-  &lt;li&gt;利用內積計算相關程度&lt;/li&gt;
+  &lt;li&gt;1960&lt;br /&gt;
+  第一個機率模型&lt;/li&gt;
+  &lt;li&gt;1970   &lt;br /&gt;
+  vector space model(75)  &lt;br /&gt;
+  classic probabilistic model(76)&lt;/li&gt;
+  &lt;li&gt;1980&lt;br /&gt;
+  non-class logic model(86)&lt;/li&gt;
+  &lt;li&gt;1990&lt;br /&gt;
+  TREC benchmark &lt;br /&gt;
+  BM25/Okapi(94)&lt;br /&gt;
+  google成立(96)  &lt;br /&gt;
+  Language model(98)&lt;/li&gt;
+  &lt;li&gt;2000&lt;br /&gt;
+  Axiomatic model(04)&lt;br /&gt;
+  Markov Random Field(05)   &lt;br /&gt;
+  Learning to rank(05)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Ch6 Model
-Vocabulary V = {w1,w2,w3,…wv} 
-Query q = q1,q2,…,qm
-Document 文章 di = w1,w2,…
-Collection 文章集合 C={d1,d2,d3,…}&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Vector space&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Computing R(q)&lt;/p&gt;
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Vocabulary&lt;/td&gt;
+      &lt;td&gt;V = { &lt;script type=&quot;math/tex&quot;&gt;w_1,w_2,w_3,...w_v&lt;/script&gt; }&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Query&lt;/td&gt;
+      &lt;td&gt;q =&lt;script type=&quot;math/tex&quot;&gt;\{q_1,q_2,...,q_m\}&lt;/script&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Document 文章&lt;/td&gt;
+      &lt;td&gt;&lt;script type=&quot;math/tex&quot;&gt;{d_i} = \{  w_1,w_2,...  \}&lt;/script&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Collection文章集合&lt;/td&gt;
+      &lt;td&gt;C = { &lt;script type=&quot;math/tex&quot;&gt;d_1,d_2,d_3,...&lt;/script&gt; }&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;R(q) query的集合&lt;/td&gt;
+      &lt;td&gt;R(q) ⊂ C&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;目標是找到近似query的集合&lt;/strong&gt;&lt;br /&gt;
+策略:&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;Document select
-挑文件1相關0不相關,挑到近似&lt;/li&gt;
-  &lt;li&gt;Document ranking
-query的結果&amp;gt;threshold 就收進去&lt;br /&gt;
-找到較相關,比沒有依據好&lt;/li&gt;
+  &lt;li&gt;Document select&lt;br /&gt;
+ 挑文件如果是相關就收到集合&lt;br /&gt;
+ absolute relevance(系統必須決定是相關還是不相關)&lt;/li&gt;
+  &lt;li&gt;Document ranking&lt;br /&gt;
+ query的結果&amp;gt;threshold 就收進去  &lt;br /&gt;
+ relative relevance(不必是1或0,相近到一定程度就收進集合)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Probability Ranking Principle(PRP)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Probability Ranking Principle(PRP)&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Robertson (1977)&lt;br /&gt;
+相似度量測函數f滿足,&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;f(q,d_1) &gt; f(q,d_2)\quad iff\quad p(Rel|q,d_1) &gt; p(Rel|q,d_2)&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;The notation of Relevance&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Relevance
     &lt;ul&gt;
-      &lt;li&gt;Similarity 相似度
-        &lt;ul&gt;
-          &lt;li&gt;Vector space model&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
+      &lt;li&gt;Similarity 相似度&lt;br /&gt;
+   Vector space model&lt;/li&gt;
       &lt;li&gt;Probability of relevance 機率模型&lt;/li&gt;
       &lt;li&gt;Probability inference 機率推論&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Vector Space Model
+&lt;p&gt;&lt;strong&gt;Vector Space Model(VSM)&lt;/strong&gt;&lt;br /&gt;
 將query和document表示成向量形式(similar representation)&lt;br /&gt;
-Relevance(d,q) = similar(d,q)
-利用cosine算相似度(1 ~ -1) 
-high dimension 
+假設Relevance(d,q) = similar(d,q)&lt;br /&gt;
+利用cosine算相似度(1 ~ -1) &lt;br /&gt;
+high dimension(index的維度通常在10萬左右) &lt;br /&gt;
 good dimension -&amp;gt; orthogonal&lt;br /&gt;
-Empirically effective
-實作容易&lt;/p&gt;
+(好的維度切割應該是維度間彼此獨立(orthogonal),&lt;br /&gt;
+但是通常很困難,例如nccu後面接university的機率很高)&lt;br /&gt;
+VSM優點: Empirically effective,直觀, 實作容易&lt;/p&gt;
 
-&lt;p&gt;Linear independent&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;VectorSpace範例程式&lt;/strong&gt;&lt;br /&gt;
+&lt;a href=&quot;http://blog.josephwilk.net/projects/building-a-vector-space-search-engine-in-python.html&quot;&gt;Building a Vector Space Search Engine in Python&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;LDA&lt;/p&gt;
+&lt;p&gt;大致步驟&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;將所有文章使用join()成為一個string包含所有文章內容&lt;/li&gt;
+  &lt;li&gt;做string clean去除. , 多餘空白,並轉為小寫&lt;/li&gt;
+  &lt;li&gt;將clean好的string利用空白切分成words array,丟到Porter stem(去除字尾)
+    &lt;blockquote&gt;
+      &lt;p&gt;Porter Stemming Algorithm&lt;br /&gt;
+    作者:Martin Porter(2006)&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;刪除重複的word,使用set讓出現的word唯一&lt;/li&gt;
+  &lt;li&gt;得到所有整理完的words,做成index(將每個word編號)&lt;/li&gt;
+  &lt;li&gt;將每篇文章分別建立自己的index,並統計每個word出現的次數&lt;/li&gt;
+  &lt;li&gt;將輸入的query做成vector&lt;/li&gt;
+  &lt;li&gt;利用計算相關程度&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;TF(Term Frequency)
-	word count
-IDF(Inverse Document Frequency)(反向的TF)
-	字的獨特性
-	the,a,to IDF值很低(沒有鑑別度)	
-	IDF(t) = 1 + log(n/k)  n篇數 k字出現次數&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;index值使用TF-IDF&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;TF(Term Frequency)&lt;br /&gt;
+  word count,單純統計字數出現頻率&lt;/li&gt;
+  &lt;li&gt;IDF(Inverse Document Frequency)(反向的TF)&lt;br /&gt;
+  字的獨特性,如果某些字在很多篇文章出現次數都很高  &lt;br /&gt;
+  例如:the,a,to,…&lt;br /&gt;
+  IDF值就會很低(沒有鑑別度)	&lt;br /&gt;
+  IDF(t) = 1 + log(n/k)  (n:篇數,k:字出現次數)&lt;br /&gt;
+  例如文章總數是1000(n=1000),所有文章都有出現cat(k=1000),&lt;br /&gt;
+  IDF = 1 + log(1000/1000) = 1&lt;br /&gt;
+  如果只有1篇文章有出現cat,&lt;br /&gt;
+  IDF = 1 + log(1000/1) = 4&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;TF-IDF 
-	weight(t,d) = TF(w,d) * IDF&lt;/p&gt;
+&lt;p&gt;TF-IDF計算方法:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;weight(t,d) = TF(t,d) * IDF(t)&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;Ch11&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TF-IDF範例程式&lt;/strong&gt;&lt;br /&gt;
+&lt;a href=&quot;http://stevenloria.com/finding-important-words-in-a-document-using-tf-idf/&quot;&gt;Tutorial: Finding Important Words in Text Using TF-IDF&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;下禮拜講Ch11&lt;/p&gt;
 
 </content>
  </entry>
@@ -869,7 +1009,7 @@ eigenvector
 Ax = &lt;script type=&quot;math/tex&quot;&gt;\lambda&lt;/script&gt;x&lt;br /&gt;
 A矩陣代表social network關係(1:朋友關係,0:不是朋友)&lt;br /&gt;
 x代表重要性&lt;br /&gt;
-概念類似PageRank,pagerank的值是連到他網頁的值加總&lt;/p&gt;
+概念類似PageRank,page rank的值是連到他網頁的值加總&lt;/p&gt;
     &lt;/blockquote&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
@@ -894,7 +1034,81 @@ unweighted graph&lt;/p&gt;
 &lt;p&gt;group centrality一群人一起看,影響幾個人(有連線)&lt;br /&gt;
 不能將每個單一人的degree加總,會有重複的&lt;/p&gt;
 
-&lt;p&gt;community detection algorithm&lt;/p&gt;
+&lt;p&gt;Social Group Analysis
+community detection algorithm&lt;/p&gt;
+
+&lt;p&gt;Properties of cohesion&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Mutuality of ties&lt;br /&gt;
+ 所有subgroup彼此都有編相連,在graph中就是完全圖的概念(clique)&lt;br /&gt;
+ 要求有點太嚴格&lt;/li&gt;
+  &lt;li&gt;Closeness or reachability of subgroup members&lt;br /&gt;
+ 不需要直接有邊相連,間接有相連就行了&lt;/li&gt;
+  &lt;li&gt;Frquency of ties among members
+ 第一個是說假設有n個人必須要和n-1個人相連,那只需要和n-k個人相連就可以了&lt;/li&gt;
+  &lt;li&gt;Relative frequency of ties among subgroup members compared to non-member&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Clique&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;maximal complete subgraph,最大的子圖任兩點都有邊相連&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;N-Clique 
+在grahp中,任兩個點之間的距離&amp;lt;N&lt;br /&gt;
+N-clan&lt;br /&gt;
+必須是N-Clique&lt;br /&gt;
+在subgraph中,任兩個點之間的距離&amp;lt;N
+N-club
+不必是N-Clique&lt;/p&gt;
+
+&lt;p&gt;K-plex&lt;br /&gt;
+如果是clique每個點的degree是n-1&lt;br /&gt;
+如果是k-plex,每個點的degree是n-k&lt;br /&gt;
+假設subgraph有4個點,2-plex每個點的degree至少是2&lt;/p&gt;
+
+&lt;p&gt;K-core
+至少和k個人是朋友
+每個點的degree至少是k&lt;/p&gt;
+
+&lt;p&gt;Community Detection Approaches&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Kernighan-Lin Alog(KL algorithm)&lt;/li&gt;
+  &lt;li&gt;Hierarchical Clustering&lt;/li&gt;
+  &lt;li&gt;Modularity Maximization&lt;/li&gt;
+  &lt;li&gt;Bridge-Cut Algo&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;KL algorithm&lt;br /&gt;
+有權重的圖weighted graph
+input: weighted graph
+output: 切成兩個subgraph且橫跨兩群的crossing(cut)的值越小越好,
+切成兩半那條線橫跨的cost越小越好&lt;br /&gt;
+希望群和群的相似度越大,同群的相似度越像&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;任意切成兩半&lt;/li&gt;
+  &lt;li&gt;交換其中兩點使cost下降&lt;/li&gt;
+  &lt;li&gt;交換直到收斂&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;external cost
+    crossing的cost(連向別群的cost)
+internal cost
+    連向同群的cost
+difference
+    external cost - internal cost&lt;/p&gt;
+
+&lt;p&gt;ab交換
+Gain = Da + Db - 2Wab
+Difference a + Difference b - 2*weighted ab&lt;/p&gt;
+
+&lt;p&gt;z = crossing edge與ab無關的其他cost總和
+原來crossing cost = z + Ea + Eb - Wab
+交換完new crossing cost = z + la + lb + Wab&lt;/p&gt;
+
+&lt;p&gt;交換數回合,若遇到gain是負的嘗試做交換下去,到最後再找gain最好的&lt;/p&gt;
+
+&lt;p&gt;時間複雜度:O(n^3)&lt;/p&gt;
 
 &lt;h4 id=&quot;reference&quot;&gt;reference&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&quot;http://newdoc.nccu.edu.tw/teaschm/1052/schmPrv.jsp-yy=105&amp;amp;smt=2&amp;amp;num=753868&amp;amp;gop=00&amp;amp;s=1&amp;amp;tea=101583.htm&quot;&gt;社群雲端運算&lt;/a&gt;&lt;/p&gt;

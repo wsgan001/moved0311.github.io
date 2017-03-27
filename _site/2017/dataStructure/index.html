@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Data Structure &middot; Taiyi's note
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/custom.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-0b">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=228652297542969";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Taiyi's note
+        </a>
+      </h1>
+      <p class="lead"></p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/Archive/">Archives</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+			
+	
+	<li>
+		<a href="https://github.com/moved0311">
+		   <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-github fa-stack-1x icon"></i>
+          </span>
+		</a>
+	</li>
+	
+
+	
+	  <li>
+		<a href="https://www.facebook.com/100000329876068">
+		  <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x icon"></i>
+          </span>
+		</a>
+	  </li>
+	
+
+    </nav>
+
+    <p>@ 2017</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Data Structure</h1>
+  <span class="post-date">27 Mar 2017</span>
+  <h2 id="linklist">LinkList</h2>
+<ul>
+  <li><strong>linklist reverse</strong><br />
+<img src="/img/dataStructure/linkListReverse.png" alt="linkListReverse" />
+    <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">linkListReverse</span><span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="n">Node</span> <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="n">Node</span> <span class="n">tail</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Node</span><span class="o">{</span>
+      <span class="kd">private</span> <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
+      <span class="kd">private</span> <span class="n">Node</span> <span class="n">next</span><span class="o">;</span>
+
+      <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">){</span>
+          <span class="k">this</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
+      <span class="o">}</span>
+      <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">insert</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">){</span>
+          <span class="n">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+          <span class="n">node</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+          <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
+              <span class="n">tail</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node</span><span class="o">;</span> 
+              <span class="n">tail</span> <span class="o">=</span> <span class="n">node</span><span class="o">;</span>
+          <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+              <span class="n">head</span> <span class="o">=</span> <span class="n">node</span><span class="o">;</span>
+              <span class="n">tail</span> <span class="o">=</span> <span class="n">node</span><span class="o">;</span> 
+          <span class="o">}</span>
+      <span class="o">}</span>
+      <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="n">Node</span> <span class="n">head</span><span class="o">){</span>
+          <span class="n">Node</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+          <span class="k">while</span><span class="o">(</span><span class="n">iter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
+              <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">iter</span><span class="o">.</span><span class="na">val</span><span class="o">+</span><span class="s">" -&gt; "</span><span class="o">);</span>   
+              <span class="n">iter</span> <span class="o">=</span> <span class="n">iter</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+          <span class="o">}</span>
+          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"null"</span><span class="o">);</span>
+      <span class="o">}</span>
+      <span class="kd">public</span> <span class="kd">static</span> <span class="n">Node</span> <span class="nf">reverse</span><span class="o">(</span><span class="n">Node</span> <span class="n">head</span><span class="o">){</span>
+          <span class="n">Node</span> <span class="n">pre</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+          <span class="n">Node</span> <span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+          <span class="n">Node</span> <span class="n">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+          <span class="k">while</span><span class="o">(</span><span class="n">current</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
+             <span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+             <span class="n">current</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">pre</span><span class="o">;</span>  
+             <span class="n">pre</span> <span class="o">=</span> <span class="n">current</span><span class="o">;</span>
+             <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="o">;</span>
+          <span class="o">}</span>   
+          <span class="k">return</span> <span class="n">pre</span><span class="o">;</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        
+      <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+          <span class="n">Node</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+      <span class="o">}</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"before reverse:"</span><span class="o">);</span>
+      <span class="n">Node</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">head</span><span class="o">);</span>
+      <span class="n">Node</span> <span class="n">reverseHead</span> <span class="o">=</span> <span class="n">Node</span><span class="o">.</span><span class="na">reverse</span><span class="o">(</span><span class="n">head</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"After reverse:"</span><span class="o">);</span>
+      <span class="n">Node</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">reverseHead</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2017/python/">
+            python
+            <small>08 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/webSearching/">
+            WebSearching
+            <small>07 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/paperWrite/">
+            paperWrite
+            <small>07 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+
+  
+    <div class="fb-comments" data-href="http://localhost:4000/2017/dataStructure/" data-width="auto" data-numposts="5"></div>
+
+  
+</div>
+
+    </div>
+
+  </body>
+</html>

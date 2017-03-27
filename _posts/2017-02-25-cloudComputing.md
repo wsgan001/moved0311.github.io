@@ -150,16 +150,73 @@ community detection algorithm
 
 Properties of cohesion
 1. Mutuality of ties  
-所有subgroup彼此都有編相連,在graph中就是完全圖的概念(clique)  
-要求有點太嚴格  
+    所有subgroup彼此都有編相連,在graph中就是完全圖的概念(clique)  
+    要求有點太嚴格  
 2. Closeness or reachability of subgroup members  
-不需要直接有邊相連,間接有相連就行了  
+    不需要直接有邊相連,間接有相連就行了  
 3. Frquency of ties among members
-第一個是說假設有n個人必須要和n-1個人相連,那只需要和n-k個人相連就可以了  
+    第一個是說假設有n個人必須要和n-1個人相連,那只需要和n-k個人相連就可以了  
 4. Relative frequency of ties among subgroup members compared to non-member  
 
 Clique  
 > maximal complete subgraph,最大的子圖任兩點都有邊相連  
+
+
+
+
+
+N-Clique 
+在grahp中,任兩個點之間的距離<N  
+N-clan  
+必須是N-Clique  
+在subgraph中,任兩個點之間的距離<N
+N-club
+不必是N-Clique  
+
+K-plex  
+如果是clique每個點的degree是n-1  
+如果是k-plex,每個點的degree是n-k  
+假設subgraph有4個點,2-plex每個點的degree至少是2 
+
+K-core
+至少和k個人是朋友
+每個點的degree至少是k
+
+Community Detection Approaches
+1. Kernighan-Lin Alog(KL algorithm)
+2. Hierarchical Clustering
+3. Modularity Maximization
+4. Bridge-Cut Algo
+
+KL algorithm  
+有權重的圖weighted graph
+input: weighted graph
+output: 切成兩個subgraph且橫跨兩群的crossing(cut)的值越小越好,
+切成兩半那條線橫跨的cost越小越好  
+希望群和群的相似度越大,同群的相似度越像
+1. 任意切成兩半
+2. 交換其中兩點使cost下降
+3. 交換直到收斂
+
+external cost
+    crossing的cost(連向別群的cost)
+internal cost
+    連向同群的cost
+difference
+    external cost - internal cost
+
+ab交換
+Gain = Da + Db - 2Wab
+Difference a + Difference b - 2*weighted ab
+
+z = crossing edge與ab無關的其他cost總和
+原來crossing cost = z + Ea + Eb - Wab
+交換完new crossing cost = z + la + lb + Wab
+
+交換數回合,若遇到gain是負的嘗試做交換下去,到最後再找gain最好的
+
+時間複雜度:O(n^3)
+
 
 
 

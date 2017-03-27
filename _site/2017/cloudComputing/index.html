@@ -273,7 +273,7 @@ eigenvector
 Ax = <script type="math/tex">\lambda</script>x<br />
 A矩陣代表social network關係(1:朋友關係,0:不是朋友)<br />
 x代表重要性<br />
-概念類似PageRank,pagerank的值是連到他網頁的值加總</p>
+概念類似PageRank,page rank的值是連到他網頁的值加總</p>
     </blockquote>
   </li>
 </ol>
@@ -298,7 +298,81 @@ unweighted graph</p>
 <p>group centrality一群人一起看,影響幾個人(有連線)<br />
 不能將每個單一人的degree加總,會有重複的</p>
 
-<p>community detection algorithm</p>
+<p>Social Group Analysis
+community detection algorithm</p>
+
+<p>Properties of cohesion</p>
+<ol>
+  <li>Mutuality of ties<br />
+ 所有subgroup彼此都有編相連,在graph中就是完全圖的概念(clique)<br />
+ 要求有點太嚴格</li>
+  <li>Closeness or reachability of subgroup members<br />
+ 不需要直接有邊相連,間接有相連就行了</li>
+  <li>Frquency of ties among members
+ 第一個是說假設有n個人必須要和n-1個人相連,那只需要和n-k個人相連就可以了</li>
+  <li>Relative frequency of ties among subgroup members compared to non-member</li>
+</ol>
+
+<p>Clique</p>
+<blockquote>
+  <p>maximal complete subgraph,最大的子圖任兩點都有邊相連</p>
+</blockquote>
+
+<p>N-Clique 
+在grahp中,任兩個點之間的距離&lt;N<br />
+N-clan<br />
+必須是N-Clique<br />
+在subgraph中,任兩個點之間的距離&lt;N
+N-club
+不必是N-Clique</p>
+
+<p>K-plex<br />
+如果是clique每個點的degree是n-1<br />
+如果是k-plex,每個點的degree是n-k<br />
+假設subgraph有4個點,2-plex每個點的degree至少是2</p>
+
+<p>K-core
+至少和k個人是朋友
+每個點的degree至少是k</p>
+
+<p>Community Detection Approaches</p>
+<ol>
+  <li>Kernighan-Lin Alog(KL algorithm)</li>
+  <li>Hierarchical Clustering</li>
+  <li>Modularity Maximization</li>
+  <li>Bridge-Cut Algo</li>
+</ol>
+
+<p>KL algorithm<br />
+有權重的圖weighted graph
+input: weighted graph
+output: 切成兩個subgraph且橫跨兩群的crossing(cut)的值越小越好,
+切成兩半那條線橫跨的cost越小越好<br />
+希望群和群的相似度越大,同群的相似度越像</p>
+<ol>
+  <li>任意切成兩半</li>
+  <li>交換其中兩點使cost下降</li>
+  <li>交換直到收斂</li>
+</ol>
+
+<p>external cost
+    crossing的cost(連向別群的cost)
+internal cost
+    連向同群的cost
+difference
+    external cost - internal cost</p>
+
+<p>ab交換
+Gain = Da + Db - 2Wab
+Difference a + Difference b - 2*weighted ab</p>
+
+<p>z = crossing edge與ab無關的其他cost總和
+原來crossing cost = z + Ea + Eb - Wab
+交換完new crossing cost = z + la + lb + Wab</p>
+
+<p>交換數回合,若遇到gain是負的嘗試做交換下去,到最後再找gain最好的</p>
+
+<p>時間複雜度:O(n^3)</p>
 
 <h4 id="reference">reference</h4>
 <p><a href="http://newdoc.nccu.edu.tw/teaschm/1052/schmPrv.jsp-yy=105&amp;smt=2&amp;num=753868&amp;gop=00&amp;s=1&amp;tea=101583.htm">社群雲端運算</a></p>
@@ -308,6 +382,15 @@ unweighted graph</p>
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2017/dataStructure/">
+            Data Structure
+            <small>27 Mar 2017</small>
+          </a>
+        </h3>
+      </li>
     
       <li>
         <h3>
@@ -322,15 +405,6 @@ unweighted graph</p>
         <h3>
           <a href="/2017/webSearching/">
             WebSearching
-            <small>07 Mar 2017</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2017/paperWrite/">
-            paperWrite
             <small>07 Mar 2017</small>
           </a>
         </h3>
