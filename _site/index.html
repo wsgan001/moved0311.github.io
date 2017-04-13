@@ -142,23 +142,12 @@
     <span class="post-date">08 Mar 2017</span>
 
     
-		<h4 id="print">print</h4>
-<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%.2</span><span class="s">f"</span> <span class="o">%</span> <span class="n">total</span><span class="p">)</span>
-</code></pre>
-</div>
-<h4 id="註解">註解</h4>
-<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="c"># 單行</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
-
-<span class="c"># 多行</span>
-<span class="s">"""
-"""</span>
-</code></pre>
-</div>
-<h4 id="date-and-time">Date and Time</h4>
-<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">now</span>
+		<h4 id="time">Time</h4>
+<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+<span class="c"># your code here.</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">"time : "</span><span class="p">,(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">),</span><span class="s">" seconds."</span>
 </code></pre>
 </div>
 <h4 id="input">input</h4>
@@ -166,6 +155,7 @@
 </code></pre>
 </div>
 
+		<p class="more"><a href="/2017/python/">Read More</a></p>
 	
 
   </div>
@@ -179,8 +169,8 @@
     <span class="post-date">07 Mar 2017</span>
 
     
-		<p><strong>CH8 Evaluation in information retrival</strong>  <br />
-評量search engine好壞</p>
+		<h2 id="ch8-evaluation-in-information-retrival">CH8 Evaluation in information retrival</h2>
+<p>評量search engine好壞</p>
 <ol>
   <li>搜到的index</li>
   <li>搜尋速度</li>
@@ -188,350 +178,8 @@
   <li>和搜尋相關程度</li>
 </ol>
 
-<p>相關程度</p>
-<ol>
-  <li>benchmark資料集</li>
-  <li>benchmark queries(問句)</li>
-  <li>文章是否相關的標記(ground truths)</li>
-</ol>
 
-<p>queries和information need有落差
-想找的東西,不會下key word</p>
-
-<p><strong>Precision (P)</strong></p>
-<blockquote>
-  <p>Precision = <script type="math/tex">\frac{檢索到相關物件的數量}{物件總數}\</script></p>
-</blockquote>
-
-<p><strong>Recall (R)</strong></p>
-<blockquote>
-  <p>Recall = <script type="math/tex">\frac{檢索到相關物件的數量}{相關物件總數}\</script></p>
-</blockquote>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-      <td>Relevant</td>
-      <td>Nonrelevent</td>
-    </tr>
-    <tr>
-      <td>Retrieved</td>
-      <td>true positive(tp)</td>
-      <td>false positive(fp)</td>
-    </tr>
-    <tr>
-      <td>Not retrieved</td>
-      <td>false negatives(fn)</td>
-      <td>true negatives(tn)</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>true positive(tp) 機器判斷+且為真<br />
-false positive(fp)機器判斷+但是是假<br />
-false negatives(fn) 機器判斷-但判斷錯<br />
-true negatives(tn)  機器判斷-且判斷對</p>
-
-<p>P = <script type="math/tex">\frac{tp}{tp+fp}\</script></p>
-
-<p>R = <script type="math/tex">\frac{tp}{tp+fn}\</script></p>
-
-<p><strong>Accuracy vs Precision</strong> <br />
-accuracy = <script type="math/tex">\frac{tp+tn}{tp+fp+fn+tn}\</script></p>
-<blockquote>
-  <p>accuracy不適合用在information retrieval,
-因為通常Nonrelevant會非常的大,tn項非常大除分母fn和tn都非常大結果會趨近於1,所以才用Precision和Recall作為依據</p>
-</blockquote>
-
-<p><strong>調和平均數(harmonic mean)</strong></p>
-<blockquote>
-  <p>H = <script type="math/tex">\frac{n}{\frac{1}{x_1}+\frac{1}{x_2}+..+\frac{1}{x_n}}\</script></p>
-</blockquote>
-
-<p>Precision/Recall Tradoff
-使用調和平均數計算Precision和Recall的Tradoff<br />
-量測的數值稱做F measure,α和1-α分別為P和R的權重,一般是取α=0.5<br />
-(P和R重要程度相同)</p>
-<blockquote>
-  <p>F = <script type="math/tex">\frac{1}{\alpha\frac{1}{P}+(1-\alpha)\frac{1}{R}} = \frac{(\beta^2+1)PR}{\beta^2P+R}\</script> where <script type="math/tex">\ \beta^2=\frac{1-\alpha}{\alpha}\</script></p>
-</blockquote>
-
-<h4 id="ranked-evalution">Ranked Evalution</h4>
-<p>P,R,F都是unordered(沒有等級)<br />
-一個query會有一個Precision/Recall圖(崎嶇的坡)  <br />
-使用內插法(interpolated)可以得到一張較平滑的P-R圖(和機器學習ROC curve相似)
-P-R curve的面積越大效能越佳(代表Precision掉越慢)</p>
-
-<p><strong>內插法</strong></p>
-<blockquote>
-  <script type="math/tex; mode=display">\ p_{interp}= \max\limits_{r'\ge r}\ p(r{'})\</script>
-</blockquote>
-
-<p>r代表recall,
-作法是從目前往後找最高的點向前填平,並重新畫P-R圖</p>
-
-<p><strong>Mean Average Precision(MAP)</strong></p>
-<blockquote>
-  <script type="math/tex; mode=display">\ MAP(Q) = \frac{1}{|Q|}\sum^{|Q|}_{j=1}\frac{1}{m_j}\sum_{k=1}^{m_j}Precision(R_{jk})\</script>
-</blockquote>
-
-<p>第一個sum算query平均<br />
-第二個sum算precision平均</p>
-
-<p><strong>Precision at k</strong><br />
-第k個搜索結果的Precision</p>
-
-<p><strong>R-Precision</strong><br />
-文件中總共有R篇相關文章,以R作為cut-off,計算Precision<br />
-e.g. 總共有100篇文章,其中10篇是相關的<br />
-且搜尋結果是:RNRNN RRNNN RNNRR ….<br />
-R=10(只看RNRNN RRNNN)計算Precision<br />
-R-Precision = 0.4</p>
-
-<p><strong>Normalized Discounted Cumulative Gain(NDCG)</strong>  <br />
-作者：Kalervo Jarvelin, Jaana Kekalainen(2002)</p>
-<blockquote>
-  <p>用來衡量ranking quality</p>
-</blockquote>
-
-<p>e.g.<br />
-G = &lt;3,2,3,0,0,1,2,2,3,0,…&gt; <br />
-G表示一個搜索的結果(3高度相關, 0沒關係)<br />
-步驟:</p>
-<ol>
-  <li>Cumulative Gain(CG)
-    <blockquote>
-
-      <script type="math/tex; mode=display">% <![CDATA[
-\
- CG[i] = \left\{\begin{matrix}
- G[1], &if\ i=1 \\ 
- CG[i-1]+G[i], &otherwise 
- \end{matrix}\right.
- \ %]]></script>
-    </blockquote>
-
-    <p>目前項+＝前一項(做成一個遞增的函數)<br />
- CG’=&lt;3,5,8,8,8,9,11,13,16,16,…&gt;</p>
-  </li>
-  <li>Discounted Cumulative Gain(DCG)
-    <blockquote>
-
-      <script type="math/tex; mode=display">% <![CDATA[
-\
- DCG[i]=\left\{\begin{matrix}
- G[i], & if\ i=1\\ 
- DCG[i-1]+G[i]/log_b\ i, & otherwise
- \end{matrix}\right.
- \ %]]></script>
-    </blockquote>
-
-    <p>DCG’=&lt;3,5,6.89,6.89,6.89,7.28,7.99,8.66,9.61,9.61,…&gt; if b=2<br />
- i代表排名,對排名做懲罰(除log<sub>2</sub> i),排名越後面懲罰越重<br />
- 代表如果搜尋的結果很差,和理想的排序分數會相差很多</p>
-  </li>
-  <li>Normalized Discounted Cumulative Gain(NDCG)<br />
- 理想的搜索結果I=&lt;3,3,3,2,2,2,1,1,1,1,0,0,0,…&gt;(高度相關的排越前面) <br />
- 理想搜索結果DCGI=&lt;3,6,7.89,8.89,9.75,10.52,10.88,11.21,…&gt;<br />
- nDCG<sub>n</sub> = <script type="math/tex">\ \frac{DCG_{n}}{IDCG_{n}}(\frac{相關程度排序}{理想相關程度},做正規化)\</script><br />
- NDCG=&lt;1,0.83,0.87,0.77,0.70,0.69,0.73,0.77,…&gt;</li>
-</ol>
-
-<p><strong>benchmark 資料集</strong></p>
-<ol>
-  <li>Cranfield</li>
-  <li>TREC(nist.gov)<br />
- Ad-hoc 資料集(1992-1999)</li>
-  <li>GOV2
- 2500萬篇文章</li>
-  <li>NICIR
- cross-language IR</li>
-  <li>Cross Language Evaluation</li>
-  <li>REUTERS</li>
-</ol>
-
-<p><strong>標記資料準則</strong> <br />
-Kappa measure</p>
-<blockquote>
-  <p>標記資料是否一致的衡量標準,若標記不一致資料中就沒有truth</p>
-</blockquote>
-
-<p>Kappa計算公式</p>
-<blockquote>
-  <script type="math/tex; mode=display">\ \kappa = \frac{P(A)-P(E)}{1-P(E)}\</script>
-</blockquote>
-
-<p><strong>Result Summaries</strong></p>
-<ul>
-  <li>搜尋結果呈現：10 blue link</li>
-  <li>搜尋結果下方文字說明分為Static和Dynamic
-Static:固定抽前50個字
-Dynamic:利用nlp技術,根據搜索關鍵字動態做變化</li>
-  <li>quicklinks<br />
-底下多的連結</li>
-</ul>
-
-<p><strong>Ch6 Model</strong></p>
-<ul>
-  <li>Vector Space Model</li>
-  <li>Probabilistic Information Retrieval</li>
-</ul>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Empirical IR</td>
-      <td>Model-based IR</td>
-    </tr>
-    <tr>
-      <td>暴力法</td>
-      <td>有理論模型</td>
-    </tr>
-    <tr>
-      <td>heuristic</td>
-      <td>數學假設</td>
-    </tr>
-    <tr>
-      <td>難推廣到其他問題</td>
-      <td>容易推廣到其他問題</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>IR model歷史</strong></p>
-<ul>
-  <li>1960<br />
-  第一個機率模型</li>
-  <li>1970   <br />
-  vector space model(75)  <br />
-  classic probabilistic model(76)</li>
-  <li>1980<br />
-  non-class logic model(86)</li>
-  <li>1990<br />
-  TREC benchmark <br />
-  BM25/Okapi(94)<br />
-  google成立(96)  <br />
-  Language model(98)</li>
-  <li>2000<br />
-  Axiomatic model(04)<br />
-  Markov Random Field(05)   <br />
-  Learning to rank(05)</li>
-</ul>
-
-<p><strong>Vector space</strong></p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Vocabulary</td>
-      <td>V = { <script type="math/tex">w_1,w_2,w_3,...w_v</script> }</td>
-    </tr>
-    <tr>
-      <td>Query</td>
-      <td>q =<script type="math/tex">\{q_1,q_2,...,q_m\}</script></td>
-    </tr>
-    <tr>
-      <td>Document 文章</td>
-      <td><script type="math/tex">{d_i} = \{  w_1,w_2,...  \}</script></td>
-    </tr>
-    <tr>
-      <td>Collection文章集合</td>
-      <td>C = { <script type="math/tex">d_1,d_2,d_3,...</script> }</td>
-    </tr>
-    <tr>
-      <td>R(q) query的集合</td>
-      <td>R(q) ⊂ C</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>目標是找到近似query的集合</strong><br />
-策略:</p>
-<ol>
-  <li>Document select<br />
- 挑文件如果是相關就收到集合<br />
- absolute relevance(系統必須決定是相關還是不相關)</li>
-  <li>Document ranking<br />
- query的結果&gt;threshold 就收進去  <br />
- relative relevance(不必是1或0,相近到一定程度就收進集合)</li>
-</ol>
-
-<p><strong>Probability Ranking Principle(PRP)</strong></p>
-<blockquote>
-  <p>Robertson (1977)<br />
-相似度量測函數f滿足,<br />
-<script type="math/tex">f(q,d_1) > f(q,d_2)\quad iff\quad p(Rel|q,d_1) > p(Rel|q,d_2)</script></p>
-</blockquote>
-
-<p>The notation of Relevance</p>
-<ul>
-  <li>Relevance
-    <ul>
-      <li>Similarity 相似度<br />
-   Vector space model</li>
-      <li>Probability of relevance 機率模型</li>
-      <li>Probability inference 機率推論</li>
-    </ul>
-  </li>
-</ul>
-
-<p><strong>Vector Space Model(VSM)</strong><br />
-將query和document表示成向量形式(similar representation)<br />
-假設Relevance(d,q) = similar(d,q)<br />
-利用cosine算相似度(1 ~ -1) <br />
-high dimension(index的維度通常在10萬左右) <br />
-good dimension -&gt; orthogonal<br />
-(好的維度切割應該是維度間彼此獨立(orthogonal),<br />
-但是通常很困難,例如nccu後面接university的機率很高)<br />
-VSM優點: Empirically effective,直觀, 實作容易</p>
-
-<p><strong>VectorSpace範例程式</strong><br />
-<a href="http://blog.josephwilk.net/projects/building-a-vector-space-search-engine-in-python.html">Building a Vector Space Search Engine in Python</a></p>
-
-<p>大致步驟</p>
-<ul>
-  <li>將所有文章使用join()成為一個string包含所有文章內容</li>
-  <li>做string clean去除. , 多餘空白,並轉為小寫</li>
-  <li>將clean好的string利用空白切分成words array,丟到Porter stem(去除字尾)
-    <blockquote>
-      <p>Porter Stemming Algorithm<br />
-    作者:Martin Porter(2006)</p>
-    </blockquote>
-  </li>
-  <li>刪除重複的word,使用set讓出現的word唯一</li>
-  <li>得到所有整理完的words,做成index(將每個word編號)</li>
-  <li>將每篇文章分別建立自己的index,並統計每個word出現的次數</li>
-  <li>將輸入的query做成vector</li>
-  <li>利用計算相關程度</li>
-</ul>
-
-<p><strong>index值使用TF-IDF</strong></p>
-<ul>
-  <li>TF(Term Frequency)<br />
-  word count,單純統計字數出現頻率</li>
-  <li>IDF(Inverse Document Frequency)(反向的TF)<br />
-  字的獨特性,如果某些字在很多篇文章出現次數都很高  <br />
-  例如:the,a,to,…<br />
-  IDF值就會很低(沒有鑑別度)	<br />
-  IDF(t) = 1 + log(n/k)  (n:篇數,k:字出現次數)<br />
-  例如文章總數是1000(n=1000),所有文章都有出現cat(k=1000),<br />
-  IDF = 1 + log(1000/1000) = 1<br />
-  如果只有1篇文章有出現cat,<br />
-  IDF = 1 + log(1000/1) = 4</li>
-</ul>
-
-<p>TF-IDF計算方法:</p>
-<blockquote>
-  <p>weight(t,d) = TF(t,d) * IDF(t)</p>
-</blockquote>
-
-<p><strong>TF-IDF範例程式</strong><br />
-<a href="http://stevenloria.com/finding-important-words-in-a-document-using-tf-idf/">Tutorial: Finding Important Words in Text Using TF-IDF</a></p>
-
-<p>下禮拜講Ch11</p>
-
-
+		<p class="more"><a href="/2017/webSearching/">Read More</a></p>
 	
 
   </div>
@@ -556,7 +204,9 @@ VSM優點: Empirically effective,直觀, 實作容易</p>
 消息擴散路徑</li>
   <li>Role/Postion Analysis</li>
   <li>Social Relation Extraction</li>
-  <li>Cloud Computing
+  <li>Cloud Computing</li>
+</ul>
+
 
 		<p class="more"><a href="/2017/cloudComputing/">Read More</a></p>
 	

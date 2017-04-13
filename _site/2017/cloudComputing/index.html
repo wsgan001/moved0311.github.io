@@ -126,9 +126,10 @@
 消息擴散路徑</li>
   <li>Role/Postion Analysis</li>
   <li>Social Relation Extraction</li>
-  <li>Cloud Computing
-<!--more--></li>
+  <li>Cloud Computing</li>
 </ul>
+
+<!--more-->
 
 <h4 id="journals">Journals</h4>
 <ul>
@@ -198,14 +199,11 @@ FB好友關係</li>
   <li>Degree Correlations
  觀察兩邊點的degree<br />
  內向和外向人(朋友多,degree高)觀察</li>
-  <li>
-    <p>Community Structure 
+  <li>Community Structure 
  一群點邊的密度很高,稱作一個community  <br />
  clique 判斷是否認兩個點是否都有邊相連(clique problem 分團問題)<br />
- clique problem 是 NP-Complete</p>
-
-    <p>Connected commponets :有連通的子圖</p>
-  </li>
+ clique problem 是 NP-Complete<br />
+ Connected commponets :有連通的子圖</li>
   <li>Network motifs    <br />
 在音樂上motifs是一種作曲法,靈感的意思<br />
  在生物基因上是一些重複的pattern<br />
@@ -297,41 +295,53 @@ unweighted graph</p>
 <p>Social Group Analysis
 community detection algorithm</p>
 
-<p>Properties of cohesion</p>
+<!-- 20170413 start -->
+<p><strong>Properties of cohesion 凝聚力的判斷</strong></p>
 <ol>
   <li>Mutuality of ties<br />
- 所有subgroup彼此都有編相連,在graph中就是完全圖的概念(clique)<br />
- 要求有點太嚴格</li>
+ 所有subgroup彼此都有編相連,在graph中就是完全圖的概念<br />
+ e.g. clique</li>
   <li>Closeness or reachability of subgroup members<br />
- 不需要直接有邊相連,間接有相連就行了</li>
-  <li>Frquency of ties among members
- 第一個是說假設有n個人必須要和n-1個人相連,那只需要和n-k個人相連就可以了</li>
+ 不需要直接有邊相連,間接有相連就行了<br />
+ e.g. N-clique,N-clan,N-club</li>
+  <li>Frquency of ties among members<br />
+ Mutuality of ties是說假設有n個人必須要和n-1個人相連,<br />
+ 那Frquency of ties among members只需要和n-k個人相連就可以了<br />
+ 是Mutuality of ties放寬版本<br />
+ e.g. K-plex,K-core</li>
   <li>Relative frequency of ties among subgroup members compared to non-member</li>
 </ol>
 
-<p>Clique</p>
+<p><strong>Clique</strong></p>
 <blockquote>
   <p>maximal complete subgraph,最大的子圖任兩點都有邊相連</p>
 </blockquote>
+<hr />
 
-<p>N-Clique 
-在grahp中,任兩個點之間的距離&lt;N<br />
-N-clan<br />
-必須是N-Clique<br />
-在subgraph中,任兩個點之間的距離&lt;N
-N-club
-不必是N-Clique</p>
+<p><img src="/img/cloudcomputing/community01.png" alt="clique img" /></p>
 
-<p>K-plex<br />
-如果是clique每個點的degree是n-1<br />
-如果是k-plex,每個點的degree是n-k<br />
-假設subgraph有4個點,2-plex每個點的degree至少是2</p>
+<ul>
+  <li>N-clique <br />
+  在grahp中,任兩個點之間的距離&lt;N  <br />
+  e.g. 2-cliques: {1,2,3,4,5},{2,3,4,5,6}</li>
+  <li>N-clan<br />
+  必須是N-clique<br />
+  在subgraph中,任兩個點之間的距離&lt;N<br />
+  e.g. 2-clan: {2,3,4,5,6} <br />
+  (4-&gt;5要經過6,但只考慮1,2,3,4,5這個subgraph)</li>
+  <li>N-club<br />
+  不必是N-clique,但一定要是subgraph of n-cliques  <br />
+  2-clubs: {1,2,3,4},{1,2,3,5},{2,3,4,5,6}</li>
+  <li>K-plex<br />
+  如果是clique每個點的degree是n-1<br />
+  如果是k-plex,每個點的degree是n-k<br />
+  假設subgraph有4個點,2-plex每個點的degree至少是2</li>
+  <li>K-core<br />
+  至少和k個人是朋友
+  每個點的degree至少是k</li>
+</ul>
 
-<p>K-core
-至少和k個人是朋友
-每個點的degree至少是k</p>
-
-<p>Community Detection Approaches</p>
+<p><strong>Community Detection Approaches</strong></p>
 <ol>
   <li>Kernighan-Lin Alog(KL algorithm)</li>
   <li>Hierarchical Clustering</li>
@@ -339,39 +349,195 @@ N-club
   <li>Bridge-Cut Algo</li>
 </ol>
 
-<p>KL algorithm<br />
-有權重的圖weighted graph
-input: weighted graph
-output: 切成兩個subgraph且橫跨兩群的crossing(cut)的值越小越好,
-切成兩半那條線橫跨的cost越小越好<br />
-希望群和群的相似度越大,同群的相似度越像</p>
+<h3 id="kl-algorithm">KL algorithm</h3>
+<blockquote>
+  <p>input: weighted graph<br />
+output: 切成兩個equal-size subgraph,且橫跨兩群的crossing edge <br />
+目的是相望群和群之間差異大,群內部的差異小</p>
+</blockquote>
+
+<p><strong>步驟</strong></p>
 <ol>
   <li>任意切成兩半</li>
-  <li>交換其中兩點使cost下降</li>
-  <li>交換直到收斂</li>
+  <li>計算每一點的difference</li>
+  <li>計算每個邊的gain</li>
+  <li>從gain最大的開始做交換,交換後的點不再考慮(lock)</li>
+  <li>交換到直到全部的點都被lock住</li>
+  <li>挑gain總和最大的就是最終交換結果</li>
 </ol>
 
-<p>external cost
-    crossing的cost(連向別群的cost)
-internal cost
-    連向同群的cost
-difference
-    external cost - internal cost</p>
+<p>交換數回合,若遇到gain是負的紀錄下來並繼續嘗試做交換,到最後再找gain最好的
+交換完後的點就lock住不進入下一回合</p>
 
-<p>ab交換
-Gain = Da + Db - 2Wab
-Difference a + Difference b - 2*weighted ab</p>
+<ul>
+  <li>external cost<br />
+  crossing edge的cost(連向別群的cost)(cut-size)</li>
+  <li>internal cost<br />
+  連向同群的cost</li>
+  <li>difference<br />
+  external cost - internal cost</li>
+</ul>
 
-<p>z = crossing edge與ab無關的其他cost總和
-原來crossing cost = z + Ea + Eb - Wab
-交換完new crossing cost = z + la + lb + Wab</p>
+<p><strong>Gain</strong></p>
+<blockquote>
+  <p>用來評估是否要交換的值
+例如a,b屬於不同群,ab做交換<br />
+Gain = <script type="math/tex">D_a + D_b - 2\times W_{ab}</script><br />
+(Difference a + Difference b - 2*weighted ab)</p>
+</blockquote>
 
-<p>交換數回合,若遇到gain是負的嘗試做交換下去,到最後再找gain最好的</p>
+<p>若考慮a,b交換<br />
+old cost = <script type="math/tex">z + E_a + E_b - W_{ab}</script> <br />
+new cost = <script type="math/tex">z + I_a + I_b + W_{ab}</script></p>
 
-<p>時間複雜度:O(n^3)</p>
+<blockquote>
+  <p>z (與a,b沒有連接的其他crossing edge總和)<br />
+E (external cost)<br />
+I (internal cost)</p>
+</blockquote>
 
-<h4 id="reference">reference</h4>
-<p><a href="http://newdoc.nccu.edu.tw/teaschm/1052/schmPrv.jsp-yy=105&amp;smt=2&amp;num=753868&amp;gop=00&amp;s=1&amp;tea=101583.htm">社群雲端運算</a></p>
+<p><strong>KL algorithm複雜度</strong><br />
+<script type="math/tex">O(n^2)</script> 找到最適合交換的兩點,有n pair要交換<br />
+⇒ <script type="math/tex">O(n^3)</script></p>
+
+<!-- 20170413 end -->
+
+<p>hiraichiecal 
+bottom-up<br />
+每一回合都找兩個最像的做合併<br />
+single link<br />
+    距離取min
+complete link
+    距離取max</p>
+
+<p>分群    <br />
+community 同群邊的值要越大越好</p>
+
+<p>Distance Matrix</p>
+<ol>
+  <li>Approach1  <br />
+計算weights Wij
+    <ul>
+      <li>i到j的路徑越多代表i和j關係越好</li>
+    </ul>
+    <ul>
+      <li>只能找non-overlapped paths</li>
+      <li>只要i到j的路徑都算(weighted by length)
+ Xij = 1/Wij</li>
+    </ul>
+
+    <p>Reduction
+     由A問題轉換到B問題</p>
+  </li>
+  <li>Approach 2
+ 如果i和j視同一群,那他們有相似的behavior
+ behavoir
+     i和j到commuinty其他點的平均距離相似</li>
+  <li>Approach 3
+ J(i,j)/min(Ki,Kj)<br />
+ 看兩個人共同朋友個數,共同朋友越多J(i,j)越大</li>
+</ol>
+
+<p>Edge-removal Approach<br />
+不斷的拿掉邊,會出現越多的群數,直到符合要的群數<br />
+拿掉bridge edge,</p>
+<ol>
+  <li>betweeness
+一開始想說可以用degree少,但不夠完全<br />
+ 在centrality的betweeness是以node考量<br />
+ 在這的betweeness是以edge考量</li>
+</ol>
+
+<p>GN algorithm<br />
+拿掉betweeness最高的邊 -&gt; 重算betweeness -&gt; 計算community
+top-down(起始是一個commuinity,並分群下去)
+計算邊的betweeness</p>
+<ol>
+  <li>shortest path<br />
+ 任兩點最短路徑有多少條會經過邊</li>
+  <li>Random-walk 
+ 計算a會走到b的機率<br />
+ a走到b會經過邊v的機率</li>
+  <li>Current-flow
+ 引進電路學概念的計算方法</li>
+</ol>
+
+<p>缺點</p>
+<ol>
+  <li>計算最短路徑耗時
+ O(m^2n)<br />
+ m edge (O(mn)betweeness)</li>
+  <li>什麼時候停?</li>
+</ol>
+
+<p>改善</p>
+<ol>
+  <li>Partial betweeness (Apprximation)<br />
+Randomly sampled by Monte Carlo Estimate</li>
+  <li>Edge clustering coefficient
+  coefficient越高代表關係越好
+the smaller coefficient the higher betweeness</li>
+</ol>
+
+<p>Modularity
+    Modularity measure:
+        how good a particular partition forms a community.
+        評估community切分的好不好</p>
+
+<p>U 看internal edge的比例<br />
+R 平均i和j會有邊的機率(期望值)      <br />
+Q = U - R</p>
+
+<p>Q = 0 no community<br />
+Q ~ 1 prefect cut</p>
+
+<p><strong>Newman Fast Alogorithm</strong><br />
+利用hireachcal合併,並每個步驟算modurity,並找出最高的Q做切分<br />
+<strong>Bridge cut</strong><br />
+integrity一致性<br />
+N(v)
+d(v): degree of node
+Density
+Direct neighbor subgraph of v<br />
+Clustering coeffiecient <br />
+	觀察v的鄰居的朋友關係<br />
+	例如v有4個朋友,那4個人最多有6個關係,算關係的比例<br />
+	實際上有關係/最多有幾個關係<br />
+Bridge Centrality<br />
+	<strong>rank</strong> of betweenness centrality * <strong>rank</strong> of bridging coeffiecient<br />
+	如果只考慮betweeness(global)會有一些情況不太好  <br />
+	加入bridge centrality可以考慮到local的特質</p>
+
+<p><strong>Community Search</strong><br />
+給一個social network,並給一些query(其中幾個人),<br />
+given grahp G, a set of query node<br />
+goal: find a densely subgraph of G, and contains the query nodes</p>
+
+<p><strong>Induced Subgraph</strong><br />
+xy edge在G中,xy edge也要在induce subgraph中</p>
+
+<p>goodness function</p>
+<ol>
+  <li>edge degree
+時間複雜度太大</li>
+  <li>average degree</li>
+  <li>minumin degree
+這群人認識最少的人,讓這個人的值變大
+induced subgraph的degree<br />
+容易受到outlier影響</li>
+</ol>
+
+<p>Constrain<br />
+distance constrain<br />
+限制邀請來的人的最長距離</p>
+
+<p><strong>Monotone Function</strong></p>
+<ul>
+  <li>monotone increaing</li>
+  <li>monotone decresing</li>
+  <li>non-monotone</li>
+</ul>
+
 
 </div>
 

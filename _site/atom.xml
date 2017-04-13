@@ -4,7 +4,7 @@
  <title>Note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-03-27T17:16:54+08:00</updated>
+ <updated>2017-04-13T14:51:48+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -89,29 +89,19 @@
    <link href="http://localhost:4000/2017/python/"/>
    <updated>2017-03-08T00:00:00+08:00</updated>
    <id>http://localhost:4000/2017/python</id>
-   <content type="html">&lt;h4 id=&quot;print&quot;&gt;print&lt;/h4&gt;
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%.2&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;f&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h4 id=&quot;註解&quot;&gt;註解&lt;/h4&gt;
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 單行&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# 多行&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
-&quot;&quot;&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h4 id=&quot;date-and-time&quot;&gt;Date and Time&lt;/h4&gt;
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;datetime&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;
+   <content type="html">&lt;h4 id=&quot;time&quot;&gt;Time&lt;/h4&gt;
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# your code here.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;time : &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; seconds.&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;h4 id=&quot;input&quot;&gt;input&lt;/h4&gt;
 &lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;raw_input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;What is your name?&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;!--more--&gt;
 </content>
  </entry>
  
@@ -120,8 +110,8 @@
    <link href="http://localhost:4000/2017/webSearching/"/>
    <updated>2017-03-07T00:00:00+08:00</updated>
    <id>http://localhost:4000/2017/webSearching</id>
-   <content type="html">&lt;p&gt;&lt;strong&gt;CH8 Evaluation in information retrival&lt;/strong&gt;  &lt;br /&gt;
-評量search engine好壞&lt;/p&gt;
+   <content type="html">&lt;h2 id=&quot;ch8-evaluation-in-information-retrival&quot;&gt;CH8 Evaluation in information retrival&lt;/h2&gt;
+&lt;p&gt;評量search engine好壞&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;搜到的index&lt;/li&gt;
   &lt;li&gt;搜尋速度&lt;/li&gt;
@@ -129,6 +119,7 @@
   &lt;li&gt;和搜尋相關程度&lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;!--more--&gt;
 &lt;p&gt;相關程度&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;benchmark資料集&lt;/li&gt;
@@ -200,8 +191,9 @@ accuracy = &lt;script type=&quot;math/tex&quot;&gt;\frac{tp+tn}{tp+fp+fn+tn}\&lt
 
 &lt;h4 id=&quot;ranked-evalution&quot;&gt;Ranked Evalution&lt;/h4&gt;
 &lt;p&gt;P,R,F都是unordered(沒有等級)&lt;br /&gt;
-一個query會有一個Precision/Recall圖(崎嶇的坡)  &lt;br /&gt;
-使用內插法(interpolated)可以得到一張較平滑的P-R圖(和機器學習ROC curve相似)
+一個query會有一個Precision/Recall圖    &lt;br /&gt;
+使用內插法(interpolated)可以得到一張較平滑的P-R圖&lt;br /&gt;
+(和機器學習ROC curve相似)&lt;br /&gt;
 P-R curve的面積越大效能越佳(代表Precision掉越慢)&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;內插法&lt;/strong&gt;&lt;/p&gt;
@@ -303,7 +295,7 @@ Kappa measure&lt;/p&gt;
   &lt;script type=&quot;math/tex; mode=display&quot;&gt;\ \kappa = \frac{P(A)-P(E)}{1-P(E)}\&lt;/script&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;Result Summaries&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;搜尋結果的呈現 Result Summaries&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;搜尋結果呈現：10 blue link&lt;/li&gt;
   &lt;li&gt;搜尋結果下方文字說明分為Static和Dynamic
@@ -313,7 +305,7 @@ Dynamic:利用nlp技術,根據搜索關鍵字動態做變化&lt;/li&gt;
 底下多的連結&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;Ch6 Model&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;ch6-model&quot;&gt;Ch6 Model&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;Vector Space Model&lt;/li&gt;
   &lt;li&gt;Probabilistic Information Retrieval&lt;/li&gt;
@@ -402,19 +394,18 @@ Dynamic:利用nlp技術,根據搜索關鍵字動態做變化&lt;/li&gt;
 &lt;blockquote&gt;
   &lt;p&gt;Robertson (1977)&lt;br /&gt;
 相似度量測函數f滿足,&lt;br /&gt;
-&lt;script type=&quot;math/tex&quot;&gt;f(q,d_1) &gt; f(q,d_2)\quad iff\quad p(Rel|q,d_1) &gt; p(Rel|q,d_2)&lt;/script&gt;&lt;/p&gt;
+&lt;script type=&quot;math/tex&quot;&gt;f(q,d_1) &gt; f(q,d_2)\quad iff\quad p(Rel|q,d_1) &gt; p(Rel|q,d_2)&lt;/script&gt;  &lt;br /&gt;
+f()值越大表示有越大的機率越相似&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;The notation of Relevance&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Relevance流派&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Relevance
-    &lt;ul&gt;
-      &lt;li&gt;Similarity 相似度&lt;br /&gt;
-   Vector space model&lt;/li&gt;
-      &lt;li&gt;Probability of relevance 機率模型&lt;/li&gt;
-      &lt;li&gt;Probability inference 機率推論&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Similarity 相似度&lt;br /&gt;
+   Vector space model(Salton et al,75)&lt;/li&gt;
+  &lt;li&gt;Probability of relevance 機率模型
+  Classical probaility Model(Robertson&amp;amp;Sparck Jones,76)&lt;br /&gt;
+  Learning to Rank(Joachims,02, Berges et al,05)&lt;/li&gt;
+  &lt;li&gt;Probability inference 機率推論&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Vector Space Model(VSM)&lt;/strong&gt;&lt;br /&gt;
@@ -433,27 +424,40 @@ VSM優點: Empirically effective,直觀, 實作容易&lt;/p&gt;
 &lt;p&gt;大致步驟&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;將所有文章使用join()成為一個string包含所有文章內容&lt;/li&gt;
-  &lt;li&gt;做string clean去除. , 多餘空白,並轉為小寫&lt;/li&gt;
-  &lt;li&gt;將clean好的string利用空白切分成words array,丟到Porter stem(去除字尾)
+  &lt;li&gt;做string clean去除&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;,&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;多餘空白&lt;/code&gt;,並轉為小寫&lt;/li&gt;
+  &lt;li&gt;將clean好的string利用空白切分成words array,丟到&lt;a href=&quot;https://tartarus.org/martin/PorterStemmer/&quot;&gt;Porter stem&lt;/a&gt;(去除字尾)
     &lt;blockquote&gt;
       &lt;p&gt;Porter Stemming Algorithm&lt;br /&gt;
     作者:Martin Porter(2006)&lt;/p&gt;
     &lt;/blockquote&gt;
   &lt;/li&gt;
   &lt;li&gt;刪除重複的word,使用set讓出現的word唯一&lt;/li&gt;
-  &lt;li&gt;得到所有整理完的words,做成index(將每個word編號)&lt;/li&gt;
-  &lt;li&gt;將每篇文章分別建立自己的index,並統計每個word出現的次數&lt;/li&gt;
+  &lt;li&gt;得到所有整理完的words,做成index(將每個word編號),類似字典的概念&lt;/li&gt;
+  &lt;li&gt;將每篇文章分別建立自己的vector,並統計每個word出現的次數(term frequecy)&lt;/li&gt;
   &lt;li&gt;將輸入的query做成vector&lt;/li&gt;
-  &lt;li&gt;利用計算相關程度&lt;/li&gt;
+  &lt;li&gt;利用兩個向量做cosine計算相關程度&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;index值使用TF-IDF&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;相似度計算&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Cosine Similarity
+    &lt;blockquote&gt;
+      &lt;p&gt;cosine = &lt;script type=&quot;math/tex&quot;&gt;\frac{V_1 \cdot V_2}{\|V_1\|\|V_2\|}&lt;/script&gt;&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Jaccard Similarity
+    &lt;blockquote&gt;
+      &lt;p&gt;相似度 = &lt;script type=&quot;math/tex&quot;&gt;\frac{交集}{聯集}&lt;/script&gt;&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;TF-IDF Weighting&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;TF(Term Frequency)&lt;br /&gt;
   word count,單純統計字數出現頻率&lt;/li&gt;
   &lt;li&gt;IDF(Inverse Document Frequency)(反向的TF)&lt;br /&gt;
-  字的獨特性,如果某些字在很多篇文章出現次數都很高  &lt;br /&gt;
-  例如:the,a,to,…&lt;br /&gt;
+  字的獨特性,如果某些字在很多篇文章出現次數都很高(例如:the,a,to,…) &lt;br /&gt;
   IDF值就會很低(沒有鑑別度)	&lt;br /&gt;
   IDF(t) = 1 + log(n/k)  (n:篇數,k:字出現次數)&lt;br /&gt;
   例如文章總數是1000(n=1000),所有文章都有出現cat(k=1000),&lt;br /&gt;
@@ -470,7 +474,215 @@ VSM優點: Empirically effective,直觀, 實作容易&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;TF-IDF範例程式&lt;/strong&gt;&lt;br /&gt;
 &lt;a href=&quot;http://stevenloria.com/finding-important-words-in-a-document-using-tf-idf/&quot;&gt;Tutorial: Finding Important Words in Text Using TF-IDF&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;下禮拜講Ch11&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;ch11-probabilistic-information-retrieval&quot;&gt;Ch11 Probabilistic Information Retrieval&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Probability theory&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Joint probability &lt;br /&gt;
+  &lt;script type=&quot;math/tex&quot;&gt;P(A\cap B)&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;Conditional probability  &lt;br /&gt;
+  &lt;script type=&quot;math/tex&quot;&gt;P(A | B)&lt;/script&gt;&lt;br /&gt;
+  probability of A given that event B occurred.&lt;/li&gt;
+  &lt;li&gt;Chain rule &lt;br /&gt;
+  &lt;script type=&quot;math/tex&quot;&gt;P(A,B) = P(A\cap B) = P(A|B)P(B) = P(B|A)P(A)&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;Partition rule&lt;br /&gt;
+  &lt;script type=&quot;math/tex&quot;&gt;P(B) = P(A,B) + P(\bar{A},B)&lt;/script&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Chain_rule_(probability)&quot;&gt;Chain rule example wiki&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;有兩個甕第一個甕放1個黑球2個白球,第二個甕放1個黑球3個白球&lt;br /&gt;
+事件A是選到第一個甕,事件B是選到白球&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;P(B|A)= \frac{2}{3}&lt;/script&gt; 在選到第一個甕的情況下拿到白球&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;P(A,B)=P(B|A)P(A)=\frac{2}{3} \times \frac{1}{2}&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Bayes' Rule&lt;/strong&gt;&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;P(A|B) = \frac{P(B|A)P(A)}{P(B)}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;from chain rule: &lt;script type=&quot;math/tex&quot;&gt;P(A|B)P(B) = P(B|A)P(A)&lt;/script&gt;&lt;/p&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;P(A)    : 事前機率(prior probability)  
+P(A|B)  : 事後機率(postior probability)  
+P(B|A)  : likelihood   
+
+The term likelihood is just a synonym of probability.   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Odds&lt;/strong&gt;&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;O(A) = \frac{P(A)}{P(\bar{A})} = \frac{P(A)}{1-P(A)}&lt;/script&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;an event provide a kind of multiplier for how probabilities change.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Probability of Relevance&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Random variables:
+    &lt;ul&gt;
+      &lt;li&gt;query Q&lt;/li&gt;
+      &lt;li&gt;document D&lt;/li&gt;
+      &lt;li&gt;relevance R ∈ {0,1} &lt;br /&gt;
+(1:相關,0:不相關)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Goal: P(R=1|Q,D) to rank relevant&lt;br /&gt;
+  利用query和document相似度的機率做排名&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Refining P(R=1|Q,D) Methods&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Conditional Models(Discriminative Models)
+    &lt;ul&gt;
+      &lt;li&gt;利用各種方法找出機率P = f(x)&lt;/li&gt;
+      &lt;li&gt;利用資料訓練參數&lt;/li&gt;
+      &lt;li&gt;利用model去排列未知的document&lt;br /&gt;
+ e.g. Learning to rank,類神經網路,…&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Generative Models
+    &lt;ul&gt;
+      &lt;li&gt;compute the odd of O(R=1|Q,D) using Bayes' rules&lt;br /&gt;
+ 先找出資料的分佈再做預測&lt;/li&gt;
+      &lt;li&gt;How to define P(Q,D|R)
+        &lt;ul&gt;
+          &lt;li&gt;Document generation: P(Q,D|R)=P(D|Q,R)P(Q|R) &lt;br /&gt;
+  query放到條件&lt;/li&gt;
+          &lt;li&gt;Query generation: P(Q,D|R)=P(Q|D,R)P(D|R) &lt;br /&gt;
+  document放到條件&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;利用&lt;strong&gt;Odd&lt;/strong&gt;值做ranking的依據:&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;O(R|D,Q) = \frac{P(R=1|D,Q)}{P(R=0|D,Q)} = \frac{ \frac{P(D|R=1,Q)P(R=1|Q)}{P(D|Q)} }{ \frac{P(D|R=0,Q)P(R=0|Q)}{P(D|Q)} } = \frac{P(D|R=1,Q)P(R=1|Q)}{P(D|R=0,Q)P(R=0|Q)} \quad(1)&lt;/script&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\frac{P(R=1|Q)}{P(R=0|Q)}&lt;/script&gt; 
+對document ranking沒有影響,視為常數&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{P(D|R=1,Q)}{P(D|R=0,Q)} = \prod_{t=1}^{M} \frac{P(D_t|R=1,Q)}{P(D_t|R=0,Q)} \quad(2)&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;將document拆成多個獨立的document term連乘積,且&lt;script type=&quot;math/tex&quot;&gt;D_t \in \{0,1\}&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;O(R|D,Q) = O(R|Q) \cdot \prod_{t=1}^{M} \frac{P(D_t|R=1,Q)}{P(D_t|R=0,Q)} \quad(3)&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;(2)代入(1)可以整理出(3)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=1}^{M} \frac{P(D_t = 1|R=1,Q)}{P(D_t = 1|R=0,Q)} \cdot \prod_{t:D_t=0}^{M} \frac{P(D_t = 0|R=1,Q)}{P(D_t = 0|R=0,Q)}\quad(4)&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;文章的document term分為出現或是不出現,從(3)推到(4)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p_t = P(D_t = 1|R=1,Q)&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;u_t = P(D_t = 1|R=0,Q)&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;p_t&lt;/script&gt; 表示term出現在document且和query相關的機率&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;u_t&lt;/script&gt; 表示term出現在doucment且和query不相關的機率&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=Q_t=1} \frac{p_t}{u_t} \cdot \prod_{t:D_t=0,Q_t=1} \frac{1-p_t}{1-u_t} \quad(5)&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;假設&lt;script type=&quot;math/tex&quot;&gt;Q_t = 0 \; then \; p_t = u_t&lt;/script&gt;(假設可以做改變)  &lt;br /&gt;
+沒出現在query的term就不用考慮,連乘1不影響&lt;br /&gt;
+左邊連乘積表示 query term found in document&lt;br /&gt;
+右邊連乘積表示query term not found in document&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} \cdot \prod_{t:Q_t=1} \frac{1-p_t}{1-u_t} \quad(6)&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;兩邊連乘積同除 &lt;script type=&quot;math/tex&quot;&gt;\frac{1-p_t}{1-u_t}&lt;/script&gt;, 右邊連乘積的範圍就會和document無關(在對document ranking時就視為常數)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;RSV_d = log \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} = \sum_{t:D_t=Q_t=1} log \frac{p_t(1-u_t)}{u_t(1-p_t)} \quad(7)&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;取log後就得到Retrieval Status Value(RSV),&lt;br /&gt;
+log是monotonic function不會改變ranking順序&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;RSJ Model:No Relevance Info&lt;/strong&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;log O(R=1|Q,D) \approx  
+\sum_{t=1,D_t=Q_t=1}^{k} log \frac{p_t(1-u_t)}{u_t(1-p_t)}&lt;/script&gt;
+
+&lt;p&gt;如果沒有給relevance judgements,&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;assume &lt;script type=&quot;math/tex&quot;&gt;p_t&lt;/script&gt; to be a constant&lt;/li&gt;
+  &lt;li&gt;Estimate &lt;script type=&quot;math/tex&quot;&gt;u_t&lt;/script&gt; by assume all documents to be non-relevant&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1979 Croft&amp;amp;Harper&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;log O(R=1|Q,D) \approx  
+\sum_{t=1,D_t=Q_t=1}^{k} log \frac{N - n_t + 0.5}{n_t + 0.5}&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;N: number of documents in collection&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;n_t&lt;/script&gt; : number of documents in which term &lt;script type=&quot;math/tex&quot;&gt;D_t&lt;/script&gt; occurs&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum log( \frac{總文章數 - 某個字出現在文章次數 + 0.5}{某個字出現在文章次數 + 0.5})&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;只看在document中和query相關的字,並加總每個字算出來的值&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;RSJ Model: with Relevance Info&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Maximum Lieklihood Estimate(MLE)&lt;/li&gt;
+  &lt;li&gt;Maximum A Posterior(MAP)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;RSJ導出來performance比不上vector space model&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Improving RSJ&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;adding TF&lt;/li&gt;
+  &lt;li&gt;adding Doc.length&lt;/li&gt;
+  &lt;li&gt;query TF&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;改善後的最終公式稱作&lt;strong&gt;BM25&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CH12 Language models for informatio retrieval&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;unigram language model&lt;br /&gt;
+    字只有單一的狀態&lt;/p&gt;
+
+&lt;p&gt;如果一個string,&lt;br /&gt;
+每一個字會有一個狀態,並到下一個字之間會有一個機率&lt;br /&gt;
+那一個字出現的機率就是每一個字到下一個字的連乘積&lt;/p&gt;
+
+&lt;p&gt;language model應用：語音系統的語言校正&lt;/p&gt;
+
+&lt;p&gt;Multinomial model 建立文章語言模型&lt;br /&gt;
+估計p1-&amp;gt;pk的機率&lt;/p&gt;
+
+&lt;p&gt;Maximun Likelihood Estimation&lt;/p&gt;
+
+&lt;p&gt;smooth the estimates to avoid zeros
+避免0產生,相乘後結果很差&lt;/p&gt;
+
+&lt;p&gt;smooth方法&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Mixture model
+ 一個word的值=(word/document1 + word/all documents)
+ 每個word連乘積會算出一個機率值&lt;/li&gt;
+&lt;/ol&gt;
 
 </content>
  </entry>
@@ -491,9 +703,10 @@ VSM優點: Empirically effective,直觀, 實作容易&lt;/p&gt;
 消息擴散路徑&lt;/li&gt;
   &lt;li&gt;Role/Postion Analysis&lt;/li&gt;
   &lt;li&gt;Social Relation Extraction&lt;/li&gt;
-  &lt;li&gt;Cloud Computing
-&lt;!--more--&gt;&lt;/li&gt;
+  &lt;li&gt;Cloud Computing&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;!--more--&gt;
 
 &lt;h4 id=&quot;journals&quot;&gt;Journals&lt;/h4&gt;
 &lt;ul&gt;
@@ -563,14 +776,11 @@ FB好友關係&lt;/li&gt;
   &lt;li&gt;Degree Correlations
  觀察兩邊點的degree&lt;br /&gt;
  內向和外向人(朋友多,degree高)觀察&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Community Structure 
+  &lt;li&gt;Community Structure 
  一群點邊的密度很高,稱作一個community  &lt;br /&gt;
  clique 判斷是否認兩個點是否都有邊相連(clique problem 分團問題)&lt;br /&gt;
- clique problem 是 NP-Complete&lt;/p&gt;
-
-    &lt;p&gt;Connected commponets :有連通的子圖&lt;/p&gt;
-  &lt;/li&gt;
+ clique problem 是 NP-Complete&lt;br /&gt;
+ Connected commponets :有連通的子圖&lt;/li&gt;
   &lt;li&gt;Network motifs    &lt;br /&gt;
 在音樂上motifs是一種作曲法,靈感的意思&lt;br /&gt;
  在生物基因上是一些重複的pattern&lt;br /&gt;
@@ -662,41 +872,53 @@ unweighted graph&lt;/p&gt;
 &lt;p&gt;Social Group Analysis
 community detection algorithm&lt;/p&gt;
 
-&lt;p&gt;Properties of cohesion&lt;/p&gt;
+&lt;!-- 20170413 start --&gt;
+&lt;p&gt;&lt;strong&gt;Properties of cohesion 凝聚力的判斷&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;Mutuality of ties&lt;br /&gt;
- 所有subgroup彼此都有編相連,在graph中就是完全圖的概念(clique)&lt;br /&gt;
- 要求有點太嚴格&lt;/li&gt;
+ 所有subgroup彼此都有編相連,在graph中就是完全圖的概念&lt;br /&gt;
+ e.g. clique&lt;/li&gt;
   &lt;li&gt;Closeness or reachability of subgroup members&lt;br /&gt;
- 不需要直接有邊相連,間接有相連就行了&lt;/li&gt;
-  &lt;li&gt;Frquency of ties among members
- 第一個是說假設有n個人必須要和n-1個人相連,那只需要和n-k個人相連就可以了&lt;/li&gt;
+ 不需要直接有邊相連,間接有相連就行了&lt;br /&gt;
+ e.g. N-clique,N-clan,N-club&lt;/li&gt;
+  &lt;li&gt;Frquency of ties among members&lt;br /&gt;
+ Mutuality of ties是說假設有n個人必須要和n-1個人相連,&lt;br /&gt;
+ 那Frquency of ties among members只需要和n-k個人相連就可以了&lt;br /&gt;
+ 是Mutuality of ties放寬版本&lt;br /&gt;
+ e.g. K-plex,K-core&lt;/li&gt;
   &lt;li&gt;Relative frequency of ties among subgroup members compared to non-member&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Clique&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Clique&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;maximal complete subgraph,最大的子圖任兩點都有邊相連&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;N-Clique 
-在grahp中,任兩個點之間的距離&amp;lt;N&lt;br /&gt;
-N-clan&lt;br /&gt;
-必須是N-Clique&lt;br /&gt;
-在subgraph中,任兩個點之間的距離&amp;lt;N
-N-club
-不必是N-Clique&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/cloudcomputing/community01.png&quot; alt=&quot;clique img&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;K-plex&lt;br /&gt;
-如果是clique每個點的degree是n-1&lt;br /&gt;
-如果是k-plex,每個點的degree是n-k&lt;br /&gt;
-假設subgraph有4個點,2-plex每個點的degree至少是2&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;N-clique &lt;br /&gt;
+  在grahp中,任兩個點之間的距離&amp;lt;N  &lt;br /&gt;
+  e.g. 2-cliques: {1,2,3,4,5},{2,3,4,5,6}&lt;/li&gt;
+  &lt;li&gt;N-clan&lt;br /&gt;
+  必須是N-clique&lt;br /&gt;
+  在subgraph中,任兩個點之間的距離&amp;lt;N&lt;br /&gt;
+  e.g. 2-clan: {2,3,4,5,6} &lt;br /&gt;
+  (4-&amp;gt;5要經過6,但只考慮1,2,3,4,5這個subgraph)&lt;/li&gt;
+  &lt;li&gt;N-club&lt;br /&gt;
+  不必是N-clique,但一定要是subgraph of n-cliques  &lt;br /&gt;
+  2-clubs: {1,2,3,4},{1,2,3,5},{2,3,4,5,6}&lt;/li&gt;
+  &lt;li&gt;K-plex&lt;br /&gt;
+  如果是clique每個點的degree是n-1&lt;br /&gt;
+  如果是k-plex,每個點的degree是n-k&lt;br /&gt;
+  假設subgraph有4個點,2-plex每個點的degree至少是2&lt;/li&gt;
+  &lt;li&gt;K-core&lt;br /&gt;
+  至少和k個人是朋友
+  每個點的degree至少是k&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;K-core
-至少和k個人是朋友
-每個點的degree至少是k&lt;/p&gt;
-
-&lt;p&gt;Community Detection Approaches&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Community Detection Approaches&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;Kernighan-Lin Alog(KL algorithm)&lt;/li&gt;
   &lt;li&gt;Hierarchical Clustering&lt;/li&gt;
@@ -704,39 +926,195 @@ N-club
   &lt;li&gt;Bridge-Cut Algo&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;KL algorithm&lt;br /&gt;
-有權重的圖weighted graph
-input: weighted graph
-output: 切成兩個subgraph且橫跨兩群的crossing(cut)的值越小越好,
-切成兩半那條線橫跨的cost越小越好&lt;br /&gt;
-希望群和群的相似度越大,同群的相似度越像&lt;/p&gt;
+&lt;h3 id=&quot;kl-algorithm&quot;&gt;KL algorithm&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;input: weighted graph&lt;br /&gt;
+output: 切成兩個equal-size subgraph,且橫跨兩群的crossing edge &lt;br /&gt;
+目的是相望群和群之間差異大,群內部的差異小&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;步驟&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;任意切成兩半&lt;/li&gt;
-  &lt;li&gt;交換其中兩點使cost下降&lt;/li&gt;
-  &lt;li&gt;交換直到收斂&lt;/li&gt;
+  &lt;li&gt;計算每一點的difference&lt;/li&gt;
+  &lt;li&gt;計算每個邊的gain&lt;/li&gt;
+  &lt;li&gt;從gain最大的開始做交換,交換後的點不再考慮(lock)&lt;/li&gt;
+  &lt;li&gt;交換到直到全部的點都被lock住&lt;/li&gt;
+  &lt;li&gt;挑gain總和最大的就是最終交換結果&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;external cost
-    crossing的cost(連向別群的cost)
-internal cost
-    連向同群的cost
-difference
-    external cost - internal cost&lt;/p&gt;
+&lt;p&gt;交換數回合,若遇到gain是負的紀錄下來並繼續嘗試做交換,到最後再找gain最好的
+交換完後的點就lock住不進入下一回合&lt;/p&gt;
 
-&lt;p&gt;ab交換
-Gain = Da + Db - 2Wab
-Difference a + Difference b - 2*weighted ab&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;external cost&lt;br /&gt;
+  crossing edge的cost(連向別群的cost)(cut-size)&lt;/li&gt;
+  &lt;li&gt;internal cost&lt;br /&gt;
+  連向同群的cost&lt;/li&gt;
+  &lt;li&gt;difference&lt;br /&gt;
+  external cost - internal cost&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;z = crossing edge與ab無關的其他cost總和
-原來crossing cost = z + Ea + Eb - Wab
-交換完new crossing cost = z + la + lb + Wab&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Gain&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;用來評估是否要交換的值
+例如a,b屬於不同群,ab做交換&lt;br /&gt;
+Gain = &lt;script type=&quot;math/tex&quot;&gt;D_a + D_b - 2\times W_{ab}&lt;/script&gt;&lt;br /&gt;
+(Difference a + Difference b - 2*weighted ab)&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;交換數回合,若遇到gain是負的嘗試做交換下去,到最後再找gain最好的&lt;/p&gt;
+&lt;p&gt;若考慮a,b交換&lt;br /&gt;
+old cost = &lt;script type=&quot;math/tex&quot;&gt;z + E_a + E_b - W_{ab}&lt;/script&gt; &lt;br /&gt;
+new cost = &lt;script type=&quot;math/tex&quot;&gt;z + I_a + I_b + W_{ab}&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;時間複雜度:O(n^3)&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;z (與a,b沒有連接的其他crossing edge總和)&lt;br /&gt;
+E (external cost)&lt;br /&gt;
+I (internal cost)&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;h4 id=&quot;reference&quot;&gt;reference&lt;/h4&gt;
-&lt;p&gt;&lt;a href=&quot;http://newdoc.nccu.edu.tw/teaschm/1052/schmPrv.jsp-yy=105&amp;amp;smt=2&amp;amp;num=753868&amp;amp;gop=00&amp;amp;s=1&amp;amp;tea=101583.htm&quot;&gt;社群雲端運算&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;KL algorithm複雜度&lt;/strong&gt;&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;O(n^2)&lt;/script&gt; 找到最適合交換的兩點,有n pair要交換&lt;br /&gt;
+⇒ &lt;script type=&quot;math/tex&quot;&gt;O(n^3)&lt;/script&gt;&lt;/p&gt;
+
+&lt;!-- 20170413 end --&gt;
+
+&lt;p&gt;hiraichiecal 
+bottom-up&lt;br /&gt;
+每一回合都找兩個最像的做合併&lt;br /&gt;
+single link&lt;br /&gt;
+    距離取min
+complete link
+    距離取max&lt;/p&gt;
+
+&lt;p&gt;分群    &lt;br /&gt;
+community 同群邊的值要越大越好&lt;/p&gt;
+
+&lt;p&gt;Distance Matrix&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Approach1  &lt;br /&gt;
+計算weights Wij
+    &lt;ul&gt;
+      &lt;li&gt;i到j的路徑越多代表i和j關係越好&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;
+      &lt;li&gt;只能找non-overlapped paths&lt;/li&gt;
+      &lt;li&gt;只要i到j的路徑都算(weighted by length)
+ Xij = 1/Wij&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Reduction
+     由A問題轉換到B問題&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Approach 2
+ 如果i和j視同一群,那他們有相似的behavior
+ behavoir
+     i和j到commuinty其他點的平均距離相似&lt;/li&gt;
+  &lt;li&gt;Approach 3
+ J(i,j)/min(Ki,Kj)&lt;br /&gt;
+ 看兩個人共同朋友個數,共同朋友越多J(i,j)越大&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Edge-removal Approach&lt;br /&gt;
+不斷的拿掉邊,會出現越多的群數,直到符合要的群數&lt;br /&gt;
+拿掉bridge edge,&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;betweeness
+一開始想說可以用degree少,但不夠完全&lt;br /&gt;
+ 在centrality的betweeness是以node考量&lt;br /&gt;
+ 在這的betweeness是以edge考量&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;GN algorithm&lt;br /&gt;
+拿掉betweeness最高的邊 -&amp;gt; 重算betweeness -&amp;gt; 計算community
+top-down(起始是一個commuinity,並分群下去)
+計算邊的betweeness&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;shortest path&lt;br /&gt;
+ 任兩點最短路徑有多少條會經過邊&lt;/li&gt;
+  &lt;li&gt;Random-walk 
+ 計算a會走到b的機率&lt;br /&gt;
+ a走到b會經過邊v的機率&lt;/li&gt;
+  &lt;li&gt;Current-flow
+ 引進電路學概念的計算方法&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;缺點&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;計算最短路徑耗時
+ O(m^2n)&lt;br /&gt;
+ m edge (O(mn)betweeness)&lt;/li&gt;
+  &lt;li&gt;什麼時候停?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;改善&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Partial betweeness (Apprximation)&lt;br /&gt;
+Randomly sampled by Monte Carlo Estimate&lt;/li&gt;
+  &lt;li&gt;Edge clustering coefficient
+  coefficient越高代表關係越好
+the smaller coefficient the higher betweeness&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Modularity
+    Modularity measure:
+        how good a particular partition forms a community.
+        評估community切分的好不好&lt;/p&gt;
+
+&lt;p&gt;U 看internal edge的比例&lt;br /&gt;
+R 平均i和j會有邊的機率(期望值)      &lt;br /&gt;
+Q = U - R&lt;/p&gt;
+
+&lt;p&gt;Q = 0 no community&lt;br /&gt;
+Q ~ 1 prefect cut&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Newman Fast Alogorithm&lt;/strong&gt;&lt;br /&gt;
+利用hireachcal合併,並每個步驟算modurity,並找出最高的Q做切分&lt;br /&gt;
+&lt;strong&gt;Bridge cut&lt;/strong&gt;&lt;br /&gt;
+integrity一致性&lt;br /&gt;
+N(v)
+d(v): degree of node
+Density
+Direct neighbor subgraph of v&lt;br /&gt;
+Clustering coeffiecient &lt;br /&gt;
+	觀察v的鄰居的朋友關係&lt;br /&gt;
+	例如v有4個朋友,那4個人最多有6個關係,算關係的比例&lt;br /&gt;
+	實際上有關係/最多有幾個關係&lt;br /&gt;
+Bridge Centrality&lt;br /&gt;
+	&lt;strong&gt;rank&lt;/strong&gt; of betweenness centrality * &lt;strong&gt;rank&lt;/strong&gt; of bridging coeffiecient&lt;br /&gt;
+	如果只考慮betweeness(global)會有一些情況不太好  &lt;br /&gt;
+	加入bridge centrality可以考慮到local的特質&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Community Search&lt;/strong&gt;&lt;br /&gt;
+給一個social network,並給一些query(其中幾個人),&lt;br /&gt;
+given grahp G, a set of query node&lt;br /&gt;
+goal: find a densely subgraph of G, and contains the query nodes&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Induced Subgraph&lt;/strong&gt;&lt;br /&gt;
+xy edge在G中,xy edge也要在induce subgraph中&lt;/p&gt;
+
+&lt;p&gt;goodness function&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;edge degree
+時間複雜度太大&lt;/li&gt;
+  &lt;li&gt;average degree&lt;/li&gt;
+  &lt;li&gt;minumin degree
+這群人認識最少的人,讓這個人的值變大
+induced subgraph的degree&lt;br /&gt;
+容易受到outlier影響&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Constrain&lt;br /&gt;
+distance constrain&lt;br /&gt;
+限制邀請來的人的最長距離&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Monotone Function&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;monotone increaing&lt;/li&gt;
+  &lt;li&gt;monotone decresing&lt;/li&gt;
+  &lt;li&gt;non-monotone&lt;/li&gt;
+&lt;/ul&gt;
+
 </content>
  </entry>
  

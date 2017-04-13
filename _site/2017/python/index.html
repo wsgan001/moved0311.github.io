@@ -115,29 +115,19 @@
       <div class="post">
   <h1 class="post-title">python</h1>
   <span class="post-date">08 Mar 2017</span>
-  <h4 id="print">print</h4>
-<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%.2</span><span class="s">f"</span> <span class="o">%</span> <span class="n">total</span><span class="p">)</span>
-</code></pre>
-</div>
-<h4 id="註解">註解</h4>
-<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="c"># 單行</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
-
-<span class="c"># 多行</span>
-<span class="s">"""
-"""</span>
-</code></pre>
-</div>
-<h4 id="date-and-time">Date and Time</h4>
-<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">now</span>
+  <h4 id="time">Time</h4>
+<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+<span class="c"># your code here.</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">"time : "</span><span class="p">,(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">),</span><span class="s">" seconds."</span>
 </code></pre>
 </div>
 <h4 id="input">input</h4>
 <div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="n">name</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">"What is your name?"</span><span class="p">)</span>
 </code></pre>
 </div>
+<!--more-->
 
 </div>
 
