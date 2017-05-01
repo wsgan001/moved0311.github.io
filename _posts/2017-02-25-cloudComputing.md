@@ -2,7 +2,6 @@
 layout: post
 title: SocialCloudComputing
 ---
-#### 課程簡介
 * Centrality Analysis  
 * Community Detection  
 * Link Prediction  
@@ -46,7 +45,7 @@ title: SocialCloudComputing
 為什麼要分這麼多類Network?  
 > 因為要分析的點不同,可能在information Network中很重要的,卻在Social Network可能不是那麼重要  
 
-**** Network Properties
+#### Network Properties
 1. small-world effect
     六度分離理論  
     靠點和點距離關係分析    
@@ -54,12 +53,14 @@ title: SocialCloudComputing
     朋友的朋友很可能也是你朋友  
 	[Clustering Coeffieient](https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0)  
 3. Degree distribution
-	Real world network: Power law		
-	P<sub>k</sub> = CK<sup>-&alpha;</sup>  
+	Real world network : Power law		  
+	> P<sub>k</sub> = CK<sup>-&alpha;</sup>  
+
 	Heavy-tailed degree distribution  
 	大量很低的數量,集合起來還是很驚人  
 4. Network resilience
-	如果拿掉一些點/邊,連通性會有什麼變化？(e.g.有些人掛了,離職)  
+	如果拿掉一些點/邊,連通性會有什麼變化？  
+    (e.g.有些人掛了,離職)  
 	連接path的長度變長,或是disconnect   
 	廣告投放要投在哪個點影響力最大,如果是傳染病隔離哪個點最有效?  
 5. Mixing patterns  
@@ -297,7 +298,7 @@ top-down(起始是一個commuinity,並分群下去)
       coefficient越高代表關係越好
     the smaller coefficient the higher betweeness
  
-Modularity
+## Modularity  
     Modularity measure:
         how good a particular partition forms a community.
         評估community切分的好不好  
@@ -352,40 +353,236 @@ __Monotone Function__
 * monotone decresing
 * non-monotone
 
+<hr>
+<!-- 20170421 start --> 
+>
+* Link Prediction
+* Node-wise Similarity Based Methods
+* Topological Pattern Based Methods
+* Probabilistic Model Based Methods
 
+## Link Prediction  
 
+__Goal__
+1. Predict the existence of links
+2. Predict the type of links
 
-
-
-<!-- 20170413 class--> 
-__Link Prediction__  
-Outline:  
-* link prediction
-* node-wise similarity based methods
-* topological pattern based methods
-* probabilistic model based methods
-
+__Strategies of Prediction__  
 1. Knowledge-driven strategy  
-    專家系統(領域專家提供rule)  
-2. Data-driven approach 
+    專家系統(領域專家提供rule)    
+2. Data-driven approach  
 
-**problem**  
-1. Link existence prediction
-2. Link classification
-3. Link regression
 
-**Application**  
+__problem__    
+1. Link existence prediction  
+    邊是否存在  
+2. Link classification  
+    關係的總類  
+3. Link regression  
+    最重要的邊是哪一個  
+
+__Application__    
 1. Web hyperlink creation
 2. Collaborative filitering
 3. Information retrieval
 4. Clustering
 5. Record linkage
 
-__Node-wise Similarity Based Method__  
-計算兩個點的相似度,如果兩個點很相似他們可能就有link  
-e.g. Similarity between words
+## Node-wise Similarity Based Method    
+> 計算兩個點的相似度,如果兩個點很相似他們可能就有link  
+e.g. Similarity between words  
 觀察word的前後文字來判斷相似程度  
 
+__Learning-Based Similarity Measure__    
+* Binary Classification Approach  
+    * Decision Tree  
+* Regression-based Approach(回歸)    
+    e.g linear regression  
+    $$ Y = \alpha + \beta_1X_1 + \beta_2X_2 + ... + \beta_nX_n $$  
+    利用學習方式估計出$$ \alpha , \beta  $$
+
+## Topological Pattern Based Methods  
+> 計算兩點之間的分數,若大於某個值就表示他們之間有關係(連線)
+
+* __Local Method__   
+    * Common Neighbors(CN)    
+        計算共同的鄰居  
+    * Salton Index  
+        類似cosine similiary  
+    * Jaccard Coefficient(JC)  
+        交集/聯集  
+    * Leicht-Holme-Newman Index(LHN)  
+    * Hub Promoted Index(HPI)  
+        Hub概念像是入口網站,類似目錄連到很多子分支  
+    * Hub Depres Index(HDI)    
+    * Adamic/Adar(AA)   
+        x和y是朋友的分數是x和y的共同朋友的鄰居-x和y 倒數總和  
+    * Resource Allocation Index(RA)  
+        和AA差在分母沒有取log  
+    * Preferential Attachment  
+        x和y是朋友的分數就是x的鄰居乘上y鄰居  
+
+    Performance: RA > AA > CN > ... > PA
+
+* __global Method__  
+    * katz  
+        看x到y距離是1,2,3..n的path有幾條,乘上一個參數做加總  
+    * Hitting Time  
+        x走到y,做random work的期望值作為比較條件  
+    * PageRank  
+    * SimRank  
+
+## Probabilistic Model Based Methods  
+e.g. relational Markov model  
+<!-- 20170421 end --> 
 
 
-<!-- 20170413 class--> 
+<!-- 20170420 --> 
+## Labeld Social Network  
+Type of Labels  
+1. Binary
+2. Numeric  
+3. cate
+4. text-free
+
+## Label Prediction
+根據已知的label預測未知點的label  
+1. Inference vs. Learning  
+    Inference(unsupervised)  
+    Learning(supervised)  
+2.Disjoint vs. Collective  
+    Disjoint
+    沒有標籤的點就不考慮  
+    Collective  
+    沒有標籤的點也會放進去考慮  
+3.Across-network vs. within-network learning  
+    Across-network拿一個social network model去預測另一個social network  
+    within-network拿全部資料做的model來做預測   
+
+## Clues to Predict Labels  
+* Label Independent approaches 特徵值沒有用到label的訊息  
+1. Correlation between  
+    Attribute of node i (年紀)
+    Label of node i (身份)
+2. Correlation between  
+    Network Structures of node i (between centrality)
+    Label of node i
+* Label Dependent Approaches
+3. Correlation between  
+    知道鄰居來預設未知,用其他點來預測未知點   
+4. Correlation between  
+    利用unlabel點來預測  
+
+Relational Neighbor Classifier  
+    -> disjoint
+    簡單說就是看鄰居多數是什麼就判斷node是什麼  
+    問題：  
+    如果已知的點很少,unknown的很多(Sparse label),若只用一個點就判斷就沒那麼可靠  
+    解決：
+    Iterative Relation Neighbor classifier    
+    判斷分為好幾回合,若多數點是unknown那就判斷是unknown   
+    unknown也是一種label  
+<!-- 20170420 --> 
+
+<!-- class --> 
+__Ghost Edges for Node Label Prediction__  
+將一些不是直接連接的node但有影響力的點,用ghost edge連起來  
+那怎麼判斷點的重要性  
+-> Random walk with Restart   
+    有一定的機率會跳到起點
+
+__Steady-state Probability__  
+Markov Process    
+    城市和郊區遷移問題
+
+利用Random walk with restart計算所有點對某點的影響力  
+在對這些影響力做等級劃分,依照機率分為ABCDEF...等級  
+
+__Two Classifers__  
+1. GhostEdgeNL
+2. GhostEdgeL
+    Logistic regression  
+
+## Information Diffusion 
+消息/疾病擴散  
+想知道擴散方向,可以擴散到哪等等問題  
+
+__3 elements of diffusion process__  
+1. Senders
+2. Receivers  
+3. Medium(channel)
+
+__Types of information Diffusion__  
+* herd behavior(global information)  
+    群眾行為,大多數人怎麼做,就有可能會跟著做  
+* information cascades(local information)  
+* diffusion of innovation
+* eqidemics
+
+__Diffusion Models__  
+1. Descriptive models  
+    機率模型  
+2. Operational models  
+    一步一步的擴散  
+    Each node can be Active / Inactive  
+    Assumption:
+        * node can switch from inactive to active  
+        * cannot switch from active to inactive  
+    e.g.  
+        1. Linear Threshold Model  
+        2. Independent Cascade Model  
+
+__Linear Threshold Model__    
+每個人都會有一個threshold代表會變成active門檻值    
+每個邊上會有影響力的值(可以是單向或雙向)    
+如果你的鄰居加總的影響力大於你本身的threshold那你也會變成active  
+由Senders開始一步一步的擴散  
+
+__Independent Cascade Model__  
+每一個人只能影響鄰居一次,失敗了不能再影響一次  
+邊上是影響成功的機率  
+
+## Influence Maximization Problem  
+給一些起始的senders觀察最後有哪些人被影響  
+給k個senders並且找出這k個senders是誰且最後影響的人數最多  
+(應用: 廣告要放在哪裡)  
+Constrained optimization problem    
+
+問題難度: NP-hard   
+證明這個問題的難度:  
+    符合Submodular Function,且要在所有node中找出k個,使得f(k)為maximized  
+    已經被證明為NP-hard問題  
+
+__Submodular Function__  
+* Non-negative
+* Monotone
+* Submodular 邊際效應遞減  
+>   f(a,b,v) - f(a,b) > f(a,b,c,v) - f(a,b,c)  
+    原來有a,b加入v所增加的量大於原來有a,b,c加入v所增加的量  
+    例如原本能考60分,讀一天可以考到80分,  
+    和原來能考90分,可是讀一天只能考到95分  
+
+遇到NP-hard問題考慮的解法
+* Approximation Approach  
+* 平行運算  
+
+__Approximation Approach__  
+Greedy algorithm  
+每回合找出Submodular最大的作為sender  
+
+__Degree Discount__  
+(下次講)
+
+__Outbreak Detection__  
+> 能不能透過放sensor提早知道消息的擴散  
+
+給一個network G(V,E),找到placement A(sensor),to max R(A)
+R(A) : reward  
+c(A) : cost  
+
+placement objective  
+* detection likelihood  
+* detection time  
+    多久偵測到  
+* 
+<!-- class -->

@@ -115,8 +115,7 @@
       <div class="post">
   <h1 class="post-title">SocialCloudComputing</h1>
   <span class="post-date">25 Feb 2017</span>
-  <h4 id="課程簡介">課程簡介</h4>
-<ul>
+  <ul>
   <li>Centrality Analysis</li>
   <li>Community Detection</li>
   <li>Link Prediction</li>
@@ -177,7 +176,7 @@ FB好友關係</li>
   <p>因為要分析的點不同,可能在information Network中很重要的,卻在Social Network可能不是那麼重要</p>
 </blockquote>
 
-<p><em>**</em> Network Properties</p>
+<h4 id="network-properties">Network Properties</h4>
 <ol>
   <li>small-world effect
  六度分離理論<br />
@@ -186,12 +185,17 @@ FB好友關係</li>
  朋友的朋友很可能也是你朋友<br />
  <a href="https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0">Clustering Coeffieient</a></li>
   <li>Degree distribution
- Real world network: Power law		
- P<sub>k</sub> = CK<sup>-α</sup><br />
- Heavy-tailed degree distribution<br />
- 大量很低的數量,集合起來還是很驚人</li>
+ Real world network : Power law
+    <blockquote>
+      <p>P<sub>k</sub> = CK<sup>-α</sup></p>
+    </blockquote>
+
+    <p>Heavy-tailed degree distribution<br />
+ 大量很低的數量,集合起來還是很驚人</p>
+  </li>
   <li>Network resilience
- 如果拿掉一些點/邊,連通性會有什麼變化？(e.g.有些人掛了,離職)<br />
+ 如果拿掉一些點/邊,連通性會有什麼變化？<br />
+ (e.g.有些人掛了,離職)<br />
  連接path的長度變長,或是disconnect <br />
  廣告投放要投在哪個點影響力最大,如果是傳染病隔離哪個點最有效?</li>
   <li>Mixing patterns<br />
@@ -479,10 +483,12 @@ Randomly sampled by Monte Carlo Estimate</li>
 the smaller coefficient the higher betweeness</li>
 </ol>
 
-<p>Modularity
-    Modularity measure:
-        how good a particular partition forms a community.
-        評估community切分的好不好</p>
+<h2 id="modularity">Modularity</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>Modularity measure:
+    how good a particular partition forms a community.
+    評估community切分的好不好  
+</code></pre>
+</div>
 
 <p>U 看internal edge的比例<br />
 R 平均i和j會有邊的機率(期望值)      <br />
@@ -538,6 +544,198 @@ distance constrain<br />
   <li>non-monotone</li>
 </ul>
 
+<hr />
+
+<!-- 20170421 start -->
+<blockquote>
+
+  <ul>
+    <li>Link Prediction</li>
+    <li>Node-wise Similarity Based Methods</li>
+    <li>Topological Pattern Based Methods</li>
+    <li>Probabilistic Model Based Methods</li>
+  </ul>
+</blockquote>
+
+<h2 id="link-prediction">Link Prediction</h2>
+
+<p><strong>Goal</strong></p>
+<ol>
+  <li>Predict the existence of links</li>
+  <li>Predict the type of links</li>
+</ol>
+
+<p><strong>Strategies of Prediction</strong></p>
+<ol>
+  <li>Knowledge-driven strategy<br />
+ 專家系統(領域專家提供rule)</li>
+  <li>Data-driven approach</li>
+</ol>
+
+<p><strong>problem</strong></p>
+<ol>
+  <li>Link existence prediction<br />
+ 邊是否存在</li>
+  <li>Link classification<br />
+ 關係的總類</li>
+  <li>Link regression<br />
+ 最重要的邊是哪一個</li>
+</ol>
+
+<p><strong>Application</strong></p>
+<ol>
+  <li>Web hyperlink creation</li>
+  <li>Collaborative filitering</li>
+  <li>Information retrieval</li>
+  <li>Clustering</li>
+  <li>Record linkage</li>
+</ol>
+
+<h2 id="node-wise-similarity-based-method">Node-wise Similarity Based Method</h2>
+<blockquote>
+  <p>計算兩個點的相似度,如果兩個點很相似他們可能就有link<br />
+e.g. Similarity between words<br />
+觀察word的前後文字來判斷相似程度</p>
+</blockquote>
+
+<p><strong>Learning-Based Similarity Measure</strong></p>
+<ul>
+  <li>Binary Classification Approach
+    <ul>
+      <li>Decision Tree</li>
+    </ul>
+  </li>
+  <li>Regression-based Approach(回歸)  <br />
+  e.g linear regression<br />
+  <script type="math/tex">Y = \alpha + \beta_1X_1 + \beta_2X_2 + ... + \beta_nX_n</script><br />
+  利用學習方式估計出<script type="math/tex">\alpha , \beta</script></li>
+</ul>
+
+<h2 id="topological-pattern-based-methods">Topological Pattern Based Methods</h2>
+<blockquote>
+  <p>計算兩點之間的分數,若大於某個值就表示他們之間有關係(連線)</p>
+</blockquote>
+
+<ul>
+  <li><strong>Local Method</strong>
+    <ul>
+      <li>Common Neighbors(CN)  <br />
+  計算共同的鄰居</li>
+      <li>Salton Index<br />
+  類似cosine similiary</li>
+      <li>Jaccard Coefficient(JC)<br />
+  交集/聯集</li>
+      <li>Leicht-Holme-Newman Index(LHN)</li>
+      <li>Hub Promoted Index(HPI)<br />
+  Hub概念像是入口網站,類似目錄連到很多子分支</li>
+      <li>Hub Depres Index(HDI)</li>
+      <li>Adamic/Adar(AA) <br />
+  x和y是朋友的分數是x和y的共同朋友的鄰居-x和y 倒數總和</li>
+      <li>Resource Allocation Index(RA)<br />
+  和AA差在分母沒有取log</li>
+      <li>Preferential Attachment<br />
+  x和y是朋友的分數就是x的鄰居乘上y鄰居</li>
+    </ul>
+
+    <p>Performance: RA &gt; AA &gt; CN &gt; … &gt; PA</p>
+  </li>
+  <li><strong>global Method</strong>
+    <ul>
+      <li>katz<br />
+  看x到y距離是1,2,3..n的path有幾條,乘上一個參數做加總</li>
+      <li>Hitting Time<br />
+  x走到y,做random work的期望值作為比較條件</li>
+      <li>PageRank</li>
+      <li>SimRank</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="probabilistic-model-based-methods">Probabilistic Model Based Methods</h2>
+<p>e.g. relational Markov model<br />
+<!-- 20170421 end --></p>
+
+<!-- 20170420 class-->
+<h2 id="labeld-social-network">Labeld Social Network</h2>
+<p>Type of Labels</p>
+<ol>
+  <li>Binary</li>
+  <li>Numeric</li>
+  <li>cate</li>
+  <li>text-free</li>
+</ol>
+
+<h2 id="label-prediction">Label Prediction</h2>
+<p>根據已知的label預測未知點的label</p>
+<ol>
+  <li>Inference vs. Learning<br />
+ Inference(unsupervised)<br />
+ Learning(supervised)<br />
+2.Disjoint vs. Collective<br />
+ Disjoint
+ 沒有標籤的點就不考慮<br />
+ Collective<br />
+ 沒有標籤的點也會放進去考慮<br />
+3.Across-network vs. within-network learning<br />
+ Across-network拿一個social network model去預測另一個social network<br />
+ within-network拿全部資料做的model來做預測</li>
+</ol>
+
+<h2 id="clues-to-predict-labels">Clues to Predict Labels</h2>
+<ul>
+  <li>Label Independent approaches 特徵值沒有用到label的訊息
+    <ol>
+      <li>Correlation between<br />
+  Attribute of node i (年紀)
+  Label of node i (身份)</li>
+      <li>Correlation between<br />
+  Network Structures of node i (between centrality)
+  Label of node i</li>
+    </ol>
+  </li>
+  <li>Label Dependent Approaches
+    <ol>
+      <li>Correlation between<br />
+  知道鄰居來預設未知,用其他點來預測未知點</li>
+      <li>Correlation between<br />
+  利用unlabel點來預測</li>
+    </ol>
+  </li>
+</ul>
+
+<p>Relational Neighbor Classifier<br />
+    -&gt; disjoint
+    簡單說就是看鄰居多數是什麼就判斷node是什麼<br />
+    問題：<br />
+    如果已知的點很少,unknown的很多(Sparse label),若只用一個點就判斷就沒那麼可靠<br />
+    解決：
+    Iterative Relation Neighbor classifier  <br />
+    判斷分為好幾回合,若多數點是unknown那就判斷是unknown <br />
+    unknown也是一種label<br />
+<!-- 20170420 class--></p>
+
+<!-- 20170421 start -->
+<p><strong>Ghost Edges for Node Label Prediction</strong><br />
+將一些不是直接連接的node但有影響力的點,用ghost edge連起來<br />
+那怎麼判斷點的重要性<br />
+-&gt; Random walk with Restart <br />
+    有一定的機率會跳到起點</p>
+
+<p><strong>Steady-state Probability</strong><br />
+Markov Process  <br />
+    城市和郊區遷移問題</p>
+
+<p>利用Random walk with restart計算所有點對某點的影響力<br />
+在對這些影響力做等級劃分,依照機率分為ABCDEF…等級</p>
+
+<p><strong>Two Classifers</strong></p>
+<ol>
+  <li>GhostEdgeNL</li>
+  <li>GhostEdgeL
+ Logistic regression</li>
+</ol>
+
+<!-- 20170421 end -->
 
 </div>
 

@@ -551,24 +551,25 @@ The term likelihood is just a synonym of probability.
       <li>How to define P(Q,D|R)
         <ul>
           <li>Document generation: P(Q,D|R)=P(D|Q,R)P(Q|R) <br />
-  query放到條件</li>
+  query放到條件 (e.g RSJ model)</li>
           <li>Query generation: P(Q,D|R)=P(Q|D,R)P(D|R) <br />
-  document放到條件</li>
+  document放到條件 (e.g language model)</li>
         </ul>
       </li>
     </ul>
   </li>
 </ol>
 
+<h4 id="rsj-model-binary-independence-model">RSJ Model <a href="https://en.wikipedia.org/wiki/Binary_Independence_Model">(Binary Independence Model)</a></h4>
 <p>利用<strong>Odd</strong>值做ranking的依據:<br />
-<script type="math/tex">O(R|D,Q) = \frac{P(R=1|D,Q)}{P(R=0|D,Q)} = \frac{ \frac{P(D|R=1,Q)P(R=1|Q)}{P(D|Q)} }{ \frac{P(D|R=0,Q)P(R=0|Q)}{P(D|Q)} } = \frac{P(D|R=1,Q)P(R=1|Q)}{P(D|R=0,Q)P(R=0|Q)} \quad(1)</script></p>
+<script type="math/tex">O(R|D,Q) = \frac{P(R=1|D,Q)}{P(R=0|D,Q)} = \frac{ \frac{P(D|Q,R=1)P(R=1|Q)}{P(D|Q)} }{ \frac{P(D|Q,R=0)P(R=0|Q)}{P(D|Q)} } = \frac{P(D|Q,R=1)P(R=1|Q)}{P(D|Q,R=0)P(R=0|Q)} \quad(1)</script></p>
 
 <blockquote>
   <p><script type="math/tex">\frac{P(R=1|Q)}{P(R=0|Q)}</script> 
 對document ranking沒有影響,視為常數</p>
 </blockquote>
 
-<script type="math/tex; mode=display">\frac{P(D|R=1,Q)}{P(D|R=0,Q)} = \prod_{t=1}^{M} \frac{P(D_t|R=1,Q)}{P(D_t|R=0,Q)} \quad(2)</script>
+<script type="math/tex; mode=display">\frac{P(D|Q,R=1)}{P(D|Q,R=0)} = \prod_{t=1}^{M} \frac{P(D_t|Q,R=1)}{P(D_t|Q,R=0)} \quad(2)</script>
 
 <blockquote>
   <p>將document拆成多個獨立的document term連乘積,且<script type="math/tex">D_t \in \{0,1\}</script></p>
@@ -580,15 +581,15 @@ The term likelihood is just a synonym of probability.
   <p>(2)代入(1)可以整理出(3)</p>
 </blockquote>
 
-<script type="math/tex; mode=display">O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=1}^{M} \frac{P(D_t = 1|R=1,Q)}{P(D_t = 1|R=0,Q)} \cdot \prod_{t:D_t=0}^{M} \frac{P(D_t = 0|R=1,Q)}{P(D_t = 0|R=0,Q)}\quad(4)</script>
+<script type="math/tex; mode=display">O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=1}^{M} \frac{P(D_t = 1|Q,R=1)}{P(D_t = 1|Q,R=0)} \cdot \prod_{t:D_t=0}^{M} \frac{P(D_t = 0|Q,R=1)}{P(D_t = 0|Q,R=0)}\quad(4)</script>
 
 <blockquote>
-  <p>文章的document term分為出現或是不出現,從(3)推到(4)</p>
+  <p>將document term分為出現或是不出現,(3)→(4)</p>
 </blockquote>
 
-<script type="math/tex; mode=display">p_t = P(D_t = 1|R=1,Q)</script>
+<script type="math/tex; mode=display">p_t = P(D_t = 1|Q,R=1)</script>
 
-<script type="math/tex; mode=display">u_t = P(D_t = 1|R=0,Q)</script>
+<script type="math/tex; mode=display">u_t = P(D_t = 1|Q,R=0)</script>
 
 <blockquote>
   <p><script type="math/tex">p_t</script> 表示term出現在document且和query相關的機率<br />
@@ -599,18 +600,28 @@ The term likelihood is just a synonym of probability.
 
 <blockquote>
   <p>假設<script type="math/tex">Q_t = 0 \; then \; p_t = u_t</script>(假設可以做改變)  <br />
-沒出現在query的term就不用考慮,連乘1不影響<br />
+意思是沒出現在query的term就不用考慮,只考慮<script type="math/tex">Q_t = 1</script>  <br />
 左邊連乘積表示 query term found in document<br />
 右邊連乘積表示query term not found in document</p>
 </blockquote>
 
-<script type="math/tex; mode=display">O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} \cdot \prod_{t:Q_t=1} \frac{1-p_t}{1-u_t} \quad(6)</script>
+<script type="math/tex; mode=display">O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} \cdot \prod_{t:D_t=0,Q_t=1} \frac{1-p_t}{1-u_t} \cdot \frac{1-p_t}{1-u_t} \quad(6)</script>
 
 <blockquote>
-  <p>兩邊連乘積同除 <script type="math/tex">\frac{1-p_t}{1-u_t}</script>, 右邊連乘積的範圍就會和document無關(在對document ranking時就視為常數)</p>
+  <p>右邊連乘積乘上 <script type="math/tex">\frac{1-p_t}{1-u_t}</script>, 所以所邊必須要除<script type="math/tex">\frac{1-p_t}{1-u_t}</script>才會相等</p>
 </blockquote>
 
-<script type="math/tex; mode=display">RSV_d = log \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} = \sum_{t:D_t=Q_t=1} log \frac{p_t(1-u_t)}{u_t(1-p_t)} \quad(7)</script>
+<script type="math/tex; mode=display">O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} \cdot \prod_{t:Q_t=1} \frac{1-p_t}{1-u_t} \quad(7)</script>
+
+<blockquote>
+  <p>右邊連乘積是query not found in document<br />
+概念大概是將query found in document也計算進去,<br />
+不管有沒有出現在document都乘<br />
+整理後右邊連乘積的範圍就會和document無關 <br />
+在對document ranking時就視為常數</p>
+</blockquote>
+
+<script type="math/tex; mode=display">RSV_d = log \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} = \sum_{t:D_t=Q_t=1} log \frac{p_t(1-u_t)}{u_t(1-p_t)} \quad(8)</script>
 
 <blockquote>
   <p>取log後就得到Retrieval Status Value(RSV),<br />
@@ -651,7 +662,7 @@ log是monotonic function不會改變ranking順序</p>
 </ul>
 
 <blockquote>
-  <p>RSJ導出來performance比不上vector space model</p>
+  <p>RSJ model的performance還遠比不上vector space model</p>
 </blockquote>
 
 <p><strong>Improving RSJ</strong></p>
@@ -663,32 +674,100 @@ log是monotonic function不會改變ranking順序</p>
 
 <p>改善後的最終公式稱作<strong>BM25</strong></p>
 
-<p><strong>CH12 Language models for informatio retrieval</strong></p>
+<hr />
 
-<p>unigram language model<br />
-    字只有單一的狀態</p>
+<!-- 20170416 -->
+<h2 id="ch12-language-models-for-informatio-retrieval">CH12 Language models for informatio retrieval</h2>
 
-<p>如果一個string,<br />
-每一個字會有一個狀態,並到下一個字之間會有一個機率<br />
-那一個字出現的機率就是每一個字到下一個字的連乘積</p>
+<p><strong>unigram language model</strong></p>
+<blockquote>
+  <p>每個word只有單一的狀態,可以建立一個table放每個word對應到的機率</p>
+</blockquote>
 
-<p>language model應用：語音系統的語言校正</p>
+<p>一個string出現的機率就是每個word的機率連乘積 <br />
+Language model應用：語音系統的語言校正</p>
 
-<p>Multinomial model 建立文章語言模型<br />
-估計p1-&gt;pk的機率</p>
+<p>Language model屬於query generation process  <br />
+每一篇document視為一個language model<br />
+ranking的計算是根據P(Q|D)</p>
 
-<p>Maximun Likelihood Estimation</p>
+<p><strong>計算P(Q|D)</strong></p>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Multinomial_distribution">Multinomial model</a> <br />
+  <img src="/img/websearching/MultinomialDistribution.png" alt="multinomial Distribustion" /></li>
+</ul>
 
-<p>smooth the estimates to avoid zeros
-避免0產生,相乘後結果很差</p>
+<script type="math/tex; mode=display">P(q|M_d) = P((t_1,...,t_{|q|})|M_d) = \prod_{1 \leq k \leq |q|} P(t_k|M_d) = \prod_{distinct\;term\;t\;in\;q}P(t|M_d)^{tf_{t,q}}</script>
+
+<blockquote>
+  <p>|q|: length of query<br />
+<script type="math/tex">t_k</script> : query的第k個位置的token<br />
+<script type="math/tex">tf_{t,q}</script> : term frequency of t in q</p>
+</blockquote>
+
+<p><strong>估計參數</strong></p>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Maximum_likelihood_estimation">Maximun Likelihood Estimation(MLE)</a>
+    <blockquote>
+      <script type="math/tex; mode=display">\hat{P}(t|M_d) = \frac{tf_{t,d}}{|d|}</script>
+    </blockquote>
+  </li>
+</ul>
+
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>hat符號表示估計值的意思  
+</code></pre>
+</div>
+
+<p><strong>smooth the estimates to avoid zeros</strong></p>
+<blockquote>
+  <p>避免0產生,相乘後結果很差</p>
+</blockquote>
 
 <p>smooth方法</p>
 <ol>
-  <li>Mixture model
- 一個word的值=(word/document1 + word/all documents)
- 每個word連乘積會算出一個機率值</li>
+  <li>Mixture model<br />
+ <script type="math/tex">P(t|d)=\lambda P(t|M_d) + (1-\lambda )P(t|M_c)</script>
+    <blockquote>
+      <p><script type="math/tex">M_c</script> : the collection model<br />
+ <script type="math/tex">\lambda</script> 的設定好壞會影響效能</p>
+    </blockquote>
+
+    <p>e.g.<br />
+ Collection = {<script type="math/tex">d_1,d_2</script>}<br />
+ <script type="math/tex">d_1</script>: Jack wants to play game<br />
+ <script type="math/tex">d_2</script>: Tom is cat<br />
+ query q: Tom game<br />
+ <script type="math/tex">\lambda = \frac{1}{2}</script></p>
+
+    <p>P(d|<script type="math/tex">d_1</script>) = [(0/5 + 1/8)/2]<script type="math/tex">\cdot</script>[(1/5 + 1/8)/2] <script type="math/tex">\approx</script> 0.0101 <br />
+ P(d|<script type="math/tex">d_2</script>) = [(1/3 + 1/8)/2]<script type="math/tex">\cdot</script>[(0/3 + 1/8)/2] <script type="math/tex">\approx</script> 0.0143<br />
+ rank <script type="math/tex">d_2 > d_1</script></p>
+  </li>
 </ol>
 
+<!-- 20170416  -->
+
+<!-- 20170427 -->
+<p><strong>Text Generation with Unigram LM</strong></p>
+<ul>
+  <li>sampling  <br />
+  由一個特定主題的model,裡面會有各個字出現的機率(每一個model會有一個distribution,機率分佈),取出一些機率較高的字可以形成document</li>
+  <li>estimation<br />
+  拿到一個document,預估出model</li>
+</ul>
+
+<!-- 20170427 -->
+
+<!-- class -->
+<p>MLE -&gt; smoothing(去除機率為0的值)用copers這個smooth方法</p>
+
+<p>smoothing方法</p>
+<ul>
+  <li>Jelinek-Mercer</li>
+  <li>Dirichlet prior</li>
+  <li>Absolute discontuning
+<!-- class --></li>
+</ul>
 
 </div>
 

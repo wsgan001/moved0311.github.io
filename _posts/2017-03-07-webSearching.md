@@ -312,17 +312,19 @@ __Refining P(R=1\|Q,D) Methods__
     先找出資料的分佈再做預測  
     * How to define P(Q,D\|R)  
         * Document generation: P(Q,D\|R)=P(D\|Q,R)P(Q\|R)   
-            query放到條件  
+            query放到條件 (e.g RSJ model)   
         * Query generation: P(Q,D\|R)=P(Q\|D,R)P(D\|R)   
-            document放到條件  
+            document放到條件 (e.g language model)  
 
+
+#### RSJ Model [(Binary Independence Model)](https://en.wikipedia.org/wiki/Binary_Independence_Model)
 利用**Odd**值做ranking的依據:  
-$$ O(R|D,Q) = \frac{P(R=1|D,Q)}{P(R=0|D,Q)} = \frac{ \frac{P(D|R=1,Q)P(R=1|Q)}{P(D|Q)} }{ \frac{P(D|R=0,Q)P(R=0|Q)}{P(D|Q)} } = \frac{P(D|R=1,Q)P(R=1|Q)}{P(D|R=0,Q)P(R=0|Q)} \quad(1)$$  
+$$ O(R|D,Q) = \frac{P(R=1|D,Q)}{P(R=0|D,Q)} = \frac{ \frac{P(D|Q,R=1)P(R=1|Q)}{P(D|Q)} }{ \frac{P(D|Q,R=0)P(R=0|Q)}{P(D|Q)} } = \frac{P(D|Q,R=1)P(R=1|Q)}{P(D|Q,R=0)P(R=0|Q)} \quad(1)$$  
 
 > $$ \frac{P(R=1|Q)}{P(R=0|Q)} $$ 
 對document ranking沒有影響,視為常數  
 
-$$ \frac{P(D|R=1,Q)}{P(D|R=0,Q)} = \prod_{t=1}^{M} \frac{P(D_t|R=1,Q)}{P(D_t|R=0,Q)} \quad(2)$$    
+$$ \frac{P(D|Q,R=1)}{P(D|Q,R=0)} = \prod_{t=1}^{M} \frac{P(D_t|Q,R=1)}{P(D_t|Q,R=0)} \quad(2)$$    
 
 > 將document拆成多個獨立的document term連乘積,且$$ D_t \in \{0,1\} $$
 
@@ -330,13 +332,13 @@ $$ O(R|D,Q) = O(R|Q) \cdot \prod_{t=1}^{M} \frac{P(D_t|R=1,Q)}{P(D_t|R=0,Q)} \qu
 
 > (2)代入(1)可以整理出(3)  
 
-$$ O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=1}^{M} \frac{P(D_t = 1|R=1,Q)}{P(D_t = 1|R=0,Q)} \cdot \prod_{t:D_t=0}^{M} \frac{P(D_t = 0|R=1,Q)}{P(D_t = 0|R=0,Q)}\quad(4)$$    
+$$ O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=1}^{M} \frac{P(D_t = 1|Q,R=1)}{P(D_t = 1|Q,R=0)} \cdot \prod_{t:D_t=0}^{M} \frac{P(D_t = 0|Q,R=1)}{P(D_t = 0|Q,R=0)}\quad(4)$$    
 
-> 文章的document term分為出現或是不出現,從(3)推到(4)
+> 將document term分為出現或是不出現,(3)&rarr;(4)
 
-$$ p_t = P(D_t = 1|R=1,Q) $$
+$$ p_t = P(D_t = 1|Q,R=1) $$
 
-$$ u_t = P(D_t = 1|R=0,Q) $$
+$$ u_t = P(D_t = 1|Q,R=0) $$
 
 > $$ p_t $$ 表示term出現在document且和query相關的機率  
 $$ u_t $$ 表示term出現在doucment且和query不相關的機率  
@@ -344,15 +346,24 @@ $$ u_t $$ 表示term出現在doucment且和query不相關的機率
 $$ O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=Q_t=1} \frac{p_t}{u_t} \cdot \prod_{t:D_t=0,Q_t=1} \frac{1-p_t}{1-u_t} \quad(5)$$    
 
 > 假設$$ Q_t = 0 \; then \; p_t = u_t$$(假設可以做改變)    
-沒出現在query的term就不用考慮,連乘1不影響  
+意思是沒出現在query的term就不用考慮,只考慮$$ Q_t = 1 $$    
 左邊連乘積表示 query term found in document  
 右邊連乘積表示query term not found in document  
 
-$$ O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} \cdot \prod_{t:Q_t=1} \frac{1-p_t}{1-u_t} \quad(6)$$    
 
-> 兩邊連乘積同除 $$ \frac{1-p_t}{1-u_t}$$, 右邊連乘積的範圍就會和document無關(在對document ranking時就視為常數)  
+$$ O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} \cdot \prod_{t:D_t=0,Q_t=1} \frac{1-p_t}{1-u_t} \cdot \frac{1-p_t}{1-u_t} \quad(6)$$    
 
-$$ RSV_d = log \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} = \sum_{t:D_t=Q_t=1} log \frac{p_t(1-u_t)}{u_t(1-p_t)} \quad(7)$$    
+> 右邊連乘積乘上 $$ \frac{1-p_t}{1-u_t}$$, 所以所邊必須要除$$ \frac{1-p_t}{1-u_t}$$才會相等   
+
+$$ O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} \cdot \prod_{t:Q_t=1} \frac{1-p_t}{1-u_t} \quad(7)$$    
+
+> 右邊連乘積是query not found in document  
+概念大概是將query found in document也計算進去,  
+不管有沒有出現在document都乘  
+整理後右邊連乘積的範圍就會和document無關   
+在對document ranking時就視為常數  
+
+$$ RSV_d = log \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} = \sum_{t:D_t=Q_t=1} log \frac{p_t(1-u_t)}{u_t(1-p_t)} \quad(8)$$    
 
 > 取log後就得到Retrieval Status Value(RSV),  
 log是monotonic function不會改變ranking順序  
@@ -382,7 +393,7 @@ __RSJ Model: with Relevance Info__
 * Maximum Lieklihood Estimate(MLE)
 * Maximum A Posterior(MAP)
 
-> RSJ導出來performance比不上vector space model 
+> RSJ model的performance還遠比不上vector space model 
 
 
 __Improving RSJ__  
@@ -392,32 +403,74 @@ __Improving RSJ__
 
 改善後的最終公式稱作**BM25**
 
-__CH12 Language models for informatio retrieval__  
+<hr>
+<!-- 20170416 -->
+## CH12 Language models for informatio retrieval  
 
-unigram language model  
-    字只有單一的狀態  
+__unigram language model__    
+> 每個word只有單一的狀態,可以建立一個table放每個word對應到的機率 
 
-如果一個string,  
-每一個字會有一個狀態,並到下一個字之間會有一個機率  
-那一個字出現的機率就是每一個字到下一個字的連乘積
+一個string出現的機率就是每個word的機率連乘積   
+Language model應用：語音系統的語言校正  
 
-language model應用：語音系統的語言校正
+Language model屬於query generation process    
+每一篇document視為一個language model  
+ranking的計算是根據P(Q|D)  
 
-Multinomial model 建立文章語言模型  
-估計p1->pk的機率   
+__計算P(Q|D)__  
+* [Multinomial model](https://en.wikipedia.org/wiki/Multinomial_distribution)   
+    ![multinomial Distribustion](/img/websearching/MultinomialDistribution.png)  
 
-Maximun Likelihood Estimation  
+$$ P(q|M_d) = P((t_1,...,t_{|q|})|M_d) = \prod_{1 \leq k \leq |q|} P(t_k|M_d) = \prod_{distinct\;term\;t\;in\;q}P(t|M_d)^{tf_{t,q}}$$   
 
-smooth the estimates to avoid zeros
-避免0產生,相乘後結果很差  
+> |q|: length of query  
+$$t_k$$ : query的第k個位置的token  
+$$tf_{t,q}$$ : term frequency of t in q  
+
+__估計參數__  
+* [Maximun Likelihood Estimation(MLE)](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation)   
+> $$\hat{P}(t|M_d) = \frac{tf_{t,d}}{|d|}$$
+
+```text
+hat符號表示估計值的意思  
+```
+
+__smooth the estimates to avoid zeros__  
+> 避免0產生,相乘後結果很差  
 
 smooth方法
-1. Mixture model
-    一個word的值=(word/document1 + word/all documents)
-    每個word連乘積會算出一個機率值
+1. Mixture model  
+    $$P(t|d)=\lambda P(t|M_d) + (1-\lambda )P(t|M_c)$$  
+    > $$M_c$$ : the collection model  
+    $$\lambda$$ 的設定好壞會影響效能   
 
+    e.g.  
+    Collection = {$$d_1,d_2$$}  
+    $$d_1$$: Jack wants to play game  
+    $$d_2$$: Tom is cat  
+    query q: Tom game  
+    $$\lambda = \frac{1}{2}$$  
+    
+    P(d|$$d_1$$) = [(0/5 + 1/8)/2]$$\cdot$$[(1/5 + 1/8)/2] $$\approx$$ 0.0101   
+    P(d|$$d_2$$) = [(1/3 + 1/8)/2]$$\cdot$$[(0/3 + 1/8)/2] $$\approx$$ 0.0143  
+    rank $$d_2 > d_1$$  
 
+<!-- 20170416  -->
 
+<!-- 20170427 -->
+__Text Generation with Unigram LM__  
+* sampling    
+    由一個特定主題的model,裡面會有各個字出現的機率(每一個model會有一個distribution,機率分佈),取出一些機率較高的字可以形成document
+* estimation  
+    拿到一個document,預估出model  
 
+<!-- 20170427 -->
 
+<!-- class -->
+MLE -> smoothing(去除機率為0的值)用copers這個smooth方法  
 
+smoothing方法  
+* Jelinek-Mercer
+* Dirichlet prior
+* Absolute discontuning
+<!-- class -->

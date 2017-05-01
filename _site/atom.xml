@@ -4,7 +4,7 @@
  <title>Note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-04-13T14:51:48+08:00</updated>
+ <updated>2017-04-27T13:10:33+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -89,7 +89,7 @@
    <link href="http://localhost:4000/2017/python/"/>
    <updated>2017-03-08T00:00:00+08:00</updated>
    <id>http://localhost:4000/2017/python</id>
-   <content type="html">&lt;h4 id=&quot;time&quot;&gt;Time&lt;/h4&gt;
+   <content type="html">&lt;h3 id=&quot;time&quot;&gt;Time&lt;/h3&gt;
 &lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# your code here.&lt;/span&gt;
@@ -97,11 +97,55 @@
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;time : &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; seconds.&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h4 id=&quot;input&quot;&gt;input&lt;/h4&gt;
+&lt;h3 id=&quot;input&quot;&gt;input&lt;/h3&gt;
 &lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;raw_input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;What is your name?&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;!--more--&gt;
+&lt;h3 id=&quot;if&quot;&gt;if&lt;/h3&gt;
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# False&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# True&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;yes&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;hello world&quot;&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;'hello'&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#True&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;rain&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gohome&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rain&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# True&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;tuple&quot;&gt;tuple&lt;/h3&gt;
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;456&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'hello'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#tuple&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# a = 123, b = 456, c = 'hello'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;dictionary&quot;&gt;dictionary&lt;/h3&gt;
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Apple&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Cat&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Apple&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# 1&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Banana&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 100 &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;library&quot;&gt;library&lt;/h3&gt;
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;__future__&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;division&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 1/2 = 0.5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;reference:&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://seanlin.logdown.com/posts/206973-python-idioms-1&quot;&gt;Python 慣用語&lt;/a&gt;&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -546,24 +590,25 @@ The term likelihood is just a synonym of probability.
       &lt;li&gt;How to define P(Q,D|R)
         &lt;ul&gt;
           &lt;li&gt;Document generation: P(Q,D|R)=P(D|Q,R)P(Q|R) &lt;br /&gt;
-  query放到條件&lt;/li&gt;
+  query放到條件 (e.g RSJ model)&lt;/li&gt;
           &lt;li&gt;Query generation: P(Q,D|R)=P(Q|D,R)P(D|R) &lt;br /&gt;
-  document放到條件&lt;/li&gt;
+  document放到條件 (e.g language model)&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;h4 id=&quot;rsj-model-binary-independence-model&quot;&gt;RSJ Model &lt;a href=&quot;https://en.wikipedia.org/wiki/Binary_Independence_Model&quot;&gt;(Binary Independence Model)&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;利用&lt;strong&gt;Odd&lt;/strong&gt;值做ranking的依據:&lt;br /&gt;
-&lt;script type=&quot;math/tex&quot;&gt;O(R|D,Q) = \frac{P(R=1|D,Q)}{P(R=0|D,Q)} = \frac{ \frac{P(D|R=1,Q)P(R=1|Q)}{P(D|Q)} }{ \frac{P(D|R=0,Q)P(R=0|Q)}{P(D|Q)} } = \frac{P(D|R=1,Q)P(R=1|Q)}{P(D|R=0,Q)P(R=0|Q)} \quad(1)&lt;/script&gt;&lt;/p&gt;
+&lt;script type=&quot;math/tex&quot;&gt;O(R|D,Q) = \frac{P(R=1|D,Q)}{P(R=0|D,Q)} = \frac{ \frac{P(D|Q,R=1)P(R=1|Q)}{P(D|Q)} }{ \frac{P(D|Q,R=0)P(R=0|Q)}{P(D|Q)} } = \frac{P(D|Q,R=1)P(R=1|Q)}{P(D|Q,R=0)P(R=0|Q)} \quad(1)&lt;/script&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\frac{P(R=1|Q)}{P(R=0|Q)}&lt;/script&gt; 
 對document ranking沒有影響,視為常數&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{P(D|R=1,Q)}{P(D|R=0,Q)} = \prod_{t=1}^{M} \frac{P(D_t|R=1,Q)}{P(D_t|R=0,Q)} \quad(2)&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{P(D|Q,R=1)}{P(D|Q,R=0)} = \prod_{t=1}^{M} \frac{P(D_t|Q,R=1)}{P(D_t|Q,R=0)} \quad(2)&lt;/script&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;將document拆成多個獨立的document term連乘積,且&lt;script type=&quot;math/tex&quot;&gt;D_t \in \{0,1\}&lt;/script&gt;&lt;/p&gt;
@@ -575,15 +620,15 @@ The term likelihood is just a synonym of probability.
   &lt;p&gt;(2)代入(1)可以整理出(3)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=1}^{M} \frac{P(D_t = 1|R=1,Q)}{P(D_t = 1|R=0,Q)} \cdot \prod_{t:D_t=0}^{M} \frac{P(D_t = 0|R=1,Q)}{P(D_t = 0|R=0,Q)}\quad(4)&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=1}^{M} \frac{P(D_t = 1|Q,R=1)}{P(D_t = 1|Q,R=0)} \cdot \prod_{t:D_t=0}^{M} \frac{P(D_t = 0|Q,R=1)}{P(D_t = 0|Q,R=0)}\quad(4)&lt;/script&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;文章的document term分為出現或是不出現,從(3)推到(4)&lt;/p&gt;
+  &lt;p&gt;將document term分為出現或是不出現,(3)→(4)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;p_t = P(D_t = 1|R=1,Q)&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p_t = P(D_t = 1|Q,R=1)&lt;/script&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;u_t = P(D_t = 1|R=0,Q)&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;u_t = P(D_t = 1|Q,R=0)&lt;/script&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;p_t&lt;/script&gt; 表示term出現在document且和query相關的機率&lt;br /&gt;
@@ -594,18 +639,28 @@ The term likelihood is just a synonym of probability.
 
 &lt;blockquote&gt;
   &lt;p&gt;假設&lt;script type=&quot;math/tex&quot;&gt;Q_t = 0 \; then \; p_t = u_t&lt;/script&gt;(假設可以做改變)  &lt;br /&gt;
-沒出現在query的term就不用考慮,連乘1不影響&lt;br /&gt;
+意思是沒出現在query的term就不用考慮,只考慮&lt;script type=&quot;math/tex&quot;&gt;Q_t = 1&lt;/script&gt;  &lt;br /&gt;
 左邊連乘積表示 query term found in document&lt;br /&gt;
 右邊連乘積表示query term not found in document&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} \cdot \prod_{t:Q_t=1} \frac{1-p_t}{1-u_t} \quad(6)&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} \cdot \prod_{t:D_t=0,Q_t=1} \frac{1-p_t}{1-u_t} \cdot \frac{1-p_t}{1-u_t} \quad(6)&lt;/script&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;兩邊連乘積同除 &lt;script type=&quot;math/tex&quot;&gt;\frac{1-p_t}{1-u_t}&lt;/script&gt;, 右邊連乘積的範圍就會和document無關(在對document ranking時就視為常數)&lt;/p&gt;
+  &lt;p&gt;右邊連乘積乘上 &lt;script type=&quot;math/tex&quot;&gt;\frac{1-p_t}{1-u_t}&lt;/script&gt;, 所以所邊必須要除&lt;script type=&quot;math/tex&quot;&gt;\frac{1-p_t}{1-u_t}&lt;/script&gt;才會相等&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;RSV_d = log \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} = \sum_{t:D_t=Q_t=1} log \frac{p_t(1-u_t)}{u_t(1-p_t)} \quad(7)&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;O(R|D,Q) = O(R|Q) \cdot \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} \cdot \prod_{t:Q_t=1} \frac{1-p_t}{1-u_t} \quad(7)&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;右邊連乘積是query not found in document&lt;br /&gt;
+概念大概是將query found in document也計算進去,&lt;br /&gt;
+不管有沒有出現在document都乘&lt;br /&gt;
+整理後右邊連乘積的範圍就會和document無關 &lt;br /&gt;
+在對document ranking時就視為常數&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;RSV_d = log \prod_{t:D_t=Q_t=1} \frac{p_t(1-u_t)}{u_t(1-p_t)} = \sum_{t:D_t=Q_t=1} log \frac{p_t(1-u_t)}{u_t(1-p_t)} \quad(8)&lt;/script&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;取log後就得到Retrieval Status Value(RSV),&lt;br /&gt;
@@ -646,7 +701,7 @@ log是monotonic function不會改變ranking順序&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;RSJ導出來performance比不上vector space model&lt;/p&gt;
+  &lt;p&gt;RSJ model的performance還遠比不上vector space model&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;Improving RSJ&lt;/strong&gt;&lt;/p&gt;
@@ -658,32 +713,100 @@ log是monotonic function不會改變ranking順序&lt;/p&gt;
 
 &lt;p&gt;改善後的最終公式稱作&lt;strong&gt;BM25&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;CH12 Language models for informatio retrieval&lt;/strong&gt;&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;unigram language model&lt;br /&gt;
-    字只有單一的狀態&lt;/p&gt;
+&lt;!-- 20170416 --&gt;
+&lt;h2 id=&quot;ch12-language-models-for-informatio-retrieval&quot;&gt;CH12 Language models for informatio retrieval&lt;/h2&gt;
 
-&lt;p&gt;如果一個string,&lt;br /&gt;
-每一個字會有一個狀態,並到下一個字之間會有一個機率&lt;br /&gt;
-那一個字出現的機率就是每一個字到下一個字的連乘積&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;unigram language model&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;每個word只有單一的狀態,可以建立一個table放每個word對應到的機率&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;language model應用：語音系統的語言校正&lt;/p&gt;
+&lt;p&gt;一個string出現的機率就是每個word的機率連乘積 &lt;br /&gt;
+Language model應用：語音系統的語言校正&lt;/p&gt;
 
-&lt;p&gt;Multinomial model 建立文章語言模型&lt;br /&gt;
-估計p1-&amp;gt;pk的機率&lt;/p&gt;
+&lt;p&gt;Language model屬於query generation process  &lt;br /&gt;
+每一篇document視為一個language model&lt;br /&gt;
+ranking的計算是根據P(Q|D)&lt;/p&gt;
 
-&lt;p&gt;Maximun Likelihood Estimation&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;計算P(Q|D)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Multinomial_distribution&quot;&gt;Multinomial model&lt;/a&gt; &lt;br /&gt;
+  &lt;img src=&quot;/img/websearching/MultinomialDistribution.png&quot; alt=&quot;multinomial Distribustion&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;smooth the estimates to avoid zeros
-避免0產生,相乘後結果很差&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(q|M_d) = P((t_1,...,t_{|q|})|M_d) = \prod_{1 \leq k \leq |q|} P(t_k|M_d) = \prod_{distinct\;term\;t\;in\;q}P(t|M_d)^{tf_{t,q}}&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;|q|: length of query&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;t_k&lt;/script&gt; : query的第k個位置的token&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;tf_{t,q}&lt;/script&gt; : term frequency of t in q&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;估計參數&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Maximum_likelihood_estimation&quot;&gt;Maximun Likelihood Estimation(MLE)&lt;/a&gt;
+    &lt;blockquote&gt;
+      &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{P}(t|M_d) = \frac{tf_{t,d}}{|d|}&lt;/script&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hat符號表示估計值的意思  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;smooth the estimates to avoid zeros&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;避免0產生,相乘後結果很差&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;smooth方法&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;Mixture model
- 一個word的值=(word/document1 + word/all documents)
- 每個word連乘積會算出一個機率值&lt;/li&gt;
+  &lt;li&gt;Mixture model&lt;br /&gt;
+ &lt;script type=&quot;math/tex&quot;&gt;P(t|d)=\lambda P(t|M_d) + (1-\lambda )P(t|M_c)&lt;/script&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;M_c&lt;/script&gt; : the collection model&lt;br /&gt;
+ &lt;script type=&quot;math/tex&quot;&gt;\lambda&lt;/script&gt; 的設定好壞會影響效能&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;e.g.&lt;br /&gt;
+ Collection = {&lt;script type=&quot;math/tex&quot;&gt;d_1,d_2&lt;/script&gt;}&lt;br /&gt;
+ &lt;script type=&quot;math/tex&quot;&gt;d_1&lt;/script&gt;: Jack wants to play game&lt;br /&gt;
+ &lt;script type=&quot;math/tex&quot;&gt;d_2&lt;/script&gt;: Tom is cat&lt;br /&gt;
+ query q: Tom game&lt;br /&gt;
+ &lt;script type=&quot;math/tex&quot;&gt;\lambda = \frac{1}{2}&lt;/script&gt;&lt;/p&gt;
+
+    &lt;p&gt;P(d|&lt;script type=&quot;math/tex&quot;&gt;d_1&lt;/script&gt;) = [(0/5 + 1/8)/2]&lt;script type=&quot;math/tex&quot;&gt;\cdot&lt;/script&gt;[(1/5 + 1/8)/2] &lt;script type=&quot;math/tex&quot;&gt;\approx&lt;/script&gt; 0.0101 &lt;br /&gt;
+ P(d|&lt;script type=&quot;math/tex&quot;&gt;d_2&lt;/script&gt;) = [(1/3 + 1/8)/2]&lt;script type=&quot;math/tex&quot;&gt;\cdot&lt;/script&gt;[(0/3 + 1/8)/2] &lt;script type=&quot;math/tex&quot;&gt;\approx&lt;/script&gt; 0.0143&lt;br /&gt;
+ rank &lt;script type=&quot;math/tex&quot;&gt;d_2 &gt; d_1&lt;/script&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;!-- 20170416  --&gt;
+
+&lt;!-- 20170427 --&gt;
+&lt;p&gt;&lt;strong&gt;Text Generation with Unigram LM&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;sampling  &lt;br /&gt;
+  由一個特定主題的model,裡面會有各個字出現的機率(每一個model會有一個distribution,機率分佈),取出一些機率較高的字可以形成document&lt;/li&gt;
+  &lt;li&gt;estimation&lt;br /&gt;
+  拿到一個document,預估出model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- 20170427 --&gt;
+
+&lt;!-- class --&gt;
+&lt;p&gt;MLE -&amp;gt; smoothing(去除機率為0的值)用copers這個smooth方法&lt;/p&gt;
+
+&lt;p&gt;smoothing方法&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Jelinek-Mercer&lt;/li&gt;
+  &lt;li&gt;Dirichlet prior&lt;/li&gt;
+  &lt;li&gt;Absolute discontuning
+&lt;!-- class --&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content>
  </entry>
  
@@ -692,8 +815,7 @@ log是monotonic function不會改變ranking順序&lt;/p&gt;
    <link href="http://localhost:4000/2017/cloudComputing/"/>
    <updated>2017-02-25T00:00:00+08:00</updated>
    <id>http://localhost:4000/2017/cloudComputing</id>
-   <content type="html">&lt;h4 id=&quot;課程簡介&quot;&gt;課程簡介&lt;/h4&gt;
-&lt;ul&gt;
+   <content type="html">&lt;ul&gt;
   &lt;li&gt;Centrality Analysis&lt;/li&gt;
   &lt;li&gt;Community Detection&lt;/li&gt;
   &lt;li&gt;Link Prediction&lt;/li&gt;
@@ -754,7 +876,7 @@ FB好友關係&lt;/li&gt;
   &lt;p&gt;因為要分析的點不同,可能在information Network中很重要的,卻在Social Network可能不是那麼重要&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;em&gt;**&lt;/em&gt; Network Properties&lt;/p&gt;
+&lt;h4 id=&quot;network-properties&quot;&gt;Network Properties&lt;/h4&gt;
 &lt;ol&gt;
   &lt;li&gt;small-world effect
  六度分離理論&lt;br /&gt;
@@ -763,12 +885,17 @@ FB好友關係&lt;/li&gt;
  朋友的朋友很可能也是你朋友&lt;br /&gt;
  &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0&quot;&gt;Clustering Coeffieient&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Degree distribution
- Real world network: Power law		
- P&lt;sub&gt;k&lt;/sub&gt; = CK&lt;sup&gt;-α&lt;/sup&gt;&lt;br /&gt;
- Heavy-tailed degree distribution&lt;br /&gt;
- 大量很低的數量,集合起來還是很驚人&lt;/li&gt;
+ Real world network : Power law
+    &lt;blockquote&gt;
+      &lt;p&gt;P&lt;sub&gt;k&lt;/sub&gt; = CK&lt;sup&gt;-α&lt;/sup&gt;&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;Heavy-tailed degree distribution&lt;br /&gt;
+ 大量很低的數量,集合起來還是很驚人&lt;/p&gt;
+  &lt;/li&gt;
   &lt;li&gt;Network resilience
- 如果拿掉一些點/邊,連通性會有什麼變化？(e.g.有些人掛了,離職)&lt;br /&gt;
+ 如果拿掉一些點/邊,連通性會有什麼變化？&lt;br /&gt;
+ (e.g.有些人掛了,離職)&lt;br /&gt;
  連接path的長度變長,或是disconnect &lt;br /&gt;
  廣告投放要投在哪個點影響力最大,如果是傳染病隔離哪個點最有效?&lt;/li&gt;
   &lt;li&gt;Mixing patterns&lt;br /&gt;
@@ -1056,10 +1183,12 @@ Randomly sampled by Monte Carlo Estimate&lt;/li&gt;
 the smaller coefficient the higher betweeness&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Modularity
-    Modularity measure:
-        how good a particular partition forms a community.
-        評估community切分的好不好&lt;/p&gt;
+&lt;h2 id=&quot;modularity&quot;&gt;Modularity&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Modularity measure:
+    how good a particular partition forms a community.
+    評估community切分的好不好  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;U 看internal edge的比例&lt;br /&gt;
 R 平均i和j會有邊的機率(期望值)      &lt;br /&gt;
@@ -1115,6 +1244,198 @@ distance constrain&lt;br /&gt;
   &lt;li&gt;non-monotone&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;hr /&gt;
+
+&lt;!-- 20170421 start --&gt;
+&lt;blockquote&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Link Prediction&lt;/li&gt;
+    &lt;li&gt;Node-wise Similarity Based Methods&lt;/li&gt;
+    &lt;li&gt;Topological Pattern Based Methods&lt;/li&gt;
+    &lt;li&gt;Probabilistic Model Based Methods&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;link-prediction&quot;&gt;Link Prediction&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Goal&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Predict the existence of links&lt;/li&gt;
+  &lt;li&gt;Predict the type of links&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Strategies of Prediction&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Knowledge-driven strategy&lt;br /&gt;
+ 專家系統(領域專家提供rule)&lt;/li&gt;
+  &lt;li&gt;Data-driven approach&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;problem&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Link existence prediction&lt;br /&gt;
+ 邊是否存在&lt;/li&gt;
+  &lt;li&gt;Link classification&lt;br /&gt;
+ 關係的總類&lt;/li&gt;
+  &lt;li&gt;Link regression&lt;br /&gt;
+ 最重要的邊是哪一個&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Application&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Web hyperlink creation&lt;/li&gt;
+  &lt;li&gt;Collaborative filitering&lt;/li&gt;
+  &lt;li&gt;Information retrieval&lt;/li&gt;
+  &lt;li&gt;Clustering&lt;/li&gt;
+  &lt;li&gt;Record linkage&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;node-wise-similarity-based-method&quot;&gt;Node-wise Similarity Based Method&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;計算兩個點的相似度,如果兩個點很相似他們可能就有link&lt;br /&gt;
+e.g. Similarity between words&lt;br /&gt;
+觀察word的前後文字來判斷相似程度&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Learning-Based Similarity Measure&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Binary Classification Approach
+    &lt;ul&gt;
+      &lt;li&gt;Decision Tree&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Regression-based Approach(回歸)  &lt;br /&gt;
+  e.g linear regression&lt;br /&gt;
+  &lt;script type=&quot;math/tex&quot;&gt;Y = \alpha + \beta_1X_1 + \beta_2X_2 + ... + \beta_nX_n&lt;/script&gt;&lt;br /&gt;
+  利用學習方式估計出&lt;script type=&quot;math/tex&quot;&gt;\alpha , \beta&lt;/script&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;topological-pattern-based-methods&quot;&gt;Topological Pattern Based Methods&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;計算兩點之間的分數,若大於某個值就表示他們之間有關係(連線)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Local Method&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Common Neighbors(CN)  &lt;br /&gt;
+  計算共同的鄰居&lt;/li&gt;
+      &lt;li&gt;Salton Index&lt;br /&gt;
+  類似cosine similiary&lt;/li&gt;
+      &lt;li&gt;Jaccard Coefficient(JC)&lt;br /&gt;
+  交集/聯集&lt;/li&gt;
+      &lt;li&gt;Leicht-Holme-Newman Index(LHN)&lt;/li&gt;
+      &lt;li&gt;Hub Promoted Index(HPI)&lt;br /&gt;
+  Hub概念像是入口網站,類似目錄連到很多子分支&lt;/li&gt;
+      &lt;li&gt;Hub Depres Index(HDI)&lt;/li&gt;
+      &lt;li&gt;Adamic/Adar(AA) &lt;br /&gt;
+  x和y是朋友的分數是x和y的共同朋友的鄰居-x和y 倒數總和&lt;/li&gt;
+      &lt;li&gt;Resource Allocation Index(RA)&lt;br /&gt;
+  和AA差在分母沒有取log&lt;/li&gt;
+      &lt;li&gt;Preferential Attachment&lt;br /&gt;
+  x和y是朋友的分數就是x的鄰居乘上y鄰居&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Performance: RA &amp;gt; AA &amp;gt; CN &amp;gt; … &amp;gt; PA&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;global Method&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;katz&lt;br /&gt;
+  看x到y距離是1,2,3..n的path有幾條,乘上一個參數做加總&lt;/li&gt;
+      &lt;li&gt;Hitting Time&lt;br /&gt;
+  x走到y,做random work的期望值作為比較條件&lt;/li&gt;
+      &lt;li&gt;PageRank&lt;/li&gt;
+      &lt;li&gt;SimRank&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;probabilistic-model-based-methods&quot;&gt;Probabilistic Model Based Methods&lt;/h2&gt;
+&lt;p&gt;e.g. relational Markov model&lt;br /&gt;
+&lt;!-- 20170421 end --&gt;&lt;/p&gt;
+
+&lt;!-- 20170420 class--&gt;
+&lt;h2 id=&quot;labeld-social-network&quot;&gt;Labeld Social Network&lt;/h2&gt;
+&lt;p&gt;Type of Labels&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Binary&lt;/li&gt;
+  &lt;li&gt;Numeric&lt;/li&gt;
+  &lt;li&gt;cate&lt;/li&gt;
+  &lt;li&gt;text-free&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;label-prediction&quot;&gt;Label Prediction&lt;/h2&gt;
+&lt;p&gt;根據已知的label預測未知點的label&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Inference vs. Learning&lt;br /&gt;
+ Inference(unsupervised)&lt;br /&gt;
+ Learning(supervised)&lt;br /&gt;
+2.Disjoint vs. Collective&lt;br /&gt;
+ Disjoint
+ 沒有標籤的點就不考慮&lt;br /&gt;
+ Collective&lt;br /&gt;
+ 沒有標籤的點也會放進去考慮&lt;br /&gt;
+3.Across-network vs. within-network learning&lt;br /&gt;
+ Across-network拿一個social network model去預測另一個social network&lt;br /&gt;
+ within-network拿全部資料做的model來做預測&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;clues-to-predict-labels&quot;&gt;Clues to Predict Labels&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Label Independent approaches 特徵值沒有用到label的訊息
+    &lt;ol&gt;
+      &lt;li&gt;Correlation between&lt;br /&gt;
+  Attribute of node i (年紀)
+  Label of node i (身份)&lt;/li&gt;
+      &lt;li&gt;Correlation between&lt;br /&gt;
+  Network Structures of node i (between centrality)
+  Label of node i&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Label Dependent Approaches
+    &lt;ol&gt;
+      &lt;li&gt;Correlation between&lt;br /&gt;
+  知道鄰居來預設未知,用其他點來預測未知點&lt;/li&gt;
+      &lt;li&gt;Correlation between&lt;br /&gt;
+  利用unlabel點來預測&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Relational Neighbor Classifier&lt;br /&gt;
+    -&amp;gt; disjoint
+    簡單說就是看鄰居多數是什麼就判斷node是什麼&lt;br /&gt;
+    問題：&lt;br /&gt;
+    如果已知的點很少,unknown的很多(Sparse label),若只用一個點就判斷就沒那麼可靠&lt;br /&gt;
+    解決：
+    Iterative Relation Neighbor classifier  &lt;br /&gt;
+    判斷分為好幾回合,若多數點是unknown那就判斷是unknown &lt;br /&gt;
+    unknown也是一種label&lt;br /&gt;
+&lt;!-- 20170420 class--&gt;&lt;/p&gt;
+
+&lt;!-- 20170421 start --&gt;
+&lt;p&gt;&lt;strong&gt;Ghost Edges for Node Label Prediction&lt;/strong&gt;&lt;br /&gt;
+將一些不是直接連接的node但有影響力的點,用ghost edge連起來&lt;br /&gt;
+那怎麼判斷點的重要性&lt;br /&gt;
+-&amp;gt; Random walk with Restart &lt;br /&gt;
+    有一定的機率會跳到起點&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Steady-state Probability&lt;/strong&gt;&lt;br /&gt;
+Markov Process  &lt;br /&gt;
+    城市和郊區遷移問題&lt;/p&gt;
+
+&lt;p&gt;利用Random walk with restart計算所有點對某點的影響力&lt;br /&gt;
+在對這些影響力做等級劃分,依照機率分為ABCDEF…等級&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Two Classifers&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;GhostEdgeNL&lt;/li&gt;
+  &lt;li&gt;GhostEdgeL
+ Logistic regression&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- 20170421 end --&gt;
 </content>
  </entry>
  
