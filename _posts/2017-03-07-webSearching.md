@@ -454,7 +454,7 @@ smooth方法
     P(d|$$d_1$$) = [(0/5 + 1/8)/2]$$\cdot$$[(1/5 + 1/8)/2] $$\approx$$ 0.0101   
     P(d|$$d_2$$) = [(1/3 + 1/8)/2]$$\cdot$$[(0/3 + 1/8)/2] $$\approx$$ 0.0143  
     rank $$d_2 > d_1$$  
-
+2. [Laplace smoothing](https://www.youtube.com/watch?v=gCI-ZC7irbY)
 <!-- 20170416  -->
 
 <!-- 20170427 -->
@@ -473,4 +473,119 @@ smoothing方法
 * Jelinek-Mercer
 * Dirichlet prior
 * Absolute discontuning
+
+## CH13 Text Classification and Naive Bayes  
+* Text Classification
+* Naive Bayes
+* Naive Bayes Theory
+* Evaluation of Text Classification
+
+#### Text Classification  
+__standard supervised__  
+1. Pre-define categories and lebel document
+2. classify new documents
+
+分類的方法
+1. 人工判斷
+    準確但成本高
+2. Rule-based
+    很多if/else的rule,看到王建民就分類到體育新聞    
+    e.g. google Alert  
+3. Statistical/Probabilistic  
+    * Instance-based classifiers  
+        e.g. kNN  
+    * Discriminative classifiers  
+        學習出分隔的形式(一條線,一棵樹)  
+        資料少容易overfit  
+        e.g. Decision tree,Neural Network
+    * Generative classifier  
+        利用大量資料學習出分佈模型(mean,varience)  
+        e.g Naive Bayes
+
+__K-Nearest Neighbor Classifier(KNN)__  
+Keep all train data  
+優點:不需要training(每一個點都記錄下來)  
+缺點:不能做大量資料  
+
+## Naive Bayes Classifier  
+arg max_c 找到一個c(類別)使P(c|d)最大
+避免under flow -> 取log連乘變成連加
+
+機率會有零產生->避免這種情形全部機率做加1
+
+估計事前機率 是這個類別的機率和不是這個類別的機率
+估計完這些係數training就結束
+
+P(c|d) 給document判斷是哪個類別
+P(c|d) = P(c)P(d|c)/P(d)  分母不考慮,和分類無關
+且分子越大越好
+P(d|c)可以拆成多個Term的連乘積
+且假設每個字之間獨立  
+
+Feture Selection
+* Reduces training time
+挑特定的字訓練模型
+
+Two idea
+* Mutual information
+    計算字的交互作用,每一個字會有一個值,找gap最大的切開,拿比較相關的字做訓練  
+* CHI-Square statistic
+    用機率方法計算,算出機率高的就拿去做訓練資料
+
+Evaluations
+    測試資料和training data不能有overlapping
+
+<!-- class -->
+
+<!-- class -->
+# CH14 Vector Space Classification
+* Rocchio
+* kNN classification
+* linear classification
+
+Vector Space Classification
+1. 同一類文章如果同類會形成一個連續的空間
+2. 如果不同類別則空間不會有overlap
+
+#### Rocchio 
+早期1970在SMART搜索系統中,負責用在relevance feedback
+將同類文章標示成prototype vector
+prototype = centroid of members of class
+每一類算出一個重心(全部vector加起來做平均)
+計算相似度可以使用distance
+
+performance較naive bayes差
+
+#### kNN classification
+k Nearest Neighbors(kNN)
+鄰近k個鄰居做投票決定分類結果  
+k = 1 過於sensitive
+k 太大過麼模糊
+通常選則奇數(3,5,7)
+
+計算相似度
+Euclidean distance,tfidf,...
+沒有任何學習
+
+Bias-Variance Tradeoff
+用來衡量
+Bias 猜出的結果和真實結果差距多少
+     差距越大Bisa越高
+Variance
+    每次猜出來的結果差異會不會很大
+
+ideal情形是low Bias , low Variance
+
+#### Linear classification
+consider 2 class problem
+Sum of WiXi
+線性分類器在一二三維中分別表示點線面,一個分界面
+
+e.g. Naive Bayes,Percept
+
+#### more than two classed
+* one-of
+    每個資料只能分到一類
+* Any-of or multi-label
+
 <!-- class -->

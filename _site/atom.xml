@@ -4,7 +4,7 @@
  <title>Note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-04-27T13:10:33+08:00</updated>
+ <updated>2017-05-14T20:29:01+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -81,71 +81,6 @@
     &lt;/div&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>python</title>
-   <link href="http://localhost:4000/2017/python/"/>
-   <updated>2017-03-08T00:00:00+08:00</updated>
-   <id>http://localhost:4000/2017/python</id>
-   <content type="html">&lt;h3 id=&quot;time&quot;&gt;Time&lt;/h3&gt;
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# your code here.&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;time : &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; seconds.&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h3 id=&quot;input&quot;&gt;input&lt;/h3&gt;
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;raw_input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;What is your name?&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;!--more--&gt;
-&lt;h3 id=&quot;if&quot;&gt;if&lt;/h3&gt;
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# False&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-&lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# True&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;yes&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;hello world&quot;&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;'hello'&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#True&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;rain&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;gohome&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rain&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# True&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;tuple&quot;&gt;tuple&lt;/h3&gt;
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;456&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'hello'&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#tuple&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# a = 123, b = 456, c = 'hello'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h3 id=&quot;dictionary&quot;&gt;dictionary&lt;/h3&gt;
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Apple&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Cat&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Apple&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# 1&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Banana&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 100 &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;library&quot;&gt;library&lt;/h3&gt;
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;__future__&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;division&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# 1/2 = 0.5&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;reference&quot;&gt;reference:&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;http://seanlin.logdown.com/posts/206973-python-idioms-1&quot;&gt;Python 慣用語&lt;/a&gt;&lt;/p&gt;
-
 </content>
  </entry>
  
@@ -782,9 +717,9 @@ ranking的計算是根據P(Q|D)&lt;/p&gt;
  P(d|&lt;script type=&quot;math/tex&quot;&gt;d_2&lt;/script&gt;) = [(1/3 + 1/8)/2]&lt;script type=&quot;math/tex&quot;&gt;\cdot&lt;/script&gt;[(0/3 + 1/8)/2] &lt;script type=&quot;math/tex&quot;&gt;\approx&lt;/script&gt; 0.0143&lt;br /&gt;
  rank &lt;script type=&quot;math/tex&quot;&gt;d_2 &gt; d_1&lt;/script&gt;&lt;/p&gt;
   &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=gCI-ZC7irbY&quot;&gt;Laplace smoothing&lt;/a&gt;
+&lt;!-- 20170416  --&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;!-- 20170416  --&gt;
 
 &lt;!-- 20170427 --&gt;
 &lt;p&gt;&lt;strong&gt;Text Generation with Unigram LM&lt;/strong&gt;&lt;/p&gt;
@@ -804,9 +739,84 @@ ranking的計算是根據P(Q|D)&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Jelinek-Mercer&lt;/li&gt;
   &lt;li&gt;Dirichlet prior&lt;/li&gt;
-  &lt;li&gt;Absolute discontuning
-&lt;!-- class --&gt;&lt;/li&gt;
+  &lt;li&gt;Absolute discontuning&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&quot;ch13-text-classification-and-naive-bayes&quot;&gt;CH13 Text Classification and Naive Bayes&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Text Classification&lt;/li&gt;
+  &lt;li&gt;Naive Bayes&lt;/li&gt;
+  &lt;li&gt;Naive Bayes Theory&lt;/li&gt;
+  &lt;li&gt;Evaluation of Text Classification&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;text-classification&quot;&gt;Text Classification&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;standard supervised&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Pre-define categories and lebel document&lt;/li&gt;
+  &lt;li&gt;classify new documents&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;分類的方法&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;人工判斷
+ 準確但成本高&lt;/li&gt;
+  &lt;li&gt;Rule-based
+ 很多if/else的rule,看到王建民就分類到體育新聞  &lt;br /&gt;
+ e.g. google Alert&lt;/li&gt;
+  &lt;li&gt;Statistical/Probabilistic
+    &lt;ul&gt;
+      &lt;li&gt;Instance-based classifiers&lt;br /&gt;
+  e.g. kNN&lt;/li&gt;
+      &lt;li&gt;Discriminative classifiers&lt;br /&gt;
+  學習出分隔的形式(一條線,一棵樹)&lt;br /&gt;
+  資料少容易overfit&lt;br /&gt;
+  e.g. Decision tree,Neural Network&lt;/li&gt;
+      &lt;li&gt;Generative classifier&lt;br /&gt;
+  利用大量資料學習出分佈模型(mean,varience)&lt;br /&gt;
+  e.g Naive Bayes&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;K-Nearest Neighbor Classifier(KNN)&lt;/strong&gt;&lt;br /&gt;
+Keep all train data&lt;br /&gt;
+優點:不需要training(每一個點都記錄下來)&lt;br /&gt;
+缺點:不能做大量資料&lt;/p&gt;
+
+&lt;h2 id=&quot;naive-bayes-classifier&quot;&gt;Naive Bayes Classifier&lt;/h2&gt;
+&lt;p&gt;arg max_c 找到一個c(類別)使P(c|d)最大
+避免under flow -&amp;gt; 取log連乘變成連加&lt;/p&gt;
+
+&lt;p&gt;機率會有零產生-&amp;gt;避免這種情形全部機率做加1&lt;/p&gt;
+
+&lt;p&gt;估計事前機率 是這個類別的機率和不是這個類別的機率
+估計完這些係數training就結束&lt;/p&gt;
+
+&lt;p&gt;P(c|d) 給document判斷是哪個類別
+P(c|d) = P(c)P(d|c)/P(d)  分母不考慮,和分類無關
+且分子越大越好
+P(d|c)可以拆成多個Term的連乘積
+且假設每個字之間獨立&lt;/p&gt;
+
+&lt;p&gt;Feture Selection&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Reduces training time
+挑特定的字訓練模型&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Two idea&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Mutual information
+  計算字的交互作用,每一個字會有一個值,找gap最大的切開,拿比較相關的字做訓練&lt;/li&gt;
+  &lt;li&gt;CHI-Square statistic
+  用機率方法計算,算出機率高的就拿去做訓練資料&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Evaluations
+    測試資料和training data不能有overlapping&lt;/p&gt;
+
+&lt;!-- class --&gt;
 </content>
  </entry>
  
@@ -815,17 +825,17 @@ ranking的計算是根據P(Q|D)&lt;/p&gt;
    <link href="http://localhost:4000/2017/cloudComputing/"/>
    <updated>2017-02-25T00:00:00+08:00</updated>
    <id>http://localhost:4000/2017/cloudComputing</id>
-   <content type="html">&lt;ul&gt;
+   <content type="html">&lt;h3 id=&quot;outline&quot;&gt;Outline&lt;/h3&gt;
+&lt;ul&gt;
   &lt;li&gt;Centrality Analysis&lt;/li&gt;
   &lt;li&gt;Community Detection&lt;/li&gt;
-  &lt;li&gt;Link Prediction&lt;/li&gt;
-  &lt;li&gt;Label Prediction&lt;/li&gt;
-  &lt;li&gt;Influence maximization&lt;/li&gt;
-  &lt;li&gt;Outbreak Detection&lt;br /&gt;
-消息擴散路徑&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#3&quot;&gt;Link Prediction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#4&quot;&gt;Label Prediction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#5&quot;&gt;Influence maximization&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#6&quot;&gt;Outbreak Detection&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Role/Postion Analysis&lt;/li&gt;
   &lt;li&gt;Social Relation Extraction&lt;/li&gt;
-  &lt;li&gt;Cloud Computing&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#9&quot;&gt;Cloud Computing&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;!--more--&gt;
@@ -885,7 +895,8 @@ FB好友關係&lt;/li&gt;
  朋友的朋友很可能也是你朋友&lt;br /&gt;
  &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0&quot;&gt;Clustering Coeffieient&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Degree distribution
- Real world network : Power law
+ Real world network : &lt;br /&gt;
+ Power law
     &lt;blockquote&gt;
       &lt;p&gt;P&lt;sub&gt;k&lt;/sub&gt; = CK&lt;sup&gt;-α&lt;/sup&gt;&lt;/p&gt;
     &lt;/blockquote&gt;
@@ -893,7 +904,7 @@ FB好友關係&lt;/li&gt;
     &lt;p&gt;Heavy-tailed degree distribution&lt;br /&gt;
  大量很低的數量,集合起來還是很驚人&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;Network resilience
+  &lt;li&gt;Network resilience&lt;br /&gt;
  如果拿掉一些點/邊,連通性會有什麼變化？&lt;br /&gt;
  (e.g.有些人掛了,離職)&lt;br /&gt;
  連接path的長度變長,或是disconnect &lt;br /&gt;
@@ -914,35 +925,39 @@ FB好友關係&lt;/li&gt;
  在社群希望找到出現次數較高的motifs(最常出現的subgraph)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;CERN
-&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E7%B1%B3%E7%88%BE%E6%A0%BC%E5%80%AB%E5%AF%A6%E9%A9%97&quot;&gt;米爾格倫實驗 Milgram experiment&lt;/a&gt;服從威權實驗 &lt;br /&gt;
-random graph&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Central of Network&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;找到最重要的點(central)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;local&lt;/p&gt;
+&lt;p&gt;補充資料：&lt;/p&gt;
 &lt;blockquote&gt;
-  &lt;ol&gt;
-    &lt;li&gt;Degree&lt;/li&gt;
-  &lt;/ol&gt;
+  &lt;p&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E7%B1%B3%E7%88%BE%E6%A0%BC%E5%80%AB%E5%AF%A6%E9%A9%97&quot;&gt;米爾格倫實驗 Milgram experiment 服從威權實驗&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;global&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;ol&gt;
-    &lt;li&gt;Closeness&lt;/li&gt;
-    &lt;li&gt;Betweeness&lt;/li&gt;
-    &lt;li&gt;Eigenvector&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/blockquote&gt;
-
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;central-of-network&quot;&gt;Central of Network&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;Group Centrality 一群最有影響力的人&lt;br /&gt;
+  &lt;li&gt;
+    &lt;p&gt;找到最重要的點(central)&lt;/p&gt;
+
+    &lt;p&gt;local&lt;/p&gt;
+    &lt;blockquote&gt;
+      &lt;ol&gt;
+        &lt;li&gt;Degree&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;global&lt;/p&gt;
+    &lt;blockquote&gt;
+      &lt;ol&gt;
+        &lt;li&gt;Closeness&lt;/li&gt;
+        &lt;li&gt;Betweeness&lt;/li&gt;
+        &lt;li&gt;Eigenvector&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Group Centrality&lt;br /&gt;
+找到一群最有影響力的人&lt;br /&gt;
 在小世界理論中,如果送信到目標的前一步,都是經由特定的3個人,代表這三個人很重要,&lt;br /&gt;
-目前social network還無法透過社群網站判斷這些人&lt;/li&gt;
+目前social network還無法透過社群網站判斷這些人&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Social actors(群眾的智慧)&lt;/strong&gt;&lt;/p&gt;
@@ -955,16 +970,16 @@ random graph&lt;/p&gt;
 容易說服別人,擅長協調&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;判斷social network的四種centrality&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Social network的四種centrality&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;Degree centrality(local)&lt;br /&gt;
 點的重要性,若network的規模大小不同,做normalize(除總size-1)&lt;/li&gt;
   &lt;li&gt;Betweeness Centrality&lt;br /&gt;
-Node&lt;sub&gt;i&lt;/sub&gt; A到B的shortest path有幾條經過i&lt;/li&gt;
+ A到B的shortest path有幾條經過Node&lt;script type=&quot;math/tex&quot;&gt;_i&lt;/script&gt;&lt;/li&gt;
   &lt;li&gt;Closeness Centrality
-點i和所有點j的shortest path平均的距離&lt;/li&gt;
+ 點i和所有點j的shortest path平均的距離&lt;/li&gt;
   &lt;li&gt;Eigenvector Centrality  &lt;br /&gt;
-這個點的重要性,看他朋友點的重要性&lt;br /&gt;
+ 這個點的重要性,透過看他朋友點的重要性&lt;br /&gt;
 eigenvector
     &lt;blockquote&gt;
       &lt;p&gt;一個向量乘上一個矩陣(transform),方向不變但scale可能會變&lt;br /&gt;
@@ -976,12 +991,6 @@ x代表重要性&lt;br /&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;HIT &lt;br /&gt;
-Hub&lt;br /&gt;
-推薦的authoritative有多高&lt;br /&gt;
-Authoritative page&lt;br /&gt;
-有多少hub推薦&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;最短路徑演算法&lt;/strong&gt;&lt;br /&gt;
 unweighted graph&lt;/p&gt;
 &lt;ol&gt;
@@ -989,15 +998,11 @@ unweighted graph&lt;/p&gt;
   &lt;li&gt;Floyd-Warshall&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;strong&gt;Group centrality&lt;/strong&gt;&lt;br /&gt;
-找出social network中幾個最有影響力的人&lt;br /&gt;
-或指定某幾個人想觀察這幾人的影響力&lt;/p&gt;
-
-&lt;p&gt;group centrality一群人一起看,影響幾個人(有連線)&lt;br /&gt;
-不能將每個單一人的degree加總,會有重複的&lt;/p&gt;
-
-&lt;p&gt;Social Group Analysis
-community detection algorithm&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Group centrality&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;找出social network中幾個最有影響力的人&lt;br /&gt;
+或指定某幾個人觀察這些人的影響力&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;!-- 20170413 start --&gt;
 &lt;p&gt;&lt;strong&gt;Properties of cohesion 凝聚力的判斷&lt;/strong&gt;&lt;/p&gt;
@@ -1101,61 +1106,58 @@ I (internal cost)&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;KL algorithm複雜度&lt;/strong&gt;&lt;br /&gt;
-&lt;script type=&quot;math/tex&quot;&gt;O(n^2)&lt;/script&gt; 找到最適合交換的兩點,有n pair要交換&lt;br /&gt;
-⇒ &lt;script type=&quot;math/tex&quot;&gt;O(n^3)&lt;/script&gt;&lt;/p&gt;
+&lt;script type=&quot;math/tex&quot;&gt;O(n^2)&lt;/script&gt; 找到最適合交換的兩點,有n pair要交換 ⇒ &lt;script type=&quot;math/tex&quot;&gt;O(n^3)&lt;/script&gt; 
+&lt;!-- 20170413 end --&gt;&lt;/p&gt;
 
-&lt;!-- 20170413 end --&gt;
+&lt;!-- 20170512 --&gt;
+&lt;h4 id=&quot;hiraichiecal&quot;&gt;Hiraichiecal&lt;/h4&gt;
+&lt;p&gt;bottom-up&lt;br /&gt;
+每一回合都找兩個最像的做合併&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;single link  &lt;br /&gt;
+  距離取min&lt;/li&gt;
+  &lt;li&gt;complete link&lt;br /&gt;
+  距離取max&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;hiraichiecal 
-bottom-up&lt;br /&gt;
-每一回合都找兩個最像的做合併&lt;br /&gt;
-single link&lt;br /&gt;
-    距離取min
-complete link
-    距離取max&lt;/p&gt;
-
-&lt;p&gt;分群    &lt;br /&gt;
-community 同群邊的值要越大越好&lt;/p&gt;
-
-&lt;p&gt;Distance Matrix&lt;/p&gt;
+&lt;h4 id=&quot;distance-matrix&quot;&gt;Distance Matrix&lt;/h4&gt;
 &lt;ol&gt;
   &lt;li&gt;Approach1  &lt;br /&gt;
-計算weights Wij
+計算weights W&lt;script type=&quot;math/tex&quot;&gt;_{ij}&lt;/script&gt;
     &lt;ul&gt;
       &lt;li&gt;i到j的路徑越多代表i和j關係越好&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;ul&gt;
       &lt;li&gt;只能找non-overlapped paths&lt;/li&gt;
-      &lt;li&gt;只要i到j的路徑都算(weighted by length)
- Xij = 1/Wij&lt;/li&gt;
+      &lt;li&gt;只要i到j的路徑都算(weighted by length)&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;p&gt;Reduction
-     由A問題轉換到B問題&lt;/p&gt;
+    &lt;p&gt;X&lt;script type=&quot;math/tex&quot;&gt;_{ij}&lt;/script&gt; = &lt;script type=&quot;math/tex&quot;&gt;\frac{1}{W_{ij}}&lt;/script&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;Approach 2
- 如果i和j視同一群,那他們有相似的behavior
- behavoir
+  &lt;li&gt;Approach 2&lt;br /&gt;
+ 如果i和j視同一群,那他們有相似的behavior&lt;br /&gt;
+ behavoir&lt;br /&gt;
      i和j到commuinty其他點的平均距離相似&lt;/li&gt;
-  &lt;li&gt;Approach 3
- J(i,j)/min(Ki,Kj)&lt;br /&gt;
+  &lt;li&gt;Approach 3&lt;br /&gt;
+ &lt;script type=&quot;math/tex&quot;&gt;\frac{J(i,j)}{min(K_i,K_j)}&lt;/script&gt; &lt;br /&gt;
  看兩個人共同朋友個數,共同朋友越多J(i,j)越大&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Edge-removal Approach&lt;br /&gt;
-不斷的拿掉邊,會出現越多的群數,直到符合要的群數&lt;br /&gt;
-拿掉bridge edge,&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;betweeness
-一開始想說可以用degree少,但不夠完全&lt;br /&gt;
- 在centrality的betweeness是以node考量&lt;br /&gt;
- 在這的betweeness是以edge考量&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h4 id=&quot;edge-removal-approach&quot;&gt;Edge-removal Approach&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;不斷的拿掉邊(bridge edge),會出現越多的群數,直到符合要的群數&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;GN algorithm&lt;br /&gt;
-拿掉betweeness最高的邊 -&amp;gt; 重算betweeness -&amp;gt; 計算community
-top-down(起始是一個commuinity,並分群下去)
-計算邊的betweeness&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;betweeness&lt;/strong&gt;&lt;br /&gt;
+    一開始想說可以用degree少,但不夠完全&lt;br /&gt;
+    在centrality的betweeness是以node考量&lt;br /&gt;
+    在這的betweeness是以edge考量&lt;/p&gt;
+
+&lt;h3 id=&quot;gn-algorithm&quot;&gt;GN algorithm&lt;/h3&gt;
+&lt;p&gt;top-down(起始是一個commuinity,並分群下去)&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;拿掉betweeness最高的邊 → 重算betweeness → 計算community&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;計算邊的betweeness&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;shortest path&lt;br /&gt;
  任兩點最短路徑有多少條會經過邊&lt;/li&gt;
@@ -1197,43 +1199,46 @@ Q = U - R&lt;/p&gt;
 &lt;p&gt;Q = 0 no community&lt;br /&gt;
 Q ~ 1 prefect cut&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Newman Fast Alogorithm&lt;/strong&gt;&lt;br /&gt;
-利用hireachcal合併,並每個步驟算modurity,並找出最高的Q做切分&lt;br /&gt;
-&lt;strong&gt;Bridge cut&lt;/strong&gt;&lt;br /&gt;
-integrity一致性&lt;br /&gt;
-N(v)
-d(v): degree of node
-Density
-Direct neighbor subgraph of v&lt;br /&gt;
-Clustering coeffiecient &lt;br /&gt;
+&lt;h3 id=&quot;newman-fast-alogorithm&quot;&gt;Newman Fast Alogorithm&lt;/h3&gt;
+&lt;p&gt;利用hireachcal合併,並每個步驟算modurity,並找出最高的Q做切分&lt;/p&gt;
+
+&lt;h3 id=&quot;bridge-cut&quot;&gt;Bridge cut&lt;/h3&gt;
+&lt;p&gt;integrity一致性  &lt;br /&gt;
+N(v)&lt;br /&gt;
+d(v): degree of node&lt;br /&gt;
+Density&lt;br /&gt;
+Direct neighbor subgraph of v&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Clustering coeffiecient&lt;/strong&gt;   &lt;br /&gt;
 	觀察v的鄰居的朋友關係&lt;br /&gt;
 	例如v有4個朋友,那4個人最多有6個關係,算關係的比例&lt;br /&gt;
-	實際上有關係/最多有幾個關係&lt;br /&gt;
-Bridge Centrality&lt;br /&gt;
-	&lt;strong&gt;rank&lt;/strong&gt; of betweenness centrality * &lt;strong&gt;rank&lt;/strong&gt; of bridging coeffiecient&lt;br /&gt;
+	實際上有關係/最多有幾個關係&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bridge Centrality&lt;/strong&gt;&lt;br /&gt;
+	rank of betweenness centrality * rank of bridging coeffiecient&lt;br /&gt;
 	如果只考慮betweeness(global)會有一些情況不太好  &lt;br /&gt;
 	加入bridge centrality可以考慮到local的特質&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Community Search&lt;/strong&gt;&lt;br /&gt;
-給一個social network,並給一些query(其中幾個人),&lt;br /&gt;
-given grahp G, a set of query node&lt;br /&gt;
-goal: find a densely subgraph of G, and contains the query nodes&lt;/p&gt;
+    給一個social network,並給一些query(其中幾個人),&lt;br /&gt;
+    given grahp G, a set of query node&lt;br /&gt;
+    goal: find a densely subgraph of G, and contains the query nodes&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Induced Subgraph&lt;/strong&gt;&lt;br /&gt;
 xy edge在G中,xy edge也要在induce subgraph中&lt;/p&gt;
 
-&lt;p&gt;goodness function&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;goodness function&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;edge degree
-時間複雜度太大&lt;/li&gt;
+ 時間複雜度太大&lt;/li&gt;
   &lt;li&gt;average degree&lt;/li&gt;
   &lt;li&gt;minumin degree
-這群人認識最少的人,讓這個人的值變大
-induced subgraph的degree&lt;br /&gt;
-容易受到outlier影響&lt;/li&gt;
+ 這群人認識最少的人,讓這個人的值變大
+ induced subgraph的degree&lt;br /&gt;
+ 容易受到outlier影響&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Constrain&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;Constrain&lt;/strong&gt;  &lt;br /&gt;
 distance constrain&lt;br /&gt;
 限制邀請來的人的最長距離&lt;/p&gt;
 
@@ -1241,9 +1246,9 @@ distance constrain&lt;br /&gt;
 &lt;ul&gt;
   &lt;li&gt;monotone increaing&lt;/li&gt;
   &lt;li&gt;monotone decresing&lt;/li&gt;
-  &lt;li&gt;non-monotone&lt;/li&gt;
+  &lt;li&gt;non-monotone
+&lt;!-- 20170512 --&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;hr /&gt;
 
 &lt;!-- 20170421 start --&gt;
@@ -1257,7 +1262,7 @@ distance constrain&lt;br /&gt;
   &lt;/ul&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;link-prediction&quot;&gt;Link Prediction&lt;/h2&gt;
+&lt;h1 id=&quot;3&quot;&gt;Link Prediction &lt;/h1&gt;
 
 &lt;p&gt;&lt;strong&gt;Goal&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -1291,7 +1296,7 @@ distance constrain&lt;br /&gt;
   &lt;li&gt;Record linkage&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;node-wise-similarity-based-method&quot;&gt;Node-wise Similarity Based Method&lt;/h2&gt;
+&lt;h4 id=&quot;node-wise-similarity-based-method&quot;&gt;Node-wise Similarity Based Method&lt;/h4&gt;
 &lt;blockquote&gt;
   &lt;p&gt;計算兩個點的相似度,如果兩個點很相似他們可能就有link&lt;br /&gt;
 e.g. Similarity between words&lt;br /&gt;
@@ -1311,7 +1316,7 @@ e.g. Similarity between words&lt;br /&gt;
   利用學習方式估計出&lt;script type=&quot;math/tex&quot;&gt;\alpha , \beta&lt;/script&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;topological-pattern-based-methods&quot;&gt;Topological Pattern Based Methods&lt;/h2&gt;
+&lt;h4 id=&quot;topological-pattern-based-methods&quot;&gt;Topological Pattern Based Methods&lt;/h4&gt;
 &lt;blockquote&gt;
   &lt;p&gt;計算兩點之間的分數,若大於某個值就表示他們之間有關係(連線)&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1351,13 +1356,15 @@ e.g. Similarity between words&lt;br /&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;probabilistic-model-based-methods&quot;&gt;Probabilistic Model Based Methods&lt;/h2&gt;
+&lt;h4 id=&quot;probabilistic-model-based-methods&quot;&gt;Probabilistic Model Based Methods&lt;/h4&gt;
 &lt;p&gt;e.g. relational Markov model&lt;br /&gt;
 &lt;!-- 20170421 end --&gt;&lt;/p&gt;
 
-&lt;!-- 20170420 class--&gt;
-&lt;h2 id=&quot;labeld-social-network&quot;&gt;Labeld Social Network&lt;/h2&gt;
-&lt;p&gt;Type of Labels&lt;/p&gt;
+&lt;!-- 20170420 --&gt;
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;4&quot;&gt;Labeld Social Network &lt;/h1&gt;
+&lt;h4 id=&quot;type-of-labels&quot;&gt;Type of Labels&lt;/h4&gt;
 &lt;ol&gt;
   &lt;li&gt;Binary&lt;/li&gt;
   &lt;li&gt;Numeric&lt;/li&gt;
@@ -1365,65 +1372,73 @@ e.g. Similarity between words&lt;br /&gt;
   &lt;li&gt;text-free&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;label-prediction&quot;&gt;Label Prediction&lt;/h2&gt;
-&lt;p&gt;根據已知的label預測未知點的label&lt;/p&gt;
+&lt;h4 id=&quot;label-prediction&quot;&gt;Label Prediction&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;根據已知的label預測未知點的label&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;ol&gt;
   &lt;li&gt;Inference vs. Learning&lt;br /&gt;
  Inference(unsupervised)&lt;br /&gt;
- Learning(supervised)&lt;br /&gt;
-2.Disjoint vs. Collective&lt;br /&gt;
+ Learning(supervised)&lt;/li&gt;
+  &lt;li&gt;Disjoint vs. Collective&lt;br /&gt;
  Disjoint
  沒有標籤的點就不考慮&lt;br /&gt;
  Collective&lt;br /&gt;
- 沒有標籤的點也會放進去考慮&lt;br /&gt;
-3.Across-network vs. within-network learning&lt;br /&gt;
+ 沒有標籤的點也會放進去考慮&lt;/li&gt;
+  &lt;li&gt;Across-network vs. within-network learning&lt;br /&gt;
  Across-network拿一個social network model去預測另一個social network&lt;br /&gt;
  within-network拿全部資料做的model來做預測&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;clues-to-predict-labels&quot;&gt;Clues to Predict Labels&lt;/h2&gt;
+&lt;h4 id=&quot;clues-to-predict-labels&quot;&gt;Clues to Predict Labels&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;Label Independent approaches 特徵值沒有用到label的訊息
     &lt;ol&gt;
       &lt;li&gt;Correlation between&lt;br /&gt;
-  Attribute of node i (年紀)
-  Label of node i (身份)&lt;/li&gt;
+ Attribute of node i (年紀)
+ Label of node i (身份)&lt;/li&gt;
       &lt;li&gt;Correlation between&lt;br /&gt;
-  Network Structures of node i (between centrality)
-  Label of node i&lt;/li&gt;
+ Network Structures of node i (between centrality)
+ Label of node i&lt;/li&gt;
     &lt;/ol&gt;
   &lt;/li&gt;
   &lt;li&gt;Label Dependent Approaches
     &lt;ol&gt;
       &lt;li&gt;Correlation between&lt;br /&gt;
-  知道鄰居來預設未知,用其他點來預測未知點&lt;/li&gt;
+ 知道鄰居來預設未知,用其他點來預測未知點&lt;/li&gt;
       &lt;li&gt;Correlation between&lt;br /&gt;
-  利用unlabel點來預測&lt;/li&gt;
+ 利用unlabel點來預測&lt;/li&gt;
     &lt;/ol&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Relational Neighbor Classifier&lt;br /&gt;
-    -&amp;gt; disjoint
-    簡單說就是看鄰居多數是什麼就判斷node是什麼&lt;br /&gt;
-    問題：&lt;br /&gt;
+&lt;h4 id=&quot;relational-neighbor-classifier&quot;&gt;Relational Neighbor Classifier&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;看鄰居多數是什麼就判斷node是什麼&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;問題：&lt;br /&gt;
     如果已知的點很少,unknown的很多(Sparse label),若只用一個點就判斷就沒那麼可靠&lt;br /&gt;
-    解決：
+解決：
     Iterative Relation Neighbor classifier  &lt;br /&gt;
     判斷分為好幾回合,若多數點是unknown那就判斷是unknown &lt;br /&gt;
     unknown也是一種label&lt;br /&gt;
-&lt;!-- 20170420 class--&gt;&lt;/p&gt;
+&lt;!-- 20170420 --&gt;&lt;/p&gt;
 
-&lt;!-- 20170421 start --&gt;
-&lt;p&gt;&lt;strong&gt;Ghost Edges for Node Label Prediction&lt;/strong&gt;&lt;br /&gt;
-將一些不是直接連接的node但有影響力的點,用ghost edge連起來&lt;br /&gt;
-那怎麼判斷點的重要性&lt;br /&gt;
--&amp;gt; Random walk with Restart &lt;br /&gt;
-    有一定的機率會跳到起點&lt;/p&gt;
+&lt;!-- 20170512 --&gt;
+&lt;h2 id=&quot;ghost-edges-for-node-label-prediction&quot;&gt;Ghost Edges for Node Label Prediction&lt;/h2&gt;
+&lt;p&gt;將一些不是直接連接的node但有影響力的點,用ghost edge連起來&lt;br /&gt;
+那怎麼判斷點的重要性 → Random walk with Restart&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;有一定的機率會跳到起點&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;Steady-state Probability&lt;/strong&gt;&lt;br /&gt;
-Markov Process  &lt;br /&gt;
-    城市和郊區遷移問題&lt;/p&gt;
+&lt;h4 id=&quot;steady-state-probability&quot;&gt;Steady-state Probability&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Markov Process  &lt;br /&gt;
+  e.g. 城市和郊區遷移問題&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;利用Random walk with restart計算所有點對某點的影響力&lt;br /&gt;
 在對這些影響力做等級劃分,依照機率分為ABCDEF…等級&lt;/p&gt;
@@ -1431,11 +1446,333 @@ Markov Process  &lt;br /&gt;
 &lt;p&gt;&lt;strong&gt;Two Classifers&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;GhostEdgeNL&lt;/li&gt;
-  &lt;li&gt;GhostEdgeL
+  &lt;li&gt;GhostEdgeL&lt;br /&gt;
  Logistic regression&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;!-- 20170421 end --&gt;
+&lt;h2 id=&quot;information-diffusion&quot;&gt;Information Diffusion&lt;/h2&gt;
+&lt;p&gt;消息/疾病擴散&lt;br /&gt;
+想知道擴散方向,可以擴散到哪等等問題&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3 elements of diffusion process&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Senders&lt;/li&gt;
+  &lt;li&gt;Receivers&lt;/li&gt;
+  &lt;li&gt;Medium(channel)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Types of information Diffusion&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;herd behavior(global information)&lt;br /&gt;
+  群眾行為,大多數人怎麼做,就有可能會跟著做&lt;/li&gt;
+  &lt;li&gt;information cascades(local information)&lt;/li&gt;
+  &lt;li&gt;diffusion of innovation&lt;/li&gt;
+  &lt;li&gt;eqidemics&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Diffusion Models&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Descriptive models
+    &lt;blockquote&gt;
+      &lt;p&gt;機率模型&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Operational models
+    &lt;blockquote&gt;
+      &lt;p&gt;一步一步的擴散&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;Each node can be Active / Inactive&lt;br /&gt;
+ Assumption:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;node can switch from inactive to active&lt;/li&gt;
+      &lt;li&gt;cannot switch from active to inactive&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;e.g.&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Linear Threshold Model&lt;/li&gt;
+      &lt;li&gt;Independent Cascade Model&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Linear Threshold Model&lt;/strong&gt;  &lt;br /&gt;
+每個人都會有一個threshold代表會變成active門檻值  &lt;br /&gt;
+每個邊上會有影響力的值(可以是單向或雙向)  &lt;br /&gt;
+如果你的鄰居加總的影響力大於你本身的threshold那你也會變成active&lt;br /&gt;
+由Senders開始一步一步的擴散&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Independent Cascade Model&lt;/strong&gt;&lt;br /&gt;
+每一個人只能影響鄰居一次,失敗了不能再影響一次&lt;br /&gt;
+邊上是影響成功的機率&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;5&quot;&gt;Influence Maximization Problem&lt;/h1&gt;
+&lt;p&gt;給一些起始的senders觀察最後有哪些人被影響&lt;br /&gt;
+給k個senders並且找出這k個senders是誰且最後影響的人數最多&lt;br /&gt;
+(應用: 廣告要放在哪裡)&lt;br /&gt;
+Constrained optimization problem&lt;/p&gt;
+
+&lt;p&gt;問題難度: NP-hard &lt;br /&gt;
+證明這個問題的難度:&lt;br /&gt;
+    符合Submodular Function,且要在所有node中找出k個,使得f(k)為maximized&lt;br /&gt;
+    已經被證明為NP-hard問題&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Submodular Function&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Non-negative&lt;/li&gt;
+  &lt;li&gt;Monotone&lt;/li&gt;
+  &lt;li&gt;Submodular 邊際效應遞減
+    &lt;blockquote&gt;
+      &lt;p&gt;f(a,b,v) - f(a,b) &amp;gt; f(a,b,c,v) - f(a,b,c)&lt;br /&gt;
+  原來有a,b加入v所增加的量大於原來有a,b,c加入v所增加的量&lt;br /&gt;
+  例如原本能考60分,讀一天可以考到80分,&lt;br /&gt;
+  和原來能考90分,可是讀一天只能考到95分&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;遇到NP-hard問題考慮的解法&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Approximation Approach&lt;/li&gt;
+  &lt;li&gt;平行運算&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Approximation Approach&lt;/strong&gt;&lt;br /&gt;
+Greedy algorithm&lt;br /&gt;
+每回合找出Submodular最大的作為sender&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;6&quot;&gt;Outbreak Detection&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;能不能透過放sensor提早知道消息的擴散&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;給一個network G(V,E),找到placement A(sensor)
+goal : to max R(A)
+R(A) : reward&lt;br /&gt;
+c(A) : cost&lt;/p&gt;
+
+&lt;p&gt;placement objective&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;detection likelihood&lt;br /&gt;
+  希望所有事件都偵測到&lt;/li&gt;
+  &lt;li&gt;detection time&lt;br /&gt;
+  多久偵測到&lt;/li&gt;
+  &lt;li&gt;Population affected
+  已經擴散多少,多少人知道&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Approached of Outbreak Detection&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Heuristic in simple case
+ each node has equal cost&lt;br /&gt;
+ 每次都加入一個sensor,那計算每一個node加入的邊際效應&lt;br /&gt;
+ 並選最大的邊際效應加入&lt;/li&gt;
+  &lt;li&gt;Heuristic in more complex case&lt;br /&gt;
+多考慮cost,所以算法變成每次加入最大的benifit/cost&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;team-formation-in-social-networks&quot;&gt;Team Formation in Social Networks&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;如何要找到正確的人,組成一個團隊&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Task&lt;/li&gt;
+  &lt;li&gt;Expert&lt;/li&gt;
+  &lt;li&gt;Network&lt;/li&gt;
+  &lt;li&gt;Effective&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Given&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;set of n individuals , a graph , a task&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Find&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;必須包含task,individuals skill聯集要包含task&lt;br /&gt;
+    communication cost要最小越好&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Communication Cost&lt;/strong&gt;&lt;br /&gt;
+Diameter&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;distance     : shortest path (geodesic distance)&lt;/li&gt;
+  &lt;li&gt;eccentricity : 其中一個點到其他所有點的shortest path,並取最大的值&lt;/li&gt;
+  &lt;li&gt;radius       : minimun eccentrictity 溝通成本最低&lt;/li&gt;
+  &lt;li&gt;diameter     : maximun eccentrictity 溝通成本最高&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;measure communication cost&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;diameter&lt;/li&gt;
+  &lt;li&gt;minimum spanning tree&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;不管用diameter或是MST都是NP-hard&lt;br /&gt;
+那縮小範圍可以考慮到加入限制 : &lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\quad&lt;/script&gt;人數越少越好 → set cover problem(NP-complete)&lt;/p&gt;
+
+&lt;p&gt;作者提出的方法將set cover problem視為baseline作為比較&lt;br /&gt;
+NPC問題通常找近似解,所以需要一個比較的方法&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;RarestFirst Algo for Diameter-TF&lt;br /&gt;
+ 先從skill少的加入集合考慮,必找diameter低的持續加入集合&lt;br /&gt;
+ 假設skill少的同時有2個人會,那要挑誰？
+    &lt;ol&gt;
+      &lt;li&gt;隨便挑&lt;/li&gt;
+      &lt;li&gt;從欠缺能力看,計算和有欠缺技能的node計算diameter,挑minimun diameter&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The Enhanced Steiner ALog. for MST-TF&lt;br /&gt;
+ The Minimum Stener Tree Problem (NP-hard)&lt;br /&gt;
+     給入require的點,必找出含有這些點的tree&lt;br /&gt;
+     如果require是所有的點,問題就會變成minimal spanning tree,&lt;br /&gt;
+     minimal spanning tree是minimum stener tree的speical case&lt;br /&gt;
+     如果require只有兩個點,那就會變成shortest path的問題&lt;/p&gt;
+
+    &lt;p&gt;將每一個skill,各至成為一個node,且連到擁有這些技能的點,&lt;br /&gt;
+ 將題目轉為stener alog,require就是自己建立的node,找到後再去除這些node&lt;br /&gt;
+ 1.從自己建立的node找一個點放到set中&lt;br /&gt;
+ 2.計算和require和set中的距離,取最短,並將path上的點加入set,直到所有require都在set中 &lt;br /&gt;
+&lt;!-- 20170512 --&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- class --&gt;
+&lt;h2 id=&quot;herd-從眾&quot;&gt;Herd 從眾&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;有一群人做決策,大家會趨向一個方向&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Information Diffusion
+    &lt;ul&gt;
+      &lt;li&gt;Explicit Network
+        &lt;ul&gt;
+          &lt;li&gt;Global Information Herd Behavior&lt;/li&gt;
+          &lt;li&gt;Local Information &lt;br /&gt;
+  Information Cascases (e.g. Facebook)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Implicit Network
+        &lt;ul&gt;
+          &lt;li&gt;Diffusion of Innovations (e.g. ptt movies)&lt;/li&gt;
+          &lt;li&gt;Epidemics (e.g. 疾病的擴散)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;herd-example&quot;&gt;Herd example&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Soloman Asch Experiment&lt;br /&gt;
+ 左邊一個長條圖形和右邊有三個不同長短的長條圖形,比較長度和哪個最相近&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Urn Experiment (Bayesian Modeling of Herd Behavior)&lt;br /&gt;
+ 甕裡面放珠寶有紅色和藍色,不會是全部是藍色或全部是紅色&lt;br /&gt;
+ 猜甕中主要是什麼顏色的珠寶&lt;br /&gt;
+ 每個學生從甕中抓一把,且不能告訴別人,會放回去&lt;br /&gt;
+ 分別叫每個學生預測主要是紅色還是藍色&lt;br /&gt;
+ 且將預測結果寫在黑板上,且後面同學可以看到黑板上結果&lt;/p&gt;
+
+    &lt;p&gt;example @ page.30&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Intervention  with Herding 阻止Herding&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;和每個人說一些消息(private message)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Diffusion of Innovations&lt;br /&gt;
+    an idea,practice,object&lt;br /&gt;
+    研究這些創新如何傳播,和擴散的速度&lt;/p&gt;
+
+&lt;!-- 20170512 --&gt;
+
+&lt;!-- class --&gt;
+&lt;p&gt;Innovations創新介於invention發明和improvement改善之間&lt;/p&gt;
+
+&lt;p&gt;會接受這些創新的人&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Innovators&lt;/li&gt;
+  &lt;li&gt;Early adopters
+3.
+4.
+5.
+&lt;!-- class --&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- class --&gt;
+&lt;h1 id=&quot;9&quot;&gt;Cloud computing&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf&quot;&gt;The NIST Definition of Cloud Computing&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Parallel&lt;/li&gt;
+  &lt;li&gt;Distribute&lt;/li&gt;
+  &lt;li&gt;Grid&lt;/li&gt;
+  &lt;li&gt;Utility Computing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;parallel-computing&quot;&gt;Parallel Computing&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;將大問題拆成小問題且同時執行&lt;/p&gt;
+  &lt;h4 id=&quot;distributed-computing&quot;&gt;Distributed Computing&lt;/h4&gt;
+  &lt;p&gt;多台獨立電腦透過網路連結且為同一個任務工作&lt;/p&gt;
+  &lt;h4 id=&quot;grid-computing&quot;&gt;Grid Computing&lt;/h4&gt;
+  &lt;p&gt;是一種Distributed Computing&lt;/p&gt;
+  &lt;h4 id=&quot;utility-computing&quot;&gt;Utility Computing&lt;/h4&gt;
+  &lt;p&gt;讓計算像使用電力,水等資源,只要有一個client端就可以使用,不在本地端計算,而是在提供服務的單位計算&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;performance-optimization&quot;&gt;Performance Optimization&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Parallel Computing&lt;/li&gt;
+  &lt;li&gt;Job Scheduling&lt;/li&gt;
+  &lt;li&gt;Load Balancing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;survice-models&quot;&gt;Survice Models&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;IaaS(Infrastructure as a Service)
+    &lt;blockquote&gt;
+      &lt;p&gt;包含硬體,OS,driver,networking
+使用者不用管理或控制底層的東西
+Virtualization:
+Abstraction of logical resource away from underlying phyical resources&lt;br /&gt;
+Improve utilization,security&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Paas(Platform as a Service)
+    &lt;blockquote&gt;
+      &lt;p&gt;提供工程師一個寫程式的環境,包含程式語言和工具,且不用管理底層的硬體但可以做控制&lt;br /&gt;
+(e.g. Programming IDE,Programming API,System Control interface,Hadoop,Google App Engine,Microsoft Windows Azure)&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SaaS(Software as a Service)
+    &lt;blockquote&gt;
+      &lt;p&gt;提供應用程式給一般人使用,透過clinet界面就可以使用&lt;br /&gt;
+(web Service,Google App)&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;mapreduce&quot;&gt;MapReduce&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;A programming model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- class --&gt;
 </content>
  </entry>
  

@@ -743,9 +743,9 @@ ranking的計算是根據P(Q|D)</p>
  P(d|<script type="math/tex">d_2</script>) = [(1/3 + 1/8)/2]<script type="math/tex">\cdot</script>[(0/3 + 1/8)/2] <script type="math/tex">\approx</script> 0.0143<br />
  rank <script type="math/tex">d_2 > d_1</script></p>
   </li>
+  <li><a href="https://www.youtube.com/watch?v=gCI-ZC7irbY">Laplace smoothing</a>
+<!-- 20170416  --></li>
 </ol>
-
-<!-- 20170416  -->
 
 <!-- 20170427 -->
 <p><strong>Text Generation with Unigram LM</strong></p>
@@ -765,9 +765,84 @@ ranking的計算是根據P(Q|D)</p>
 <ul>
   <li>Jelinek-Mercer</li>
   <li>Dirichlet prior</li>
-  <li>Absolute discontuning
-<!-- class --></li>
+  <li>Absolute discontuning</li>
 </ul>
+
+<h2 id="ch13-text-classification-and-naive-bayes">CH13 Text Classification and Naive Bayes</h2>
+<ul>
+  <li>Text Classification</li>
+  <li>Naive Bayes</li>
+  <li>Naive Bayes Theory</li>
+  <li>Evaluation of Text Classification</li>
+</ul>
+
+<h4 id="text-classification">Text Classification</h4>
+<p><strong>standard supervised</strong></p>
+<ol>
+  <li>Pre-define categories and lebel document</li>
+  <li>classify new documents</li>
+</ol>
+
+<p>分類的方法</p>
+<ol>
+  <li>人工判斷
+ 準確但成本高</li>
+  <li>Rule-based
+ 很多if/else的rule,看到王建民就分類到體育新聞  <br />
+ e.g. google Alert</li>
+  <li>Statistical/Probabilistic
+    <ul>
+      <li>Instance-based classifiers<br />
+  e.g. kNN</li>
+      <li>Discriminative classifiers<br />
+  學習出分隔的形式(一條線,一棵樹)<br />
+  資料少容易overfit<br />
+  e.g. Decision tree,Neural Network</li>
+      <li>Generative classifier<br />
+  利用大量資料學習出分佈模型(mean,varience)<br />
+  e.g Naive Bayes</li>
+    </ul>
+  </li>
+</ol>
+
+<p><strong>K-Nearest Neighbor Classifier(KNN)</strong><br />
+Keep all train data<br />
+優點:不需要training(每一個點都記錄下來)<br />
+缺點:不能做大量資料</p>
+
+<h2 id="naive-bayes-classifier">Naive Bayes Classifier</h2>
+<p>arg max_c 找到一個c(類別)使P(c|d)最大
+避免under flow -&gt; 取log連乘變成連加</p>
+
+<p>機率會有零產生-&gt;避免這種情形全部機率做加1</p>
+
+<p>估計事前機率 是這個類別的機率和不是這個類別的機率
+估計完這些係數training就結束</p>
+
+<p>P(c|d) 給document判斷是哪個類別
+P(c|d) = P(c)P(d|c)/P(d)  分母不考慮,和分類無關
+且分子越大越好
+P(d|c)可以拆成多個Term的連乘積
+且假設每個字之間獨立</p>
+
+<p>Feture Selection</p>
+<ul>
+  <li>Reduces training time
+挑特定的字訓練模型</li>
+</ul>
+
+<p>Two idea</p>
+<ul>
+  <li>Mutual information
+  計算字的交互作用,每一個字會有一個值,找gap最大的切開,拿比較相關的字做訓練</li>
+  <li>CHI-Square statistic
+  用機率方法計算,算出機率高的就拿去做訓練資料</li>
+</ul>
+
+<p>Evaluations
+    測試資料和training data不能有overlapping</p>
+
+<!-- class -->
 
 </div>
 
@@ -780,15 +855,6 @@ ranking的計算是根據P(Q|D)</p>
           <a href="/2017/dataStructure/">
             Data Structure
             <small>27 Mar 2017</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2017/python/">
-            python
-            <small>08 Mar 2017</small>
           </a>
         </h3>
       </li>

@@ -115,17 +115,17 @@
       <div class="post">
   <h1 class="post-title">SocialCloudComputing</h1>
   <span class="post-date">25 Feb 2017</span>
-  <ul>
+  <h3 id="outline">Outline</h3>
+<ul>
   <li>Centrality Analysis</li>
   <li>Community Detection</li>
-  <li>Link Prediction</li>
-  <li>Label Prediction</li>
-  <li>Influence maximization</li>
-  <li>Outbreak Detection<br />
-消息擴散路徑</li>
+  <li><a href="#3">Link Prediction</a></li>
+  <li><a href="#4">Label Prediction</a></li>
+  <li><a href="#5">Influence maximization</a></li>
+  <li><a href="#6">Outbreak Detection</a></li>
   <li>Role/Postion Analysis</li>
   <li>Social Relation Extraction</li>
-  <li>Cloud Computing</li>
+  <li><a href="#9">Cloud Computing</a></li>
 </ul>
 
 <!--more-->
@@ -185,7 +185,8 @@ FB好友關係</li>
  朋友的朋友很可能也是你朋友<br />
  <a href="https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0">Clustering Coeffieient</a></li>
   <li>Degree distribution
- Real world network : Power law
+ Real world network : <br />
+ Power law
     <blockquote>
       <p>P<sub>k</sub> = CK<sup>-α</sup></p>
     </blockquote>
@@ -193,7 +194,7 @@ FB好友關係</li>
     <p>Heavy-tailed degree distribution<br />
  大量很低的數量,集合起來還是很驚人</p>
   </li>
-  <li>Network resilience
+  <li>Network resilience<br />
  如果拿掉一些點/邊,連通性會有什麼變化？<br />
  (e.g.有些人掛了,離職)<br />
  連接path的長度變長,或是disconnect <br />
@@ -214,35 +215,39 @@ FB好友關係</li>
  在社群希望找到出現次數較高的motifs(最常出現的subgraph)</li>
 </ol>
 
-<p>CERN
-<a href="https://zh.wikipedia.org/wiki/%E7%B1%B3%E7%88%BE%E6%A0%BC%E5%80%AB%E5%AF%A6%E9%A9%97">米爾格倫實驗 Milgram experiment</a>服從威權實驗 <br />
-random graph</p>
-
-<p><strong>Central of Network</strong></p>
-<ul>
-  <li>找到最重要的點(central)</li>
-</ul>
-
-<p>local</p>
+<p>補充資料：</p>
 <blockquote>
-  <ol>
-    <li>Degree</li>
-  </ol>
+  <p><a href="https://zh.wikipedia.org/wiki/%E7%B1%B3%E7%88%BE%E6%A0%BC%E5%80%AB%E5%AF%A6%E9%A9%97">米爾格倫實驗 Milgram experiment 服從威權實驗</a></p>
 </blockquote>
 
-<p>global</p>
-<blockquote>
-  <ol>
-    <li>Closeness</li>
-    <li>Betweeness</li>
-    <li>Eigenvector</li>
-  </ol>
-</blockquote>
-
+<p><br /></p>
+<h2 id="central-of-network">Central of Network</h2>
 <ul>
-  <li>Group Centrality 一群最有影響力的人<br />
+  <li>
+    <p>找到最重要的點(central)</p>
+
+    <p>local</p>
+    <blockquote>
+      <ol>
+        <li>Degree</li>
+      </ol>
+    </blockquote>
+
+    <p>global</p>
+    <blockquote>
+      <ol>
+        <li>Closeness</li>
+        <li>Betweeness</li>
+        <li>Eigenvector</li>
+      </ol>
+    </blockquote>
+  </li>
+  <li>
+    <p>Group Centrality<br />
+找到一群最有影響力的人<br />
 在小世界理論中,如果送信到目標的前一步,都是經由特定的3個人,代表這三個人很重要,<br />
-目前social network還無法透過社群網站判斷這些人</li>
+目前social network還無法透過社群網站判斷這些人</p>
+  </li>
 </ul>
 
 <p><strong>Social actors(群眾的智慧)</strong></p>
@@ -255,16 +260,16 @@ random graph</p>
 容易說服別人,擅長協調</li>
 </ol>
 
-<p>判斷social network的四種centrality</p>
+<p><strong>Social network的四種centrality</strong></p>
 <ol>
   <li>Degree centrality(local)<br />
 點的重要性,若network的規模大小不同,做normalize(除總size-1)</li>
   <li>Betweeness Centrality<br />
-Node<sub>i</sub> A到B的shortest path有幾條經過i</li>
+ A到B的shortest path有幾條經過Node<script type="math/tex">_i</script></li>
   <li>Closeness Centrality
-點i和所有點j的shortest path平均的距離</li>
+ 點i和所有點j的shortest path平均的距離</li>
   <li>Eigenvector Centrality  <br />
-這個點的重要性,看他朋友點的重要性<br />
+ 這個點的重要性,透過看他朋友點的重要性<br />
 eigenvector
     <blockquote>
       <p>一個向量乘上一個矩陣(transform),方向不變但scale可能會變<br />
@@ -276,12 +281,6 @@ x代表重要性<br />
   </li>
 </ol>
 
-<p>HIT <br />
-Hub<br />
-推薦的authoritative有多高<br />
-Authoritative page<br />
-有多少hub推薦</p>
-
 <p><strong>最短路徑演算法</strong><br />
 unweighted graph</p>
 <ol>
@@ -289,15 +288,11 @@ unweighted graph</p>
   <li>Floyd-Warshall</li>
 </ol>
 
-<p><strong>Group centrality</strong><br />
-找出social network中幾個最有影響力的人<br />
-或指定某幾個人想觀察這幾人的影響力</p>
-
-<p>group centrality一群人一起看,影響幾個人(有連線)<br />
-不能將每個單一人的degree加總,會有重複的</p>
-
-<p>Social Group Analysis
-community detection algorithm</p>
+<p><strong>Group centrality</strong></p>
+<blockquote>
+  <p>找出social network中幾個最有影響力的人<br />
+或指定某幾個人觀察這些人的影響力</p>
+</blockquote>
 
 <!-- 20170413 start -->
 <p><strong>Properties of cohesion 凝聚力的判斷</strong></p>
@@ -401,61 +396,58 @@ I (internal cost)</p>
 </blockquote>
 
 <p><strong>KL algorithm複雜度</strong><br />
-<script type="math/tex">O(n^2)</script> 找到最適合交換的兩點,有n pair要交換<br />
-⇒ <script type="math/tex">O(n^3)</script></p>
+<script type="math/tex">O(n^2)</script> 找到最適合交換的兩點,有n pair要交換 ⇒ <script type="math/tex">O(n^3)</script> 
+<!-- 20170413 end --></p>
 
-<!-- 20170413 end -->
+<!-- 20170512 -->
+<h4 id="hiraichiecal">Hiraichiecal</h4>
+<p>bottom-up<br />
+每一回合都找兩個最像的做合併</p>
+<ul>
+  <li>single link  <br />
+  距離取min</li>
+  <li>complete link<br />
+  距離取max</li>
+</ul>
 
-<p>hiraichiecal 
-bottom-up<br />
-每一回合都找兩個最像的做合併<br />
-single link<br />
-    距離取min
-complete link
-    距離取max</p>
-
-<p>分群    <br />
-community 同群邊的值要越大越好</p>
-
-<p>Distance Matrix</p>
+<h4 id="distance-matrix">Distance Matrix</h4>
 <ol>
   <li>Approach1  <br />
-計算weights Wij
+計算weights W<script type="math/tex">_{ij}</script>
     <ul>
       <li>i到j的路徑越多代表i和j關係越好</li>
-    </ul>
-    <ul>
       <li>只能找non-overlapped paths</li>
-      <li>只要i到j的路徑都算(weighted by length)
- Xij = 1/Wij</li>
+      <li>只要i到j的路徑都算(weighted by length)</li>
     </ul>
 
-    <p>Reduction
-     由A問題轉換到B問題</p>
+    <p>X<script type="math/tex">_{ij}</script> = <script type="math/tex">\frac{1}{W_{ij}}</script></p>
   </li>
-  <li>Approach 2
- 如果i和j視同一群,那他們有相似的behavior
- behavoir
+  <li>Approach 2<br />
+ 如果i和j視同一群,那他們有相似的behavior<br />
+ behavoir<br />
      i和j到commuinty其他點的平均距離相似</li>
-  <li>Approach 3
- J(i,j)/min(Ki,Kj)<br />
+  <li>Approach 3<br />
+ <script type="math/tex">\frac{J(i,j)}{min(K_i,K_j)}</script> <br />
  看兩個人共同朋友個數,共同朋友越多J(i,j)越大</li>
 </ol>
 
-<p>Edge-removal Approach<br />
-不斷的拿掉邊,會出現越多的群數,直到符合要的群數<br />
-拿掉bridge edge,</p>
-<ol>
-  <li>betweeness
-一開始想說可以用degree少,但不夠完全<br />
- 在centrality的betweeness是以node考量<br />
- 在這的betweeness是以edge考量</li>
-</ol>
+<h4 id="edge-removal-approach">Edge-removal Approach</h4>
+<blockquote>
+  <p>不斷的拿掉邊(bridge edge),會出現越多的群數,直到符合要的群數</p>
+</blockquote>
 
-<p>GN algorithm<br />
-拿掉betweeness最高的邊 -&gt; 重算betweeness -&gt; 計算community
-top-down(起始是一個commuinity,並分群下去)
-計算邊的betweeness</p>
+<p><strong>betweeness</strong><br />
+    一開始想說可以用degree少,但不夠完全<br />
+    在centrality的betweeness是以node考量<br />
+    在這的betweeness是以edge考量</p>
+
+<h3 id="gn-algorithm">GN algorithm</h3>
+<p>top-down(起始是一個commuinity,並分群下去)</p>
+<blockquote>
+  <p>拿掉betweeness最高的邊 → 重算betweeness → 計算community</p>
+</blockquote>
+
+<p><strong>計算邊的betweeness</strong></p>
 <ol>
   <li>shortest path<br />
  任兩點最短路徑有多少條會經過邊</li>
@@ -497,43 +489,46 @@ Q = U - R</p>
 <p>Q = 0 no community<br />
 Q ~ 1 prefect cut</p>
 
-<p><strong>Newman Fast Alogorithm</strong><br />
-利用hireachcal合併,並每個步驟算modurity,並找出最高的Q做切分<br />
-<strong>Bridge cut</strong><br />
-integrity一致性<br />
-N(v)
-d(v): degree of node
-Density
-Direct neighbor subgraph of v<br />
-Clustering coeffiecient <br />
+<h3 id="newman-fast-alogorithm">Newman Fast Alogorithm</h3>
+<p>利用hireachcal合併,並每個步驟算modurity,並找出最高的Q做切分</p>
+
+<h3 id="bridge-cut">Bridge cut</h3>
+<p>integrity一致性  <br />
+N(v)<br />
+d(v): degree of node<br />
+Density<br />
+Direct neighbor subgraph of v</p>
+
+<p><strong>Clustering coeffiecient</strong>   <br />
 	觀察v的鄰居的朋友關係<br />
 	例如v有4個朋友,那4個人最多有6個關係,算關係的比例<br />
-	實際上有關係/最多有幾個關係<br />
-Bridge Centrality<br />
-	<strong>rank</strong> of betweenness centrality * <strong>rank</strong> of bridging coeffiecient<br />
+	實際上有關係/最多有幾個關係</p>
+
+<p><strong>Bridge Centrality</strong><br />
+	rank of betweenness centrality * rank of bridging coeffiecient<br />
 	如果只考慮betweeness(global)會有一些情況不太好  <br />
 	加入bridge centrality可以考慮到local的特質</p>
 
 <p><strong>Community Search</strong><br />
-給一個social network,並給一些query(其中幾個人),<br />
-given grahp G, a set of query node<br />
-goal: find a densely subgraph of G, and contains the query nodes</p>
+    給一個social network,並給一些query(其中幾個人),<br />
+    given grahp G, a set of query node<br />
+    goal: find a densely subgraph of G, and contains the query nodes</p>
 
 <p><strong>Induced Subgraph</strong><br />
 xy edge在G中,xy edge也要在induce subgraph中</p>
 
-<p>goodness function</p>
+<p><strong>goodness function</strong></p>
 <ol>
   <li>edge degree
-時間複雜度太大</li>
+ 時間複雜度太大</li>
   <li>average degree</li>
   <li>minumin degree
-這群人認識最少的人,讓這個人的值變大
-induced subgraph的degree<br />
-容易受到outlier影響</li>
+ 這群人認識最少的人,讓這個人的值變大
+ induced subgraph的degree<br />
+ 容易受到outlier影響</li>
 </ol>
 
-<p>Constrain<br />
+<p><strong>Constrain</strong>  <br />
 distance constrain<br />
 限制邀請來的人的最長距離</p>
 
@@ -541,9 +536,9 @@ distance constrain<br />
 <ul>
   <li>monotone increaing</li>
   <li>monotone decresing</li>
-  <li>non-monotone</li>
+  <li>non-monotone
+<!-- 20170512 --></li>
 </ul>
-
 <hr />
 
 <!-- 20170421 start -->
@@ -557,7 +552,7 @@ distance constrain<br />
   </ul>
 </blockquote>
 
-<h2 id="link-prediction">Link Prediction</h2>
+<h1 id="3">Link Prediction </h1>
 
 <p><strong>Goal</strong></p>
 <ol>
@@ -591,7 +586,7 @@ distance constrain<br />
   <li>Record linkage</li>
 </ol>
 
-<h2 id="node-wise-similarity-based-method">Node-wise Similarity Based Method</h2>
+<h4 id="node-wise-similarity-based-method">Node-wise Similarity Based Method</h4>
 <blockquote>
   <p>計算兩個點的相似度,如果兩個點很相似他們可能就有link<br />
 e.g. Similarity between words<br />
@@ -611,7 +606,7 @@ e.g. Similarity between words<br />
   利用學習方式估計出<script type="math/tex">\alpha , \beta</script></li>
 </ul>
 
-<h2 id="topological-pattern-based-methods">Topological Pattern Based Methods</h2>
+<h4 id="topological-pattern-based-methods">Topological Pattern Based Methods</h4>
 <blockquote>
   <p>計算兩點之間的分數,若大於某個值就表示他們之間有關係(連線)</p>
 </blockquote>
@@ -651,13 +646,15 @@ e.g. Similarity between words<br />
   </li>
 </ul>
 
-<h2 id="probabilistic-model-based-methods">Probabilistic Model Based Methods</h2>
+<h4 id="probabilistic-model-based-methods">Probabilistic Model Based Methods</h4>
 <p>e.g. relational Markov model<br />
 <!-- 20170421 end --></p>
 
-<!-- 20170420 class-->
-<h2 id="labeld-social-network">Labeld Social Network</h2>
-<p>Type of Labels</p>
+<!-- 20170420 -->
+<hr />
+
+<h1 id="4">Labeld Social Network </h1>
+<h4 id="type-of-labels">Type of Labels</h4>
 <ol>
   <li>Binary</li>
   <li>Numeric</li>
@@ -665,65 +662,73 @@ e.g. Similarity between words<br />
   <li>text-free</li>
 </ol>
 
-<h2 id="label-prediction">Label Prediction</h2>
-<p>根據已知的label預測未知點的label</p>
+<h4 id="label-prediction">Label Prediction</h4>
+<blockquote>
+  <p>根據已知的label預測未知點的label</p>
+</blockquote>
+
 <ol>
   <li>Inference vs. Learning<br />
  Inference(unsupervised)<br />
- Learning(supervised)<br />
-2.Disjoint vs. Collective<br />
+ Learning(supervised)</li>
+  <li>Disjoint vs. Collective<br />
  Disjoint
  沒有標籤的點就不考慮<br />
  Collective<br />
- 沒有標籤的點也會放進去考慮<br />
-3.Across-network vs. within-network learning<br />
+ 沒有標籤的點也會放進去考慮</li>
+  <li>Across-network vs. within-network learning<br />
  Across-network拿一個social network model去預測另一個social network<br />
  within-network拿全部資料做的model來做預測</li>
 </ol>
 
-<h2 id="clues-to-predict-labels">Clues to Predict Labels</h2>
+<h4 id="clues-to-predict-labels">Clues to Predict Labels</h4>
 <ul>
   <li>Label Independent approaches 特徵值沒有用到label的訊息
     <ol>
       <li>Correlation between<br />
-  Attribute of node i (年紀)
-  Label of node i (身份)</li>
+ Attribute of node i (年紀)
+ Label of node i (身份)</li>
       <li>Correlation between<br />
-  Network Structures of node i (between centrality)
-  Label of node i</li>
+ Network Structures of node i (between centrality)
+ Label of node i</li>
     </ol>
   </li>
   <li>Label Dependent Approaches
     <ol>
       <li>Correlation between<br />
-  知道鄰居來預設未知,用其他點來預測未知點</li>
+ 知道鄰居來預設未知,用其他點來預測未知點</li>
       <li>Correlation between<br />
-  利用unlabel點來預測</li>
+ 利用unlabel點來預測</li>
     </ol>
   </li>
 </ul>
 
-<p>Relational Neighbor Classifier<br />
-    -&gt; disjoint
-    簡單說就是看鄰居多數是什麼就判斷node是什麼<br />
-    問題：<br />
+<h4 id="relational-neighbor-classifier">Relational Neighbor Classifier</h4>
+<blockquote>
+  <p>看鄰居多數是什麼就判斷node是什麼</p>
+</blockquote>
+
+<p>問題：<br />
     如果已知的點很少,unknown的很多(Sparse label),若只用一個點就判斷就沒那麼可靠<br />
-    解決：
+解決：
     Iterative Relation Neighbor classifier  <br />
     判斷分為好幾回合,若多數點是unknown那就判斷是unknown <br />
     unknown也是一種label<br />
-<!-- 20170420 class--></p>
+<!-- 20170420 --></p>
 
-<!-- 20170421 start -->
-<p><strong>Ghost Edges for Node Label Prediction</strong><br />
-將一些不是直接連接的node但有影響力的點,用ghost edge連起來<br />
-那怎麼判斷點的重要性<br />
--&gt; Random walk with Restart <br />
-    有一定的機率會跳到起點</p>
+<!-- 20170512 -->
+<h2 id="ghost-edges-for-node-label-prediction">Ghost Edges for Node Label Prediction</h2>
+<p>將一些不是直接連接的node但有影響力的點,用ghost edge連起來<br />
+那怎麼判斷點的重要性 → Random walk with Restart</p>
+<blockquote>
+  <p>有一定的機率會跳到起點</p>
+</blockquote>
 
-<p><strong>Steady-state Probability</strong><br />
-Markov Process  <br />
-    城市和郊區遷移問題</p>
+<h4 id="steady-state-probability">Steady-state Probability</h4>
+<ul>
+  <li>Markov Process  <br />
+  e.g. 城市和郊區遷移問題</li>
+</ul>
 
 <p>利用Random walk with restart計算所有點對某點的影響力<br />
 在對這些影響力做等級劃分,依照機率分為ABCDEF…等級</p>
@@ -731,11 +736,333 @@ Markov Process  <br />
 <p><strong>Two Classifers</strong></p>
 <ol>
   <li>GhostEdgeNL</li>
-  <li>GhostEdgeL
+  <li>GhostEdgeL<br />
  Logistic regression</li>
 </ol>
 
-<!-- 20170421 end -->
+<h2 id="information-diffusion">Information Diffusion</h2>
+<p>消息/疾病擴散<br />
+想知道擴散方向,可以擴散到哪等等問題</p>
+
+<p><strong>3 elements of diffusion process</strong></p>
+<ol>
+  <li>Senders</li>
+  <li>Receivers</li>
+  <li>Medium(channel)</li>
+</ol>
+
+<p><strong>Types of information Diffusion</strong></p>
+<ul>
+  <li>herd behavior(global information)<br />
+  群眾行為,大多數人怎麼做,就有可能會跟著做</li>
+  <li>information cascades(local information)</li>
+  <li>diffusion of innovation</li>
+  <li>eqidemics</li>
+</ul>
+
+<p><strong>Diffusion Models</strong></p>
+<ol>
+  <li>Descriptive models
+    <blockquote>
+      <p>機率模型</p>
+    </blockquote>
+  </li>
+  <li>Operational models
+    <blockquote>
+      <p>一步一步的擴散</p>
+    </blockquote>
+
+    <p>Each node can be Active / Inactive<br />
+ Assumption:</p>
+    <ul>
+      <li>node can switch from inactive to active</li>
+      <li>cannot switch from active to inactive</li>
+    </ul>
+
+    <p>e.g.</p>
+    <ul>
+      <li>Linear Threshold Model</li>
+      <li>Independent Cascade Model</li>
+    </ul>
+  </li>
+</ol>
+
+<p><strong>Linear Threshold Model</strong>  <br />
+每個人都會有一個threshold代表會變成active門檻值  <br />
+每個邊上會有影響力的值(可以是單向或雙向)  <br />
+如果你的鄰居加總的影響力大於你本身的threshold那你也會變成active<br />
+由Senders開始一步一步的擴散</p>
+
+<p><strong>Independent Cascade Model</strong><br />
+每一個人只能影響鄰居一次,失敗了不能再影響一次<br />
+邊上是影響成功的機率</p>
+
+<hr />
+
+<h1 id="5">Influence Maximization Problem</h1>
+<p>給一些起始的senders觀察最後有哪些人被影響<br />
+給k個senders並且找出這k個senders是誰且最後影響的人數最多<br />
+(應用: 廣告要放在哪裡)<br />
+Constrained optimization problem</p>
+
+<p>問題難度: NP-hard <br />
+證明這個問題的難度:<br />
+    符合Submodular Function,且要在所有node中找出k個,使得f(k)為maximized<br />
+    已經被證明為NP-hard問題</p>
+
+<p><strong>Submodular Function</strong></p>
+<ul>
+  <li>Non-negative</li>
+  <li>Monotone</li>
+  <li>Submodular 邊際效應遞減
+    <blockquote>
+      <p>f(a,b,v) - f(a,b) &gt; f(a,b,c,v) - f(a,b,c)<br />
+  原來有a,b加入v所增加的量大於原來有a,b,c加入v所增加的量<br />
+  例如原本能考60分,讀一天可以考到80分,<br />
+  和原來能考90分,可是讀一天只能考到95分</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p>遇到NP-hard問題考慮的解法</p>
+<ul>
+  <li>Approximation Approach</li>
+  <li>平行運算</li>
+</ul>
+
+<p><strong>Approximation Approach</strong><br />
+Greedy algorithm<br />
+每回合找出Submodular最大的作為sender</p>
+
+<hr />
+
+<h1 id="6">Outbreak Detection</h1>
+<blockquote>
+  <p>能不能透過放sensor提早知道消息的擴散</p>
+</blockquote>
+
+<p>給一個network G(V,E),找到placement A(sensor)
+goal : to max R(A)
+R(A) : reward<br />
+c(A) : cost</p>
+
+<p>placement objective</p>
+<ul>
+  <li>detection likelihood<br />
+  希望所有事件都偵測到</li>
+  <li>detection time<br />
+  多久偵測到</li>
+  <li>Population affected
+  已經擴散多少,多少人知道</li>
+</ul>
+
+<p><strong>Approached of Outbreak Detection</strong></p>
+<ol>
+  <li>Heuristic in simple case
+ each node has equal cost<br />
+ 每次都加入一個sensor,那計算每一個node加入的邊際效應<br />
+ 並選最大的邊際效應加入</li>
+  <li>Heuristic in more complex case<br />
+多考慮cost,所以算法變成每次加入最大的benifit/cost</li>
+</ol>
+
+<h2 id="team-formation-in-social-networks">Team Formation in Social Networks</h2>
+<blockquote>
+  <p>如何要找到正確的人,組成一個團隊</p>
+</blockquote>
+
+<ul>
+  <li>Task</li>
+  <li>Expert</li>
+  <li>Network</li>
+  <li>Effective</li>
+</ul>
+
+<p>Given</p>
+<blockquote>
+  <p>set of n individuals , a graph , a task</p>
+</blockquote>
+
+<p>Find</p>
+<blockquote>
+  <p>必須包含task,individuals skill聯集要包含task<br />
+    communication cost要最小越好</p>
+</blockquote>
+
+<p><strong>Communication Cost</strong><br />
+Diameter</p>
+<ul>
+  <li>distance     : shortest path (geodesic distance)</li>
+  <li>eccentricity : 其中一個點到其他所有點的shortest path,並取最大的值</li>
+  <li>radius       : minimun eccentrictity 溝通成本最低</li>
+  <li>diameter     : maximun eccentrictity 溝通成本最高</li>
+</ul>
+
+<p>measure communication cost</p>
+<ol>
+  <li>diameter</li>
+  <li>minimum spanning tree</li>
+</ol>
+
+<p>不管用diameter或是MST都是NP-hard<br />
+那縮小範圍可以考慮到加入限制 : <br />
+<script type="math/tex">\quad</script>人數越少越好 → set cover problem(NP-complete)</p>
+
+<p>作者提出的方法將set cover problem視為baseline作為比較<br />
+NPC問題通常找近似解,所以需要一個比較的方法</p>
+<ol>
+  <li>RarestFirst Algo for Diameter-TF<br />
+ 先從skill少的加入集合考慮,必找diameter低的持續加入集合<br />
+ 假設skill少的同時有2個人會,那要挑誰？
+    <ol>
+      <li>隨便挑</li>
+      <li>從欠缺能力看,計算和有欠缺技能的node計算diameter,挑minimun diameter</li>
+    </ol>
+  </li>
+  <li>
+    <p>The Enhanced Steiner ALog. for MST-TF<br />
+ The Minimum Stener Tree Problem (NP-hard)<br />
+     給入require的點,必找出含有這些點的tree<br />
+     如果require是所有的點,問題就會變成minimal spanning tree,<br />
+     minimal spanning tree是minimum stener tree的speical case<br />
+     如果require只有兩個點,那就會變成shortest path的問題</p>
+
+    <p>將每一個skill,各至成為一個node,且連到擁有這些技能的點,<br />
+ 將題目轉為stener alog,require就是自己建立的node,找到後再去除這些node<br />
+ 1.從自己建立的node找一個點放到set中<br />
+ 2.計算和require和set中的距離,取最短,並將path上的點加入set,直到所有require都在set中 <br />
+<!-- 20170512 --></p>
+  </li>
+</ol>
+
+<!-- class -->
+<h2 id="herd-從眾">Herd 從眾</h2>
+<blockquote>
+  <p>有一群人做決策,大家會趨向一個方向</p>
+</blockquote>
+
+<ul>
+  <li>Information Diffusion
+    <ul>
+      <li>Explicit Network
+        <ul>
+          <li>Global Information Herd Behavior</li>
+          <li>Local Information <br />
+  Information Cascases (e.g. Facebook)</li>
+        </ul>
+      </li>
+      <li>Implicit Network
+        <ul>
+          <li>Diffusion of Innovations (e.g. ptt movies)</li>
+          <li>Epidemics (e.g. 疾病的擴散)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="herd-example">Herd example</h4>
+<ol>
+  <li>
+    <p>Soloman Asch Experiment<br />
+ 左邊一個長條圖形和右邊有三個不同長短的長條圖形,比較長度和哪個最相近</p>
+  </li>
+  <li>
+    <p>Urn Experiment (Bayesian Modeling of Herd Behavior)<br />
+ 甕裡面放珠寶有紅色和藍色,不會是全部是藍色或全部是紅色<br />
+ 猜甕中主要是什麼顏色的珠寶<br />
+ 每個學生從甕中抓一把,且不能告訴別人,會放回去<br />
+ 分別叫每個學生預測主要是紅色還是藍色<br />
+ 且將預測結果寫在黑板上,且後面同學可以看到黑板上結果</p>
+
+    <p>example @ page.30</p>
+  </li>
+</ol>
+
+<p>Intervention  with Herding 阻止Herding</p>
+<ol>
+  <li>和每個人說一些消息(private message)</li>
+</ol>
+
+<p>Diffusion of Innovations<br />
+    an idea,practice,object<br />
+    研究這些創新如何傳播,和擴散的速度</p>
+
+<!-- 20170512 -->
+
+<!-- class -->
+<p>Innovations創新介於invention發明和improvement改善之間</p>
+
+<p>會接受這些創新的人</p>
+<ol>
+  <li>Innovators</li>
+  <li>Early adopters
+3.
+4.
+5.
+<!-- class --></li>
+</ol>
+
+<!-- class -->
+<h1 id="9">Cloud computing</h1>
+<p><a href="http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf">The NIST Definition of Cloud Computing</a></p>
+
+<ul>
+  <li>Parallel</li>
+  <li>Distribute</li>
+  <li>Grid</li>
+  <li>Utility Computing</li>
+</ul>
+
+<h4 id="parallel-computing">Parallel Computing</h4>
+<blockquote>
+  <p>將大問題拆成小問題且同時執行</p>
+  <h4 id="distributed-computing">Distributed Computing</h4>
+  <p>多台獨立電腦透過網路連結且為同一個任務工作</p>
+  <h4 id="grid-computing">Grid Computing</h4>
+  <p>是一種Distributed Computing</p>
+  <h4 id="utility-computing">Utility Computing</h4>
+  <p>讓計算像使用電力,水等資源,只要有一個client端就可以使用,不在本地端計算,而是在提供服務的單位計算</p>
+</blockquote>
+
+<h4 id="performance-optimization">Performance Optimization</h4>
+<ul>
+  <li>Parallel Computing</li>
+  <li>Job Scheduling</li>
+  <li>Load Balancing</li>
+</ul>
+
+<h4 id="survice-models">Survice Models</h4>
+<ol>
+  <li>IaaS(Infrastructure as a Service)
+    <blockquote>
+      <p>包含硬體,OS,driver,networking
+使用者不用管理或控制底層的東西
+Virtualization:
+Abstraction of logical resource away from underlying phyical resources<br />
+Improve utilization,security</p>
+    </blockquote>
+  </li>
+  <li>Paas(Platform as a Service)
+    <blockquote>
+      <p>提供工程師一個寫程式的環境,包含程式語言和工具,且不用管理底層的硬體但可以做控制<br />
+(e.g. Programming IDE,Programming API,System Control interface,Hadoop,Google App Engine,Microsoft Windows Azure)</p>
+    </blockquote>
+  </li>
+  <li>SaaS(Software as a Service)
+    <blockquote>
+      <p>提供應用程式給一般人使用,透過clinet界面就可以使用<br />
+(web Service,Google App)</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h4 id="mapreduce">MapReduce</h4>
+<ul>
+  <li>A programming model</li>
+</ul>
+
+<!-- class -->
 
 </div>
 
@@ -748,15 +1075,6 @@ Markov Process  <br />
           <a href="/2017/dataStructure/">
             Data Structure
             <small>27 Mar 2017</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2017/python/">
-            python
-            <small>08 Mar 2017</small>
           </a>
         </h3>
       </li>
