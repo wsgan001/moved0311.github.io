@@ -1,6 +1,7 @@
 ---
 layout: post
 title: SocialCloudComputing
+comments: true
 ---
 ### Outline
 * Centrality Analysis  

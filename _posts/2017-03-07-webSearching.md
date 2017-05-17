@@ -1,7 +1,7 @@
 ---
 layout: post
 title: WebSearching 
-comments: yes 
+comments: true 
 ---
 ## CH8 Evaluation in information retrival      
 評量search engine好壞
