@@ -3,9 +3,7 @@
 title: 'Note'
 description: ''
 baseurl: '/'
-
-site:
-    url: 'https://moved0311.github.io'
+url: 'https://moved0311.github.io'
 
 author:
   name: 'Taiyi'
