@@ -19,6 +19,10 @@
 	opacity: 0.3;
 	zoom: 1.2;
 }
+.comments{
+    //width:70%;
+    //margin-left: 20rem;
+}
 /*
 a:hover .fa-facebook{ color: #FFFF93; zoom : 1.2;}
 a:hover .fa-github{ color: #FFFF93;zoom : 1.2;}
