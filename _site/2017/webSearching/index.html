@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
   <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
@@ -33,14 +34,18 @@
 
 
   <body class="theme-base-0b">
+    { include facebook-script.html %}  
+
     <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=228652297542969";
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.9&appId=104890433426844";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
+
     <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
@@ -844,6 +849,65 @@ P(d|c)可以拆成多個Term的連乘積
 
 <!-- class -->
 
+<!-- class -->
+<h1 id="ch14-vector-space-classification">CH14 Vector Space Classification</h1>
+<ul>
+  <li>Rocchio</li>
+  <li>kNN classification</li>
+  <li>linear classification</li>
+</ul>
+
+<p>Vector Space Classification</p>
+<ol>
+  <li>同一類文章如果同類會形成一個連續的空間</li>
+  <li>如果不同類別則空間不會有overlap</li>
+</ol>
+
+<h4 id="rocchio">Rocchio</h4>
+<p>早期1970在SMART搜索系統中,負責用在relevance feedback
+將同類文章標示成prototype vector
+prototype = centroid of members of class
+每一類算出一個重心(全部vector加起來做平均)
+計算相似度可以使用distance</p>
+
+<p>performance較naive bayes差</p>
+
+<h4 id="knn-classification">kNN classification</h4>
+<p>k Nearest Neighbors(kNN)
+鄰近k個鄰居做投票決定分類結果<br />
+k = 1 過於sensitive
+k 太大過麼模糊
+通常選則奇數(3,5,7)</p>
+
+<p>計算相似度
+Euclidean distance,tfidf,…
+沒有任何學習</p>
+
+<p>Bias-Variance Tradeoff
+用來衡量
+Bias 猜出的結果和真實結果差距多少
+     差距越大Bisa越高
+Variance
+    每次猜出來的結果差異會不會很大</p>
+
+<p>ideal情形是low Bias , low Variance</p>
+
+<h4 id="linear-classification">Linear classification</h4>
+<p>consider 2 class problem
+Sum of WiXi
+線性分類器在一二三維中分別表示點線面,一個分界面</p>
+
+<p>e.g. Naive Bayes,Percept</p>
+
+<h4 id="more-than-two-classed">more than two classed</h4>
+<ul>
+  <li>one-of
+  每個資料只能分到一類</li>
+  <li>Any-of or multi-label</li>
+</ul>
+
+<!-- class -->
+
 </div>
 
 <div class="related">
@@ -869,12 +933,12 @@ P(d|c)可以拆成多個Term的連乘積
       </li>
     
   </ul>
+</div>
 
-  
+
     <div class="fb-comments" data-href="http://localhost:4000/2017/webSearching/" data-width="auto" data-numposts="5"></div>
 
-  
-</div>
+
 
     </div>
 

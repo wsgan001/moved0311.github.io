@@ -22,6 +22,8 @@ layout: default
       </li>
     {% endfor %}
   </ul>
-
-    { % include facebook-div.html %}
 </div>
+
+{% if page.comments %}
+    {% include facebook-div.html %}
+{% endif %}

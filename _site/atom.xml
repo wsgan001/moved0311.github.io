@@ -4,7 +4,7 @@
  <title>Note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-14T20:29:01+08:00</updated>
+ <updated>2017-05-17T13:56:36+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -815,6 +815,65 @@ P(d|c)可以拆成多個Term的連乘積
 
 &lt;p&gt;Evaluations
     測試資料和training data不能有overlapping&lt;/p&gt;
+
+&lt;!-- class --&gt;
+
+&lt;!-- class --&gt;
+&lt;h1 id=&quot;ch14-vector-space-classification&quot;&gt;CH14 Vector Space Classification&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Rocchio&lt;/li&gt;
+  &lt;li&gt;kNN classification&lt;/li&gt;
+  &lt;li&gt;linear classification&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Vector Space Classification&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;同一類文章如果同類會形成一個連續的空間&lt;/li&gt;
+  &lt;li&gt;如果不同類別則空間不會有overlap&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;rocchio&quot;&gt;Rocchio&lt;/h4&gt;
+&lt;p&gt;早期1970在SMART搜索系統中,負責用在relevance feedback
+將同類文章標示成prototype vector
+prototype = centroid of members of class
+每一類算出一個重心(全部vector加起來做平均)
+計算相似度可以使用distance&lt;/p&gt;
+
+&lt;p&gt;performance較naive bayes差&lt;/p&gt;
+
+&lt;h4 id=&quot;knn-classification&quot;&gt;kNN classification&lt;/h4&gt;
+&lt;p&gt;k Nearest Neighbors(kNN)
+鄰近k個鄰居做投票決定分類結果&lt;br /&gt;
+k = 1 過於sensitive
+k 太大過麼模糊
+通常選則奇數(3,5,7)&lt;/p&gt;
+
+&lt;p&gt;計算相似度
+Euclidean distance,tfidf,…
+沒有任何學習&lt;/p&gt;
+
+&lt;p&gt;Bias-Variance Tradeoff
+用來衡量
+Bias 猜出的結果和真實結果差距多少
+     差距越大Bisa越高
+Variance
+    每次猜出來的結果差異會不會很大&lt;/p&gt;
+
+&lt;p&gt;ideal情形是low Bias , low Variance&lt;/p&gt;
+
+&lt;h4 id=&quot;linear-classification&quot;&gt;Linear classification&lt;/h4&gt;
+&lt;p&gt;consider 2 class problem
+Sum of WiXi
+線性分類器在一二三維中分別表示點線面,一個分界面&lt;/p&gt;
+
+&lt;p&gt;e.g. Naive Bayes,Percept&lt;/p&gt;
+
+&lt;h4 id=&quot;more-than-two-classed&quot;&gt;more than two classed&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;one-of
+  每個資料只能分到一類&lt;/li&gt;
+  &lt;li&gt;Any-of or multi-label&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;!-- class --&gt;
 </content>
