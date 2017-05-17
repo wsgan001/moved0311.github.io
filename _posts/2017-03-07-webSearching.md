@@ -3,7 +3,8 @@ layout: post
 title: WebSearching 
 comments: True 
 ---
-## CH8 Evaluation in information retrival      
+<hr>
+# CH8 Evaluation in information retrival      
 評量search engine好壞
 1. 搜到的index
 2. 搜尋速度
@@ -18,7 +19,6 @@ comments: True
 
 queries和information need有落差
 想找的東西,不會下key word
-
 
 __Precision (P)__    
 >  Precision = $$\frac{檢索到相關物件的數量}{物件總數}\$$  
@@ -146,7 +146,8 @@ Dynamic:利用nlp技術,根據搜索關鍵字動態做變化
 * quicklinks  
 底下多的連結  
 
-## Ch6 Model    
+<hr>
+# CH6 Model    
 * Vector Space Model
 * Probabilistic Information Retrieval 
 
@@ -257,7 +258,8 @@ __TF-IDF範例程式__
 [Tutorial: Finding Important Words in Text Using TF-IDF](http://stevenloria.com/finding-important-words-in-a-document-using-tf-idf/)
 
 <br/>
-## Ch11 Probabilistic Information Retrieval    
+<hr>
+# Ch11 Probabilistic Information Retrieval    
 
 __Probability theory__  
 * Joint probability   
@@ -406,7 +408,7 @@ __Improving RSJ__
 
 <hr>
 <!-- 20170416 -->
-## CH12 Language models for informatio retrieval  
+# CH12 Language models for informatio retrieval  
 
 __unigram language model__    
 > 每個word只有單一的狀態,可以建立一個table放每個word對應到的機率 
@@ -468,14 +470,8 @@ __Text Generation with Unigram LM__
 <!-- 20170427 -->
 
 <!-- class -->
-MLE -> smoothing(去除機率為0的值)用copers這個smooth方法  
-
-smoothing方法  
-* Jelinek-Mercer
-* Dirichlet prior
-* Absolute discontuning
-
-## CH13 Text Classification and Naive Bayes  
+<hr>
+# CH13 Text Classification and Naive Bayes  
 * Text Classification
 * Naive Bayes
 * Naive Bayes Theory
@@ -538,46 +534,55 @@ Evaluations
 
 <!-- class -->
 
-<!-- class -->
+<hr>
+<!---------------------------- 20170517 -------------------------------------------->
 # CH14 Vector Space Classification
-* Rocchio
-* kNN classification
-* linear classification
+* <a href="#ch14_1">Rocchio classification</a>
+* <a href="#ch14_2">kNN classification</a>
+* <a href="#ch14_3">linear classification</a>
+* <a href="#ch14_4">Bias-Variance Tradeoff</a>
 
-Vector Space Classification
-1. 同一類文章如果同類會形成一個連續的空間
-2. 如果不同類別則空間不會有overlap
+#### Vector Space Classification 基本假設
+1. 資料如果同類會形成一個連續的空間
+2. 資料如果不同類別,所形成的空間不會有overlap
+ 
+<h2 id="ch14_1">Rocchio classification(Nearest centroid classifier)</h2>
+將資料表示成向量形式,  
+並將各類別的資料計算出重心(所有向量加總取平均),  
+利用distance計算相似度  
+計算的成本很低,但效果不太好(比naive bayes差)  
 
-#### Rocchio 
-早期1970在SMART搜索系統中,負責用在relevance feedback
-將同類文章標示成prototype vector
-prototype = centroid of members of class
-每一類算出一個重心(全部vector加起來做平均)
-計算相似度可以使用distance
+主要是沒有處理：
+* nonconvex
+* multimodal classes
 
-performance較naive bayes差
+應用：
+* 1970年SMART搜索系統中,應用在relevance feedback  
 
-#### kNN classification
-k Nearest Neighbors(kNN)
-鄰近k個鄰居做投票決定分類結果  
-k = 1 過於sensitive
-k 太大過麼模糊
-通常選則奇數(3,5,7)
+<h2 id="ch14_2">k Nearest Neighbors(kNN) classification</h2>
+> 要分類的點根據最近的k個鄰居做投票決定  
 
-計算相似度
-Euclidean distance,tfidf,...
-沒有任何學習
+k = 1 過於sensitive,太容易由某一類變成另外一類  
+k太大結果過於模糊  
+k通常選擇奇數(3,5,7),通常使用heuristic來決定k值   
 
-Bias-Variance Tradeoff
-用來衡量
-Bias 猜出的結果和真實結果差距多少
-     差距越大Bisa越高
-Variance
-    每次猜出來的結果差異會不會很大
+example:
+k = 3
+![kNN = 3](/img/websearching/kNN3.png)
 
-ideal情形是low Bias , low Variance
+計算相似度:    
+* Euclidean distance
+* Hamming distance (binary instance)
+* cosine similarity of tfidf
 
-#### Linear classification
+特色:  
+* 沒有任何學習
+* 如果資料集很大,準確率非常高,資料集小可能就不會很準  
+* 大致上準確率會較Naive Bayes和Rocchio高  
+
+<!---------------------------- 20170517 -------------------------------------------->
+
+<h2 id="ch14_3">Linear classification</h2>
 consider 2 class problem
 Sum of WiXi
 線性分類器在一二三維中分別表示點線面,一個分界面
@@ -588,5 +593,14 @@ e.g. Naive Bayes,Percept
 * one-of
     每個資料只能分到一類
 * Any-of or multi-label
+
+<h2 id="ch14_4">Bias-Variance Tradeoff</h2>
+用來衡量
+Bias 猜出的結果和真實結果差距多少
+     差距越大Bisa越高
+Variance
+    每次猜出來的結果差異會不會很大
+
+ideal情形是low Bias , low Variance
 
 <!-- class -->

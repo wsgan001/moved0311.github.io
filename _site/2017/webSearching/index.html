@@ -110,7 +110,9 @@
       <div class="post">
   <h1 class="post-title">WebSearching</h1>
   <span class="post-date">07 Mar 2017</span>
-  <h2 id="ch8-evaluation-in-information-retrival">CH8 Evaluation in information retrival</h2>
+  <hr />
+
+<h1 id="ch8-evaluation-in-information-retrival">CH8 Evaluation in information retrival</h1>
 <p>評量search engine好壞</p>
 <ol>
   <li>搜到的index</li>
@@ -305,7 +307,9 @@ Dynamic:利用nlp技術,根據搜索關鍵字動態做變化</li>
 底下多的連結</li>
 </ul>
 
-<h2 id="ch6-model">Ch6 Model</h2>
+<hr />
+
+<h1 id="ch6-model">CH6 Model</h1>
 <ul>
   <li>Vector Space Model</li>
   <li>Probabilistic Information Retrieval</li>
@@ -475,7 +479,9 @@ VSM優點: Empirically effective,直觀, 實作容易</p>
 <a href="http://stevenloria.com/finding-important-words-in-a-document-using-tf-idf/">Tutorial: Finding Important Words in Text Using TF-IDF</a></p>
 
 <p><br /></p>
-<h2 id="ch11-probabilistic-information-retrieval">Ch11 Probabilistic Information Retrieval</h2>
+<hr />
+
+<h1 id="ch11-probabilistic-information-retrieval">Ch11 Probabilistic Information Retrieval</h1>
 
 <p><strong>Probability theory</strong></p>
 <ul>
@@ -672,7 +678,7 @@ log是monotonic function不會改變ranking順序</p>
 <hr />
 
 <!-- 20170416 -->
-<h2 id="ch12-language-models-for-informatio-retrieval">CH12 Language models for informatio retrieval</h2>
+<h1 id="ch12-language-models-for-informatio-retrieval">CH12 Language models for informatio retrieval</h1>
 
 <p><strong>unigram language model</strong></p>
 <blockquote>
@@ -754,16 +760,9 @@ ranking的計算是根據P(Q|D)</p>
 <!-- 20170427 -->
 
 <!-- class -->
-<p>MLE -&gt; smoothing(去除機率為0的值)用copers這個smooth方法</p>
+<hr />
 
-<p>smoothing方法</p>
-<ul>
-  <li>Jelinek-Mercer</li>
-  <li>Dirichlet prior</li>
-  <li>Absolute discontuning</li>
-</ul>
-
-<h2 id="ch13-text-classification-and-naive-bayes">CH13 Text Classification and Naive Bayes</h2>
+<h1 id="ch13-text-classification-and-naive-bayes">CH13 Text Classification and Naive Bayes</h1>
 <ul>
   <li>Text Classification</li>
   <li>Naive Bayes</li>
@@ -839,50 +838,70 @@ P(d|c)可以拆成多個Term的連乘積
 
 <!-- class -->
 
-<!-- class -->
+<hr />
+
+<!---------------------------- 20170517 -------------------------------------------->
 <h1 id="ch14-vector-space-classification">CH14 Vector Space Classification</h1>
 <ul>
-  <li>Rocchio</li>
-  <li>kNN classification</li>
-  <li>linear classification</li>
+  <li><a href="#ch14_1">Rocchio classification</a></li>
+  <li><a href="#ch14_2">kNN classification</a></li>
+  <li><a href="#ch14_3">linear classification</a></li>
+  <li><a href="#ch14_4">Bias-Variance Tradeoff</a></li>
 </ul>
 
-<p>Vector Space Classification</p>
+<h4 id="vector-space-classification-基本假設">Vector Space Classification 基本假設</h4>
 <ol>
-  <li>同一類文章如果同類會形成一個連續的空間</li>
-  <li>如果不同類別則空間不會有overlap</li>
+  <li>資料如果同類會形成一個連續的空間</li>
+  <li>資料如果不同類別,所形成的空間不會有overlap</li>
 </ol>
 
-<h4 id="rocchio">Rocchio</h4>
-<p>早期1970在SMART搜索系統中,負責用在relevance feedback
-將同類文章標示成prototype vector
-prototype = centroid of members of class
-每一類算出一個重心(全部vector加起來做平均)
-計算相似度可以使用distance</p>
+<h2 id="ch14_1">Rocchio classification(Nearest centroid classifier)</h2>
+<p>將資料表示成向量形式,<br />
+並將各類別的資料計算出重心(所有向量加總取平均),<br />
+利用distance計算相似度<br />
+計算的成本很低,但效果不太好(比naive bayes差)</p>
 
-<p>performance較naive bayes差</p>
+<p>主要是沒有處理：</p>
+<ul>
+  <li>nonconvex</li>
+  <li>multimodal classes</li>
+</ul>
 
-<h4 id="knn-classification">kNN classification</h4>
-<p>k Nearest Neighbors(kNN)
-鄰近k個鄰居做投票決定分類結果<br />
-k = 1 過於sensitive
-k 太大過麼模糊
-通常選則奇數(3,5,7)</p>
+<p>應用：</p>
+<ul>
+  <li>1970年SMART搜索系統中,應用在relevance feedback</li>
+</ul>
 
-<p>計算相似度
-Euclidean distance,tfidf,…
-沒有任何學習</p>
+<h2 id="ch14_2">k Nearest Neighbors(kNN) classification</h2>
+<blockquote>
+  <p>要分類的點根據最近的k個鄰居做投票決定</p>
+</blockquote>
 
-<p>Bias-Variance Tradeoff
-用來衡量
-Bias 猜出的結果和真實結果差距多少
-     差距越大Bisa越高
-Variance
-    每次猜出來的結果差異會不會很大</p>
+<p>k = 1 過於sensitive,太容易由某一類變成另外一類<br />
+k太大結果過於模糊<br />
+k通常選擇奇數(3,5,7),通常使用heuristic來決定k值</p>
 
-<p>ideal情形是low Bias , low Variance</p>
+<p>example:
+k = 3
+<img src="/img/websearching/kNN3.png" alt="kNN = 3" /></p>
 
-<h4 id="linear-classification">Linear classification</h4>
+<p>計算相似度:</p>
+<ul>
+  <li>Euclidean distance</li>
+  <li>Hamming distance (binary instance)</li>
+  <li>cosine similarity of tfidf</li>
+</ul>
+
+<p>特色:</p>
+<ul>
+  <li>沒有任何學習</li>
+  <li>如果資料集很大,準確率非常高,資料集小可能就不會很準</li>
+  <li>大致上準確率會較Naive Bayes和Rocchio高</li>
+</ul>
+
+<!---------------------------- 20170517 -------------------------------------------->
+
+<h2 id="ch14_3">Linear classification</h2>
 <p>consider 2 class problem
 Sum of WiXi
 線性分類器在一二三維中分別表示點線面,一個分界面</p>
@@ -895,6 +914,15 @@ Sum of WiXi
   每個資料只能分到一類</li>
   <li>Any-of or multi-label</li>
 </ul>
+
+<h2 id="ch14_4">Bias-Variance Tradeoff</h2>
+<p>用來衡量
+Bias 猜出的結果和真實結果差距多少
+     差距越大Bisa越高
+Variance
+    每次猜出來的結果差異會不會很大</p>
+
+<p>ideal情形是low Bias , low Variance</p>
 
 <!-- class -->
 
