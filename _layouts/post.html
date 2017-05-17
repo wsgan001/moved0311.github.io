@@ -24,6 +24,10 @@ layout: default
   </ul>
 
 
-<div class="fb-comment-embed" data-href="https://www.facebook.com/zuck/posts/10102577175875681?comment_id=1193531464007751&amp;reply_comment_id=654912701278942" data-width="560" data-include-parent="false"></div>
-
+  {% include facebook-like.html %}
+  {% if page.comments %}
+    <hr/>
+    <h4>Comments</h4>
+    <div class="fb-comments" data-href="http://moved0311.github.io{{ page.url }}" data-num-posts="5" data-width="auto"></div>
+  {% endif %}
 </div>
