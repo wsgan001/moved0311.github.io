@@ -900,31 +900,55 @@ k = 3
 </ul>
 
 <!---------------------------- 20170517 -------------------------------------------->
+<!---------------------------- 20170518 -------------------------------------------->
 
 <h2 id="ch14_3">Linear classification</h2>
-<p>consider 2 class problem
-Sum of WiXi
-線性分類器在一二三維中分別表示點線面,一個分界面</p>
+<blockquote>
+  <p>想法是將所有的資料分為兩類,用一些公式計算出來的值大於一個門檻值分為一類,小於門檻值分到另一類</p>
+</blockquote>
 
-<p>e.g. Naive Bayes,Percept</p>
+<script type="math/tex; mode=display">\sum{W_iX_i} > \theta, \quad \theta (threshold)</script>
 
-<h4 id="more-than-two-classed">more than two classed</h4>
-<ul>
-  <li>one-of
-  每個資料只能分到一類</li>
-  <li>Any-of or multi-label</li>
-</ul>
+<p>線性分類器代表一個分界面,在一維代表一個點、二維代表一條線、三維代表一個平面</p>
+
+<p>找到分界面的演算法分為兩類</p>
+<ol>
+  <li>Simple learning algorithms<br />
+ 透過學習資料,學出分界面的參數
+    <ul>
+      <li>Naive Bayes,Rocchio,kNN</li>
+    </ul>
+  </li>
+  <li>Iterative algorithms
+    <ul>
+      <li>Support vector machines,<a href="https://www.cs.utexas.edu/~teammco/misc/perceptron/">Perceptron</a></li>
+    </ul>
+  </li>
+</ol>
+
+<p>Linear Classifier算是多個方法的集大成<br />
+e.g. Naive Bayes,Perceptron,Rocchio,Logistic regression,Support vector machines(with linear kernel),Linear regression with threshold</p>
 
 <h2 id="ch14_4">Bias-Variance Tradeoff</h2>
-<p>用來衡量
-Bias 猜出的結果和真實結果差距多少
-     差距越大Bisa越高
-Variance
-    每次猜出來的結果差異會不會很大</p>
+<blockquote>
+  <p>一種量測分類方法的指標</p>
+</blockquote>
 
-<p>ideal情形是low Bias , low Variance</p>
+<p><a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">Bias-variance wiki</a></p>
 
-<!-- class -->
+<ul>
+  <li>Bias <br />
+  分類的結果和真實結果差距多少<br />
+  差距越大Bisa越高</li>
+  <li>Variance<br />
+  比較每次猜出來的結果差異會不會很大</li>
+</ul>
+
+<p>理想情形是low Bias, low Variance</p>
+
+<script type="math/tex; mode=display">Err(x) = Bias^2 + Variance + Irreducible Error</script>
+
+<!---------------------------- 20170518 -------------------------------------------->
 
 </div>
 

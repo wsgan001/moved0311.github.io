@@ -581,26 +581,38 @@ k = 3
 * 大致上準確率會較Naive Bayes和Rocchio高  
 
 <!---------------------------- 20170517 -------------------------------------------->
+<!---------------------------- 20170518 -------------------------------------------->
 
 <h2 id="ch14_3">Linear classification</h2>
-consider 2 class problem
-Sum of WiXi
-線性分類器在一二三維中分別表示點線面,一個分界面
+> 想法是將所有的資料分為兩類,用一些公式計算出來的值大於一個門檻值分為一類,小於門檻值分到另一類
 
-e.g. Naive Bayes,Percept
+$$ \sum{W_iX_i} > \theta, \quad \theta (threshold)$$
 
-#### more than two classed
-* one-of
-    每個資料只能分到一類
-* Any-of or multi-label
+線性分類器代表一個分界面,在一維代表一個點、二維代表一條線、三維代表一個平面  
+
+找到分界面的演算法分為兩類
+1. Simple learning algorithms  
+    透過學習資料,學出分界面的參數  
+    * Naive Bayes,Rocchio,kNN  
+2. Iterative algorithms  
+    * Support vector machines,[Perceptron](https://www.cs.utexas.edu/~teammco/misc/perceptron/)  
+
+Linear Classifier算是多個方法的集大成  
+e.g. Naive Bayes,Perceptron,Rocchio,Logistic regression,Support vector machines(with linear kernel),Linear regression with threshold
 
 <h2 id="ch14_4">Bias-Variance Tradeoff</h2>
-用來衡量
-Bias 猜出的結果和真實結果差距多少
-     差距越大Bisa越高
-Variance
-    每次猜出來的結果差異會不會很大
+> 一種量測分類方法的指標 
 
-ideal情形是low Bias , low Variance
+[Bias-variance wiki](https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff)  
 
-<!-- class -->
+* Bias   
+    分類的結果和真實結果差距多少  
+    差距越大Bisa越高  
+* Variance  
+    比較每次猜出來的結果差異會不會很大  
+
+理想情形是low Bias, low Variance
+
+$$ Err(x) = Bias^2 + Variance + Irreducible Error $$
+
+<!---------------------------- 20170518 -------------------------------------------->

@@ -4,7 +4,7 @@
  <title>Note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-17T18:29:35+08:00</updated>
+ <updated>2017-05-18T11:35:46+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -879,31 +879,55 @@ k = 3
 &lt;/ul&gt;
 
 &lt;!---------------------------- 20170517 --------------------------------------------&gt;
+&lt;!---------------------------- 20170518 --------------------------------------------&gt;
 
 &lt;h2 id=&quot;ch14_3&quot;&gt;Linear classification&lt;/h2&gt;
-&lt;p&gt;consider 2 class problem
-Sum of WiXi
-線性分類器在一二三維中分別表示點線面,一個分界面&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;想法是將所有的資料分為兩類,用一些公式計算出來的值大於一個門檻值分為一類,小於門檻值分到另一類&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;e.g. Naive Bayes,Percept&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum{W_iX_i} &gt; \theta, \quad \theta (threshold)&lt;/script&gt;
 
-&lt;h4 id=&quot;more-than-two-classed&quot;&gt;more than two classed&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;one-of
-  每個資料只能分到一類&lt;/li&gt;
-  &lt;li&gt;Any-of or multi-label&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;線性分類器代表一個分界面,在一維代表一個點、二維代表一條線、三維代表一個平面&lt;/p&gt;
+
+&lt;p&gt;找到分界面的演算法分為兩類&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Simple learning algorithms&lt;br /&gt;
+ 透過學習資料,學出分界面的參數
+    &lt;ul&gt;
+      &lt;li&gt;Naive Bayes,Rocchio,kNN&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Iterative algorithms
+    &lt;ul&gt;
+      &lt;li&gt;Support vector machines,&lt;a href=&quot;https://www.cs.utexas.edu/~teammco/misc/perceptron/&quot;&gt;Perceptron&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Linear Classifier算是多個方法的集大成&lt;br /&gt;
+e.g. Naive Bayes,Perceptron,Rocchio,Logistic regression,Support vector machines(with linear kernel),Linear regression with threshold&lt;/p&gt;
 
 &lt;h2 id=&quot;ch14_4&quot;&gt;Bias-Variance Tradeoff&lt;/h2&gt;
-&lt;p&gt;用來衡量
-Bias 猜出的結果和真實結果差距多少
-     差距越大Bisa越高
-Variance
-    每次猜出來的結果差異會不會很大&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;一種量測分類方法的指標&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;ideal情形是low Bias , low Variance&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff&quot;&gt;Bias-variance wiki&lt;/a&gt;&lt;/p&gt;
 
-&lt;!-- class --&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bias &lt;br /&gt;
+  分類的結果和真實結果差距多少&lt;br /&gt;
+  差距越大Bisa越高&lt;/li&gt;
+  &lt;li&gt;Variance&lt;br /&gt;
+  比較每次猜出來的結果差異會不會很大&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;理想情形是low Bias, low Variance&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Err(x) = Bias^2 + Variance + Irreducible Error&lt;/script&gt;
+
+&lt;!---------------------------- 20170518 --------------------------------------------&gt;
 </content>
  </entry>
  
