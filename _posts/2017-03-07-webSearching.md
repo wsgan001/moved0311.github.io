@@ -616,3 +616,65 @@ e.g. Naive Bayes,Perceptron,Rocchio,Logistic regression,Support vector machines(
 $$ Err(x) = Bias^2 + Variance + Irreducible Error $$
 
 <!---------------------------- 20170518 -------------------------------------------->
+<!---------------------------- class -------------------------------------------->
+# Ch15 Support Vector Machines and Machine Learning on Documents  
+在linear classification中,切割開的線有無限多條,
+SVM可以在這些線中找到一條最佳的線(margin最大)  
+方法只會由少數的點來做分界面,不必載入全部資料
+這些點是由最困難的點所成的集合,集合稱作support vector
+
+w: hyperplane normal vector
+$x_i$: data point i
+$y_i$: class of data point (+1 or -1)
+classifier f($x_i$) = sign($w^Tx_i$ + b)    //b: bias
+Define functional margin of $x_i$ is $y_i(w^Tx_i+b)$
+目標是將Geometric Margin最大化
+
+Geometric Margin
+訓練出來的線,兩端碰到最近的support vector中的點所為成的區域
+
+兩條平行線距離 2/||x||
+
+&phi(w) = 1/2||w|| is minimized
+$y_i(w^Tx_i$ + b) >= 1
+
+希望$y_i和(w^Tx_i$ + b)同號 
+
+dual problem
+將一個問題a推到另一個問題b
+當b解完後a也跟著解完
+推導到Largrangian Dual
+
+每個點會有一個alpha值
+alpha值 <0 代表點可以忽略
+>0 代表是support vector(可能包含錯誤的點)
+
+soft margin classification
+允許某些點可以分錯
+$\phi$(w) 1/2||w|| + C$\sum$ slack
+C 越小越可以容錯
+因為希望$\phi$(w) 出來的值可以越小越好
+
+#### Non-linear SVMs
+用一條線分不開的情形,
+svm提供kernel function的概念,將點map到更高維的空間中,就有機會能夠分割
+
+kernel function
+$K(x_i,x_j)=x_i^Tx_j$
+
+透過kernel function可以知道高維空間的內積值
+
+#### Common kernels
+* Linear
+* Polynomial $$
+* Radial basis function(infinite dimensional space)
+
+HW3
+1.文件分類
+2.用各個方法會選擇哪兩個字
+3.
+4.重心方法
+5.svm根據各個準則會分到哪類
+
+
+<!---------------------------- class -------------------------------------------->

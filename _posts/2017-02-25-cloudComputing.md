@@ -133,7 +133,7 @@ __Group centrality__
 > 找出social network中幾個最有影響力的人  
 或指定某幾個人觀察這些人的影響力  
 
-<!-- 20170413 start --> 
+<!-- 20170413  --> 
 __Properties of cohesion 凝聚力的判斷__  
 1. Mutuality of ties  
     所有subgroup彼此都有編相連,在graph中就是完全圖的概念  
@@ -219,7 +219,7 @@ I (internal cost)
 
 __KL algorithm複雜度__  
 $$ O(n^2) $$ 找到最適合交換的兩點,有n pair要交換 &rArr; $$ O(n^3) $$ 
-<!-- 20170413 end --> 
+<!-- 20170413  --> 
 
 <!-- 20170512 -->
 #### Hiraichiecal   
@@ -342,7 +342,7 @@ __Monotone Function__
 * non-monotone
 <!-- 20170512 -->
 <hr>
-<!-- 20170421 start --> 
+<!-- 20170421 --> 
 >
 * Link Prediction
 * Node-wise Similarity Based Methods
@@ -422,7 +422,7 @@ __Learning-Based Similarity Measure__
 
 #### Probabilistic Model Based Methods  
 e.g. relational Markov model  
-<!-- 20170421 end --> 
+<!-- 20170421 --> 
 
 
 <!-- 20170420 --> 
@@ -639,7 +639,7 @@ NPC問題通常找近似解,所以需要一個比較的方法
 <!-- 20170512 -->
 
 
-<!-- class -->
+<!-- 20170525 -->
 ## Herd 從眾  
 > 有一群人做決策,大家會趨向一個方向
 
@@ -657,37 +657,15 @@ NPC問題通常找近似解,所以需要一個比較的方法
     左邊一個長條圖形和右邊有三個不同長短的長條圖形,比較長度和哪個最相近  
     
 2. Urn Experiment (Bayesian Modeling of Herd Behavior)  
-    甕裡面放珠寶有紅色和藍色,不會是全部是藍色或全部是紅色  
-    猜甕中主要是什麼顏色的珠寶  
-    每個學生從甕中抓一把,且不能告訴別人,會放回去  
-    分別叫每個學生預測主要是紅色還是藍色  
-    且將預測結果寫在黑板上,且後面同學可以看到黑板上結果  
-
-    example @ page.30  
-
-Intervention  with Herding 阻止Herding  
-1. 和每個人說一些消息(private message)  
+    有多個學生來猜測甕裡面主要是放什麼顏色的珠寶  
+    甕裡面珠寶有紅色和藍色,不會是全部是藍色或全部是紅色  
+    每個學生從甕中抓一把,根據自己手中的內容和黑板上紀錄結果做預測  
+    並將預測結果寫在黑板上,後面的同學可以參考  
 
 
-Diffusion of Innovations  
-    an idea,practice,object  
-    研究這些創新如何傳播,和擴散的速度  
-
-<!-- 20170512 -->
-
-<!-- class -->
-Innovations創新介於invention發明和improvement改善之間
-
-會接受這些創新的人
-1. Innovators
-2. Early adopters
-3.
-4.
-5.
-<!-- class -->
-
-<!-- class -->
 <h1 id="9">Cloud computing</h1>
+* <a href="#9_1">MapReduce</a>
+
 [The NIST Definition of Cloud Computing](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf)
 
 * Parallel
@@ -697,12 +675,15 @@ Innovations創新介於invention發明和improvement改善之間
 
 #### Parallel Computing  
 > 將大問題拆成小問題且同時執行  
+
 #### Distributed Computing
 > 多台獨立電腦透過網路連結且為同一個任務工作
+
 #### Grid Computing
 > 是一種Distributed Computing
+
 #### Utility Computing  
-> 讓計算像使用電力,水等資源,只要有一個client端就可以使用,不在本地端計算,而是在提供服務的單位計算  
+> 讓計算像使用電力,水等資源,只要有一個client端就可以使用,不在本地端計算,而是在提供服務的地方計算  
 
 #### Performance Optimization
 * Parallel Computing
@@ -711,23 +692,48 @@ Innovations創新介於invention發明和improvement改善之間
 
 #### Survice Models
 1. IaaS(Infrastructure as a Service)
-> 包含硬體,OS,driver,networking
-使用者不用管理或控制底層的東西
-Virtualization:
-Abstraction of logical resource away from underlying phyical resources  
-Improve utilization,security
+> 包含硬體,OS,driver,networking  
+使用者不用管理或控制底層的東西  
+
+    Virtualization:  
+    Abstraction of logical resource away from underlying phyical resources  
+    Improve utilization,security  
 
 2. Paas(Platform as a Service)
 > 提供工程師一個寫程式的環境,包含程式語言和工具,且不用管理底層的硬體但可以做控制  
-(e.g. Programming IDE,Programming API,System Control interface,Hadoop,Google App Engine,Microsoft Windows Azure)  
+
+    e.g. Programming IDE,Programming API,System Control interface,Hadoop,Google App Engine,Microsoft Windows Azure  
 
 3. SaaS(Software as a Service)
 > 提供應用程式給一般人使用,透過clinet界面就可以使用  
-(web Service,Google App)
 
-#### MapReduce
+    e.g. web Service,Google App
+
+<!-- 20170525 -->
+
+<!-- class -->
+<h1 id="9_1">MapReduce</h1>
+
 * A programming model
 
+local aggregation
+map跑完的結果先處理(先加起來)
+可以提升效能,在sort and shuffle可以減少計算  
 
+3 approahes
+* Combiner
+* Improved Word Count
+<!-- class -->
+
+<!-- class -->
+
+relational database 如何做join
+透過主鍵連結兩張表,map做的事就是找到對應的key和value
+key就設為主鍵,但value必須要有紀錄資料和資料來自哪張table
+在reduce時才不會出錯
+
+MapReduce Algorithm Design
+提供紀錄中間狀態,提供需要for loop的程式執行
+可以自己設定key
 
 <!-- class -->

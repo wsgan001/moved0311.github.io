@@ -4,7 +4,7 @@
  <title>Note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-18T11:35:46+08:00</updated>
+ <updated>2017-05-25T19:09:42+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -928,6 +928,80 @@ e.g. Naive Bayes,Perceptron,Rocchio,Logistic regression,Support vector machines(
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;Err(x) = Bias^2 + Variance + Irreducible Error&lt;/script&gt;
 
 &lt;!---------------------------- 20170518 --------------------------------------------&gt;
+&lt;!---------------------------- class --------------------------------------------&gt;
+&lt;h1 id=&quot;ch15-support-vector-machines-and-machine-learning-on-documents&quot;&gt;Ch15 Support Vector Machines and Machine Learning on Documents&lt;/h1&gt;
+&lt;p&gt;在linear classification中,切割開的線有無限多條,
+SVM可以在這些線中找到一條最佳的線(margin最大)&lt;br /&gt;
+方法只會由少數的點來做分界面,不必載入全部資料
+這些點是由最困難的點所成的集合,集合稱作support vector&lt;/p&gt;
+
+&lt;p&gt;w: hyperplane normal vector
+$x_i$: data point i
+$y_i$: class of data point (+1 or -1)
+classifier f($x_i$) = sign($w^Tx_i$ + b)    //b: bias
+Define functional margin of $x_i$ is $y_i(w^Tx_i+b)$
+目標是將Geometric Margin最大化&lt;/p&gt;
+
+&lt;p&gt;Geometric Margin
+訓練出來的線,兩端碰到最近的support vector中的點所為成的區域&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;兩條平行線距離 2/&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;x&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&amp;amp;phi(w) = 1/2||w|| is minimized
+$y_i(w^Tx_i$ + b) &amp;gt;= 1&lt;/p&gt;
+
+&lt;p&gt;希望$y_i和(w^Tx_i$ + b)同號&lt;/p&gt;
+
+&lt;p&gt;dual problem
+將一個問題a推到另一個問題b
+當b解完後a也跟著解完
+推導到Largrangian Dual&lt;/p&gt;
+
+&lt;p&gt;每個點會有一個alpha值
+alpha值 &amp;lt;0 代表點可以忽略&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;0 代表是support vector(可能包含錯誤的點)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;soft margin classification
+允許某些點可以分錯
+$\phi$(w) 1/2||w|| + C$\sum$ slack
+C 越小越可以容錯
+因為希望$\phi$(w) 出來的值可以越小越好&lt;/p&gt;
+
+&lt;h4 id=&quot;non-linear-svms&quot;&gt;Non-linear SVMs&lt;/h4&gt;
+&lt;p&gt;用一條線分不開的情形,
+svm提供kernel function的概念,將點map到更高維的空間中,就有機會能夠分割&lt;/p&gt;
+
+&lt;p&gt;kernel function
+$K(x_i,x_j)=x_i^Tx_j$&lt;/p&gt;
+
+&lt;p&gt;透過kernel function可以知道高維空間的內積值&lt;/p&gt;
+
+&lt;h4 id=&quot;common-kernels&quot;&gt;Common kernels&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Linear&lt;/li&gt;
+  &lt;li&gt;Polynomial $$&lt;/li&gt;
+  &lt;li&gt;Radial basis function(infinite dimensional space)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;HW3
+1.文件分類
+2.用各個方法會選擇哪兩個字
+3.
+4.重心方法
+5.svm根據各個準則會分到哪類&lt;/p&gt;
+
+&lt;!---------------------------- class --------------------------------------------&gt;
 </content>
  </entry>
  
@@ -1115,7 +1189,7 @@ unweighted graph&lt;/p&gt;
 或指定某幾個人觀察這些人的影響力&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;!-- 20170413 start --&gt;
+&lt;!-- 20170413  --&gt;
 &lt;p&gt;&lt;strong&gt;Properties of cohesion 凝聚力的判斷&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;Mutuality of ties&lt;br /&gt;
@@ -1218,7 +1292,7 @@ I (internal cost)&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;KL algorithm複雜度&lt;/strong&gt;&lt;br /&gt;
 &lt;script type=&quot;math/tex&quot;&gt;O(n^2)&lt;/script&gt; 找到最適合交換的兩點,有n pair要交換 ⇒ &lt;script type=&quot;math/tex&quot;&gt;O(n^3)&lt;/script&gt; 
-&lt;!-- 20170413 end --&gt;&lt;/p&gt;
+&lt;!-- 20170413  --&gt;&lt;/p&gt;
 
 &lt;!-- 20170512 --&gt;
 &lt;h4 id=&quot;hiraichiecal&quot;&gt;Hiraichiecal&lt;/h4&gt;
@@ -1362,7 +1436,7 @@ distance constrain&lt;br /&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
 
-&lt;!-- 20170421 start --&gt;
+&lt;!-- 20170421 --&gt;
 &lt;blockquote&gt;
 
   &lt;ul&gt;
@@ -1469,7 +1543,7 @@ e.g. Similarity between words&lt;br /&gt;
 
 &lt;h4 id=&quot;probabilistic-model-based-methods&quot;&gt;Probabilistic Model Based Methods&lt;/h4&gt;
 &lt;p&gt;e.g. relational Markov model&lt;br /&gt;
-&lt;!-- 20170421 end --&gt;&lt;/p&gt;
+&lt;!-- 20170421 --&gt;&lt;/p&gt;
 
 &lt;!-- 20170420 --&gt;
 &lt;hr /&gt;
@@ -1756,7 +1830,7 @@ NPC問題通常找近似解,所以需要一個比較的方法&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;!-- class --&gt;
+&lt;!-- 20170525 --&gt;
 &lt;h2 id=&quot;herd-從眾&quot;&gt;Herd 從眾&lt;/h2&gt;
 &lt;blockquote&gt;
   &lt;p&gt;有一群人做決策,大家會趨向一個方向&lt;/p&gt;
@@ -1790,42 +1864,18 @@ NPC問題通常找近似解,所以需要一個比較的方法&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Urn Experiment (Bayesian Modeling of Herd Behavior)&lt;br /&gt;
- 甕裡面放珠寶有紅色和藍色,不會是全部是藍色或全部是紅色&lt;br /&gt;
- 猜甕中主要是什麼顏色的珠寶&lt;br /&gt;
- 每個學生從甕中抓一把,且不能告訴別人,會放回去&lt;br /&gt;
- 分別叫每個學生預測主要是紅色還是藍色&lt;br /&gt;
- 且將預測結果寫在黑板上,且後面同學可以看到黑板上結果&lt;/p&gt;
-
-    &lt;p&gt;example @ page.30&lt;/p&gt;
+ 有多個學生來猜測甕裡面主要是放什麼顏色的珠寶&lt;br /&gt;
+ 甕裡面珠寶有紅色和藍色,不會是全部是藍色或全部是紅色&lt;br /&gt;
+ 每個學生從甕中抓一把,根據自己手中的內容和黑板上紀錄結果做預測&lt;br /&gt;
+ 並將預測結果寫在黑板上,後面的同學可以參考&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Intervention  with Herding 阻止Herding&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;和每個人說一些消息(private message)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Diffusion of Innovations&lt;br /&gt;
-    an idea,practice,object&lt;br /&gt;
-    研究這些創新如何傳播,和擴散的速度&lt;/p&gt;
-
-&lt;!-- 20170512 --&gt;
-
-&lt;!-- class --&gt;
-&lt;p&gt;Innovations創新介於invention發明和improvement改善之間&lt;/p&gt;
-
-&lt;p&gt;會接受這些創新的人&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Innovators&lt;/li&gt;
-  &lt;li&gt;Early adopters
-3.
-4.
-5.
-&lt;!-- class --&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;!-- class --&gt;
 &lt;h1 id=&quot;9&quot;&gt;Cloud computing&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#9_1&quot;&gt;MapReduce&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;a href=&quot;http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf&quot;&gt;The NIST Definition of Cloud Computing&lt;/a&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1838,12 +1888,21 @@ NPC問題通常找近似解,所以需要一個比較的方法&lt;/p&gt;
 &lt;h4 id=&quot;parallel-computing&quot;&gt;Parallel Computing&lt;/h4&gt;
 &lt;blockquote&gt;
   &lt;p&gt;將大問題拆成小問題且同時執行&lt;/p&gt;
-  &lt;h4 id=&quot;distributed-computing&quot;&gt;Distributed Computing&lt;/h4&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;distributed-computing&quot;&gt;Distributed Computing&lt;/h4&gt;
+&lt;blockquote&gt;
   &lt;p&gt;多台獨立電腦透過網路連結且為同一個任務工作&lt;/p&gt;
-  &lt;h4 id=&quot;grid-computing&quot;&gt;Grid Computing&lt;/h4&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;grid-computing&quot;&gt;Grid Computing&lt;/h4&gt;
+&lt;blockquote&gt;
   &lt;p&gt;是一種Distributed Computing&lt;/p&gt;
-  &lt;h4 id=&quot;utility-computing&quot;&gt;Utility Computing&lt;/h4&gt;
-  &lt;p&gt;讓計算像使用電力,水等資源,只要有一個client端就可以使用,不在本地端計算,而是在提供服務的單位計算&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;utility-computing&quot;&gt;Utility Computing&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;讓計算像使用電力,水等資源,只要有一個client端就可以使用,不在本地端計算,而是在提供服務的地方計算&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h4 id=&quot;performance-optimization&quot;&gt;Performance Optimization&lt;/h4&gt;
@@ -1857,31 +1916,60 @@ NPC問題通常找近似解,所以需要一個比較的方法&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;IaaS(Infrastructure as a Service)
     &lt;blockquote&gt;
-      &lt;p&gt;包含硬體,OS,driver,networking
-使用者不用管理或控制底層的東西
-Virtualization:
-Abstraction of logical resource away from underlying phyical resources&lt;br /&gt;
-Improve utilization,security&lt;/p&gt;
+      &lt;p&gt;包含硬體,OS,driver,networking&lt;br /&gt;
+使用者不用管理或控制底層的東西&lt;/p&gt;
     &lt;/blockquote&gt;
+
+    &lt;p&gt;Virtualization:&lt;br /&gt;
+ Abstraction of logical resource away from underlying phyical resources&lt;br /&gt;
+ Improve utilization,security&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;Paas(Platform as a Service)
     &lt;blockquote&gt;
-      &lt;p&gt;提供工程師一個寫程式的環境,包含程式語言和工具,且不用管理底層的硬體但可以做控制&lt;br /&gt;
-(e.g. Programming IDE,Programming API,System Control interface,Hadoop,Google App Engine,Microsoft Windows Azure)&lt;/p&gt;
+      &lt;p&gt;提供工程師一個寫程式的環境,包含程式語言和工具,且不用管理底層的硬體但可以做控制&lt;/p&gt;
     &lt;/blockquote&gt;
+
+    &lt;p&gt;e.g. Programming IDE,Programming API,System Control interface,Hadoop,Google App Engine,Microsoft Windows Azure&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;SaaS(Software as a Service)
     &lt;blockquote&gt;
-      &lt;p&gt;提供應用程式給一般人使用,透過clinet界面就可以使用&lt;br /&gt;
-(web Service,Google App)&lt;/p&gt;
+      &lt;p&gt;提供應用程式給一般人使用,透過clinet界面就可以使用&lt;/p&gt;
     &lt;/blockquote&gt;
+
+    &lt;p&gt;e.g. web Service,Google App&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h4 id=&quot;mapreduce&quot;&gt;MapReduce&lt;/h4&gt;
+&lt;!-- 20170525 --&gt;
+
+&lt;!-- class --&gt;
+&lt;h1 id=&quot;9_1&quot;&gt;MapReduce&lt;/h1&gt;
+
 &lt;ul&gt;
   &lt;li&gt;A programming model&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;local aggregation
+map跑完的結果先處理(先加起來)
+可以提升效能,在sort and shuffle可以減少計算&lt;/p&gt;
+
+&lt;p&gt;3 approahes&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Combiner&lt;/li&gt;
+  &lt;li&gt;Improved Word Count
+&lt;!-- class --&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- class --&gt;
+
+&lt;p&gt;relational database 如何做join
+透過主鍵連結兩張表,map做的事就是找到對應的key和value
+key就設為主鍵,但value必須要有紀錄資料和資料來自哪張table
+在reduce時才不會出錯&lt;/p&gt;
+
+&lt;p&gt;MapReduce Algorithm Design
+提供紀錄中間狀態,提供需要for loop的程式執行
+可以自己設定key&lt;/p&gt;
 
 &lt;!-- class --&gt;
 </content>

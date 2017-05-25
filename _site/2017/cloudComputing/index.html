@@ -2,6 +2,16 @@
 <html lang="en-us">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+<script type="text/javascript">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath:[ ['$$','$$'], ['\\[','\\]'] ], 
+        processEscapes: true
+    }        
+})
+</script>
+
   <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -289,7 +299,7 @@ unweighted graph</p>
 或指定某幾個人觀察這些人的影響力</p>
 </blockquote>
 
-<!-- 20170413 start -->
+<!-- 20170413  -->
 <p><strong>Properties of cohesion 凝聚力的判斷</strong></p>
 <ol>
   <li>Mutuality of ties<br />
@@ -392,7 +402,7 @@ I (internal cost)</p>
 
 <p><strong>KL algorithm複雜度</strong><br />
 <script type="math/tex">O(n^2)</script> 找到最適合交換的兩點,有n pair要交換 ⇒ <script type="math/tex">O(n^3)</script> 
-<!-- 20170413 end --></p>
+<!-- 20170413  --></p>
 
 <!-- 20170512 -->
 <h4 id="hiraichiecal">Hiraichiecal</h4>
@@ -536,7 +546,7 @@ distance constrain<br />
 </ul>
 <hr />
 
-<!-- 20170421 start -->
+<!-- 20170421 -->
 <blockquote>
 
   <ul>
@@ -643,7 +653,7 @@ e.g. Similarity between words<br />
 
 <h4 id="probabilistic-model-based-methods">Probabilistic Model Based Methods</h4>
 <p>e.g. relational Markov model<br />
-<!-- 20170421 end --></p>
+<!-- 20170421 --></p>
 
 <!-- 20170420 -->
 <hr />
@@ -930,7 +940,7 @@ NPC問題通常找近似解,所以需要一個比較的方法</p>
   </li>
 </ol>
 
-<!-- class -->
+<!-- 20170525 -->
 <h2 id="herd-從眾">Herd 從眾</h2>
 <blockquote>
   <p>有一群人做決策,大家會趨向一個方向</p>
@@ -964,42 +974,18 @@ NPC問題通常找近似解,所以需要一個比較的方法</p>
   </li>
   <li>
     <p>Urn Experiment (Bayesian Modeling of Herd Behavior)<br />
- 甕裡面放珠寶有紅色和藍色,不會是全部是藍色或全部是紅色<br />
- 猜甕中主要是什麼顏色的珠寶<br />
- 每個學生從甕中抓一把,且不能告訴別人,會放回去<br />
- 分別叫每個學生預測主要是紅色還是藍色<br />
- 且將預測結果寫在黑板上,且後面同學可以看到黑板上結果</p>
-
-    <p>example @ page.30</p>
+ 有多個學生來猜測甕裡面主要是放什麼顏色的珠寶<br />
+ 甕裡面珠寶有紅色和藍色,不會是全部是藍色或全部是紅色<br />
+ 每個學生從甕中抓一把,根據自己手中的內容和黑板上紀錄結果做預測<br />
+ 並將預測結果寫在黑板上,後面的同學可以參考</p>
   </li>
 </ol>
 
-<p>Intervention  with Herding 阻止Herding</p>
-<ol>
-  <li>和每個人說一些消息(private message)</li>
-</ol>
-
-<p>Diffusion of Innovations<br />
-    an idea,practice,object<br />
-    研究這些創新如何傳播,和擴散的速度</p>
-
-<!-- 20170512 -->
-
-<!-- class -->
-<p>Innovations創新介於invention發明和improvement改善之間</p>
-
-<p>會接受這些創新的人</p>
-<ol>
-  <li>Innovators</li>
-  <li>Early adopters
-3.
-4.
-5.
-<!-- class --></li>
-</ol>
-
-<!-- class -->
 <h1 id="9">Cloud computing</h1>
+<ul>
+  <li><a href="#9_1">MapReduce</a></li>
+</ul>
+
 <p><a href="http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf">The NIST Definition of Cloud Computing</a></p>
 
 <ul>
@@ -1012,12 +998,21 @@ NPC問題通常找近似解,所以需要一個比較的方法</p>
 <h4 id="parallel-computing">Parallel Computing</h4>
 <blockquote>
   <p>將大問題拆成小問題且同時執行</p>
-  <h4 id="distributed-computing">Distributed Computing</h4>
+</blockquote>
+
+<h4 id="distributed-computing">Distributed Computing</h4>
+<blockquote>
   <p>多台獨立電腦透過網路連結且為同一個任務工作</p>
-  <h4 id="grid-computing">Grid Computing</h4>
+</blockquote>
+
+<h4 id="grid-computing">Grid Computing</h4>
+<blockquote>
   <p>是一種Distributed Computing</p>
-  <h4 id="utility-computing">Utility Computing</h4>
-  <p>讓計算像使用電力,水等資源,只要有一個client端就可以使用,不在本地端計算,而是在提供服務的單位計算</p>
+</blockquote>
+
+<h4 id="utility-computing">Utility Computing</h4>
+<blockquote>
+  <p>讓計算像使用電力,水等資源,只要有一個client端就可以使用,不在本地端計算,而是在提供服務的地方計算</p>
 </blockquote>
 
 <h4 id="performance-optimization">Performance Optimization</h4>
@@ -1031,31 +1026,60 @@ NPC問題通常找近似解,所以需要一個比較的方法</p>
 <ol>
   <li>IaaS(Infrastructure as a Service)
     <blockquote>
-      <p>包含硬體,OS,driver,networking
-使用者不用管理或控制底層的東西
-Virtualization:
-Abstraction of logical resource away from underlying phyical resources<br />
-Improve utilization,security</p>
+      <p>包含硬體,OS,driver,networking<br />
+使用者不用管理或控制底層的東西</p>
     </blockquote>
+
+    <p>Virtualization:<br />
+ Abstraction of logical resource away from underlying phyical resources<br />
+ Improve utilization,security</p>
   </li>
   <li>Paas(Platform as a Service)
     <blockquote>
-      <p>提供工程師一個寫程式的環境,包含程式語言和工具,且不用管理底層的硬體但可以做控制<br />
-(e.g. Programming IDE,Programming API,System Control interface,Hadoop,Google App Engine,Microsoft Windows Azure)</p>
+      <p>提供工程師一個寫程式的環境,包含程式語言和工具,且不用管理底層的硬體但可以做控制</p>
     </blockquote>
+
+    <p>e.g. Programming IDE,Programming API,System Control interface,Hadoop,Google App Engine,Microsoft Windows Azure</p>
   </li>
   <li>SaaS(Software as a Service)
     <blockquote>
-      <p>提供應用程式給一般人使用,透過clinet界面就可以使用<br />
-(web Service,Google App)</p>
+      <p>提供應用程式給一般人使用,透過clinet界面就可以使用</p>
     </blockquote>
+
+    <p>e.g. web Service,Google App</p>
   </li>
 </ol>
 
-<h4 id="mapreduce">MapReduce</h4>
+<!-- 20170525 -->
+
+<!-- class -->
+<h1 id="9_1">MapReduce</h1>
+
 <ul>
   <li>A programming model</li>
 </ul>
+
+<p>local aggregation
+map跑完的結果先處理(先加起來)
+可以提升效能,在sort and shuffle可以減少計算</p>
+
+<p>3 approahes</p>
+<ul>
+  <li>Combiner</li>
+  <li>Improved Word Count
+<!-- class --></li>
+</ul>
+
+<!-- class -->
+
+<p>relational database 如何做join
+透過主鍵連結兩張表,map做的事就是找到對應的key和value
+key就設為主鍵,但value必須要有紀錄資料和資料來自哪張table
+在reduce時才不會出錯</p>
+
+<p>MapReduce Algorithm Design
+提供紀錄中間狀態,提供需要for loop的程式執行
+可以自己設定key</p>
 
 <!-- class -->
 

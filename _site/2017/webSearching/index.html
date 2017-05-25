@@ -2,6 +2,16 @@
 <html lang="en-us">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+<script type="text/javascript">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath:[ ['$$','$$'], ['\\[','\\]'] ], 
+        processEscapes: true
+    }        
+})
+</script>
+
   <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -949,6 +959,80 @@ e.g. Naive Bayes,Perceptron,Rocchio,Logistic regression,Support vector machines(
 <script type="math/tex; mode=display">Err(x) = Bias^2 + Variance + Irreducible Error</script>
 
 <!---------------------------- 20170518 -------------------------------------------->
+<!---------------------------- class -------------------------------------------->
+<h1 id="ch15-support-vector-machines-and-machine-learning-on-documents">Ch15 Support Vector Machines and Machine Learning on Documents</h1>
+<p>在linear classification中,切割開的線有無限多條,
+SVM可以在這些線中找到一條最佳的線(margin最大)<br />
+方法只會由少數的點來做分界面,不必載入全部資料
+這些點是由最困難的點所成的集合,集合稱作support vector</p>
+
+<p>w: hyperplane normal vector
+$x_i$: data point i
+$y_i$: class of data point (+1 or -1)
+classifier f($x_i$) = sign($w^Tx_i$ + b)    //b: bias
+Define functional margin of $x_i$ is $y_i(w^Tx_i+b)$
+目標是將Geometric Margin最大化</p>
+
+<p>Geometric Margin
+訓練出來的線,兩端碰到最近的support vector中的點所為成的區域</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>兩條平行線距離 2/</td>
+      <td> </td>
+      <td>x</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>&amp;phi(w) = 1/2||w|| is minimized
+$y_i(w^Tx_i$ + b) &gt;= 1</p>
+
+<p>希望$y_i和(w^Tx_i$ + b)同號</p>
+
+<p>dual problem
+將一個問題a推到另一個問題b
+當b解完後a也跟著解完
+推導到Largrangian Dual</p>
+
+<p>每個點會有一個alpha值
+alpha值 &lt;0 代表點可以忽略</p>
+<blockquote>
+  <p>0 代表是support vector(可能包含錯誤的點)</p>
+</blockquote>
+
+<p>soft margin classification
+允許某些點可以分錯
+$\phi$(w) 1/2||w|| + C$\sum$ slack
+C 越小越可以容錯
+因為希望$\phi$(w) 出來的值可以越小越好</p>
+
+<h4 id="non-linear-svms">Non-linear SVMs</h4>
+<p>用一條線分不開的情形,
+svm提供kernel function的概念,將點map到更高維的空間中,就有機會能夠分割</p>
+
+<p>kernel function
+$K(x_i,x_j)=x_i^Tx_j$</p>
+
+<p>透過kernel function可以知道高維空間的內積值</p>
+
+<h4 id="common-kernels">Common kernels</h4>
+<ul>
+  <li>Linear</li>
+  <li>Polynomial $$</li>
+  <li>Radial basis function(infinite dimensional space)</li>
+</ul>
+
+<p>HW3
+1.文件分類
+2.用各個方法會選擇哪兩個字
+3.
+4.重心方法
+5.svm根據各個準則會分到哪類</p>
+
+<!---------------------------- class -------------------------------------------->
 
 </div>
 
