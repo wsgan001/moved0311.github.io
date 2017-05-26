@@ -579,6 +579,7 @@ k = 3
 * 沒有任何學習
 * 如果資料集很大,準確率非常高,資料集小可能就不會很準  
 * 大致上準確率會較Naive Bayes和Rocchio高  
+* Simple, expensive at test time, high variance, non-linear  
 
 <!---------------------------- 20170517 -------------------------------------------->
 <!---------------------------- 20170518 -------------------------------------------->
@@ -616,30 +617,60 @@ e.g. Naive Bayes,Perceptron,Rocchio,Logistic regression,Support vector machines(
 $$ Err(x) = Bias^2 + Variance + Irreducible Error $$
 
 <!---------------------------- 20170518 -------------------------------------------->
-<!---------------------------- class -------------------------------------------->
+
+<!---------------------------- 20170526 -------------------------------------------->
 # Ch15 Support Vector Machines and Machine Learning on Documents  
-在linear classification中,切割開的線有無限多條,
-SVM可以在這些線中找到一條最佳的線(margin最大)  
-方法只會由少數的點來做分界面,不必載入全部資料
-這些點是由最困難的點所成的集合,集合稱作support vector
 
-w: hyperplane normal vector
-$x_i$: data point i
-$y_i$: class of data point (+1 or -1)
-classifier f($x_i$) = sign($w^Tx_i$ + b)    //b: bias
-Define functional margin of $x_i$ is $y_i(w^Tx_i+b)$
-目標是將Geometric Margin最大化
+在linear classification中,切割開的線有無限多條,  
+SVM可以在這些線中找到一條最佳的線    
+只會由少數的點來形成分界線,不必載入全部資料
+這些點是由判斷上最困難的點所成的集合,  
+集合稱作support vector
 
-Geometric Margin
-訓練出來的線,兩端碰到最近的support vector中的點所為成的區域
+要怎麼找到最佳的分割界面(hyperplane)  
+SVM是從所有可能的分割界面中找到geometric margin最大的作為分割界面
 
-兩條平行線距離 2/||x||
+Geometric Margin  
+> 訓練出來的線,兩端碰到最近的support vector中的點所為成的區域
 
-&phi(w) = 1/2||w|| is minimized
-$y_i(w^Tx_i$ + b) >= 1
+目標是找到最大的$\rho$
+![svm01](/img/websearching/svm01.png)  
 
-希望$y_i和(w^Tx_i$ + b)同號 
+* w: hyperplane normal vector  
+* $x_i$: data point i  
+* $y_i$: class of data point (+1 or -1)  
+* classifier: f($x_i$) = sign($w^Tx_i$ + b)    //b: bias    
+* Define functional margin of $x_i$ is $y_i(w^Tx_i+b)$  
 
+如果分到1類別帶入分類器會$\geq$1   
+分到-1類別帶入分類器會$\leq$-1    
+
+$w^Tx_i + b \geq 1 \quad if\; y_i = 1$  
+$w^Tx_i + b \leq -1 \quad if\; y_i = -1$  
+
+![svm02](/img/websearching/svm02.png)  
+
+
+$\rho = \frac{2}{\left \| w \right \|}$
+
+[quadratic optimization problem](https://en.wikipedia.org/wiki/Quadratic_programming)  
+
+> 找到w和b使$\rho = \frac{2}{\left \| w \right \|}$最大  
+$w^Tx_i + b \geq 1 \quad if\; y_i = 1$  
+$w^Tx_i + b \leq -1 \quad if\; y_i = -1$  
+
+__較好的表示方法__  
+
+> 要讓$\rho$最大,最小化$\left \| w \right \|$  
+找到w和b使$\phi(w) = \frac{1}{2} \left \| w \right \|$最小    
+$y_i(w^Tx_i + b) \geq 1$
+
+希望$y_i和(w^Tx_i$ + b)同號   
+也就是希望分類結果和帶入分類器結果是同號  
+
+<!---------------------------- 20170526 -------------------------------------------->
+
+<!---------------------------- class -------------------------------------------->
 dual problem
 將一個問題a推到另一個問題b
 當b解完後a也跟著解完
@@ -668,13 +699,5 @@ $K(x_i,x_j)=x_i^Tx_j$
 * Linear
 * Polynomial $$
 * Radial basis function(infinite dimensional space)
-
-HW3
-1.文件分類
-2.用各個方法會選擇哪兩個字
-3.
-4.重心方法
-5.svm根據各個準則會分到哪類
-
 
 <!---------------------------- class -------------------------------------------->
