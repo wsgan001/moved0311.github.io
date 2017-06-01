@@ -4,7 +4,7 @@
  <title>Note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-26T12:10:34+08:00</updated>
+ <updated>2017-06-01T12:51:03+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -90,6 +90,10 @@
    <updated>2017-03-07T00:00:00+08:00</updated>
    <id>http://localhost:4000/2017/webSearching</id>
    <content type="html">&lt;hr /&gt;
+
+&lt;p&gt;課本: &lt;a href=&quot;https://nlp.stanford.edu/IR-book/&quot;&gt;Introduction to Information Retrieval&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h1 id=&quot;ch8-evaluation-in-information-retrival&quot;&gt;CH8 Evaluation in information retrival&lt;/h1&gt;
 &lt;p&gt;評量search engine好壞&lt;/p&gt;
@@ -933,11 +937,7 @@ e.g. Naive Bayes,Perceptron,Rocchio,Logistic regression,Support vector machines(
 &lt;!---------------------------- 20170526 --------------------------------------------&gt;
 &lt;h1 id=&quot;ch15-support-vector-machines-and-machine-learning-on-documents&quot;&gt;Ch15 Support Vector Machines and Machine Learning on Documents&lt;/h1&gt;
 
-&lt;p&gt;在linear classification中,切割開的線有無限多條,&lt;br /&gt;
-SVM可以在這些線中找到一條最佳的線  &lt;br /&gt;
-只會由少數的點來形成分界線,不必載入全部資料
-這些點是由判斷上最困難的點所成的集合,&lt;br /&gt;
-集合稱作support vector&lt;/p&gt;
+&lt;p&gt;在linear classification中,分界線有無限多條,SVM可以在這些線中找到一條最佳的線,而這條線只會由少數的點來形成。這些點是由分割上最困難的點所成的集合,集合稱作support vector&lt;/p&gt;
 
 &lt;p&gt;要怎麼找到最佳的分割界面(hyperplane)&lt;br /&gt;
 SVM是從所有可能的分割界面中找到geometric margin最大的作為分割界面&lt;/p&gt;
@@ -989,18 +989,37 @@ $y_i(w^Tx_i + b) \geq 1$&lt;/p&gt;
 
 &lt;!---------------------------- 20170526 --------------------------------------------&gt;
 
-&lt;!---------------------------- class --------------------------------------------&gt;
-&lt;p&gt;dual problem
-將一個問題a推到另一個問題b
-當b解完後a也跟著解完
-推導到Largrangian Dual&lt;/p&gt;
-
-&lt;p&gt;每個點會有一個alpha值
-alpha值 &amp;lt;0 代表點可以忽略&lt;/p&gt;
+&lt;!---------------------------- 20170601 --------------------------------------------&gt;
+&lt;p&gt;dual problem&lt;/p&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;0 代表是support vector(可能包含錯誤的點)&lt;/p&gt;
+  &lt;p&gt;每一個線性規劃的問題(primary problem)都有一個對映的線性規劃問題(dual problem),解決dual problem就可以得到原來問題的解&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;解決上面問題的dual problem&lt;br /&gt;
+&lt;strong&gt;Lagrange multiplier&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;找到$\alpha_1,…,\alpha_N$使$\sum{\alpha_i-\frac{1}{2}\sum_i\sum_j\alpha_i\alpha_jy_iy_j\vec{x}_i^T\vec{x}_j}$最大&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;$\sum{\alpha_iy_i} = 0$&lt;/li&gt;
+    &lt;li&gt;$\alpha_i \geq 0 \quad for \; all \; 1 \leq i \leq N$&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;solution&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;$\vec{w}=\sum\alpha_iy_i\vec{x}_i$  &lt;br /&gt;
+$b = y_k-\vec{w}^T\vec{x}_k\quad for\; any\; \vec{x}_k \; such\; that\; \alpha_k \neq 0$&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;大多數的點$\alpha_i = 0$代表不重要的點,而非零的$\alpha$代表為support vector&lt;/p&gt;
+
+&lt;p&gt;分類的function&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;$f(\vec{x}) = sign(\sum\alpha_iy_i\vec{x_i}^T\vec{x} + b)$
+&lt;!---------------------------- 20170601 --------------------------------------------&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;!---------------------------- class --------------------------------------------&gt;
 &lt;p&gt;soft margin classification
 允許某些點可以分錯
 $\phi$(w) 1/2||w|| + C$\sum$ slack
@@ -1020,10 +1039,9 @@ $K(x_i,x_j)=x_i^Tx_j$&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Linear&lt;/li&gt;
   &lt;li&gt;Polynomial $$&lt;/li&gt;
-  &lt;li&gt;Radial basis function(infinite dimensional space)&lt;/li&gt;
+  &lt;li&gt;Radial basis function(infinite dimensional space)
+&lt;!---------------------------- class --------------------------------------------&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;!---------------------------- class --------------------------------------------&gt;
 </content>
  </entry>
  
@@ -1992,6 +2010,49 @@ key就設為主鍵,但value必須要有紀錄資料和資料來自哪張table
 &lt;p&gt;MapReduce Algorithm Design
 提供紀錄中間狀態,提供需要for loop的程式執行
 可以自己設定key&lt;/p&gt;
+
+&lt;!-- class --&gt;
+
+&lt;!-- class --&gt;
+&lt;p&gt;介紹dijkstra
+那要怎麼把dijkstra做成mapreduce版本
+dijkstra每一回合都要找到最小cost當成下一點
+繼續遞迴的以cost最小的展開下去&lt;/p&gt;
+
+&lt;p&gt;mapreduce可以找到local的最小值
+但不能找到global的最小值
+mapreduce沒有提供share memory的機制去交換global的資料&lt;/p&gt;
+
+&lt;p&gt;先考慮unweight shortest path
+每個edge都看成是1
+那目標就變成找到最少的edge數&lt;/p&gt;
+
+&lt;p&gt;那就可以利用BFS解決這個問題&lt;/p&gt;
+
+&lt;p&gt;要將dijksta的問題改成mapreduce版本就要利用這個概念&lt;/p&gt;
+
+&lt;p&gt;平行shortest path algorithm&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;brute force approach&lt;/li&gt;
+  &lt;li&gt;all edge have unit distance&lt;/li&gt;
+  &lt;li&gt;Parallel BFS
+    &lt;ul&gt;
+      &lt;li&gt;iterative algorithm&lt;/li&gt;
+      &lt;li&gt;每次的結果存到disk,下次再讀取,但會有disk IO 問題&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;通常在mapreduce中的資料結構是以linklist的形式儲存
+如果是sparse的矩陣會儲存太多的0,在map時會紀錄太多0
+所以利用linklist來儲存,有值才紀錄
+且對sort and shuffle的步驟負擔會比較小&lt;/p&gt;
+
+&lt;p&gt;每一的mapreduce會做一個hop(層),
+且每回合的結果要寫回disk供下一回合使用&lt;/p&gt;
+
+&lt;p&gt;Inverted Files
+利用linklist紀錄每個term出現在哪些文章中&lt;/p&gt;
 
 &lt;!-- class --&gt;
 </content>

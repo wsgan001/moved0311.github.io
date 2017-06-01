@@ -4,6 +4,9 @@ title: WebSearching
 comments: True 
 ---
 <hr>
+課本: [Introduction to Information Retrieval](https://nlp.stanford.edu/IR-book/)
+
+<hr>
 # CH8 Evaluation in information retrival      
 評量search engine好壞
 1. 搜到的index
@@ -621,11 +624,7 @@ $$ Err(x) = Bias^2 + Variance + Irreducible Error $$
 <!---------------------------- 20170526 -------------------------------------------->
 # Ch15 Support Vector Machines and Machine Learning on Documents  
 
-在linear classification中,切割開的線有無限多條,  
-SVM可以在這些線中找到一條最佳的線    
-只會由少數的點來形成分界線,不必載入全部資料
-這些點是由判斷上最困難的點所成的集合,  
-集合稱作support vector
+在linear classification中,分界線有無限多條,SVM可以在這些線中找到一條最佳的線,而這條線只會由少數的點來形成。這些點是由分割上最困難的點所成的集合,集合稱作support vector  
 
 要怎麼找到最佳的分割界面(hyperplane)  
 SVM是從所有可能的分割界面中找到geometric margin最大的作為分割界面
@@ -670,16 +669,28 @@ $y_i(w^Tx_i + b) \geq 1$
 
 <!---------------------------- 20170526 -------------------------------------------->
 
+<!---------------------------- 20170601 -------------------------------------------->
+dual problem  
+> 每一個線性規劃的問題(primary problem)都有一個對映的線性規劃問題(dual problem),解決dual problem就可以得到原來問題的解
+
+解決上面問題的dual problem  
+__Lagrange multiplier__   
+> 找到$\alpha_1,...,\alpha_N$使$\sum{\alpha_i-\frac{1}{2}\sum_i\sum_j\alpha_i\alpha_jy_iy_j\vec{x}_i^T\vec{x}_j}$最大
+* $\sum{\alpha_iy_i} = 0$
+* $\alpha_i \geq 0 \quad for \; all \; 1 \leq i \leq N$
+
+__solution__    
+> $\vec{w}=\sum\alpha_iy_i\vec{x}_i$    
+$b = y_k-\vec{w}^T\vec{x}_k\quad for\; any\; \vec{x}_k \; such\; that\; \alpha_k \neq 0$  
+
+大多數的點$\alpha_i = 0$代表不重要的點,而非零的$\alpha$代表為support vector  
+
+分類的function  
+> $f(\vec{x}) = sign(\sum\alpha_iy_i\vec{x_i}^T\vec{x} + b)$
+<!---------------------------- 20170601 -------------------------------------------->
+
+
 <!---------------------------- class -------------------------------------------->
-dual problem
-將一個問題a推到另一個問題b
-當b解完後a也跟著解完
-推導到Largrangian Dual
-
-每個點會有一個alpha值
-alpha值 <0 代表點可以忽略
->0 代表是support vector(可能包含錯誤的點)
-
 soft margin classification
 允許某些點可以分錯
 $\phi$(w) 1/2||w|| + C$\sum$ slack
@@ -699,5 +710,4 @@ $K(x_i,x_j)=x_i^Tx_j$
 * Linear
 * Polynomial $$
 * Radial basis function(infinite dimensional space)
-
 <!---------------------------- class -------------------------------------------->

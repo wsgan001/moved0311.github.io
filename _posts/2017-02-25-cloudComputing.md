@@ -737,3 +737,45 @@ MapReduce Algorithm Design
 可以自己設定key
 
 <!-- class -->
+
+<!-- class -->
+介紹dijkstra
+那要怎麼把dijkstra做成mapreduce版本
+dijkstra每一回合都要找到最小cost當成下一點
+繼續遞迴的以cost最小的展開下去  
+
+mapreduce可以找到local的最小值
+但不能找到global的最小值
+mapreduce沒有提供share memory的機制去交換global的資料
+
+先考慮unweight shortest path
+每個edge都看成是1
+那目標就變成找到最少的edge數
+
+那就可以利用BFS解決這個問題
+
+要將dijksta的問題改成mapreduce版本就要利用這個概念
+
+平行shortest path algorithm
+* brute force approach
+* all edge have unit distance
+* Parallel BFS
+    + iterative algorithm
+    + 每次的結果存到disk,下次再讀取,但會有disk IO 問題
+
+
+通常在mapreduce中的資料結構是以linklist的形式儲存
+如果是sparse的矩陣會儲存太多的0,在map時會紀錄太多0
+所以利用linklist來儲存,有值才紀錄
+且對sort and shuffle的步驟負擔會比較小
+
+每一的mapreduce會做一個hop(層),
+且每回合的結果要寫回disk供下一回合使用
+
+
+Inverted Files
+利用linklist紀錄每個term出現在哪些文章中
+
+
+
+<!-- class -->
