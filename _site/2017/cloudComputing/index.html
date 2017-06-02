@@ -984,6 +984,7 @@ NPC問題通常找近似解,所以需要一個比較的方法</p>
 <h1 id="9">Cloud computing</h1>
 <ul>
   <li><a href="#9_1">MapReduce</a></li>
+  <li><a href="#9_2">Pig Programming</a></li>
 </ul>
 
 <p><a href="http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf">The NIST Definition of Cloud Computing</a></p>
@@ -1122,9 +1123,76 @@ mapreduce沒有提供share memory的機制去交換global的資料</p>
 且每回合的結果要寫回disk供下一回合使用</p>
 
 <p>Inverted Files
-利用linklist紀錄每個term出現在哪些文章中</p>
+利用linklist紀錄每個term出現在哪些文章中
+<!-- class --></p>
 
-<!-- class -->
+<!-- 20170602 -->
+<h1 id="9_2">Pig Programming</h1>
+
+<ul>
+  <li>sql-like language, 透過hadoop處理大量半結構化資料</li>
+  <li>hadoop sub-project</li>
+  <li>data flow language</li>
+  <li>higher-level language</li>
+</ul>
+
+<p>收到user query後，pig會將query轉換成logical plan並在過程中做最佳化,logical plan之後產生physical plan(存取記憶體等操作),physical plan最後轉換成map reduce plan</p>
+
+<p><strong>lazy execution</strong></p>
+
+<blockquote>
+  <p>直到執行request output(store/dump)才開始執行程式</p>
+</blockquote>
+
+<p>好處</p>
+<ul>
+  <li>in memory pipelining  <br />
+  將執行完的結果直接傳給下個指令使用,不需要存到disk再去讀取</li>
+  <li>filter re-ordering across multiple commands  <br />
+  可能先做filter再開始處理join等等的指令,可以減少計算的複雜度(指令的最佳化)</li>
+</ul>
+
+<p><strong>data type</strong></p>
+<ul>
+  <li>int</li>
+  <li>long</li>
+  <li>float</li>
+  <li>double</li>
+  <li>chararray</li>
+  <li>bytearray</li>
+</ul>
+
+<p><strong>指令</strong></p>
+<ul>
+  <li>load                                                <br />
+  load ‘user.txt’;</li>
+  <li>store
+  store result into ‘output’</li>
+  <li>dump</li>
+  <li>filter<br />
+  filter User by age &gt; 18 and age &lt;= 25</li>
+  <li>join
+    <ul>
+      <li>outer join (right / left)<br />
+  filter後濾掉的資料也會出現,以right或left為主</li>
+    </ul>
+  </li>
+  <li>group<br />
+  group user_url by url    <br />
+  將欄位一樣的合併在一起<br />
+  pig允許complex data type(一格有多筆資料)</li>
+  <li>cogroup<br />
+  cogroup Users by userId, Urls by user;<br />
+  可以針對多個資料表做group</li>
+  <li>foreach<br />
+  foreach urlgroup generate group as url,<br />
+  count(user_url) as count,</li>
+  <li>order<br />
+  ASC,DESC</li>
+</ul>
+
+<!-- 20170602 -->
+
 
 </div>
 

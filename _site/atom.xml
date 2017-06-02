@@ -4,7 +4,7 @@
  <title>Note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-06-01T12:51:03+08:00</updated>
+ <updated>2017-06-02T14:09:04+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -661,7 +661,7 @@ log是monotonic function不會改變ranking順序&lt;/p&gt;
 &lt;hr /&gt;
 
 &lt;!-- 20170416 --&gt;
-&lt;h1 id=&quot;ch12-language-models-for-informatio-retrieval&quot;&gt;CH12 Language models for informatio retrieval&lt;/h1&gt;
+&lt;h1 id=&quot;ch12-language-models-for-information-retrieval&quot;&gt;CH12 Language models for information retrieval&lt;/h1&gt;
 
 &lt;p&gt;&lt;strong&gt;unigram language model&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1914,6 +1914,7 @@ NPC問題通常找近似解,所以需要一個比較的方法&lt;/p&gt;
 &lt;h1 id=&quot;9&quot;&gt;Cloud computing&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#9_1&quot;&gt;MapReduce&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#9_2&quot;&gt;Pig Programming&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf&quot;&gt;The NIST Definition of Cloud Computing&lt;/a&gt;&lt;/p&gt;
@@ -2052,9 +2053,76 @@ mapreduce沒有提供share memory的機制去交換global的資料&lt;/p&gt;
 且每回合的結果要寫回disk供下一回合使用&lt;/p&gt;
 
 &lt;p&gt;Inverted Files
-利用linklist紀錄每個term出現在哪些文章中&lt;/p&gt;
+利用linklist紀錄每個term出現在哪些文章中
+&lt;!-- class --&gt;&lt;/p&gt;
 
-&lt;!-- class --&gt;
+&lt;!-- 20170602 --&gt;
+&lt;h1 id=&quot;9_2&quot;&gt;Pig Programming&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;sql-like language, 透過hadoop處理大量半結構化資料&lt;/li&gt;
+  &lt;li&gt;hadoop sub-project&lt;/li&gt;
+  &lt;li&gt;data flow language&lt;/li&gt;
+  &lt;li&gt;higher-level language&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;收到user query後，pig會將query轉換成logical plan並在過程中做最佳化,logical plan之後產生physical plan(存取記憶體等操作),physical plan最後轉換成map reduce plan&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;lazy execution&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;直到執行request output(store/dump)才開始執行程式&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;好處&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;in memory pipelining  &lt;br /&gt;
+  將執行完的結果直接傳給下個指令使用,不需要存到disk再去讀取&lt;/li&gt;
+  &lt;li&gt;filter re-ordering across multiple commands  &lt;br /&gt;
+  可能先做filter再開始處理join等等的指令,可以減少計算的複雜度(指令的最佳化)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;data type&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;int&lt;/li&gt;
+  &lt;li&gt;long&lt;/li&gt;
+  &lt;li&gt;float&lt;/li&gt;
+  &lt;li&gt;double&lt;/li&gt;
+  &lt;li&gt;chararray&lt;/li&gt;
+  &lt;li&gt;bytearray&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;指令&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;load                                                &lt;br /&gt;
+  load ‘user.txt’;&lt;/li&gt;
+  &lt;li&gt;store
+  store result into ‘output’&lt;/li&gt;
+  &lt;li&gt;dump&lt;/li&gt;
+  &lt;li&gt;filter&lt;br /&gt;
+  filter User by age &amp;gt; 18 and age &amp;lt;= 25&lt;/li&gt;
+  &lt;li&gt;join
+    &lt;ul&gt;
+      &lt;li&gt;outer join (right / left)&lt;br /&gt;
+  filter後濾掉的資料也會出現,以right或left為主&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;group&lt;br /&gt;
+  group user_url by url    &lt;br /&gt;
+  將欄位一樣的合併在一起&lt;br /&gt;
+  pig允許complex data type(一格有多筆資料)&lt;/li&gt;
+  &lt;li&gt;cogroup&lt;br /&gt;
+  cogroup Users by userId, Urls by user;&lt;br /&gt;
+  可以針對多個資料表做group&lt;/li&gt;
+  &lt;li&gt;foreach&lt;br /&gt;
+  foreach urlgroup generate group as url,&lt;br /&gt;
+  count(user_url) as count,&lt;/li&gt;
+  &lt;li&gt;order&lt;br /&gt;
+  ASC,DESC&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- 20170602 --&gt;
+
 </content>
  </entry>
  

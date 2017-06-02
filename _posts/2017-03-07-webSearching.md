@@ -411,7 +411,7 @@ __Improving RSJ__
 
 <hr>
 <!-- 20170416 -->
-# CH12 Language models for informatio retrieval  
+# CH12 Language models for information retrieval  
 
 __unigram language model__    
 > 每個word只有單一的狀態,可以建立一個table放每個word對應到的機率 

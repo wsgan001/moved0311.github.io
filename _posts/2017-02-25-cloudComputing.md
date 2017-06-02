@@ -665,6 +665,7 @@ NPC問題通常找近似解,所以需要一個比較的方法
 
 <h1 id="9">Cloud computing</h1>
 * <a href="#9_1">MapReduce</a>
+* <a href="#9_2">Pig Programming</a>
 
 [The NIST Definition of Cloud Computing](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf)
 
@@ -772,10 +773,61 @@ mapreduce沒有提供share memory的機制去交換global的資料
 每一的mapreduce會做一個hop(層),
 且每回合的結果要寫回disk供下一回合使用
 
-
 Inverted Files
 利用linklist紀錄每個term出現在哪些文章中
-
-
-
 <!-- class -->
+
+<!-- 20170602 -->
+<h1 id="9_2">Pig Programming</h1>
+
+* sql-like language, 透過hadoop處理大量半結構化資料
+* hadoop sub-project
+* data flow language
+* higher-level language
+
+收到user query後，pig會將query轉換成logical plan並在過程中做最佳化,logical plan之後產生physical plan(存取記憶體等操作),physical plan最後轉換成map reduce plan
+
+__lazy execution__
+
+> 直到執行request output(store/dump)才開始執行程式
+
+好處
++ in memory pipelining    
+    將執行完的結果直接傳給下個指令使用,不需要存到disk再去讀取   
++ filter re-ordering across multiple commands    
+    可能先做filter再開始處理join等等的指令,可以減少計算的複雜度(指令的最佳化)  
+
+__data type__  
+* int
+* long
+* float
+* double
+* chararray
+* bytearray
+
+__指令__  
+* load                                                  
+    load 'user.txt';
+* store
+    store result into 'output'
+* dump
+* filter  
+    filter User by age > 18 and age <= 25
+* join  
+    + outer join (right / left)  
+        filter後濾掉的資料也會出現,以right或left為主
+* group  
+    group user_url by url      
+    將欄位一樣的合併在一起  
+    pig允許complex data type(一格有多筆資料)  
+* cogroup  
+    cogroup Users by userId, Urls by user;  
+    可以針對多個資料表做group  
+* foreach  
+    foreach urlgroup generate group as url,  
+    count(user_url) as count,  
+* order  
+    ASC,DESC  
+
+<!-- 20170602 -->
+
