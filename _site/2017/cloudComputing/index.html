@@ -122,6 +122,7 @@ MathJax.Hub.Config({
   <span class="post-date">25 Feb 2017</span>
   <h3 id="outline">Outline</h3>
 <ul>
+  <li>Social Network</li>
   <li>Centrality Analysis</li>
   <li>Community Detection</li>
   <li><a href="#3">Link Prediction</a></li>
@@ -148,7 +149,7 @@ MathJax.Hub.Config({
   <li>IEEE Transactions on Computational Social System</li>
 </ul>
 
-<h4 id="social-networks">Social Networks</h4>
+<h1 id="social-networks">Social Networks</h1>
 
 <table>
   <tbody>
@@ -165,9 +166,9 @@ MathJax.Hub.Config({
 
 <ul>
   <li>information Network<br />
-paper reference<br />
-web hyperlink<br />
-Language</li>
+paper reference network <br />
+web hyperlink network <br />
+Language network</li>
   <li>Social Network<br />
 FB好友關係</li>
   <li>Technology Network<br />
@@ -178,18 +179,25 @@ FB好友關係</li>
 
 <p>為什麼要分這麼多類Network?</p>
 <blockquote>
-  <p>因為要分析的點不同,可能在information Network中很重要的,卻在Social Network可能不是那麼重要</p>
+  <p>因為要分析的重點不同,可能在information Network中很重要的,卻在Social Network可能不是那麼重要</p>
 </blockquote>
 
 <h4 id="network-properties">Network Properties</h4>
 <ol>
-  <li>small-world effect
- 六度分離理論<br />
- 靠點和點距離關係分析</li>
-  <li>Transitivity
+  <li>
+    <p>small-world effect 六度分離理論[1967 Milgram]  <br />
+平均透過6層關係可以連到任何你不認識的人</p>
+
+    <p>補充資料：</p>
+    <blockquote>
+      <p><a href="https://zh.wikipedia.org/wiki/%E7%B1%B3%E7%88%BE%E6%A0%BC%E5%80%AB%E5%AF%A6%E9%A9%97">米爾格倫實驗 Milgram experiment 服從威權實驗</a></p>
+    </blockquote>
+  </li>
+  <li>Transitivity<br />
  朋友的朋友很可能也是你朋友<br />
- <a href="https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0">Clustering Coeffieient</a></li>
-  <li>Degree distribution
+ <a href="https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0">Clustering Coeffieient</a><br />
+ $ \frac{三角形數量}{任三點連線數} $</li>
+  <li>Degree distribution<br />
  Real world network : <br />
  Power law
     <blockquote>
@@ -206,30 +214,22 @@ FB好友關係</li>
  廣告投放要投在哪個點影響力最大,如果是傳染病隔離哪個點最有效?</li>
   <li>Mixing patterns<br />
  探討兩邊節點的type,可能因為什麼關係成為朋友(職業/興趣/文化)</li>
-  <li>Degree Correlations
- 觀察兩邊點的degree<br />
- 內向和外向人(朋友多,degree高)觀察</li>
-  <li>Community Structure 
- 一群點邊的密度很高,稱作一個community  <br />
- clique 判斷是否認兩個點是否都有邊相連(clique problem 分團問題)<br />
- clique problem 是 NP-Complete<br />
- Connected commponets :有連通的子圖</li>
+  <li>Degree Correlations<br />
+ 觀察兩個degree高或兩個degree低的點之間的關聯性</li>
+  <li>Community Structure <br />
+ 一個點和邊的密度很高的區域,稱作一個community</li>
   <li>Network motifs    <br />
 在音樂上motifs是一種作曲法,靈感的意思<br />
  在生物基因上是一些重複的pattern<br />
  在社群希望找到出現次數較高的motifs(最常出現的subgraph)</li>
 </ol>
 
-<p>補充資料：</p>
-<blockquote>
-  <p><a href="https://zh.wikipedia.org/wiki/%E7%B1%B3%E7%88%BE%E6%A0%BC%E5%80%AB%E5%AF%A6%E9%A9%97">米爾格倫實驗 Milgram experiment 服從威權實驗</a></p>
-</blockquote>
-
 <p><br /></p>
-<h2 id="central-of-network">Central of Network</h2>
+<h1 id="centrality-analysis">Centrality Analysis</h1>
+
 <ul>
   <li>
-    <p>找到最重要的點(central)</p>
+    <p>Centrality Measure 找到最重要的點(central)</p>
 
     <p>local</p>
     <blockquote>
@@ -250,8 +250,7 @@ FB好友關係</li>
   <li>
     <p>Group Centrality<br />
 找到一群最有影響力的人<br />
-在小世界理論中,如果送信到目標的前一步,都是經由特定的3個人,代表這三個人很重要,<br />
-目前social network還無法透過社群網站判斷這些人</p>
+在小世界理論中,如果送信到目標的前一步,都是經由特定的三個人,代表這三個人很重要</p>
   </li>
 </ul>
 
@@ -266,22 +265,37 @@ FB好友關係</li>
 </ol>
 
 <p><strong>Social network的四種centrality</strong></p>
+
+<p><strong>local</strong></p>
+
 <ol>
-  <li>Degree centrality(local)<br />
-點的重要性,若network的規模大小不同,做normalize(除總size-1)</li>
+  <li>
+    <p>Degree centrality<br />
+若點的degree很高可能代表這個點很重要
+<img src="/img/cloudcomputing/degreeCentrality01.png" alt="degreeCentrality" />
+但degree centrality的缺點是如果有一個點的degree很低,
+但是這個點連接了多個community,
+用degree centrality看不出這個點很重要</p>
+
+    <p><img src="/img/cloudcomputing/degreeCentrality02.png" alt="degreeCentrality" /></p>
+  </li>
+</ol>
+
+<p><strong>global</strong></p>
+
+<ol>
   <li>Betweeness Centrality<br />
- A到B的shortest path有幾條經過Node<script type="math/tex">_i</script></li>
-  <li>Closeness Centrality
+ 所有點A到點B的shortest path有幾條經過<script type="math/tex">Node_i</script></li>
+  <li>Closeness Centrality  <br />
  點i和所有點j的shortest path平均的距離</li>
-  <li>Eigenvector Centrality  <br />
+  <li>Eigenvector Centrality    <br />
  這個點的重要性,透過看他朋友點的重要性<br />
 eigenvector
     <blockquote>
       <p>一個向量乘上一個矩陣(transform),方向不變但scale可能會變<br />
 Ax = <script type="math/tex">\lambda</script>x<br />
 A矩陣代表social network關係(1:朋友關係,0:不是朋友)<br />
-x代表重要性<br />
-概念類似PageRank,page rank的值是連到他網頁的值加總</p>
+x代表重要性</p>
     </blockquote>
   </li>
 </ol>
@@ -299,11 +313,15 @@ unweighted graph</p>
 或指定某幾個人觀察這些人的影響力</p>
 </blockquote>
 
+<hr />
+
 <!-- 20170413  -->
+<h1 id="comunity-detection">Comunity Detection</h1>
+
 <p><strong>Properties of cohesion 凝聚力的判斷</strong></p>
 <ol>
   <li>Mutuality of ties<br />
- 所有subgroup彼此都有編相連,在graph中就是完全圖的概念<br />
+ 所有subgroup彼此都有邊相連,在graph中就是完全圖的概念<br />
  e.g. clique</li>
   <li>Closeness or reachability of subgroup members<br />
  不需要直接有邊相連,間接有相連就行了<br />
@@ -320,7 +338,6 @@ unweighted graph</p>
 <blockquote>
   <p>maximal complete subgraph,最大的子圖任兩點都有邊相連</p>
 </blockquote>
-<hr />
 
 <p><img src="/img/cloudcomputing/community01.png" alt="clique img" /></p>
 
@@ -346,19 +363,58 @@ unweighted graph</p>
 </ul>
 
 <p><strong>Community Detection Approaches</strong></p>
-<ol>
-  <li>Kernighan-Lin Alog(KL algorithm)</li>
-  <li>Hierarchical Clustering</li>
-  <li>Modularity Maximization</li>
-  <li>Bridge-Cut Algo</li>
-</ol>
+<ul>
+  <li>Partitioning
+    <ul>
+      <li><a href="#KL"> Kernighan-Lin Alog(KL algorithm)</a></li>
+    </ul>
+  </li>
+  <li>Hierarchical
+    <ul>
+      <li><a href="#HC"> Hierarchical Clustering</a></li>
+    </ul>
+  </li>
+  <li>Edge-Removal
+    <ul>
+      <li><a href="#MM"> Modularity Maximization</a></li>
+      <li><a href="#BC"> Bridge-Cut Algo</a></li>
+    </ul>
+  </li>
+</ul>
 
-<h3 id="kl-algorithm">KL algorithm</h3>
-<blockquote>
-  <p>input: weighted graph<br />
-output: 切成兩個equal-size subgraph,且橫跨兩群的crossing edge <br />
-目的是相望群和群之間差異大,群內部的差異小</p>
-</blockquote>
+<h2 id="KL"> KL algorithm </h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>Input  : weighted graph  
+Output : 切成兩個equal-size subgraph,且橫跨兩群的crossing edge的總和最小     
+</code></pre>
+</div>
+
+<p><strong>名詞定義</strong></p>
+<ul>
+  <li>external cost<br />
+  在A群中的點連到B群中的點(crossing edge)的cost</li>
+  <li>internal cost<br />
+  在A群中的點連到在A群中的其他點的cost</li>
+  <li>difference<br />
+  external cost - internal cost</li>
+  <li>
+    <p>Gain<br />
+  用來評估是否要交換的值,大於0代表兩點做交換後crossing edge的總和降低 <br />
+  例如a,b屬於不同群,ab做交換<br />
+  Gain = <script type="math/tex">D_a + D_b - 2\times W_{ab}</script><br />
+  (Difference a + Difference b - 2 * weighted <script type="math/tex">\overline{ab}</script>)</p>
+
+    <p>Gain公式推導：<br />
+  若考慮a,b交換<br />
+  old cost = <script type="math/tex">z + E_a + E_b - W_{ab}</script> <br />
+  new cost = <script type="math/tex">z + I_a + I_b + W_{ab}</script><br />
+  old cost - new cost (Gain) = <script type="math/tex">(E_a - I_a) + (E_b - I_b) - 2W_{ab} = D_a + D_b - 2\times W_{ab}</script></p>
+    <blockquote>
+      <p>z (與a,b沒有連接的其他crossing edge總和)<br />
+  E (external cost)<br />
+  I (internal cost)</p>
+    </blockquote>
+  </li>
+</ul>
 
 <p><strong>步驟</strong></p>
 <ol>
@@ -373,39 +429,12 @@ output: 切成兩個equal-size subgraph,且橫跨兩群的crossing edge <br />
 <p>交換數回合,若遇到gain是負的紀錄下來並繼續嘗試做交換,到最後再找gain最好的
 交換完後的點就lock住不進入下一回合</p>
 
-<ul>
-  <li>external cost<br />
-  crossing edge的cost(連向別群的cost)(cut-size)</li>
-  <li>internal cost<br />
-  連向同群的cost</li>
-  <li>difference<br />
-  external cost - internal cost</li>
-</ul>
-
-<p><strong>Gain</strong></p>
-<blockquote>
-  <p>用來評估是否要交換的值
-例如a,b屬於不同群,ab做交換<br />
-Gain = <script type="math/tex">D_a + D_b - 2\times W_{ab}</script><br />
-(Difference a + Difference b - 2*weighted ab)</p>
-</blockquote>
-
-<p>若考慮a,b交換<br />
-old cost = <script type="math/tex">z + E_a + E_b - W_{ab}</script> <br />
-new cost = <script type="math/tex">z + I_a + I_b + W_{ab}</script></p>
-
-<blockquote>
-  <p>z (與a,b沒有連接的其他crossing edge總和)<br />
-E (external cost)<br />
-I (internal cost)</p>
-</blockquote>
-
 <p><strong>KL algorithm複雜度</strong><br />
 <script type="math/tex">O(n^2)</script> 找到最適合交換的兩點,有n pair要交換 ⇒ <script type="math/tex">O(n^3)</script> 
 <!-- 20170413  --></p>
 
-<!-- 20170512 -->
-<h4 id="hiraichiecal">Hiraichiecal</h4>
+<!-- 20170512,20170621-->
+<h2 id="HC">Hiraichiecal Clustering</h2>
 <p>bottom-up<br />
 每一回合都找兩個最像的做合併</p>
 <ul>
@@ -436,23 +465,19 @@ I (internal cost)</p>
  看兩個人共同朋友個數,共同朋友越多J(i,j)越大</li>
 </ol>
 
-<h4 id="edge-removal-approach">Edge-removal Approach</h4>
+<h2 id="edge-removal-approach">Edge-removal Approach</h2>
 <blockquote>
   <p>不斷的拿掉邊(bridge edge),會出現越多的群數,直到符合要的群數</p>
 </blockquote>
 
-<p><strong>betweeness</strong><br />
-    一開始想說可以用degree少,但不夠完全<br />
-    在centrality的betweeness是以node考量<br />
-    在這的betweeness是以edge考量</p>
-
 <h3 id="gn-algorithm">GN algorithm</h3>
-<p>top-down(起始是一個commuinity,並分群下去)</p>
+
 <blockquote>
-  <p>拿掉betweeness最高的邊 → 重算betweeness → 計算community</p>
+  <p>起始是一個commuinity,每一回合拿掉betweeness最高的邊,並重新計算每個邊的betweeness,並持續到出現想要分到的群數<br />
+這裡的betweeness是以邊考量,不是用點。考慮任兩點的最短距離有幾條會通過$edge_i$</p>
 </blockquote>
 
-<p><strong>計算邊的betweeness</strong></p>
+<p><strong>不同方法計算邊的betweeness</strong></p>
 <ol>
   <li>shortest path<br />
  任兩點最短路徑有多少條會經過邊</li>
@@ -466,48 +491,52 @@ I (internal cost)</p>
 <p>缺點</p>
 <ol>
   <li>計算最短路徑耗時
- O(m^2n)<br />
- m edge (O(mn)betweeness)</li>
-  <li>什麼時候停?</li>
-</ol>
-
-<p>改善</p>
-<ol>
-  <li>Partial betweeness (Apprximation)<br />
-Randomly sampled by Monte Carlo Estimate</li>
-  <li>Edge clustering coefficient
-  coefficient越高代表關係越好
-the smaller coefficient the higher betweeness</li>
+ O($m^2n$)
+    <div class="highlighter-rouge"><pre class="highlight"><code> m   edge 
+ mn  betweeness  
+</code></pre>
+    </div>
+  </li>
+  <li>什麼時候停? <br />
+ 什麼時候是最佳的分割</li>
 </ol>
 
 <h2 id="modularity">Modularity</h2>
-<div class="highlighter-rouge"><pre class="highlight"><code>Modularity measure:
-    how good a particular partition forms a community.
-    評估community切分的好不好  
-</code></pre>
-</div>
+<p>Modularity measure:</p>
+<blockquote>
+  <p>how good a particular partition forms a community.<br />
+評估community切分的好不好</p>
+</blockquote>
 
-<p>U 看internal edge的比例<br />
-R 平均i和j會有邊的機率(期望值)      <br />
-Q = U - R</p>
+<p>$ Q = \frac{1}{2m}\sum_{ij}{(A_{ij}-\frac{k_ik_j}{2m})\delta_{ij}}$</p>
+
+<blockquote>
+  <p>m : # of edges<br />
+$A_{ij} = 1$ 如果i,j點之間有邊,沒有邊$A_{ij}= 0$ <br />
+$k_i$ : degree of $node_i$<br />
+$\delta_{ij} = 1 如果i,j屬於同一個community,否則為0$<br />
+Q : 分群的分數</p>
+</blockquote>
 
 <p>Q = 0 no community<br />
 Q ~ 1 prefect cut</p>
 
-<h3 id="newman-fast-alogorithm">Newman Fast Alogorithm</h3>
+<h4 id="newman-fast-alogorithm">Newman Fast Alogorithm</h4>
 <p>利用hireachcal合併,並每個步驟算modurity,並找出最高的Q做切分</p>
 
-<h3 id="bridge-cut">Bridge cut</h3>
-<p>integrity一致性  <br />
-N(v)<br />
-d(v): degree of node<br />
-Density<br />
-Direct neighbor subgraph of v</p>
+<h2 id="BC"> Bridge cut </h2>
 
-<p><strong>Clustering coeffiecient</strong>   <br />
-	觀察v的鄰居的朋友關係<br />
-	例如v有4個朋友,那4個人最多有6個關係,算關係的比例<br />
-	實際上有關係/最多有幾個關係</p>
+<p><strong>Clustering coeffiecient</strong></p>
+<blockquote>
+  <p>觀察v的鄰居的朋友關係,例如v有4個朋友,那4個人最多有6個關係,算關係的比例,實際上有關係/最多有幾個關係</p>
+</blockquote>
+
+<p>$ C_v = \frac{2|\cup_{i,j \in N(v)}e(i,j)|}{d(v)(d(v)-1)} $</p>
+<blockquote>
+  <p>N(v) : 和v直接相連的點<br />
+d(v) : 點v的degree<br />
+e(i,j) = 1 如果ij有邊相連,否則=0</p>
+</blockquote>
 
 <p><strong>Bridge Centrality</strong><br />
 	rank of betweenness centrality * rank of bridging coeffiecient<br />
@@ -542,23 +571,22 @@ distance constrain<br />
   <li>monotone increaing</li>
   <li>monotone decresing</li>
   <li>non-monotone
-<!-- 20170512 --></li>
+<!-- 20170512,20170621--></li>
 </ul>
 <hr />
 
-<!-- 20170421 -->
+<!-- 20170421,20170621 -->
+<h1 id="3">Link Prediction </h1>
 <blockquote>
-
   <ul>
-    <li>Link Prediction</li>
-    <li>Node-wise Similarity Based Methods</li>
-    <li>Topological Pattern Based Methods</li>
-    <li>Probabilistic Model Based Methods</li>
+    <li><a href="#LP">Link Prediction</a></li>
+    <li><a href="#NSBM">Node-wise Similarity Based Methods</a></li>
+    <li><a href="#TPBM">Topological Pattern Based Methods</a></li>
+    <li><a href="#PMBM">Probabilistic Model Based Methods</a></li>
   </ul>
 </blockquote>
 
-<h1 id="3">Link Prediction </h1>
-
+<h2 id="LP"> Link Prediction </h2>
 <p><strong>Goal</strong></p>
 <ol>
   <li>Predict the existence of links</li>
@@ -572,10 +600,10 @@ distance constrain<br />
   <li>Data-driven approach</li>
 </ol>
 
-<p><strong>problem</strong></p>
+<p><strong>Link Prediction Problems</strong></p>
 <ol>
   <li>Link existence prediction<br />
- 邊是否存在</li>
+ 邊是否存在或是隨著時間變化,邊會有什麼變化</li>
   <li>Link classification<br />
  關係的總類</li>
   <li>Link regression<br />
@@ -591,7 +619,7 @@ distance constrain<br />
   <li>Record linkage</li>
 </ol>
 
-<h4 id="node-wise-similarity-based-method">Node-wise Similarity Based Method</h4>
+<h2 id="NSBM"> Node-wise Similarity Based Method</h2>
 <blockquote>
   <p>計算兩個點的相似度,如果兩個點很相似他們可能就有link<br />
 e.g. Similarity between words<br />
@@ -605,13 +633,13 @@ e.g. Similarity between words<br />
       <li>Decision Tree</li>
     </ul>
   </li>
-  <li>Regression-based Approach(回歸)  <br />
+  <li>Regression-based Approach(迴歸)  <br />
   e.g linear regression<br />
   <script type="math/tex">Y = \alpha + \beta_1X_1 + \beta_2X_2 + ... + \beta_nX_n</script><br />
   利用學習方式估計出<script type="math/tex">\alpha , \beta</script></li>
 </ul>
 
-<h4 id="topological-pattern-based-methods">Topological Pattern Based Methods</h4>
+<h2 id="TPBM"> Topological Pattern Based Methods </h2>
 <blockquote>
   <p>計算兩點之間的分數,若大於某個值就表示他們之間有關係(連線)</p>
 </blockquote>
@@ -620,29 +648,33 @@ e.g. Similarity between words<br />
   <li><strong>Local Method</strong>
     <ul>
       <li>Common Neighbors(CN)  <br />
-  計算共同的鄰居</li>
+  計算$node_x$和$node_y$的共同鄰居</li>
       <li>Salton Index<br />
   類似cosine similiary</li>
-      <li>Jaccard Coefficient(JC)<br />
-  交集/聯集</li>
+      <li>Jaccard Coefficient(JC)
+        <blockquote>
+          <p>交集/聯集</p>
+        </blockquote>
+
+        <p>$\frac{node_x和node_y的共同鄰居}{node_x的鄰居和node_y的鄰居做聯集}$</p>
+      </li>
       <li>Leicht-Holme-Newman Index(LHN)</li>
       <li>Hub Promoted Index(HPI)<br />
   Hub概念像是入口網站,類似目錄連到很多子分支</li>
       <li>Hub Depres Index(HDI)</li>
       <li>Adamic/Adar(AA) <br />
-  x和y是朋友的分數是x和y的共同朋友的鄰居-x和y 倒數總和</li>
+  看共同鄰居的鄰居數量取log和倒數加總
+  $Score(x,y) = \sum_{z \in N(x) \cap N(y)} \frac{1}{log|N(z)|}$</li>
       <li>Resource Allocation Index(RA)<br />
   和AA差在分母沒有取log</li>
       <li>Preferential Attachment<br />
-  x和y是朋友的分數就是x的鄰居乘上y鄰居</li>
+  $node_x的鄰居\times node_y$鄰居</li>
     </ul>
-
-    <p>Performance: RA &gt; AA &gt; CN &gt; … &gt; PA</p>
   </li>
   <li><strong>global Method</strong>
     <ul>
       <li>katz<br />
-  看x到y距離是1,2,3..n的path有幾條,乘上一個參數做加總</li>
+  計算所有$node_x到node_y$距離是1,2,3..n的path有幾條,乘上一個參數$\beta$做加總</li>
       <li>Hitting Time<br />
   x走到y,做random work的期望值作為比較條件</li>
       <li>PageRank</li>
@@ -651,20 +683,27 @@ e.g. Similarity between words<br />
   </li>
 </ul>
 
-<h4 id="probabilistic-model-based-methods">Probabilistic Model Based Methods</h4>
-<p>e.g. relational Markov model<br />
-<!-- 20170421 --></p>
+<h2 id="PMBM"> Probabilistic Model Based Methods </h2>
+<p>relational Markov model<br />
+<!-- 20170421,20170621 --></p>
 
-<!-- 20170420 -->
 <hr />
 
+<!-- 20170420,20170621 -->
 <h1 id="4">Labeld Social Network </h1>
 <h4 id="type-of-labels">Type of Labels</h4>
 <ol>
   <li>Binary</li>
   <li>Numeric</li>
-  <li>cate</li>
-  <li>text-free</li>
+  <li>Categorical</li>
+  <li>Free-text</li>
+</ol>
+
+<h4 id="goal">Goal</h4>
+<p>給一個network且只有部份點有labeled,用已知的label來預測未知的label</p>
+<ol>
+  <li>Predict the type of nodes</li>
+  <li>Predict the attribute values of nodes</li>
 </ol>
 
 <h4 id="label-prediction">Label Prediction</h4>
@@ -672,62 +711,45 @@ e.g. Similarity between words<br />
   <p>根據已知的label預測未知點的label</p>
 </blockquote>
 
+<h4 id="different-setup-for-label-prediction">Different setup for label prediction</h4>
 <ol>
   <li>Inference vs. Learning<br />
  Inference(unsupervised)<br />
  Learning(supervised)</li>
   <li>Disjoint vs. Collective<br />
- Disjoint
- 沒有標籤的點就不考慮<br />
- Collective<br />
- 沒有標籤的點也會放進去考慮</li>
+ Disjoint : 沒有標籤的點就不考慮<br />
+ Collective : 沒有標籤的點也會放進去考慮</li>
   <li>Across-network vs. within-network learning<br />
  Across-network拿一個social network model去預測另一個social network<br />
  within-network拿全部資料做的model來做預測</li>
 </ol>
 
-<h4 id="clues-to-predict-labels">Clues to Predict Labels</h4>
+<h4 id="node-label-prediction">Node Label Prediction</h4>
 <ul>
-  <li>Label Independent approaches 特徵值沒有用到label的訊息
-    <ol>
-      <li>Correlation between<br />
- Attribute of node i (年紀)
- Label of node i (身份)</li>
-      <li>Correlation between<br />
- Network Structures of node i (between centrality)
- Label of node i</li>
-    </ol>
-  </li>
-  <li>Label Dependent Approaches
-    <ol>
-      <li>Correlation between<br />
- 知道鄰居來預設未知,用其他點來預測未知點</li>
-      <li>Correlation between<br />
- 利用unlabel點來預測</li>
-    </ol>
-  </li>
+  <li><a href="#RNC">Relational Neighbor Classifier</a></li>
+  <li><a href="#GE">Ghost Edge</a></li>
+  <li><a href="#RMN">Relational Markov Network</a></li>
+  <li><a href="#PEM">Pseudolikelihood EM </a></li>
 </ul>
 
-<h4 id="relational-neighbor-classifier">Relational Neighbor Classifier</h4>
+<h2 id="RNC"> Relational Neighbor Classifier </h2>
 <blockquote>
   <p>看鄰居多數是什麼就判斷node是什麼</p>
 </blockquote>
 
-<p>問題：<br />
-    如果已知的點很少,unknown的很多(Sparse label),若只用一個點就判斷就沒那麼可靠<br />
-解決：
-    Iterative Relation Neighbor classifier  <br />
-    判斷分為好幾回合,若多數點是unknown那就判斷是unknown <br />
-    unknown也是一種label<br />
-<!-- 20170420 --></p>
+<ul>
+  <li>問題：<br />
+  如果已知的點很少,unknown的很多(Sparse label),若只用一個點判斷另一個點就沒那麼可靠</li>
+  <li>解決：
+  Iterative Relation Neighbor classifier  <br />
+  判斷分為好幾回合,若多數點是unknown那就判斷是unknown <br />
+  unknown也是一種label<br />
+<!-- 20170420,20170621 --></li>
+</ul>
 
-<!-- 20170512 -->
-<h2 id="ghost-edges-for-node-label-prediction">Ghost Edges for Node Label Prediction</h2>
-<p>將一些不是直接連接的node但有影響力的點,用ghost edge連起來<br />
-那怎麼判斷點的重要性 → Random walk with Restart</p>
-<blockquote>
-  <p>有一定的機率會跳到起點</p>
-</blockquote>
+<!-- 20170512,20170621 -->
+<h2 id="GE">Ghost Edges for Node Label Prediction</h2>
+<p>將沒有label的node用Ghost edge連到有label的node,有label的node就算沒有實體的edge連到unlabel node但是也可以造成影響。且影響力可以依據距離來做調整。</p>
 
 <h4 id="steady-state-probability">Steady-state Probability</h4>
 <ul>
@@ -735,8 +757,10 @@ e.g. Similarity between words<br />
   e.g. 城市和郊區遷移問題</li>
 </ul>
 
-<p>利用Random walk with restart計算所有點對某點的影響力<br />
-在對這些影響力做等級劃分,依照機率分為ABCDEF…等級</p>
+<h4 id="random-walk-with-restart">Random walk with Restart</h4>
+<p>概念有點類似Markov Process,使用Adjacency matrix A表示network,有一個初始的起點$V_q$,並且有一個Restart的機率c每一回合有機率回到起點。利用random walk在圖上移動到穩定,並利用來判斷每個點對某一點的影響力,在對這些影響力做等級劃分,依照機率分為ABCDEF…等級</p>
+
+<!-- 20170621 -->
 
 <p><strong>Two Classifers</strong></p>
 <ol>
@@ -758,11 +782,14 @@ e.g. Similarity between words<br />
 
 <p><strong>Types of information Diffusion</strong></p>
 <ul>
-  <li>herd behavior(global information)<br />
+  <li>Herd behavior(global information)<br />
   群眾行為,大多數人怎麼做,就有可能會跟著做</li>
-  <li>information cascades(local information)</li>
-  <li>diffusion of innovation</li>
-  <li>eqidemics</li>
+  <li>Information cascades(local information)<br />
+  FB朋友互相的轉發貼文</li>
+  <li>Diffusion of innovation
+  沒有明確的網路圖形,透過電視廣告,從朋友聽說等等的傳遞方式</li>
+  <li>Eqidemics
+  疫情擴散</li>
 </ul>
 
 <p><strong>Diffusion Models</strong></p>
@@ -981,6 +1008,48 @@ NPC問題通常找近似解,所以需要一個比較的方法</p>
   </li>
 </ol>
 
+<!-- 20170525 -->
+
+<!-- class -->
+<p>Epidemics
+疫情會有一個週期
+接觸後有多少機率會傳染p</p>
+
+<p>一個人有傳染並，那他會傳染給多少的人</p>
+
+<p>Basic reproductive number $R_0$</p>
+
+<p>$R_0 &lt; 1$ 疫情會在一段時間內消失
+$R_0 &gt; 1$ 疫情會持續下去</p>
+
+<p>目標將低k或是p</p>
+
+<p>Epidemics modeling</p>
+<ul>
+  <li>Statistics models</li>
+  <li>Agent-based models</li>
+  <li>network models</li>
+</ul>
+
+<p>Statistics model
+SIR model</p>
+<ul>
+  <li>Susceptible</li>
+  <li>Infectious
+  被感染</li>
+  <li>Removed
+  病情痊癒</li>
+</ul>
+
+<p>參數</p>
+<ol>
+  <li>p 病情的傳染機率</li>
+  <li>$t_i$ 病情的持續時間</li>
+</ol>
+
+<!-- class -->
+
+<!-- 20170525 -->
 <h1 id="9">Cloud computing</h1>
 <ul>
   <li><a href="#9_1">MapReduce</a></li>
@@ -1180,7 +1249,8 @@ mapreduce沒有提供share memory的機制去交換global的資料</p>
   <li>group<br />
   group user_url by url    <br />
   將欄位一樣的合併在一起<br />
-  pig允許complex data type(一格有多筆資料)</li>
+  pig允許complex data type(一個欄位有多筆資料) <br />
+  在relational database不允許有一個欄位有多個值的情況</li>
   <li>cogroup<br />
   cogroup Users by userId, Urls by user;<br />
   可以針對多個資料表做group</li>
@@ -1189,10 +1259,92 @@ mapreduce沒有提供share memory的機制去交換global的資料</p>
   count(user_url) as count,</li>
   <li>order<br />
   ASC,DESC</li>
+  <li>flatten</li>
+  <li>distinct<br />
+  將重複的濾掉</li>
+</ul>
+
+<p><strong>eval function(aggregation function)</strong></p>
+<ul>
+  <li>count</li>
+  <li>sum</li>
+  <li>avg</li>
+  <li>min/max</li>
+  <li>size</li>
+  <li>concat</li>
+  <li>tokenize</li>
+  <li>diff</li>
+</ul>
+
+<p>example<br />
+Word Count using Pig</p>
+<ul>
+  <li>Load file</li>
+  <li>generate token 做斷詞</li>
+  <li>group each word</li>
+  <li>count word</li>
+  <li>save file</li>
 </ul>
 
 <!-- 20170602 -->
 
+<!----------------------------------- class --------------------------------------------->
+<h4 id="agent-based-model">Agent-based Model</h4>
+
+<p>代理人做事的程式
+例如高鐵程式搶票.搜尋引擎</p>
+
+<h4 id="agent">Agent</h4>
+<ul>
+  <li>獨立單位沒有辦法分割</li>
+  <li>自動做事情</li>
+  <li>自我決定事情</li>
+  <li>在不同時間上有不同的狀態</li>
+</ul>
+
+<h4 id="agent-base如何模擬疫情擴散">agent base如何模擬疫情擴散</h4>
+<p>FluTE
+national-level simulation model
+人口資料/通勤資料/旅行資料</p>
+
+<p>population structure</p>
+<ul>
+  <li>discete-time stochastic simulation</li>
+  <li>five age groups 0-4,5-18,19-29,30-64,64+ years</li>
+  <li>家庭人口數</li>
+  <li>每個人屬於什麼group,每個人有多個身份</li>
+</ul>
+
+<h4 id="social-network隱私問題">social network隱私問題</h4>
+
+<ul>
+  <li>identity disclosure 去識別化
+  e.g. 將姓名,身份證號碼去掉</li>
+</ul>
+
+<p>去識別化後還是會有問題
+如果去識別化後的點只有一個點degree是100
+我剛好又知道A的朋友也是100個,那我可能會猜這個點是A</p>
+
+<p>Privacy model
+k-degree anonymity
+    概念是造幾個假的資料，讓相同degree的點被猜出的機率下降
+    在降低被猜出的機率同時要注意不要修改到太多原始資料
+    將相同degree點的個數至少有k個</p>
+
+<p>Problem define
+    在點數相同的情形下,只修改邊,使相同degree的點個數至少有k個
+    且前後graph的差異最小</p>
+
+<p>GraphAnonymization algorithm
+    Degree-sequence anonymization
+        將每個點的degree由大排到小
+<!----------------------------------- class ---------------------------------------------></p>
+
+<!----------------------------------- class --------------------------------------------->
+<h1 id="networks-with-signed-edges">Networks with Signed Edges</h1>
+
+<!----------------------------------- class --------------------------------------------->
 
 </div>
 

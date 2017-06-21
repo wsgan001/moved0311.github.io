@@ -1071,8 +1071,137 @@ $K(x_i,x_j)=x_i^Tx_j$</p>
   <li>Linear</li>
   <li>Polynomial $$</li>
   <li>Radial basis function(infinite dimensional space)
-<!---------------------------- class --------------------------------------------></li>
+<!---------------------------- class -------------------------------------------->
+<!---------------------------- class -------------------------------------------->
+    <h1 id="ch16-flat-clustering">Ch16 Flat clustering</h1>
+  </li>
 </ul>
+
+<h4 id="classification-分類-vs-clustering-分群">Classification 分類 vs. Clustering 分群</h4>
+
+<ul>
+  <li>supervised learning</li>
+  <li>Unsupervised learning
+  資料沒有label,沒有正確答案</li>
+  <li>reinforcement learning</li>
+</ul>
+
+<h4 id="flat-vs-hierarchical-clustering">Flat vs. Hierarchical clustering</h4>
+
+<ul>
+  <li>Flat
+    <ul>
+      <li>Hard clustering
+  一個東西就只能分到一類<br />
+  e.g. K-means</li>
+      <li>Soft clustering<br />
+  比較偏向使用機率分群</li>
+    </ul>
+  </li>
+  <li>Hiearchical clustering<br />
+  希望分群完後是一種階層架構</li>
+</ul>
+
+<h4 id="k-means">K-means</h4>
+
+<ul>
+  <li>Each cluster in K-means is defined by a centroid</li>
+</ul>
+
+<h4 id="method">Method</h4>
+<ul>
+  <li>reassignment of vector</li>
+  <li>recomputation of centroids</li>
+</ul>
+
+<ol>
+  <li>init
+ 隨機給重心點</li>
+  <li>reassign</li>
+  <li>recomputation of centroids</li>
+</ol>
+
+<p>什麼時候收斂？
+RSS(residual sum of squares)
+每次的centroid差值小於某個值就停止</p>
+
+<p>缺點是
+initial的點很糟結果會不好和k怎麼決定</p>
+
+<p>time complexity
+O(IKNM)</p>
+
+<h4 id="evaluation">Evaluation</h4>
+<ul>
+  <li>Internal criteria
+  RSS的評估</li>
+  <li>External criteria
+  goal base,必須要知道正確答案
+    <ul>
+      <li>Purity
+  必須要有正確答案,並和分出的結果做比較</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="怎麼決定k值">怎麼決定k值</h4>
+<ol>
+  <li>外部資訊</li>
+  <li>從1開始慢慢加上去,並且計算criteria是否有增加</li>
+</ol>
+
+<h1 id="ch21-link-analysis">Ch21 Link Analysis</h1>
+<p>Page Rank
+<!---------------------------- class --------------------------------------------></p>
+
+<!---------------------------- class -------------------------------------------->
+<p>Ch21 Link Analysis</p>
+
+<ul>
+  <li>Anchor Text</li>
+  <li>Citation Analysis</li>
+  <li>PageRank</li>
+  <li>HITS: Hub &amp; Authorties</li>
+</ul>
+
+<h4 id="citation-analysis">Citation Analysis</h4>
+<p>Citation frequency can be used to meature impact</p>
+
+<h4 id="pagerank">PageRank</h4>
+<p>model behind Random walk
+在所有網頁上隨機走動,且根據link連到其他網頁
+到穩定狀態(steady state)後,計算停留在每個page的機率
+PageRank = long-term visit rate</p>
+
+<p>將網頁連結的關係使用矩陣來存
+Dead end,如果有一些網頁指到同一個網頁如果之後就跳不出去會有not well define的問題
+teleporting解決這個問題,給一個很低的機率讓所有0的網頁都有機會跳到別的網頁,
+類似smoothing,
+每個點會有一個機率,且乘上矩陣一次會走一步
+那一直走下去會到收斂狀態($\pi$)</p>
+
+<p>P is transifer matrix
+$\pi = \pi P$</p>
+
+<p>Power method -&gt; 一直乘P,直到向量收斂</p>
+
+<h4 id="hits--authorities">HITS &amp; Authorities</h4>
+<ol>
+  <li>Hub 
+ 像是入口網站,有很多連出去的連結(out link)</li>
+  <li>Authorities 
+ 網站內的資料是屬於比較官方的網站
+ 資料屬於比較權威(就是多的link指向的網頁)</li>
+</ol>
+
+<p>不停的迭代
+$h = Aa$<br />
+$a = A^Th$</p>
+
+<p>A 代表相鄰矩陣
+a 的初始值($a_0$)在第一輪都設定為一樣</p>
+
+<!---------------------------- class -------------------------------------------->
 
 </div>
 

@@ -711,3 +711,116 @@ $K(x_i,x_j)=x_i^Tx_j$
 * Polynomial $$
 * Radial basis function(infinite dimensional space)
 <!---------------------------- class -------------------------------------------->
+<!---------------------------- class -------------------------------------------->
+# Ch16 Flat clustering
+
+#### Classification 分類 vs. Clustering 分群  
+
+* supervised learning
+* Unsupervised learning
+    資料沒有label,沒有正確答案
+* reinforcement learning
+
+#### Flat vs. Hierarchical clustering
+
+* Flat
+    + Hard clustering
+        一個東西就只能分到一類  
+        e.g. K-means
+    + Soft clustering  
+        比較偏向使用機率分群  
+* Hiearchical clustering  
+    希望分群完後是一種階層架構  
+
+#### K-means  
+
+* Each cluster in K-means is defined by a centroid
+
+#### Method
+* reassignment of vector
+* recomputation of centroids
+
+1. init
+    隨機給重心點
+2. reassign
+3. recomputation of centroids
+
+什麼時候收斂？
+RSS(residual sum of squares)
+每次的centroid差值小於某個值就停止
+
+缺點是
+initial的點很糟結果會不好和k怎麼決定  
+
+time complexity
+O(IKNM)
+
+#### Evaluation
+* Internal criteria
+    RSS的評估
+* External criteria
+    goal base,必須要知道正確答案  
+    + Purity
+        必須要有正確答案,並和分出的結果做比較  
+
+#### 怎麼決定k值
+1. 外部資訊
+2. 從1開始慢慢加上去,並且計算criteria是否有增加
+
+
+
+# Ch21 Link Analysis
+Page Rank
+<!---------------------------- class -------------------------------------------->
+
+<!---------------------------- class -------------------------------------------->
+Ch21 Link Analysis
+
+* Anchor Text
+* Citation Analysis
+* PageRank
+* HITS: Hub & Authorties
+
+#### Citation Analysis
+Citation frequency can be used to meature impact
+
+
+#### PageRank
+model behind Random walk
+在所有網頁上隨機走動,且根據link連到其他網頁
+到穩定狀態(steady state)後,計算停留在每個page的機率
+PageRank = long-term visit rate
+
+將網頁連結的關係使用矩陣來存
+Dead end,如果有一些網頁指到同一個網頁如果之後就跳不出去會有not well define的問題
+teleporting解決這個問題,給一個很低的機率讓所有0的網頁都有機會跳到別的網頁,
+類似smoothing,
+每個點會有一個機率,且乘上矩陣一次會走一步
+那一直走下去會到收斂狀態($\pi$)
+
+P is transifer matrix
+$\pi = \pi P$
+
+Power method -> 一直乘P,直到向量收斂
+
+#### HITS & Authorities
+1. Hub 
+    像是入口網站,有很多連出去的連結(out link)
+2. Authorities 
+    網站內的資料是屬於比較官方的網站
+    資料屬於比較權威(就是多的link指向的網頁)
+    
+
+不停的迭代
+$h = Aa$  
+$a = A^Th$
+
+A 代表相鄰矩陣
+a 的初始值($a_0$)在第一輪都設定為一樣
+
+
+
+
+
+
+<!---------------------------- class -------------------------------------------->
