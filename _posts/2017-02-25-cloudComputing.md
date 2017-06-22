@@ -9,8 +9,7 @@ comments: true
 * Community Detection  
 * <a href="#3">Link Prediction</a>  
 * <a href="#4">Label Prediction</a>
-* <a href="#5">Influence maximization</a>
-* <a href="#6">Outbreak Detection</a>  
+* <a href="#5">Information Diffusion</a>
 * Role/Postion Analysis
 * Social Relation Extraction
 * <a href="#9">Cloud Computing</a>
@@ -33,6 +32,7 @@ comments: true
 |Sociocentric|Egocentric|
 |根據整群分析|根據個人分析,向外延伸|
 
+__Newman__ 將Network分為四類:  
 * information Network  
   paper reference network   
   web hyperlink network   
@@ -55,7 +55,7 @@ comments: true
     > [米爾格倫實驗 Milgram experiment 服從威權實驗](https://zh.wikipedia.org/wiki/%E7%B1%B3%E7%88%BE%E6%A0%BC%E5%80%AB%E5%AF%A6%E9%A9%97)   
 2. Transitivity  
     朋友的朋友很可能也是你朋友  
-	[Clustering Coeffieient](https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0)  
+	[Clustering Coefficient](https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0)  
     $ \frac{三角形數量}{任三點連線數} $  
 3. Degree distribution  
 	Real world network :   
@@ -80,7 +80,7 @@ comments: true
 	在生物基因上是一些重複的pattern  
 	在社群希望找到出現次數較高的motifs(最常出現的subgraph)  
 
-
+補充資料 : [Erdős Number](https://en.wikipedia.org/wiki/Erd%C5%91s_number)
 <br>
 # Centrality Analysis
 
@@ -438,7 +438,7 @@ relational Markov model
 
 
 <hr>
-<!-- 20170420,20170621 --> 
+<!-- 20170621 --> 
 <h1 id="4">Labeld Social Network </h1> 
 #### Type of Labels  
 1. Binary
@@ -479,10 +479,11 @@ relational Markov model
 * 解決：
     Iterative Relation Neighbor classifier    
     判斷分為好幾回合,若多數點是unknown那就判斷是unknown   
-    unknown也是一種label  
-<!-- 20170420,20170621 --> 
+    unknown也視為一種label  
+<!-- 20170621 --> 
 
-<!-- 20170512,20170621 --> 
+<!-- =====================  20170622 ================================= --> 
+
 <h2 id="GE">Ghost Edges for Node Label Prediction</h2>   
 將沒有label的node用Ghost edge連到有label的node,有label的node就算沒有實體的edge連到unlabel node但是也可以造成影響。且影響力可以依據距離來做調整。
 
@@ -491,61 +492,76 @@ relational Markov model
     e.g. 城市和郊區遷移問題
 
 #### Random walk with Restart   
-概念有點類似Markov Process,使用Adjacency matrix A表示network,有一個初始的起點$V_q$,並且有一個Restart的機率c每一回合有機率回到起點。利用random walk在圖上移動到穩定,並利用來判斷每個點對某一點的影響力,在對這些影響力做等級劃分,依照機率分為ABCDEF...等級  
+概念有點類似Markov Process,使用Adjacency matrix A表示network,有一個初始的起點$\vec{V_q}$,並且有一個Restart的機率c每一回合有機率回到起點。利用random walk在圖上移動到穩定,並利用來判斷每個點對某一點的影響力,在對這些影響力做等級劃分,依照機率分為ABCDEF...等級  
 
-<!-- 20170621 -->
+Steady-state vector : $ \vec{U_q} = (1-c)A \vec{U_q}+c \vec{V_q}$  
+Initial state : $\vec{U_q} = \vec{V_q}$
 
 __Two Classifers__  
 1. GhostEdgeNL
 2. GhostEdgeL  
     Logistic regression  
 
-## Information Diffusion 
-消息/疾病擴散  
-想知道擴散方向,可以擴散到哪等等問題  
+<hr>
+<h1 id="5">Information Diffusion</h1>   
+> 想知道消息/能量/疾病/..的擴散方向,透過什麼方式擴散,可以擴散到哪等等問題  
 
-__3 elements of diffusion process__  
-1. Senders
-2. Receivers  
-3. Medium(channel)
+__three elements of diffusion process__  
+1. Senders 散佈者  
+2. Receivers 接收者  
+3. Medium(channel) 中間人  
 
-__Types of information Diffusion__  
+__Types of Information Diffusion__  
 * Herd behavior(global information)  
     群眾行為,大多數人怎麼做,就有可能會跟著做  
 * Information cascades(local information)  
     FB朋友互相的轉發貼文    
-* Diffusion of innovation
+* Diffusion of innovation  
     沒有明確的網路圖形,透過電視廣告,從朋友聽說等等的傳遞方式  
 * Eqidemics
     疫情擴散  
 
+![Information Diffusion](/img/cloudcomputing/InformationDiffusion.png)
+
+## Herd 從眾    
+> 有一群人做決策,大家會趨向一個方向
+
+__Herd example__  
+1. Soloman Asch Experiment  
+    左邊一個長條圖形和右邊有三個不同長短的長條圖形,比較長度和哪個最相近  
+    
+2. Urn Experiment (Bayesian Modeling of Herd Behavior)  
+    有多個學生來猜測甕裡面主要是放什麼顏色的珠寶  
+    甕裡面珠寶有紅色和藍色,不會是全部是藍色或全部是紅色  
+    每個學生從甕中抓一把,根據自己手中的內容和黑板上紀錄結果做預測  
+    並將預測結果寫在黑板上,後面的同學可以參考   
+    那可能抽到大多數是藍色,但黑板上紀錄大多是紅色,可能會影響你的猜測   
+
+## Information Cascade  
+
 __Diffusion Models__  
 1. Descriptive models  
-    > 機率模型  
+    機率模型  
 2. Operational models  
-    > 一步一步的擴散  
-
-    Each node can be Active / Inactive  
-    Assumption:  
-    * node can switch from inactive to active  
-    * cannot switch from active to inactive  
-
+    一步一步的動態模擬擴散  
+    每個點可以是Active或Inactive  
+    假設:  
+    每個node可以從inactive轉成active但不能從active轉成inactive  
     e.g.  
     * Linear Threshold Model  
     * Independent Cascade Model  
 
-__Linear Threshold Model__    
-每個人都會有一個threshold代表會變成active門檻值    
-每個邊上會有影響力的值(可以是單向或雙向)    
-如果你的鄰居加總的影響力大於你本身的threshold那你也會變成active  
-由Senders開始一步一步的擴散  
+    __Linear Threshold Model__    
+    每個人都會有一個threshold代表會變成active門檻值    
+    每個邊上會有影響力的值(可以是單向或雙向)    
+    如果你的鄰居加總的影響力大於你本身的threshold那你也會變成active    
+    由Senders開始一步一步的擴散  
 
-__Independent Cascade Model__  
-每一個人只能影響鄰居一次,失敗了不能再影響一次  
-邊上是影響成功的機率  
+    __Independent Cascade Model__  
+    每一個人只能影響鄰居一次,失敗了不能再影響一次  
+    邊上權重是影響成功的機率  
 
-<hr>
-<h1 id="5">Influence Maximization Problem</h1>    
+## Influence Maximization Problem     
 給一些起始的senders觀察最後有哪些人被影響  
 給k個senders並且找出這k個senders是誰且最後影響的人數最多  
 (應用: 廣告要放在哪裡)  
@@ -573,21 +589,20 @@ __Approximation Approach__
 Greedy algorithm  
 每回合找出Submodular最大的作為sender  
 
-<hr>
-<h1 id="6">Outbreak Detection</h1>  
+## Outbreak Detection    
 > 能不能透過放sensor提早知道消息的擴散  
 
-給一個network G(V,E),找到placement A(sensor)
-goal : to max R(A)
-R(A) : reward  
-c(A) : cost  
+給一個network G(V,E),找到placement A(sensor)  
+goal : to max R(A)  
+R(A) : reward    
+c(A) : cost    
 
-placement objective  
-* detection likelihood  
-    希望所有事件都偵測到  
-* detection time  
-    多久偵測到  
-* Population affected
+__placement objective__    
+* detection likelihood    
+    希望所有事件都偵測到    
+* detection time    
+    多久偵測到    
+* Population affected  
     已經擴散多少,多少人知道  
 
 __Approached of Outbreak Detection__  
@@ -648,32 +663,6 @@ NPC問題通常找近似解,所以需要一個比較的方法
     1.從自己建立的node找一個點放到set中  
     2.計算和require和set中的距離,取最短,並將path上的點加入set,直到所有require都在set中   
 <!-- 20170512 -->
-
-
-<!-- 20170525 -->
-## Herd 從眾  
-> 有一群人做決策,大家會趨向一個方向
-
-* Information Diffusion
-    * Explicit Network  
-        + Global Information Herd Behavior  
-        + Local Information   
-            Information Cascases (e.g. Facebook)  
-    * Implicit Network  
-        + Diffusion of Innovations (e.g. ptt movies)  
-        + Epidemics (e.g. 疾病的擴散)  
-    
-#### Herd example  
-1. Soloman Asch Experiment  
-    左邊一個長條圖形和右邊有三個不同長短的長條圖形,比較長度和哪個最相近  
-    
-2. Urn Experiment (Bayesian Modeling of Herd Behavior)  
-    有多個學生來猜測甕裡面主要是放什麼顏色的珠寶  
-    甕裡面珠寶有紅色和藍色,不會是全部是藍色或全部是紅色  
-    每個學生從甕中抓一把,根據自己手中的內容和黑板上紀錄結果做預測  
-    並將預測結果寫在黑板上,後面的同學可以參考  
-
-<!-- 20170525 -->
 
 
 <!-- class -->

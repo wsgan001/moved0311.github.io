@@ -127,8 +127,7 @@ MathJax.Hub.Config({
   <li>Community Detection</li>
   <li><a href="#3">Link Prediction</a></li>
   <li><a href="#4">Label Prediction</a></li>
-  <li><a href="#5">Influence maximization</a></li>
-  <li><a href="#6">Outbreak Detection</a></li>
+  <li><a href="#5">Information Diffusion</a></li>
   <li>Role/Postion Analysis</li>
   <li>Social Relation Extraction</li>
   <li><a href="#9">Cloud Computing</a></li>
@@ -164,6 +163,7 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 
+<p><strong>Newman</strong> 將Network分為四類:</p>
 <ul>
   <li>information Network<br />
 paper reference network <br />
@@ -195,7 +195,7 @@ FB好友關係</li>
   </li>
   <li>Transitivity<br />
  朋友的朋友很可能也是你朋友<br />
- <a href="https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0">Clustering Coeffieient</a><br />
+ <a href="https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0">Clustering Coefficient</a><br />
  $ \frac{三角形數量}{任三點連線數} $</li>
   <li>Degree distribution<br />
  Real world network : <br />
@@ -224,7 +224,8 @@ FB好友關係</li>
  在社群希望找到出現次數較高的motifs(最常出現的subgraph)</li>
 </ol>
 
-<p><br /></p>
+<p>補充資料 : <a href="https://en.wikipedia.org/wiki/Erd%C5%91s_number">Erdős Number</a>
+<br /></p>
 <h1 id="centrality-analysis">Centrality Analysis</h1>
 
 <ul>
@@ -689,7 +690,7 @@ e.g. Similarity between words<br />
 
 <hr />
 
-<!-- 20170420,20170621 -->
+<!-- 20170621 -->
 <h1 id="4">Labeld Social Network </h1>
 <h4 id="type-of-labels">Type of Labels</h4>
 <ol>
@@ -743,11 +744,12 @@ e.g. Similarity between words<br />
   <li>解決：
   Iterative Relation Neighbor classifier  <br />
   判斷分為好幾回合,若多數點是unknown那就判斷是unknown <br />
-  unknown也是一種label<br />
-<!-- 20170420,20170621 --></li>
+  unknown也視為一種label<br />
+<!-- 20170621 --></li>
 </ul>
 
-<!-- 20170512,20170621 -->
+<!-- =====================  20170622 ================================= -->
+
 <h2 id="GE">Ghost Edges for Node Label Prediction</h2>
 <p>將沒有label的node用Ghost edge連到有label的node,有label的node就算沒有實體的edge連到unlabel node但是也可以造成影響。且影響力可以依據距離來做調整。</p>
 
@@ -758,9 +760,10 @@ e.g. Similarity between words<br />
 </ul>
 
 <h4 id="random-walk-with-restart">Random walk with Restart</h4>
-<p>概念有點類似Markov Process,使用Adjacency matrix A表示network,有一個初始的起點$V_q$,並且有一個Restart的機率c每一回合有機率回到起點。利用random walk在圖上移動到穩定,並利用來判斷每個點對某一點的影響力,在對這些影響力做等級劃分,依照機率分為ABCDEF…等級</p>
+<p>概念有點類似Markov Process,使用Adjacency matrix A表示network,有一個初始的起點$\vec{V_q}$,並且有一個Restart的機率c每一回合有機率回到起點。利用random walk在圖上移動到穩定,並利用來判斷每個點對某一點的影響力,在對這些影響力做等級劃分,依照機率分為ABCDEF…等級</p>
 
-<!-- 20170621 -->
+<p>Steady-state vector : $ \vec{U_q} = (1-c)A \vec{U_q}+c \vec{V_q}$<br />
+Initial state : $\vec{U_q} = \vec{V_q}$</p>
 
 <p><strong>Two Classifers</strong></p>
 <ol>
@@ -769,69 +772,85 @@ e.g. Similarity between words<br />
  Logistic regression</li>
 </ol>
 
-<h2 id="information-diffusion">Information Diffusion</h2>
-<p>消息/疾病擴散<br />
-想知道擴散方向,可以擴散到哪等等問題</p>
+<hr />
 
-<p><strong>3 elements of diffusion process</strong></p>
+<h1 id="5">Information Diffusion</h1>
+<blockquote>
+  <p>想知道消息/能量/疾病/..的擴散方向,透過什麼方式擴散,可以擴散到哪等等問題</p>
+</blockquote>
+
+<p><strong>three elements of diffusion process</strong></p>
 <ol>
-  <li>Senders</li>
-  <li>Receivers</li>
-  <li>Medium(channel)</li>
+  <li>Senders 散佈者</li>
+  <li>Receivers 接收者</li>
+  <li>Medium(channel) 中間人</li>
 </ol>
 
-<p><strong>Types of information Diffusion</strong></p>
+<p><strong>Types of Information Diffusion</strong></p>
 <ul>
   <li>Herd behavior(global information)<br />
   群眾行為,大多數人怎麼做,就有可能會跟著做</li>
   <li>Information cascades(local information)<br />
   FB朋友互相的轉發貼文</li>
-  <li>Diffusion of innovation
+  <li>Diffusion of innovation<br />
   沒有明確的網路圖形,透過電視廣告,從朋友聽說等等的傳遞方式</li>
   <li>Eqidemics
   疫情擴散</li>
 </ul>
 
+<p><img src="/img/cloudcomputing/InformationDiffusion.png" alt="Information Diffusion" /></p>
+
+<h2 id="herd-從眾">Herd 從眾</h2>
+<blockquote>
+  <p>有一群人做決策,大家會趨向一個方向</p>
+</blockquote>
+
+<p><strong>Herd example</strong></p>
+<ol>
+  <li>
+    <p>Soloman Asch Experiment<br />
+ 左邊一個長條圖形和右邊有三個不同長短的長條圖形,比較長度和哪個最相近</p>
+  </li>
+  <li>
+    <p>Urn Experiment (Bayesian Modeling of Herd Behavior)<br />
+ 有多個學生來猜測甕裡面主要是放什麼顏色的珠寶<br />
+ 甕裡面珠寶有紅色和藍色,不會是全部是藍色或全部是紅色<br />
+ 每個學生從甕中抓一把,根據自己手中的內容和黑板上紀錄結果做預測<br />
+ 並將預測結果寫在黑板上,後面的同學可以參考 <br />
+ 那可能抽到大多數是藍色,但黑板上紀錄大多是紅色,可能會影響你的猜測</p>
+  </li>
+</ol>
+
+<h2 id="information-cascade">Information Cascade</h2>
+
 <p><strong>Diffusion Models</strong></p>
 <ol>
-  <li>Descriptive models
-    <blockquote>
-      <p>機率模型</p>
-    </blockquote>
-  </li>
-  <li>Operational models
-    <blockquote>
-      <p>一步一步的擴散</p>
-    </blockquote>
-
-    <p>Each node can be Active / Inactive<br />
- Assumption:</p>
-    <ul>
-      <li>node can switch from inactive to active</li>
-      <li>cannot switch from active to inactive</li>
-    </ul>
-
-    <p>e.g.</p>
+  <li>Descriptive models<br />
+ 機率模型</li>
+  <li>Operational models<br />
+ 一步一步的動態模擬擴散<br />
+ 每個點可以是Active或Inactive<br />
+ 假設:<br />
+ 每個node可以從inactive轉成active但不能從active轉成inactive<br />
+ e.g.
     <ul>
       <li>Linear Threshold Model</li>
       <li>Independent Cascade Model</li>
     </ul>
+
+    <p><strong>Linear Threshold Model</strong>  <br />
+ 每個人都會有一個threshold代表會變成active門檻值  <br />
+ 每個邊上會有影響力的值(可以是單向或雙向)  <br />
+ 如果你的鄰居加總的影響力大於你本身的threshold那你也會變成active  <br />
+ 由Senders開始一步一步的擴散</p>
+
+    <p><strong>Independent Cascade Model</strong><br />
+ 每一個人只能影響鄰居一次,失敗了不能再影響一次<br />
+ 邊上權重是影響成功的機率</p>
   </li>
 </ol>
 
-<p><strong>Linear Threshold Model</strong>  <br />
-每個人都會有一個threshold代表會變成active門檻值  <br />
-每個邊上會有影響力的值(可以是單向或雙向)  <br />
-如果你的鄰居加總的影響力大於你本身的threshold那你也會變成active<br />
-由Senders開始一步一步的擴散</p>
-
-<p><strong>Independent Cascade Model</strong><br />
-每一個人只能影響鄰居一次,失敗了不能再影響一次<br />
-邊上是影響成功的機率</p>
-
-<hr />
-
-<h1 id="5">Influence Maximization Problem</h1>
+<h2 id="influence-maximization-problem">Influence Maximization Problem</h2>
 <p>給一些起始的senders觀察最後有哪些人被影響<br />
 給k個senders並且找出這k個senders是誰且最後影響的人數最多<br />
 (應用: 廣告要放在哪裡)<br />
@@ -866,25 +885,23 @@ Constrained optimization problem</p>
 Greedy algorithm<br />
 每回合找出Submodular最大的作為sender</p>
 
-<hr />
-
-<h1 id="6">Outbreak Detection</h1>
+<h2 id="outbreak-detection">Outbreak Detection</h2>
 <blockquote>
   <p>能不能透過放sensor提早知道消息的擴散</p>
 </blockquote>
 
-<p>給一個network G(V,E),找到placement A(sensor)
-goal : to max R(A)
-R(A) : reward<br />
+<p>給一個network G(V,E),找到placement A(sensor)<br />
+goal : to max R(A)<br />
+R(A) : reward  <br />
 c(A) : cost</p>
 
-<p>placement objective</p>
+<p><strong>placement objective</strong></p>
 <ul>
-  <li>detection likelihood<br />
+  <li>detection likelihood  <br />
   希望所有事件都偵測到</li>
-  <li>detection time<br />
+  <li>detection time  <br />
   多久偵測到</li>
-  <li>Population affected
+  <li>Population affected<br />
   已經擴散多少,多少人知道</li>
 </ul>
 
@@ -966,49 +983,6 @@ NPC問題通常找近似解,所以需要一個比較的方法</p>
 <!-- 20170512 --></p>
   </li>
 </ol>
-
-<!-- 20170525 -->
-<h2 id="herd-從眾">Herd 從眾</h2>
-<blockquote>
-  <p>有一群人做決策,大家會趨向一個方向</p>
-</blockquote>
-
-<ul>
-  <li>Information Diffusion
-    <ul>
-      <li>Explicit Network
-        <ul>
-          <li>Global Information Herd Behavior</li>
-          <li>Local Information <br />
-  Information Cascases (e.g. Facebook)</li>
-        </ul>
-      </li>
-      <li>Implicit Network
-        <ul>
-          <li>Diffusion of Innovations (e.g. ptt movies)</li>
-          <li>Epidemics (e.g. 疾病的擴散)</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="herd-example">Herd example</h4>
-<ol>
-  <li>
-    <p>Soloman Asch Experiment<br />
- 左邊一個長條圖形和右邊有三個不同長短的長條圖形,比較長度和哪個最相近</p>
-  </li>
-  <li>
-    <p>Urn Experiment (Bayesian Modeling of Herd Behavior)<br />
- 有多個學生來猜測甕裡面主要是放什麼顏色的珠寶<br />
- 甕裡面珠寶有紅色和藍色,不會是全部是藍色或全部是紅色<br />
- 每個學生從甕中抓一把,根據自己手中的內容和黑板上紀錄結果做預測<br />
- 並將預測結果寫在黑板上,後面的同學可以參考</p>
-  </li>
-</ol>
-
-<!-- 20170525 -->
 
 <!-- class -->
 <p>Epidemics

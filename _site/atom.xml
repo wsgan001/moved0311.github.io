@@ -4,7 +4,7 @@
  <title>Note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-06-21T18:34:17+08:00</updated>
+ <updated>2017-06-22T14:56:06+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -1186,8 +1186,7 @@ a 的初始值($a_0$)在第一輪都設定為一樣&lt;/p&gt;
   &lt;li&gt;Community Detection&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#3&quot;&gt;Link Prediction&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#4&quot;&gt;Label Prediction&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#5&quot;&gt;Influence maximization&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#6&quot;&gt;Outbreak Detection&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#5&quot;&gt;Information Diffusion&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Role/Postion Analysis&lt;/li&gt;
   &lt;li&gt;Social Relation Extraction&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#9&quot;&gt;Cloud Computing&lt;/a&gt;&lt;/li&gt;
@@ -1223,6 +1222,7 @@ a 的初始值($a_0$)在第一輪都設定為一樣&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;p&gt;&lt;strong&gt;Newman&lt;/strong&gt; 將Network分為四類:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;information Network&lt;br /&gt;
 paper reference network &lt;br /&gt;
@@ -1254,7 +1254,7 @@ FB好友關係&lt;/li&gt;
   &lt;/li&gt;
   &lt;li&gt;Transitivity&lt;br /&gt;
  朋友的朋友很可能也是你朋友&lt;br /&gt;
- &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0&quot;&gt;Clustering Coeffieient&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E9%9B%86%E8%81%9A%E7%B3%BB%E6%95%B0&quot;&gt;Clustering Coefficient&lt;/a&gt;&lt;br /&gt;
  $ \frac{三角形數量}{任三點連線數} $&lt;/li&gt;
   &lt;li&gt;Degree distribution&lt;br /&gt;
  Real world network : &lt;br /&gt;
@@ -1283,7 +1283,8 @@ FB好友關係&lt;/li&gt;
  在社群希望找到出現次數較高的motifs(最常出現的subgraph)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;補充資料 : &lt;a href=&quot;https://en.wikipedia.org/wiki/Erd%C5%91s_number&quot;&gt;Erdős Number&lt;/a&gt;
+&lt;br /&gt;&lt;/p&gt;
 &lt;h1 id=&quot;centrality-analysis&quot;&gt;Centrality Analysis&lt;/h1&gt;
 
 &lt;ul&gt;
@@ -1748,7 +1749,7 @@ e.g. Similarity between words&lt;br /&gt;
 
 &lt;hr /&gt;
 
-&lt;!-- 20170420,20170621 --&gt;
+&lt;!-- 20170621 --&gt;
 &lt;h1 id=&quot;4&quot;&gt;Labeld Social Network &lt;/h1&gt;
 &lt;h4 id=&quot;type-of-labels&quot;&gt;Type of Labels&lt;/h4&gt;
 &lt;ol&gt;
@@ -1802,11 +1803,12 @@ e.g. Similarity between words&lt;br /&gt;
   &lt;li&gt;解決：
   Iterative Relation Neighbor classifier  &lt;br /&gt;
   判斷分為好幾回合,若多數點是unknown那就判斷是unknown &lt;br /&gt;
-  unknown也是一種label&lt;br /&gt;
-&lt;!-- 20170420,20170621 --&gt;&lt;/li&gt;
+  unknown也視為一種label&lt;br /&gt;
+&lt;!-- 20170621 --&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;!-- 20170512,20170621 --&gt;
+&lt;!-- =====================  20170622 ================================= --&gt;
+
 &lt;h2 id=&quot;GE&quot;&gt;Ghost Edges for Node Label Prediction&lt;/h2&gt;
 &lt;p&gt;將沒有label的node用Ghost edge連到有label的node,有label的node就算沒有實體的edge連到unlabel node但是也可以造成影響。且影響力可以依據距離來做調整。&lt;/p&gt;
 
@@ -1817,9 +1819,10 @@ e.g. Similarity between words&lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;random-walk-with-restart&quot;&gt;Random walk with Restart&lt;/h4&gt;
-&lt;p&gt;概念有點類似Markov Process,使用Adjacency matrix A表示network,有一個初始的起點$V_q$,並且有一個Restart的機率c每一回合有機率回到起點。利用random walk在圖上移動到穩定,並利用來判斷每個點對某一點的影響力,在對這些影響力做等級劃分,依照機率分為ABCDEF…等級&lt;/p&gt;
+&lt;p&gt;概念有點類似Markov Process,使用Adjacency matrix A表示network,有一個初始的起點$\vec{V_q}$,並且有一個Restart的機率c每一回合有機率回到起點。利用random walk在圖上移動到穩定,並利用來判斷每個點對某一點的影響力,在對這些影響力做等級劃分,依照機率分為ABCDEF…等級&lt;/p&gt;
 
-&lt;!-- 20170621 --&gt;
+&lt;p&gt;Steady-state vector : $ \vec{U_q} = (1-c)A \vec{U_q}+c \vec{V_q}$&lt;br /&gt;
+Initial state : $\vec{U_q} = \vec{V_q}$&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Two Classifers&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -1828,69 +1831,85 @@ e.g. Similarity between words&lt;br /&gt;
  Logistic regression&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;information-diffusion&quot;&gt;Information Diffusion&lt;/h2&gt;
-&lt;p&gt;消息/疾病擴散&lt;br /&gt;
-想知道擴散方向,可以擴散到哪等等問題&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;3 elements of diffusion process&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&quot;5&quot;&gt;Information Diffusion&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;想知道消息/能量/疾病/..的擴散方向,透過什麼方式擴散,可以擴散到哪等等問題&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;three elements of diffusion process&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;Senders&lt;/li&gt;
-  &lt;li&gt;Receivers&lt;/li&gt;
-  &lt;li&gt;Medium(channel)&lt;/li&gt;
+  &lt;li&gt;Senders 散佈者&lt;/li&gt;
+  &lt;li&gt;Receivers 接收者&lt;/li&gt;
+  &lt;li&gt;Medium(channel) 中間人&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;strong&gt;Types of information Diffusion&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Types of Information Diffusion&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Herd behavior(global information)&lt;br /&gt;
   群眾行為,大多數人怎麼做,就有可能會跟著做&lt;/li&gt;
   &lt;li&gt;Information cascades(local information)&lt;br /&gt;
   FB朋友互相的轉發貼文&lt;/li&gt;
-  &lt;li&gt;Diffusion of innovation
+  &lt;li&gt;Diffusion of innovation&lt;br /&gt;
   沒有明確的網路圖形,透過電視廣告,從朋友聽說等等的傳遞方式&lt;/li&gt;
   &lt;li&gt;Eqidemics
   疫情擴散&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;img src=&quot;/img/cloudcomputing/InformationDiffusion.png&quot; alt=&quot;Information Diffusion&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;herd-從眾&quot;&gt;Herd 從眾&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;有一群人做決策,大家會趨向一個方向&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Herd example&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Soloman Asch Experiment&lt;br /&gt;
+ 左邊一個長條圖形和右邊有三個不同長短的長條圖形,比較長度和哪個最相近&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Urn Experiment (Bayesian Modeling of Herd Behavior)&lt;br /&gt;
+ 有多個學生來猜測甕裡面主要是放什麼顏色的珠寶&lt;br /&gt;
+ 甕裡面珠寶有紅色和藍色,不會是全部是藍色或全部是紅色&lt;br /&gt;
+ 每個學生從甕中抓一把,根據自己手中的內容和黑板上紀錄結果做預測&lt;br /&gt;
+ 並將預測結果寫在黑板上,後面的同學可以參考 &lt;br /&gt;
+ 那可能抽到大多數是藍色,但黑板上紀錄大多是紅色,可能會影響你的猜測&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;information-cascade&quot;&gt;Information Cascade&lt;/h2&gt;
+
 &lt;p&gt;&lt;strong&gt;Diffusion Models&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;Descriptive models
-    &lt;blockquote&gt;
-      &lt;p&gt;機率模型&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Operational models
-    &lt;blockquote&gt;
-      &lt;p&gt;一步一步的擴散&lt;/p&gt;
-    &lt;/blockquote&gt;
-
-    &lt;p&gt;Each node can be Active / Inactive&lt;br /&gt;
- Assumption:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;node can switch from inactive to active&lt;/li&gt;
-      &lt;li&gt;cannot switch from active to inactive&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;e.g.&lt;/p&gt;
+  &lt;li&gt;Descriptive models&lt;br /&gt;
+ 機率模型&lt;/li&gt;
+  &lt;li&gt;Operational models&lt;br /&gt;
+ 一步一步的動態模擬擴散&lt;br /&gt;
+ 每個點可以是Active或Inactive&lt;br /&gt;
+ 假設:&lt;br /&gt;
+ 每個node可以從inactive轉成active但不能從active轉成inactive&lt;br /&gt;
+ e.g.
     &lt;ul&gt;
       &lt;li&gt;Linear Threshold Model&lt;/li&gt;
       &lt;li&gt;Independent Cascade Model&lt;/li&gt;
     &lt;/ul&gt;
+
+    &lt;p&gt;&lt;strong&gt;Linear Threshold Model&lt;/strong&gt;  &lt;br /&gt;
+ 每個人都會有一個threshold代表會變成active門檻值  &lt;br /&gt;
+ 每個邊上會有影響力的值(可以是單向或雙向)  &lt;br /&gt;
+ 如果你的鄰居加總的影響力大於你本身的threshold那你也會變成active  &lt;br /&gt;
+ 由Senders開始一步一步的擴散&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Independent Cascade Model&lt;/strong&gt;&lt;br /&gt;
+ 每一個人只能影響鄰居一次,失敗了不能再影響一次&lt;br /&gt;
+ 邊上權重是影響成功的機率&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;strong&gt;Linear Threshold Model&lt;/strong&gt;  &lt;br /&gt;
-每個人都會有一個threshold代表會變成active門檻值  &lt;br /&gt;
-每個邊上會有影響力的值(可以是單向或雙向)  &lt;br /&gt;
-如果你的鄰居加總的影響力大於你本身的threshold那你也會變成active&lt;br /&gt;
-由Senders開始一步一步的擴散&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Independent Cascade Model&lt;/strong&gt;&lt;br /&gt;
-每一個人只能影響鄰居一次,失敗了不能再影響一次&lt;br /&gt;
-邊上是影響成功的機率&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;5&quot;&gt;Influence Maximization Problem&lt;/h1&gt;
+&lt;h2 id=&quot;influence-maximization-problem&quot;&gt;Influence Maximization Problem&lt;/h2&gt;
 &lt;p&gt;給一些起始的senders觀察最後有哪些人被影響&lt;br /&gt;
 給k個senders並且找出這k個senders是誰且最後影響的人數最多&lt;br /&gt;
 (應用: 廣告要放在哪裡)&lt;br /&gt;
@@ -1925,25 +1944,23 @@ Constrained optimization problem&lt;/p&gt;
 Greedy algorithm&lt;br /&gt;
 每回合找出Submodular最大的作為sender&lt;/p&gt;
 
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;6&quot;&gt;Outbreak Detection&lt;/h1&gt;
+&lt;h2 id=&quot;outbreak-detection&quot;&gt;Outbreak Detection&lt;/h2&gt;
 &lt;blockquote&gt;
   &lt;p&gt;能不能透過放sensor提早知道消息的擴散&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;給一個network G(V,E),找到placement A(sensor)
-goal : to max R(A)
-R(A) : reward&lt;br /&gt;
+&lt;p&gt;給一個network G(V,E),找到placement A(sensor)&lt;br /&gt;
+goal : to max R(A)&lt;br /&gt;
+R(A) : reward  &lt;br /&gt;
 c(A) : cost&lt;/p&gt;
 
-&lt;p&gt;placement objective&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;placement objective&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;detection likelihood&lt;br /&gt;
+  &lt;li&gt;detection likelihood  &lt;br /&gt;
   希望所有事件都偵測到&lt;/li&gt;
-  &lt;li&gt;detection time&lt;br /&gt;
+  &lt;li&gt;detection time  &lt;br /&gt;
   多久偵測到&lt;/li&gt;
-  &lt;li&gt;Population affected
+  &lt;li&gt;Population affected&lt;br /&gt;
   已經擴散多少,多少人知道&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -2025,49 +2042,6 @@ NPC問題通常找近似解,所以需要一個比較的方法&lt;/p&gt;
 &lt;!-- 20170512 --&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;!-- 20170525 --&gt;
-&lt;h2 id=&quot;herd-從眾&quot;&gt;Herd 從眾&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;有一群人做決策,大家會趨向一個方向&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Information Diffusion
-    &lt;ul&gt;
-      &lt;li&gt;Explicit Network
-        &lt;ul&gt;
-          &lt;li&gt;Global Information Herd Behavior&lt;/li&gt;
-          &lt;li&gt;Local Information &lt;br /&gt;
-  Information Cascases (e.g. Facebook)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Implicit Network
-        &lt;ul&gt;
-          &lt;li&gt;Diffusion of Innovations (e.g. ptt movies)&lt;/li&gt;
-          &lt;li&gt;Epidemics (e.g. 疾病的擴散)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;herd-example&quot;&gt;Herd example&lt;/h4&gt;
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Soloman Asch Experiment&lt;br /&gt;
- 左邊一個長條圖形和右邊有三個不同長短的長條圖形,比較長度和哪個最相近&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Urn Experiment (Bayesian Modeling of Herd Behavior)&lt;br /&gt;
- 有多個學生來猜測甕裡面主要是放什麼顏色的珠寶&lt;br /&gt;
- 甕裡面珠寶有紅色和藍色,不會是全部是藍色或全部是紅色&lt;br /&gt;
- 每個學生從甕中抓一把,根據自己手中的內容和黑板上紀錄結果做預測&lt;br /&gt;
- 並將預測結果寫在黑板上,後面的同學可以參考&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;!-- 20170525 --&gt;
 
 &lt;!-- class --&gt;
 &lt;p&gt;Epidemics
