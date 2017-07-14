@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Data Structure 
+comments: true
 ---
 ## LinkList   
 * __linklist reverse__  
