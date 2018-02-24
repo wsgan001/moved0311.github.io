@@ -4,7 +4,7 @@
  <title>Note</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2018-02-25T07:29:55+08:00</updated>
+ <updated>2018-02-25T07:52:28+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
@@ -85,9 +85,9 @@ E: 平日習慣、或是不斷重複的事情&lt;/p&gt;
    <link href="http://localhost:4000/2018/readinglist/"/>
    <updated>2018-02-25T00:00:00+08:00</updated>
    <id>http://localhost:4000/2018/readinglist</id>
-   <content type="html">&lt;ul&gt;
+   <content type="html">&lt;ol&gt;
   &lt;li&gt;吃了那隻青蛙&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 </content>
  </entry>
  
