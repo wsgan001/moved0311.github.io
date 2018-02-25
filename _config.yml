@@ -1,7 +1,7 @@
 # Setup
 title: 'Note'
 description: ''
-baseurl: /
+baseurl: '/'
 url: 'https://moved0311.github.io'
 
 author:
