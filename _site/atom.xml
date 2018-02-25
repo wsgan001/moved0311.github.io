@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Note</title>
- <link href="https://moved0311.github.io/atom.xml" rel="self"/>
- <link href="https://moved0311.github.io/"/>
- <updated>2018-02-25T09:59:41+08:00</updated>
- <id>https://moved0311.github.io</id>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2018-02-25T10:19:41+08:00</updated>
+ <id>http://localhost:4000</id>
  <author>
    <name>Taiyi</name>
    <email>moved0311@gmail.com</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>吃了那隻青蛙</title>
-   <link href="https://moved0311.github.io/2018/%E5%90%83%E4%BA%86%E9%82%A3%E9%9A%BB%E9%9D%92%E8%9B%99/"/>
+   <link href="http://localhost:4000/2018/%E5%90%83%E4%BA%86%E9%82%A3%E9%9A%BB%E9%9D%92%E8%9B%99/"/>
    <updated>2018-02-25T00:00:00+08:00</updated>
-   <id>https://moved0311.github.io/2018/吃了那隻青蛙</id>
+   <id>http://localhost:4000/2018/吃了那隻青蛙</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;/img/reading/flog.jpg&quot; alt=&quot;flog&quot; height=&quot;300&quot; width=&quot;250&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -82,9 +82,9 @@ E: 平日習慣、或是不斷重複的事情&lt;/p&gt;
  
  <entry>
    <title>讀書清單</title>
-   <link href="https://moved0311.github.io/2018/readinglist/"/>
+   <link href="http://localhost:4000/2018/readinglist/"/>
    <updated>2018-02-25T00:00:00+08:00</updated>
-   <id>https://moved0311.github.io/2018/readinglist</id>
+   <id>http://localhost:4000/2018/readinglist</id>
    <content type="html">&lt;ol&gt;
   &lt;li&gt;吃了那隻青蛙&lt;/li&gt;
 &lt;/ol&gt;
@@ -93,9 +93,9 @@ E: 平日習慣、或是不斷重複的事情&lt;/p&gt;
  
  <entry>
    <title>Data Structure</title>
-   <link href="https://moved0311.github.io/2017/dataStructure/"/>
+   <link href="http://localhost:4000/2017/dataStructure/"/>
    <updated>2017-03-27T00:00:00+08:00</updated>
-   <id>https://moved0311.github.io/2017/dataStructure</id>
+   <id>http://localhost:4000/2017/dataStructure</id>
    <content type="html">&lt;h2 id=&quot;linklist&quot;&gt;LinkList&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;linklist reverse&lt;/strong&gt;&lt;br /&gt;
@@ -165,9 +165,9 @@ E: 平日習慣、或是不斷重複的事情&lt;/p&gt;
  
  <entry>
    <title>WebSearching</title>
-   <link href="https://moved0311.github.io/2017/webSearching/"/>
+   <link href="http://localhost:4000/2017/webSearching/"/>
    <updated>2017-03-07T00:00:00+08:00</updated>
-   <id>https://moved0311.github.io/2017/webSearching</id>
+   <id>http://localhost:4000/2017/webSearching</id>
    <content type="html">&lt;hr /&gt;
 
 &lt;p&gt;課本: &lt;a href=&quot;https://nlp.stanford.edu/IR-book/&quot;&gt;Introduction to Information Retrieval&lt;/a&gt;&lt;/p&gt;
@@ -1255,9 +1255,9 @@ a 的初始值($a_0$)在第一輪都設定為一樣&lt;/p&gt;
  
  <entry>
    <title>SocialCloudComputing</title>
-   <link href="https://moved0311.github.io/2017/cloudComputing/"/>
+   <link href="http://localhost:4000/2017/cloudComputing/"/>
    <updated>2017-02-25T00:00:00+08:00</updated>
-   <id>https://moved0311.github.io/2017/cloudComputing</id>
+   <id>http://localhost:4000/2017/cloudComputing</id>
    <content type="html">&lt;h3 id=&quot;outline&quot;&gt;Outline&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Social Network&lt;/li&gt;
