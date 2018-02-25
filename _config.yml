@@ -1,9 +1,9 @@
 # Setup
 title: 'Note'
-site: 
-  description: ''
-  baseurl: '/'
-  url: 'https://moved0311.github.io'
+
+description: ''
+baseurl: '/'
+url: 'https://moved0311.github.io'
 
 author:
   name: 'Taiyi'
