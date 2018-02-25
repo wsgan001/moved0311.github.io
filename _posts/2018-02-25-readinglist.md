@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 讀書清單 
+title: 讀書清單
 comments: true
 ---
-1. 吃了那隻青蛙
+* [吃了那隻青蛙](/2018/吃了那隻青蛙/)
