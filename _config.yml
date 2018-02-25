@@ -3,15 +3,14 @@
 title: 'Note'
 description: ''
 url: 'https://moved0311.github.io'
-baseurl: '/'
+site:
+  baseurl: '/'
 
 author:
   name: 'Taiyi'
   email: moved0311@gmail.com
   facebook_username: 100000329876068
   github_username:  moved0311
-
-
 
 # Dependencies
 markdown: kramdown
