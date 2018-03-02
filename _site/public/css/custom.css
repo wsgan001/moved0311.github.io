@@ -1,28 +1,11 @@
 /* sidebar */
 .sidebar-nav li{
-	list-style: none;
-	display: inline-block;
-	width: 40px;
-	height: 40px;
-	margin-top: 5px;
+    list-style: none;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
 }
-/*
-.fa-circle{
-  	color: #90a959; 
-	display: inline-block;
-	border-radius: 60px;
-	box-shadow: 0px 0px 2px white;
-}
-*/
 .fa:hover{
-	//opacity: 0.3;
-	//zoom: 1.2;
     color: #FFFF66;
 }
-/*
-a:hover .fa-facebook{ color: #FFFF93; zoom : 1.2;}
-a:hover .fa-github{ color: #FFFF93;zoom : 1.2;}
-a:hover .fa-twitter{ color: #FFFF93;zoom : 1.2;}
-*/
-
-
